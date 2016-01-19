@@ -1,0 +1,448 @@
+
+
+/****** Object:  StoredProcedure [dbo].[usp_ForAppStaticAllTeamLeagueWiseSeJuAndSeasonIDAndCompetitionID]    Script Date: 10/31/2015 12:54:01 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[usp_ForAppStaticAllTeamLeagueWiseSeJuAndSeasonIDAndCompetitionID]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[usp_ForAppStaticAllTeamLeagueWiseSeJuAndSeasonIDAndCompetitionID]
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_ForAppStaticAllTeamCupWiseSeJuAndSeasonIDAndCompetitionID]    Script Date: 10/31/2015 12:54:02 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[usp_ForAppStaticAllTeamCupWiseSeJuAndSeasonIDAndCompetitionID]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[usp_ForAppStaticAllTeamCupWiseSeJuAndSeasonIDAndCompetitionID]
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_UpdatePlayerPhoto]    Script Date: 10/31/2015 12:54:02 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[usp_UpdatePlayerPhoto]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[usp_UpdatePlayerPhoto]
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_GetPlayerPhotoDetailByUserID]    Script Date: 10/31/2015 12:54:02 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[usp_GetPlayerPhotoDetailByUserID]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[usp_GetPlayerPhotoDetailByUserID]
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_GetAssignPlayerPhotoDataBySelectedID]    Script Date: 10/31/2015 12:54:02 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[usp_GetAssignPlayerPhotoDataBySelectedID]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[usp_GetAssignPlayerPhotoDataBySelectedID]
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_InsertPlayerPhoto]    Script Date: 10/31/2015 12:54:02 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[usp_InsertPlayerPhoto]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[usp_InsertPlayerPhoto]
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_ForAppStaticAllResultBySeasonIDAndCompetitionID]    Script Date: 10/31/2015 12:54:02 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[usp_ForAppStaticAllResultBySeasonIDAndCompetitionID]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[usp_ForAppStaticAllResultBySeasonIDAndCompetitionID]
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_ForAppStaticAllFixtureBySeasonIDAndCompetitionID]    Script Date: 10/31/2015 12:54:02 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[usp_ForAppStaticAllFixtureBySeasonIDAndCompetitionID]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[usp_ForAppStaticAllFixtureBySeasonIDAndCompetitionID]
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_ForAppStaticGetStatsTopScorersByCompetititonID]    Script Date: 10/31/2015 12:54:02 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[usp_ForAppStaticGetStatsTopScorersByCompetititonID]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[usp_ForAppStaticGetStatsTopScorersByCompetititonID]
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_GetSeasonList]    Script Date: 10/31/2015 12:54:02 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[usp_GetSeasonList]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[usp_GetSeasonList]
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_GetAllTeamManagementDetailTeamID]    Script Date: 10/31/2015 12:54:02 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[usp_GetAllTeamManagementDetailTeamID]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[usp_GetAllTeamManagementDetailTeamID]
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_GetNationalTeamScheduleAndResultsForTeamPage]    Script Date: 10/31/2015 12:54:02 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[usp_GetNationalTeamScheduleAndResultsForTeamPage]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[usp_GetNationalTeamScheduleAndResultsForTeamPage]
+GO
+
+
+
+/****** Object:  StoredProcedure [dbo].[usp_ForAppStaticAllTeamLeagueWiseSeJuAndSeasonIDAndCompetitionID]    Script Date: 10/31/2015 12:54:02 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+--SELECT * FROM tblCompetition       
+CREATE PROC [dbo].[usp_ForAppStaticAllTeamLeagueWiseSeJuAndSeasonIDAndCompetitionID]              
+     
+ @SportValue int,  
+ @SeasonID int                
+     
+AS                
+        
+SELECT tmm.TeamID ,tmm.TeamName FROM tblTeamMaster AS tmm            
+		INNER JOIN tblTeams AS tm ON tm.TeamMasterID = tmm.TeamID  
+		INNER JOIN tblCompetition AS co ON co.Comp_RegID = tm.CompRegID  
+		INNER JOIN tblSeason AS se ON se.SeasonId = co.SeasonID  
+WHERE se.SportID = @SportValue AND se.SeasonId = @SeasonID AND co.InCompetition = 'League'  
+      
+         
+         
+         
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_ForAppStaticAllTeamCupWiseSeJuAndSeasonIDAndCompetitionID]    Script Date: 10/31/2015 12:54:03 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+      
+CREATE PROC [dbo].[usp_ForAppStaticAllTeamCupWiseSeJuAndSeasonIDAndCompetitionID]              
+     
+ @SportValue int,  
+ @SeasonID int                
+     
+AS                
+        
+SELECT tmm.TeamID ,tmm.TeamName FROM tblTeamMaster AS tmm            
+		INNER JOIN tblTeams AS tm ON tm.TeamMasterID = tmm.TeamID  
+		INNER JOIN tblCompetition AS co ON co.Comp_RegID = tm.CompRegID  
+		INNER JOIN tblSeason AS se ON se.SeasonId = co.SeasonID  
+WHERE se.SportID = @SportValue AND se.SeasonId = @SeasonID AND co.InCompetition = 'Cup'  
+      
+         
+         
+         
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_UpdatePlayerPhoto]    Script Date: 10/31/2015 12:54:03 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROC [dbo].[usp_UpdatePlayerPhoto]    
+    
+  @AssignPlayerMultiplePhotoID int,    
+  @MasterPlayerImageNameID int,    
+  @PlayerID int,    
+  @PlayerPhotoPath nvarchar(255),    
+  @PortalID int,    
+  @ModifyBy nvarchar(100),
+  @SeasonID int    
+    
+AS    
+    
+    
+ UPDATE tblAssignPlayerMultiplePhoto SET MasterPlayerImageNameID = @MasterPlayerImageNameID,    
+           PlayerID = @PlayerID,    
+           PlayerPhotoPath = @PlayerPhotoPath,    
+           PortalID = @PortalID,    
+           ModifyBy = @ModifyBy,  
+           ModifyOn = GETDATE(),
+           SeasonID = @SeasonID     
+ WHERE  AssignPlayerMultiplePhotoID = @AssignPlayerMultiplePhotoID 
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_GetPlayerPhotoDetailByUserID]    Script Date: 10/31/2015 12:54:03 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+--EXEC usp_GetPlayerPhotoDetailByUserID 145  
+CREATE PROC [dbo].[usp_GetPlayerPhotoDetailByUserID]      
+      
+	@UserID int      
+      
+AS      
+     
+ SELECT us.User_FirstName + ' ' + us.User_LastName AS PlayerName,mpin.PlayerImageName AS PlayerCategoryName,      
+		apmp.PlayerPhotoPath AS PlayerPhotoPath,apmp.AssignPlayerMultiplePhotoID AS AssignPlayerMultiplePhotoID,  
+		se.SeasonName AS SeasonName       
+ FROM tblAssignPlayerMultiplePhoto AS apmp      
+		INNER JOIN tblMasterPlayerImageName AS mpin ON apmp.MasterPlayerImageNameID = mpin.MasterPlayerImageNameID      
+		INNER JOIN tblUserReg AS us ON us.User_RegID = apmp.PlayerID      
+		INNER JOIN tblSeason AS se ON se.SeasonId = apmp.SeasonID  
+ WHERE apmp.PlayerID = @UserID  
+      
+ UNION    
+  
+ SELECT us.User_FirstName + ' ' + us.User_LastName AS PlayerName,mpin.PlayerImageName AS PlayerCategoryName,      
+		apmp.PlayerPhotoPath AS PlayerPhotoPath,apmp.AssignPlayerMultiplePhotoID AS AssignPlayerMultiplePhotoID,  
+		'' AS SeasonName       
+ FROM tblAssignPlayerMultiplePhoto AS apmp      
+		INNER JOIN tblMasterPlayerImageName AS mpin ON apmp.MasterPlayerImageNameID = mpin.MasterPlayerImageNameID      
+		INNER JOIN tblUserReg AS us ON us.User_RegID = apmp.PlayerID      
+ WHERE apmp.PlayerID = @UserID AND apmp.SeasonID = 0 
+        
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_GetAssignPlayerPhotoDataBySelectedID]    Script Date: 10/31/2015 12:54:03 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROC [dbo].[usp_GetAssignPlayerPhotoDataBySelectedID]    
+
+	@SelectedValue int    
+	
+AS    
+    
+    
+SELECT * FROM tblAssignPlayerMultiplePhoto 
+WHERE AssignPlayerMultiplePhotoID = @SelectedValue  
+   
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_InsertPlayerPhoto]    Script Date: 10/31/2015 12:54:03 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [dbo].[usp_InsertPlayerPhoto]    
+    
+	@MasterPlayerImageNameID int,    
+	@PlayerID int,    
+	@PlayerPhotoPath nvarchar(255),    
+	@PortalID int,    
+	@CreateBy nvarchar(100),    
+	@ModifyBy nvarchar(100),
+	@SeasonID int    
+     
+AS      
+      
+ INSERT INTO tblAssignPlayerMultiplePhoto       
+			(MasterPlayerImageNameID,PlayerID,PlayerPhotoPath,PortalID,CreateBy,ModifyBy,SeasonID)       
+     VALUES (@MasterPlayerImageNameID,@PlayerID,@PlayerPhotoPath,@PortalID,@CreateBy,@ModifyBy,@SeasonID) 
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_ForAppStaticAllResultBySeasonIDAndCompetitionID]    Script Date: 10/31/2015 12:54:03 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+    
+CREATE PROC [dbo].[usp_ForAppStaticAllResultBySeasonIDAndCompetitionID]            
+   
+ @SeasonID int,  
+ @CompetitionID int              
+   
+AS              
+      
+          
+SELECT m.CompetitionID,Location.Loc_LocationName AS LocationName,m.StartDate, m.EndDate,m.MatchID,              
+    tmasA.TeamID AS TeamAID, tmasA.TeamName AS TeamAName,tmasA.TeamLogo AS TeamALogo,                
+    tmasB.TeamID AS TeamBID, tmasB.TeamName AS TeamBName,tmasB.TeamLogo As TeamBLogo ,mar.TeamATotal AS TeamAScore,        
+    mar.TeamBTotal AS TeamBScore , mar.MatchResultID AS MatchResultId,m.MatchType,mar.TeamApanlty AS  TeamApenalty,        
+    mar.TeamBpanlty AS  TeamBpenalty, mar.IsNoShow AS IsNoShow,mar.WinningTeam AS WinningTeam,mar.LosingTeam AS LosingTeam             
+FROM tblTeams AS TeamA       
+   INNER JOIN tblTeamMaster tmasA ON TeamA.TeamMasterID = tmasA.TeamID                
+   INNER JOIN tblMatch m ON m.TeamAID = TeamA.TeamID                 
+   INNER JOIN tblTeams AS TeamB ON TeamB.TeamID =m.TeamBID                
+   INNER JOIN tblTeamMaster tmasB on TeamB.TeamMasterID = tmasB.TeamID      
+   INNER JOIN tblLocation Location ON Location.Loc_LocationID = m.LocationID                 
+   INNER JOIN tblMatchResult mar ON m.MatchID = mar.MatchID              
+   INNER JOIN tblCompetition AS co ON co.Comp_RegID = m.CompetitionID
+   INNER JOIN tblSeason AS se ON se.SeasonId = co.SeasonID 
+WHERE m.CompetitionID = @CompetitionID AND se.SeasonId = @SeasonID AND m.IsFinalized = 1    
+ORDER BY m.StartDate           
+      
+       
+       
+       
+       
+       
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_ForAppStaticAllFixtureBySeasonIDAndCompetitionID]    Script Date: 10/31/2015 12:54:03 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+--EXEC usp_ForAppStaticAllFixtureBySeasonIDAndCompetitionID
+
+CREATE PROC [dbo].[usp_ForAppStaticAllFixtureBySeasonIDAndCompetitionID]
+
+	@SeasonID int,
+	@CompetitionID int
+	
+AS
+
+ SELECT m.CompetitionID,Location.Loc_LocationName AS LocationName,m.StartDate, m.EndDate,m.MatchID,tmaA.TeamID AS TeamAID,   
+  tmaA.TeamName AS TeamAName,tmaA.TeamLogo AS TeamALogo,tmaB.TeamID AS TeamBID, tmaB.TeamName AS TeamBName,  
+  tmaB.TeamLogo As TeamBLogo ,0 AS TeamAScore,0 AS TeamBScore , 0 AS MatchResultId,m.MatchType ,0 AS TeamApenalty,  
+  0 AS TeamBpenalty, 0 AS IsNoShow, 0 AS WinningTeam, 0 AS LosingTeam          
+  FROM tblTeams AS TeamA       
+  INNER JOIN tblTeamMaster AS tmaA ON TeamA.TeamMasterID = tmaA.TeamID                
+  INNER JOIN tblMatch AS m ON m.TeamAID = TeamA.TeamID                 
+  INNER JOIN tblTeams AS TeamB ON TeamB.TeamID =m.TeamBID                
+  INNER JOIN tblTeamMaster AS tmaB ON TeamB.TeamMasterID = tmaB.TeamID      
+  INNER JOIN tblLocation AS Location ON Location.Loc_LocationID = m.LocationID                 
+  INNER JOIN tblCompetition AS co ON co.Comp_RegID = m.CompetitionID
+  INNER JOIN tblSeason AS se ON se.SeasonId = co.SeasonID
+  WHERE m.CompetitionID = @CompetitionID AND se.SeasonId = @SeasonID            
+  AND m.MatchID NOT IN (SELECT MatchID FROM tblMatchResult) AND m.IsFinalized = 1    
+ORDER BY m.StartDate    
+    
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_ForAppStaticGetStatsTopScorersByCompetititonID]    Script Date: 10/31/2015 12:54:03 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+--select * from tblCompetition where Comp_Title = 'TEST123'                  
+                  
+                  
+CREATE PROC [dbo].[usp_ForAppStaticGetStatsTopScorersByCompetititonID]                                  
+      
+ @CompetitionID int                                  
+       
+AS                                  
+                  
+--declare @CompetitionID int                  
+--set @CompetitionID = 25                  
+                        
+SELECT TOP 5 teams.CompRegId AS CompetitionID,u.User_RegID,u.User_RegID AS PlayerID,        
+    u.User_FirstName + ' ' + u.User_LastName AS Name,                  
+    ttm.TeamName AS Team,ttm.TeamID AS TeamID,                            
+    SUM(pp.Goal) AS Goal,co.Comp_RegID AS Comp_RegID,  
+    co.Comp_Title AS Comp_Title,co.DivisionNo AS DivisionNo                           
+FROM tblMatchPlayerPerformance AS PP                               
+     INNER JOIN tblUserReg AS u ON pp.PlayerID = u.User_RegID                               
+     INNER JOIN tblTeamPlayerCoach AS pc ON u.User_RegID = pc.UserID                              
+  INNER JOIN tblTeams AS teams ON teams.TeamID = pc.TeamID                              
+     INNER JOIN tblCompetition AS co ON co.Comp_RegID = teams.CompRegID                            
+  INNER JOIN tblTeamMaster ttm ON ttm.TeamID = teams.TeamMasterID                      
+WHERE pc.PlayerCoach='Player' AND teams.CompRegID = @CompetitionID   
+  AND pp.CompetitionID = @CompetitionID                     
+  AND u.IsDeleted = 0 AND co.IsDeleted = 0 AND pc.IsNationalTeam = 0                       
+  AND PP.PlayerID IN (SELECT UserID   
+       FROM tblTeamPlayerCoach AS tp   
+            INNER JOIN tblTeams AS t ON tp.TeamID = t.TeamID                       
+         INNER JOIN tblTeamMaster tm ON tm.TeamID = t.TeamMasterID   
+       WHERE t.IsDeleted = 0) AND Goal > 0                   
+GROUP BY u.User_RegID,u.User_FirstName,u.User_LastName,ttm.TeamName,teams.CompRegId,pp.PlayerID,        
+   co.Comp_RegID,co.Comp_Title,ttm.TeamID,co.DivisionNo                          
+ORDER BY Goal DESC                      
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_GetSeasonList]    Script Date: 10/31/2015 12:54:03 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROC [dbo].[usp_GetSeasonList]
+
+	@SportValue int
+	
+AS
+	
+	SELECT SeasonId AS SeasonID, SeasonName AS SeasonName FROM tblSeason 
+	WHERE SportID = @SportValue
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_GetAllTeamManagementDetailTeamID]    Script Date: 10/31/2015 12:54:03 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+--EXEC usp_GetAllTeamManagementDetailTeamID 1,1
+CREATE PROC [dbo].[usp_GetAllTeamManagementDetailTeamID]      
+ 
+	@TeamID int,  
+	@IsNationalTeam int      
+      
+AS      
+    
+    
+IF @IsNationalTeam = 0  
+BEGIN  
+		SELECT tmd.TeamManagementID AS TeamManagementID,te.TeamName AS TeamName,
+			   tm.KeyName AS Categories,us.User_FirstName +' '+ us.User_LastName AS UserName   
+		FROM tblTeamManagementData AS tmd       
+			 INNER JOIN tblTeamMaster AS te ON tmd.TeamID = te.TeamID        
+			 INNER JOIN tblTeamManagementKeyMaster AS tm ON tm.KeyValue = tmd.Type       
+			 INNER JOIN tblUserReg AS us ON us.User_RegID = tmd.UserID       
+		WHERE tmd.teamID = @TeamID AND tmd.IsNationalTeam = @IsNationalTeam     
+END  
+ELSE  
+BEGIN  
+		SELECT tmd.TeamManagementID AS TeamManagementID,te.NationalTeamName AS TeamName,
+			   tm.KeyName AS Categories,us.User_FirstName +' '+ us.User_LastName AS UserName   
+		FROM tblTeamManagementData AS tmd       
+			 INNER JOIN tblNationalTeam AS te ON tmd.TeamID = te.NationalTeamID        
+			 INNER JOIN tblTeamManagementKeyMaster AS tm ON tm.KeyValue = tmd.Type       
+			 INNER JOIN tblUserReg AS us ON us.User_RegID = tmd.UserID       
+		WHERE tmd.teamID = @TeamID AND tmd.IsNationalTeam = @IsNationalTeam  
+END  
+    
+/*********** Old Query ************/    
+      
+--select tmd.TeamManagementID as TeamManagementID,te.TeamName as TeamName,tm.KeyName as Categories,us.User_FirstName +' '+ us.User_LastName as UserName from tblTeamManagementData tmd       
+--join tblTeams te on tmd.TeamID = te.TeamID        
+--join tblTeamManagementKeyMaster tm on tm.KeyValue = tmd.Type       
+--join  tblUserReg us on us.User_RegID = tmd.UserID       
+--where tmd.teamID = @TeamID      
+    
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_GetNationalTeamScheduleAndResultsForTeamPage]    Script Date: 10/31/2015 12:54:03 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+--EXEC usp_GetNationalTeamScheduleAndResultsForTeamPage 1
+CREATE PROC [dbo].[usp_GetNationalTeamScheduleAndResultsForTeamPage]              
+
+	@TeamID int              
+	
+AS            
+            
+--Declare @TeamID int              
+--set @TeamID = 1              
+            
+select Distinct nm.NationalTeamMatchID as MatchID,nm.NationalTeamMatchID as MatchResultID,nm.TeamAGoal as TeamAScore,nm.TeamBGoal as TeamBScore,nm.CompetitionId,              
+ CompetitionName = (select CompetitionName from tblNationalCompetition where CompetitionId = nm.CompetitionId) ,              
+ tl.Loc_LocationName as LocationName , nm.LocationID,              
+ t.NationalTeamLogo as TeamALogo,t.NationalTeamName as TeamAName,              
+ ISNULL(t.NationalTeamCode, SUBSTRING(t.NationalTeamName, 1,3)) as TeamACode,              
+ t.NationalTeamID as TeamAID, nm.StartDate,nm.EndDate,nm.TeamBID,nm.TeamBName as TeamBName,              
+ upper(SUBSTRING(nm.TeamBName, 1,3)) as TeamBCode,              
+ nm.TeamAGoal,nm.TeamBGoal,nm.TeamAPenaltyGoal as TeamApenalty, nm.TeamBPenaltyGoal as TeamBpenalty, 0 as IsNoShow,              
+ nm.WinTeamName as WinningTeam, '' as LosingTeam, 0 as MatchResultId,              
+ nm.PortalID, nm.CreatedBy, nm.CreatedOn, nm.ModifyBy, nm.ModifyOn, nm.TeamBLogo as TeamB_Logo,              
+ CONVERT(nvarchar(10),nm.StartDate,105) as NationalTeamDate,              
+ CONVERT(nvarchar(5),nm.StartDate,108) as NationalTeamTime,              
+ (t.NationalTeamName + ' v/s ' + nm.TeamBName) as NationalTeamName,              
+ ('Images\flags\' + c.CountryImageName + '.png') as TeamBLogo              
+from tblNationalCompetition nc              
+ INNER JOIN tblNationalTeamMatch nm  on nc.CompetitionID = nm.CompetitionID              
+ inner join tblLocation tl on tl.Loc_LocationID = nm.LocationID              
+ inner join tblNationalTeam t on nm.TeamAID = t.NationalTeamID              
+ join tblCountryInSportSite c on nm.TeamBName = c.CountryName              
+where t.NationalTeamID = @TeamID AND nm.MatchStatus = 1             
+order By nm.StartDate  desc        
+          
+          
+GO
+
+

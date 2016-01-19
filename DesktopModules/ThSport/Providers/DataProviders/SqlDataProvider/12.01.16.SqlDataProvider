@@ -1,0 +1,130 @@
+
+
+/****** Object:  StoredProcedure [dbo].[usp_GetSportDetailBySportID]    Script Date: 01/12/2016 18:41:02 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[usp_GetSportDetailBySportID]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[usp_GetSportDetailBySportID]
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_UpdateSport]    Script Date: 01/12/2016 18:41:02 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[usp_UpdateSport]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[usp_UpdateSport]
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_InsertSport]    Script Date: 01/12/2016 18:41:02 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[usp_InsertSport]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[usp_InsertSport]
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_GetDataSport]    Script Date: 01/12/2016 18:41:02 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[usp_GetDataSport]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[usp_GetDataSport]
+GO
+
+
+
+/****** Object:  StoredProcedure [dbo].[usp_GetSportDetailBySportID]    Script Date: 01/12/2016 18:41:02 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROC [dbo].[usp_GetSportDetailBySportID]
+
+	@SportID int
+	
+AS
+
+	SELECT * FROM tblSport
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_UpdateSport]    Script Date: 01/12/2016 18:41:03 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROC [dbo].[usp_UpdateSport]    
+
+	@SportID int,
+	@SportName nvarchar(100),
+	@SportDesc nvarchar(255),
+	@SportMainImageFile nvarchar(150),
+	@SportMainImageDesc nvarchar(255),
+	@SportLogoImageFile nvarchar(150),
+	@SportLogoImageDesc nvarchar(255),
+	@SportSmallImageFile nvarchar(150),
+	@SportSmallImageDesc nvarchar(255),
+	@ActiveFlagId int,
+	@ShowFlagId int,
+	@PortalID int,
+	@ModifiedById nvarchar(100)
+	
+AS
+
+	UPDATE tblSport SET SportName = @SportName,
+						SportDesc = @SportDesc,
+						SportMainImageFile = @SportMainImageFile,
+						SportMainImageDesc = @SportMainImageDesc,
+						SportLogoImageFile = @SportLogoImageFile,
+						SportLogoImageDesc = @SportLogoImageDesc,
+						SportSmallImageFile = @SportSmallImageFile,
+						SportSmallImageDesc = @SportSmallImageDesc,
+						ActiveFlagId = @ActiveFlagId,
+						ShowFlagId = @ShowFlagId,
+						PortalID = @PortalID,
+						ModifiedById = @ModifiedById
+	WHERE SportID = @SportID
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_InsertSport]    Script Date: 01/12/2016 18:41:03 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROC [dbo].[usp_InsertSport]
+
+	@SportName nvarchar(100),
+	@SportDesc nvarchar(255),
+	@SportMainImageFile nvarchar(150),
+	@SportMainImageDesc nvarchar(255),
+	@SportLogoImageFile nvarchar(150),
+	@SportLogoImageDesc nvarchar(255),
+	@SportSmallImageFile nvarchar(150),
+	@SportSmallImageDesc nvarchar(255),
+	@ActiveFlagId int,
+	@ShowFlagId int,
+	@PortalID int,
+	@CreatedById nvarchar(100),
+	@ModifiedById nvarchar(100)
+                   
+AS                  
+           
+ INSERT INTO tblSport (SportName,SportDesc,SportMainImageFile,SportMainImageDesc,SportLogoImageFile,
+					   SportLogoImageDesc,SportSmallImageFile,SportSmallImageDesc,ActiveFlagId,ShowFlagId,
+					   PortalID,CreatedById,ModifiedById)                   
+				VALUES (@SportName,@SportDesc,@SportMainImageFile,@SportMainImageDesc,@SportLogoImageFile,
+						@SportLogoImageDesc,@SportSmallImageFile,@SportSmallImageDesc,@ActiveFlagId,
+						@ShowFlagId,@PortalID,@CreatedById,@ModifiedById)                  
+
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_GetDataSport]    Script Date: 01/12/2016 18:41:03 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROC [dbo].[usp_GetDataSport]
+	
+AS
+
+	SELECT SportName,SportDesc,SportMainImageFile,SportLogoImageFile,SportSmallImageFile
+	FROM tblSport
+GO
+
+

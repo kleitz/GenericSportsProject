@@ -1,0 +1,241 @@
+/*
+ * simplyScroll 2 - a scroll-tastic jQuery plugin
+ *
+ * http://logicbox.net/jquery/simplyscroll
+ *
+ * Copyright (c) 2009-2012 Will Kelly - http://logicbox.net
+ *
+ * Dual licensed under the MIT and GPL licenses.
+ *
+ * Last revised: 31/01/2012
+ *
+ */
+
+/* Default/Master classes 
+
+Example markup format (for horizontal scroller)
+Note all DIVs are generated and should not be hard-coded
+
+<div class="your-custom-class simply-scroll-container">
+	<div class="simply-scroll-btn simply-scroll-btn-left"></div>
+	<div class="simply-scroll-btn simply-scroll-btn-right"></div>
+	<div class="simply-scroll-clip">
+		<ul class="simply-scroll-list">
+			<li>...</li>
+			...
+		</ul>
+	</div>
+</div>
+
+
+*/
+
+.competitionAllDetail .simply-scroll-container { /* Container DIV - automatically generated */
+	position: relative !important;
+}
+
+.competitionAllDetail 	.simply-scroll-clip { /* Clip DIV - automatically generated */
+		position: relative !important;
+		overflow: hidden !important;
+	}
+
+.competitionAllDetail 	.simply-scroll-list { /* UL/OL/DIV - the element that simplyScroll is inited on */
+		overflow: hidden !important;
+		margin: 0 !important;
+		padding: 0 !important;
+		list-style: none !important;
+	}
+	
+.competitionAllDetail 	.simply-scroll-list li {
+			padding: 0 !important;
+			margin: 0 !important;
+			list-style: none !important;
+		}
+	
+.competitionAllDetail 	.simply-scroll-list li img {
+			border: none !important;
+			display: block !important;
+		}
+	
+.competitionAllDetail 	.simply-scroll-btn{
+		position: absolute !important;
+		background-image: url(buttons.png) !important;
+		width: 42px !important;
+		height: 44px !important;
+		z-index:3 !important;
+		cursor: pointer !important;
+	}
+	
+.competitionAllDetail 	.simply-scroll-btn-left {
+		left: 6px !important;
+		bottom: 6px !important;
+		background-position: 0 -44px !important;
+	}
+.competitionAllDetail 		.simply-scroll-btn-left.disabled {
+		background-position: 0 0 !important;
+	}
+.competitionAllDetail 		.simply-scroll-btn-left:hover{
+		background-position: 0 -88px !important;
+	}
+.competitionAllDetail 	 .simply-scroll-btn-left:focus 
+{
+    background-position: 0 -88px !important;
+}
+.competitionAllDetail 		.simply-scroll-btn-right {
+		right: 6px !important;
+		bottom: 6px !important;
+		background-position: -84px -44px !important;
+	}
+.competitionAllDetail 		.simply-scroll-btn-right.disabled {
+		background-position: -84px 0 !important;
+	}
+.competitionAllDetail 		.simply-scroll-btn-right:hover{
+		background-position: -84px -88px !important;
+	}
+	
+	.competitionAllDetail 	 .simply-scroll-btn-right:focus 
+	{
+	    background-position: -84px -88px !important;
+}
+	
+.competitionAllDetail 		.simply-scroll-btn-up {
+		right: 6px !important;
+		top: 6px !important;
+		background-position: -126px -44px !important;
+	}
+.competitionAllDetail 		.simply-scroll-btn-up.disabled {
+		background-position: -126px 0 !important;
+	}
+	.competitionAllDetail 	.simply-scroll-btn-up:hover {
+		background-position: -126px -88px !important;
+	}
+	.competitionAllDetail .simply-scroll-btn-up:focus
+	{
+	    background-position: -126px -88px !important;
+	    }
+	    
+	.competitionAllDetail .simply-scroll-btn-down {
+		right: 6px !important;
+		bottom: 6px !important;
+		background-position: -42px -44px !important;
+	}
+	.competitionAllDetail .simply-scroll-btn-down.disabled {
+		background-position: -42px 0 !important;
+	}
+	.competitionAllDetail .simply-scroll-btn-down:hover {
+		background-position: -42px -88px !important;
+	}
+	
+	.competitionAllDetail .simply-scroll-btn-down:focus 
+	{
+	    background-position: -42px -88px !important;
+    }
+	.competitionAllDetail .simply-scroll-btn-pause {
+		right: 6px !important;
+		bottom: 6px !important;
+		background-position: -168px -44px !important;
+	}
+	.competitionAllDetail .simply-scroll-btn-pause:hover{
+		background-position: -168px -88px !important;
+	}
+	.competitionAllDetail  .simply-scroll-btn-pause:focus 
+	{
+	    background-position: -168px -88px !important;
+	   }
+	.competitionAllDetail   .simply-scroll-btn-pause.active {
+		background-position: -84px -44px !important;
+	}
+	.competitionAllDetail  .simply-scroll-btn-pause.active:hover{
+		background-position: -84px -88px !important;
+	}
+
+.competitionAllDetail  .simply-scroll-btn-pause.active:focus 
+{
+    background-position: -84px -88px !important;
+   }
+
+/* Custom class modifications - override classees
+
+.simply-scroll is default
+
+*/
+
+.competitionAllDetail  .simply-scroll { /* Customisable base class for style override DIV */
+	width: 866px !important;
+	
+	margin-bottom: 1em !important;
+}
+
+	.competitionAllDetail   .simply-scroll .simply-scroll-clip {
+		
+    width: 866px !important;
+	}
+	
+		.competitionAllDetail   .simply-scroll .simply-scroll-list {}
+		
+		.competitionAllDetail   .simply-scroll .simply-scroll-list li {
+			float: left !important;
+			padding-left:15px !important;
+			
+		}
+		.competitionAllDetail   .simply-scroll .simply-scroll-list li img {}
+	
+	.competitionAllDetail   .simply-scroll .simply-scroll-btn {}
+	
+	.competitionAllDetail  .simply-scroll .simply-scroll-btn-left {}
+	.competitionAllDetail  .simply-scroll .simply-scroll-btn-left.disabled {}
+	.competitionAllDetail  .simply-scroll .simply-scroll-btn-left:hover {}
+	
+	.competitionAllDetail  .simply-scroll .simply-scroll-btn-right {}
+	.competitionAllDetail  .simply-scroll .simply-scroll-btn-right.disabled {}
+	.competitionAllDetail  .simply-scroll .simply-scroll-btn-right:hover {}
+	
+	.competitionAllDetail  .simply-scroll .simply-scroll-btn-up {}
+	.competitionAllDetail  .simply-scroll .simply-scroll-btn-up.disabled {}
+	.competitionAllDetail  .simply-scroll .simply-scroll-btn-up:hover {}
+	
+	.competitionAllDetail  .simply-scroll .simply-scroll-btn-down {}
+	.competitionAllDetail  .simply-scroll .simply-scroll-btn-down.disabled {}
+	.competitionAllDetail  .simply-scroll .simply-scroll-btn-down:hover {}
+	
+
+
+/* Vertical scroller example */
+
+.competitionAllDetail  .vert { /* wider than clip to position buttons to side */
+	width: 340px !important;
+	height: 400px !important;
+	margin-bottom: 1.5em !important;
+}
+
+	.competitionAllDetail  .vert .simply-scroll-clip {
+		width: 290px !important;
+		height: 400px !important;
+	}
+	
+		.competitionAllDetail  .vert .simply-scroll-list {}
+		
+		.competitionAllDetail  .vert .simply-scroll-list li {
+			width: 290px !important;
+			height: 200px !important;
+		}
+		.competitionAllDetail  .vert .simply-scroll-list li img {}
+	
+	.competitionAllDetail  .vert .simply-scroll-btn {}
+
+	.competitionAllDetail  .vert .simply-scroll-btn-up { /* modified btn pos */
+		right: 0 !important;
+		top: 0 !important;
+	}
+	.competitionAllDetail  .vert .simply-scroll-btn-up.disabled {}
+	.competitionAllDetail  .vert .simply-scroll-btn-up:hover {}
+	
+	.competitionAllDetail  .vert .simply-scroll-btn-down { /* modified btn pos */
+		right: 0 !important;
+		top: 52px !important;
+	}
+	.competitionAllDetail  .vert .simply-scroll-btn-down.disabled {}
+	.competitionAllDetail  .vert .simply-scroll-btn-down:hover {}
+	
+	/* NOTE left-right classes wouldn't be needed on vertical scroller */
+

@@ -1,0 +1,180 @@
+#accordion-container {
+	font-size: 13px;
+	background: #ffffff;
+	padding: 5px 10px 10px 10px;
+	border: 1px solid #cccccc;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	-moz-box-shadow: 0 5px 15px #cccccc;
+	-webkit-box-shadow: 0 5px 15px #cccccc;
+	box-shadow: 0 5px 15px #cccccc;
+}
+
+.accordion-header {
+	font-size: 16px;
+	background: #ebebeb;
+	/*margin: 5px 0 0 0;*/
+	padding: 5px 20px;
+	border: 1px solid #cccccc;
+	cursor: pointer;
+	color: #666666;
+	/*-moz-border-radius: 5px;*/
+	/*-webkit-border-radius: 5px;
+	border-radius: 5px;*/
+    margin:0px;
+}
+
+.active-header {
+    /*-moz-border-radius: 5px 5px 0 0;
+    -webkit-border-radius: 5px 5px 0 0;*/
+    /*border-radius: 5px 5px 0 0;*/
+    /*background: url(../Images/icons/active-header.gif) #cef98d;*/
+    background: url(../Images/icons/active-header.gif) #d7233c;
+    background-repeat: no-repeat;
+    background-position: right 50%;
+    color:white;
+}
+
+    .active-header a {
+        color:white !important;
+    }
+
+
+    .active-header span {
+        color:white !important;
+    }
+
+.active-header:hover {
+	background: url(../Images/icons/active-header.gif) #d7233c;
+	background-repeat: no-repeat;
+	background-position: right 50%;
+    color:white;
+}
+
+.inactive-header {
+	background: url(../Images/icons/inactive-header.gif) #ebebeb;
+	background-repeat: no-repeat;
+	background-position: right 50%;
+    margin-bottom:10px;
+}
+
+.inactive-header:hover {
+	background: url(../Images/icons/inactive-header.gif) #f5f5f5;
+	background-repeat: no-repeat;
+	background-position: right 50%;
+}
+
+.accordion-content {
+	display: none;
+	background: #ffffff;
+	border-top: 0;
+	-moz-border-radius: 0 0 5px 5px;
+	-webkit-border-radius: 0 0 5px 5px;
+	/*border-radius: 0 0 5px 5px;*/
+    width:100% !important;
+    /*border-radius: 5px;*/
+}
+
+/* For Admin Side */
+
+
+    .active-headerForDdmin {
+    /*-moz-border-radius: 5px 5px 0 0;
+    -webkit-border-radius: 5px 5px 0 0;*/
+    /*border-radius: 5px 5px 0 0;*/
+    /*background: url(../Images/icons/active-header.gif) #cef98d;*/
+    background: url(../Images/icons/active-header.gif) #35aa47;
+    background-repeat: no-repeat;
+    background-position: right 50%;
+    color:white;
+}
+
+    .active-headerForDdmin a {
+        color:white !important;
+    }
+
+
+    .active-headerForDdmin span {
+        color:white !important;
+    }
+
+.active-headerForDdmin:hover {
+	background: url(../Images/icons/active-header.gif) #35aa47;
+	background-repeat: no-repeat;
+	background-position: right 50%;
+    color:white;
+}
+
+
+
+/* For FirstDefault  Content*/
+
+.accordion-headerDefault {
+	font-size: 16px;
+	background: #ebebeb;
+	/*margin: 5px 0 0 0;*/
+	/*padding: 5px 20px;
+	border: 1px solid #cccccc;*/
+	cursor: pointer;
+	/*color: #666666;
+	-moz-border-radius: 5px;*/
+	/*-webkit-border-radius: 5px;
+	border-radius: 5px;*/
+    margin:0px;
+}
+
+.active-headerDefault {
+    /*-moz-border-radius: 5px 5px 0 0;
+    -webkit-border-radius: 5px 5px 0 0;*/
+    
+    
+    background: url(../Images/icons/active-header.gif);
+    background-repeat: no-repeat;
+    background-position: right 50%;
+}
+
+    .active-headerDefault a {
+        color:#212121 !important;
+    }
+
+    .active-headerDefault a:hover {
+        color:#555555 !important;
+    }
+
+    .active-headerDefault span {
+        color:#212121 !important;
+    }
+
+.active-headerDefault:hover {
+	background: url(../Images/icons/active-header.gif);
+	background-repeat: no-repeat;
+	background-position: right 50%;
+}
+
+.accordion-content_forOther{
+    /*padding:10px !important;*/
+    border:none !important;
+    
+}
+
+.inactive-headerDefault {
+	background: url(../Images/icons/inactive-header.gif);
+	background-repeat: no-repeat;
+	background-position: right 50%;
+    margin-bottom:10px;
+}
+
+.inactive-headerDefault:hover {
+	background: url(../Images/icons/inactive-header.gif);
+	background-repeat: no-repeat;
+	background-position: right 50%;
+}
+
+ .inactive-headerDefault a {
+        color:#212121 !important;
+    }
+
+ .inactive-headerDefault a:hover {
+        color:#555555 !important;
+    }

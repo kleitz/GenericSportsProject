@@ -1,0 +1,94 @@
+﻿body {
+
+    background:none !important;
+}
+
+ul {
+        list-style:none !important;
+    }
+
+
+
+
+.btnprint_class {
+    page-break-after:avoid;
+    display:none;
+}
+
+.logo {
+    margin:10px 5px  !important;
+    float:left;
+}
+
+.Sidelogo {
+    float:none !important;
+    /*padding:15px !important; */
+}
+
+.topScoreName {
+    margin-bottom:5px !important;
+}
+
+.class_for_stats_print {
+    height:132px !important;
+}
+
+.more_link_class {
+    display:none !important;
+}  
+
+.event.event-listing article {
+    padding:10px !important;
+}
+
+.event.event-listing article .text {
+    width:auto !important;
+    padding: 0px; 
+}
+
+.event-listing article .text .pix-post-title a span {
+    margin:0px !important;
+}
+
+.match_result_for_ResultMenu {
+    padding:0px !important;
+    min-width:50px !important;
+}
+
+
+.match-result {
+    padding:0px !important;
+    min-width:80px !important;
+    margin-right: 10px;
+    /*margin-left: -30px;*/
+}
+
+.results_div_panel {
+    padding-left:2px !important;
+}
+
+
+
+    .header_class {
+        /*display:none;*/
+        background-color:black !important;
+        color:white !important;
+    }
+
+    .team_header_Display {
+       /* display:block !important;
+        text-align:left;*/
+    }
+
+
+
+    .CompetitionTopScore {
+    display:none !important;
+}
+
+.fixture-search-area {
+    display:none !important;
+}
+
+    
+

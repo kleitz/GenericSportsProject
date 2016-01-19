@@ -1,0 +1,6 @@
+D:\thsportsitednn\bin\ThSport.dll
+D:\thsportsitednn\bin\ThSport.pdb
+D:\thsportsitednn\bin\ThSport.xml
+D:\thsportsitednn\DesktopModules\ThSport\obj\Release\ThSport.csprojResolveAssemblyReference.cache
+D:\thsportsitednn\DesktopModules\ThSport\obj\Release\ThSport.dll
+D:\thsportsitednn\DesktopModules\ThSport\obj\Release\ThSport.pdb
