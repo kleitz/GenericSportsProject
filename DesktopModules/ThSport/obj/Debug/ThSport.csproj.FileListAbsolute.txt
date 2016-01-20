@@ -10,3 +10,9 @@ E:\Projects\ProjThSport\bin\ThSport.xml
 E:\Projects\ProjThSport\DesktopModules\ThSport\obj\Debug\ThSport.csprojResolveAssemblyReference.cache
 E:\Projects\ProjThSport\DesktopModules\ThSport\obj\Debug\ThSport.dll
 E:\Projects\ProjThSport\DesktopModules\ThSport\obj\Debug\ThSport.pdb
+E:\Projects\GenericSportsProject\bin\ThSport.dll
+E:\Projects\GenericSportsProject\bin\ThSport.pdb
+E:\Projects\GenericSportsProject\bin\ThSport.xml
+E:\Projects\GenericSportsProject\DesktopModules\ThSport\obj\Debug\ThSport.csprojResolveAssemblyReference.cache
+E:\Projects\GenericSportsProject\DesktopModules\ThSport\obj\Debug\ThSport.dll
+E:\Projects\GenericSportsProject\DesktopModules\ThSport\obj\Debug\ThSport.pdb

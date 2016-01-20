@@ -169,7 +169,7 @@ namespace DotNetNuke.Modules.ThSport
         /// -----------------------------------------------------------------------------
         public void OnPasswordUpdated(PasswordUpdatedEventArgs e)
         {
-            if (IsUserOrAdmin == false && !currentUser.IsInRole("Club Admin"))
+            if (IsUserOrAdmin == false && !currentUser.IsInRole("clubadmin"))
             {
                 return;
             }
@@ -220,7 +220,7 @@ namespace DotNetNuke.Modules.ThSport
             }
 
             //can only update username if a host/admin and account being managed is not a superuser
-            if (UserController.GetCurrentUserInfo().IsSuperUser || currentUser.IsInRole("Club Admin"))
+            if (UserController.GetCurrentUserInfo().IsSuperUser || currentUser.IsInRole("clubadmin"))
             {
                 //only allow updates for non-superuser accounts
                 
@@ -232,7 +232,7 @@ namespace DotNetNuke.Modules.ThSport
             }
 
             //if an admin, check if the user is only within this portal
-            if ((UserController.GetCurrentUserInfo().IsInRole(PortalSettings.AdministratorRoleName)) || currentUser.IsInRole("Club Admin"))
+            if ((UserController.GetCurrentUserInfo().IsInRole(PortalSettings.AdministratorRoleName)) || currentUser.IsInRole("clubadmin"))
             {
                 //only allow updates for non-superuser accounts
                 if (users.IsSuperUser)
@@ -261,7 +261,7 @@ namespace DotNetNuke.Modules.ThSport
         {
             var portalSettings = PortalController.GetCurrentPortalSettings();
             if (DotNetNuke.Entities.Users.UserController.GetCurrentUserInfo().IsInRole(portalSettings.AdministratorRoleName)
-                || DotNetNuke.Entities.Users.UserController.GetCurrentUserInfo().IsInRole("Club Admin"))
+                || DotNetNuke.Entities.Users.UserController.GetCurrentUserInfo().IsInRole("clubadmin"))
             {
                 string resetPassword = UserController.ResetPassword(user, String.Empty);
                 return UserController.ChangePassword(user, resetPassword, newPassword);
@@ -328,7 +328,7 @@ namespace DotNetNuke.Modules.ThSport
                 cmdUpdate.Visible = true;
 				
 				//Set up Change Password
-                if ((IsAdmin && !IsUser) || currentUser.IsInRole("Club Admin"))
+                if ((IsAdmin && !IsUser) || currentUser.IsInRole("clubadmin"))
                 {
                     lblChangeHelp.Text = Localization.GetString("AdminChangeHelp", LocalResourceFile.Replace("/Admin/Security/", "/"));
                     oldPasswordRow.Visible = false;
@@ -364,7 +364,7 @@ namespace DotNetNuke.Modules.ThSport
                 cmdReset.Visible = true;
 				
 				//Set up Reset Password
-                if (IsAdmin && !IsUser || currentUser.IsInRole("Club Admin"))
+                if (IsAdmin && !IsUser || currentUser.IsInRole("clubadmin"))
                 {
                     if (MembershipProviderConfig.RequiresQuestionAndAnswer)
                     {
@@ -643,7 +643,7 @@ namespace DotNetNuke.Modules.ThSport
 
                 UserInfo usersData = DotNetNuke.Entities.Users.UserController.GetUserByName(user_Name);
 
-                if (IsUserOrAdmin == false && !currentUser.IsInRole("Club Admin"))
+                if (IsUserOrAdmin == false && !currentUser.IsInRole("clubadmin"))
                 {
                     return;
                 }
@@ -662,14 +662,14 @@ namespace DotNetNuke.Modules.ThSport
                 }
 
                 //3. Check old Password is Provided
-                if (!IsAdmin && String.IsNullOrEmpty(txtOldPassword.Text) && !currentUser.IsInRole("Club Admin"))
+                if (!IsAdmin && String.IsNullOrEmpty(txtOldPassword.Text) && !currentUser.IsInRole("clubadmin"))
                 {
                     OnPasswordUpdated(new PasswordUpdatedEventArgs(PasswordUpdateStatus.PasswordMissing));
                     return;
                 }
 
                 //4. Check New Password is ddifferent
-                if (!IsAdmin && txtNewPassword.Text == txtOldPassword.Text && !currentUser.IsInRole("Club Admin"))
+                if (!IsAdmin && txtNewPassword.Text == txtOldPassword.Text && !currentUser.IsInRole("clubadmin"))
                 {
                     OnPasswordUpdated(new PasswordUpdatedEventArgs(PasswordUpdateStatus.PasswordNotDifferent));
                     return;
@@ -687,12 +687,12 @@ namespace DotNetNuke.Modules.ThSport
                     }
 
                 }
-                if (!IsAdmin && txtNewPassword.Text == txtOldPassword.Text && !currentUser.IsInRole("Club Admin"))
+                if (!IsAdmin && txtNewPassword.Text == txtOldPassword.Text && !currentUser.IsInRole("clubadmin"))
                 {
                     OnPasswordUpdated(new PasswordUpdatedEventArgs(PasswordUpdateStatus.PasswordNotDifferent));
                     return;
                 }
-                if (!IsAdmin && !currentUser.IsInRole("Club Admin"))
+                if (!IsAdmin && !currentUser.IsInRole("clubadmin"))
                 {
                     try
                     {

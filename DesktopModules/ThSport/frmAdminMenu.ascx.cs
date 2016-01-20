@@ -30,7 +30,7 @@ namespace DotNetNuke.Modules.ThSport
             jQuery.RequestUIRegistration();
             jQuery.RequestDnnPluginsRegistration();
 
-            if (currentUser.IsSuperUser || currentUser.IsInRole("Club Admin"))
+            if (currentUser.IsSuperUser || currentUser.IsInRole("clubadmin"))
             {
                 m_ModuelControl = "frmSports.ascx";
             }
@@ -291,7 +291,7 @@ namespace DotNetNuke.Modules.ThSport
                 //    int competition_id = 0;
                 //    int.TryParse(Session["competionid"].ToString(), out competition_id);
                 //    DotNetNuke.Entities.Tabs.TabController tabControl = new Entities.Tabs.TabController();
-                //    DotNetNuke.Entities.Tabs.TabInfo tabInfo = tabControl.GetTabByName("Club Admin", PortalId);
+                //    DotNetNuke.Entities.Tabs.TabInfo tabInfo = tabControl.GetTabByName("clubadmin", PortalId);
                 //    titel.Text = "&raquo; <a href= " + DotNetNuke.Common.Globals.NavigateURL(tabInfo.TabID, "", "mctl=" + "Match" + "&CompetitionID=" + competition_id) + ">Match</a>";
                 //    Subtitle.Text = "&raquo; Match Result";
                 //    break;
