@@ -64,13 +64,13 @@ namespace ThSportServer
 
         #region Getdata Methods
 
-        public DataTable GetDataClub()
+        public DataTable GetUserAndRegistrationDetailByUserID()
         {
             using (DataTable dt = new DataTable())
             {
                 try
                 {
-                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetDataClub"))
+                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetUserAndRegistrationDetailByUserID"))
                     {
                         dt.Load(reader);
                         return dt;
@@ -160,13 +160,12 @@ namespace ThSportServer
         }
 
 
-        public int UpdateClub(clsClub cc)
+        public int UpdateUser(clsRegistration cc)
         {
             int i = 0;
             try
             {
-                //CompReg.CreatedBy,
-                dataProvider.ExecuteNonQuery("usp_UpdateClub", cc.ClubId, cc.ClubName, cc.ClubAbbr, cc.ClubDesc, cc.ClubFamousName, cc.ClubLogoName, cc.ClubLogoFile, cc.ClubPhotoFile, Convert.ToDateTime(cc.ClubEstablishedYear), cc.ActiveFlagId, cc.ShowFlagId, cc.PortalID, cc.ModifiedById);
+                dataProvider.ExecuteNonQuery("usp_UpdateUser", cc.UserId,cc.UserTypeId,cc.UserPhotoName,cc.UserPhotoFile,cc.FirstName,cc.MiddleName,cc.LastName,cc.SuffixId,cc.EmailId,cc.TelephoneNumber,cc.ActiveFlagId,cc.ShowFlagId,cc.PortalID,cc.ModifiedById);
             }
             catch (Exception ex)
             {
@@ -175,11 +174,11 @@ namespace ThSportServer
             return i;
         }
 
-        public int UpdateClubSports(int ClubID, int SportID)
+        public int UpdateRegistration(clsRegistration cc)
         {
             try
             {
-                dataProvider.ExecuteNonQuery("usp_UpdateClubSports", ClubID, SportID);
+                dataProvider.ExecuteNonQuery("usp_UpdateRegistration", cc.UserId,cc.UserId_Admin,cc.Gender,cc.AddressLine1,cc.AddressLine2,cc.City,cc.State,cc.ZipPostalCode,cc.Country,cc.DateOfBirth,cc.PlaceOfBirth,cc.Height,cc.Weight,cc.ActiveFlagId,cc.ShowFlagId,cc.PortalID,cc.ModifiedById);
             }
             catch (Exception ex)
             {
@@ -230,33 +229,13 @@ namespace ThSportServer
             }
         }
 
-        public DataTable GetSportIDByClubID(int ClubID)
+        public DataTable GetUserPhotoByUserID(clsRegistration cc)
         {
             using (DataTable dt = new DataTable())
             {
                 try
                 {
-                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetSportIDByClubID", ClubID))
-                    {
-                        dt.Load(reader);
-                        return dt;
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Exceptions.LogException(ex);
-                }
-                return dt;
-            }
-        }
-
-        public DataTable GetClubLogo(clsClub cc)
-        {
-            using (DataTable dt = new DataTable())
-            {
-                try
-                {
-                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetClubLogo", cc.ClubId))
+                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetUserPhotoByUserID", cc.UserId))
                     {
                         dt.Load(reader);
                         return dt;
@@ -271,19 +250,18 @@ namespace ThSportServer
             }
         }
 
-        public DataTable GetClubPhoto(clsClub cc)
+        public DataTable GetRegistrationIDByUserID(int UserID)
         {
             using (DataTable dt = new DataTable())
             {
                 try
                 {
-                    using (IDataReader reader = dataProvider.ExecuteReader("usp_ClubPhoto", cc.ClubId))
+                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetRegistrationIDByUserID", UserID))
                     {
                         dt.Load(reader);
                         return dt;
                     }
                 }
-
                 catch (Exception ex)
                 {
                     Exceptions.LogException(ex);
@@ -291,6 +269,5 @@ namespace ThSportServer
                 return dt;
             }
         }
-
     }
 }
