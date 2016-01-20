@@ -195,6 +195,20 @@
     <Content Include="Data\Documentation\Documentation.html" />
     <Content Include="Documentation\Documentation.css" />
     <Content Include="Documentation\Documentation.html" />
+    <Compile Include="frmAddDocuments.ascx.cs">
+      <DependentUpon>frmAddDocuments.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmAddDocuments.ascx.designer.cs">
+      <DependentUpon>frmAddDocuments.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="frmAddDocumentsType.ascx.cs">
+      <DependentUpon>frmAddDocumentsType.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmAddDocumentsType.ascx.designer.cs">
+      <DependentUpon>frmAddDocumentsType.ascx</DependentUpon>
+    </Compile>
     <Compile Include="frmAdminMenu.ascx.cs">
       <DependentUpon>frmAdminMenu.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -272,6 +286,26 @@
     <Compile Include="frmDivision.ascx.designer.cs">
       <DependentUpon>frmDivision.ascx</DependentUpon>
     </Compile>
+    <Compile Include="frmEvent.ascx.cs">
+      <DependentUpon>frmEvent.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmEvent.ascx.designer.cs">
+      <DependentUpon>frmEvent.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="frmRegistration.ascx.cs">
+      <DependentUpon>frmRegistration.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="frmRegistration.ascx.designer.cs">
+      <DependentUpon>frmRegistration.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="frmRegistrationCreateAdmin.ascx.cs">
+      <DependentUpon>frmRegistrationCreateAdmin.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmRegistrationCreateAdmin.ascx.designer.cs">
+      <DependentUpon>frmRegistrationCreateAdmin.ascx</DependentUpon>
+    </Compile>
     <Compile Include="frmSeason.ascx.cs">
       <DependentUpon>frmSeason.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -335,6 +369,8 @@
     <Compile Include="ThSportModuleBase.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Content Include="frmAddDocuments.ascx" />
+    <Content Include="frmAddDocumentsType.ascx" />
     <Content Include="frmAdminMenu.ascx" />
     <Content Include="frmClub.ascx" />
     <Content Include="frmClubMember.ascx" />
@@ -346,6 +382,9 @@
     <Content Include="frmCompetitionLeague.ascx" />
     <Content Include="frmCompetitionType.ascx" />
     <Content Include="frmDivision.ascx" />
+    <Content Include="frmEvent.ascx" />
+    <Content Include="frmRegistration.ascx" />
+    <Content Include="frmRegistrationCreateAdmin.ascx" />
     <Content Include="frmSeason.ascx" />
     <Content Include="frmSports.ascx" />
     <Content Include="frmTeam.ascx" />
@@ -1011,6 +1050,7 @@
     <Content Include="View.ascx" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="DocRegFile\" />
     <Folder Include="Images\CompetitionLeagueLogo\" />
     <Folder Include="Images\CompetitionLogo\" />
     <Folder Include="Images\DivisionLogo\" />

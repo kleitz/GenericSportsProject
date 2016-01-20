@@ -337,25 +337,45 @@
         <AlternatingRowStyle CssClass="grid-row grid-row-alternet" />
         <Columns>
 
-         <asp:TemplateField HeaderText="ClubID" ItemStyle-VerticalAlign="Middle" ItemStyle-HorizontalAlign="Center" 
+         <asp:TemplateField HeaderText="UserId" ItemStyle-VerticalAlign="Middle" ItemStyle-HorizontalAlign="Center" 
                                     Visible="false" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column">
                 <ItemTemplate>
                     <div class="grid-cell-inner" style="width:130px; display: inline-block;">
-                        <asp:Label ID="lblClubID" runat="server" Text='<%#Eval("ClubId") %>'></asp:Label>
+                        <asp:Label ID="lblUserId" runat="server" Text='<%#Eval("UserId") %>'></asp:Label>
                     </div> 
                 </ItemTemplate>
          </asp:TemplateField>
 
-         <asp:BoundField DataField="ClubName" HeaderText="Club Name" HeaderStyle-CssClass="grid-header-column" ItemStyle-Width="30%" ItemStyle-CssClass="grid-column" HeaderStyle-Width="30%" />
+            <asp:BoundField DataField="UserName" HeaderText="User Name" HeaderStyle-CssClass="grid-header-column" ItemStyle-Width="30%" ItemStyle-CssClass="grid-column" HeaderStyle-Width="30%" />
 
-        <asp:BoundField DataField="ClubFamousName" HeaderText=" Famous Name" HeaderStyle-CssClass="grid-header-column" ItemStyle-Width="30%" ItemStyle-CssClass="grid-column" HeaderStyle-Width="30%" />
-
-            <asp:TemplateField HeaderText="Established Year" ItemStyle-VerticalAlign="Middle" HeaderStyle-CssClass="grid-header-column" 
+              <asp:TemplateField HeaderText="Email ID" ItemStyle-VerticalAlign="Middle" HeaderStyle-CssClass="grid-header-column" 
                                ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center" HeaderStyle-Width="22px" 
                                ItemStyle-Width="20px">
                 <ItemTemplate>
                     <div class="grid-cell-inner" style="text-align:center;">                    
-                        <asp:Label ID="lblClubEstablishedYear" runat="server" Text='<%#Eval("ClubEstablishedYear") %>' ToolTip="Season Start Date">
+                        <asp:Label ID="lblEmailId" runat="server" Text='<%#Eval("EmailId") %>' ToolTip="Email Address">
+                        </asp:Label>
+                    </div> 
+                </ItemTemplate>
+            </asp:TemplateField>
+
+              <asp:TemplateField HeaderText="Telephone No" ItemStyle-VerticalAlign="Middle" HeaderStyle-CssClass="grid-header-column" 
+                               ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center" HeaderStyle-Width="22px" 
+                               ItemStyle-Width="20px">
+                <ItemTemplate>
+                    <div class="grid-cell-inner" style="text-align:center;">                    
+                        <asp:Label ID="lblTelephoneNumber" runat="server" Text='<%#Eval("TelephoneNumber") %>' ToolTip=" Telephone No">
+                        </asp:Label>
+                    </div> 
+                </ItemTemplate>
+            </asp:TemplateField>
+            
+            <asp:TemplateField HeaderText="Date Of Birth" ItemStyle-VerticalAlign="Middle" HeaderStyle-CssClass="grid-header-column" 
+                               ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center" HeaderStyle-Width="22px" 
+                               ItemStyle-Width="20px">
+                <ItemTemplate>
+                    <div class="grid-cell-inner" style="text-align:center;">                    
+                        <asp:Label ID="lblDateOfBirth" runat="server" Text='<%#Eval("DateOfBirth") %>' ToolTip="Date Of Birth">
                         </asp:Label>
                     </div> 
                 </ItemTemplate>
@@ -368,6 +388,8 @@
                                       OnSelectedIndexChanged="ddlAction_SelectedIndexChanged">
                             <asp:ListItem Value="0"> -- Action -- </asp:ListItem>
                             <asp:ListItem Value="Edit">Edit</asp:ListItem>
+                            <asp:ListItem Value="AddDocuments">Add Document's</asp:ListItem>
+                            <asp:ListItem Value="CreateAdmin"> Create Admin </asp:ListItem>
                             <%--<asp:ListItem Value="Delete">Delete</asp:ListItem>--%>
                     </asp:DropDownList>
                     <asp:Label ID="lblddlActionUserID" runat="server" Text='<%#Eval("UserId") %>' Visible="false">

@@ -46,6 +46,8 @@ namespace DotNetNuke.Modules.ThSport
                 li_ClubMemberType.Visible = false;
                 li_UserType.Visible = false;
                 li_Registration.Visible = false;
+                li_AddDocumentsType.Visible = false;
+                li_Event.Visible = false;
                 
                 //li_TournamentLink.Visible = false;
                 
@@ -93,6 +95,8 @@ namespace DotNetNuke.Modules.ThSport
                 hlClubMemberType.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmClubMemberType");
                 hlUserType.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmUserType");
                 hlRegistration.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmRegistration");
+                hlAddDocumentsType.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmAddDocumentsType");
+                hlEvent.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmEvent");
 
                 hlCompetitionType.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmCompetitionType");
                 hlCompetitionLeague.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmCompetitionLeague");
@@ -208,6 +212,29 @@ namespace DotNetNuke.Modules.ThSport
                         this.li_Division.Attributes.Add("class", "active");
                     titela.Text = "Division";
                     titela.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmDivision");
+                case "frmAddDocumentsType.ascx":
+                    HtmlGenericControl li_AddDocumentsType = this.li_AddDocumentsType as HtmlGenericControl;
+                    if (li_AddDocumentsType != null)
+                        this.li_AddDocumentsType.Attributes.Add("class", "active");
+                    titela.Text = "Documents Type &raquo;";
+                    titela.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmAddDocumentsType");
+                    break;
+
+                case "frmEvent.ascx":
+                    HtmlGenericControl li_Event = this.li_Event as HtmlGenericControl;
+                    if (li_Event != null)
+                        this.li_Event.Attributes.Add("class", "active");
+                    titela.Text = "Event &raquo;";
+                    titela.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmEvent");
+                    break;
+                //case "frmDivision.ascx":
+                //    HtmlGenericControl li_Division = this.li_Division as HtmlGenericControl;
+                //    if (li_Division != null)
+                //        this.li_Division.Attributes.Add("class", "active");
+                //    titela.Text = "Division";
+                //    titela.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmDivision");
+                    
+                //    break;
 
                     break;
 

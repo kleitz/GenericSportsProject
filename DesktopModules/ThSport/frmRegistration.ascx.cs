@@ -64,12 +64,12 @@ namespace DotNetNuke.Modules.ThSport
 
             if (currentUser.IsSuperUser || currentUser.IsInRole("Club Admin"))
             {
-                dt = ccc.GetDataClub();
+                dt = ccc.GetUserAndRegistrationDetailByUserID();
             }
 
             DataView dv = new DataView();
             dv = dt.AsDataView();
-            dv.RowFilter = " FirstName like '%%" + txtRegistrationSearch.Text.Trim() + "%%'";
+            dv.RowFilter = " UserName like '%%" + txtRegistrationSearch.Text.Trim() + "%%'";
 
             if (dv.ToTable().Rows.Count > 0)
             {
@@ -296,33 +296,48 @@ namespace DotNetNuke.Modules.ThSport
             Boolean FileOK = false;
             Boolean FileSaved = false;
 
-            cc.ClubId = Convert.ToInt32(hidRegID.Value);
-            cc.SportID = Convert.ToInt32(ddlSport.SelectedValue);
-            cc.ClubName = txtClubName.Text.Trim();
-            cc.ClubAbbr = txtClubAddress.Text.Trim();
-            cc.ClubDesc = txtClubDescription.Text.Trim();
-            cc.ClubFamousName = txtClubFamousName.Text.Trim();
-            cc.ClubLogoName = txtClubLogoName.Text.Trim();
+            cc.UserId = Convert.ToInt32(hidRegID.Value);
+            cc.SuffixId = Convert.ToInt32(ddlSuffix.SelectedValue);
+            cc.UserTypeId = Convert.ToInt32(ddlUserType.SelectedValue);
+            cc.FirstName = txtFirstName.Text.Trim();
+            cc.MiddleName = txtMiddleName.Text.Trim();
+            cc.LastName = txtLastName.Text.Trim();
+            //cc.UserName = txtFirstName.Text.Trim();
+            //cc.UserPassword = CreateRandomPassword(8);
+            cc.Gender = ddlGender.SelectedValue;
+            cc.AddressLine1 = txtAddress1.Text.Trim();
+            cc.AddressLine2 = txtAddress2.Text.Trim();
+            cc.City = txtCity.Text.Trim();
+            cc.State = txtState.Text.Trim();
+            cc.ZipPostalCode = txtZipPostalCode.Text.Trim();
+            cc.Country = Convert.ToInt32(ddlCountry.SelectedValue);
+            cc.DateOfBirth = txtDateOfBirth.Text.Trim();
+            cc.PlaceOfBirth = txtPlaceOfBirth.Text.Trim();
+            cc.Height = txtHeight.Text.Trim();
+            cc.Weight = txtWeight.Text.Trim();
+            cc.EmailId = txtEmailAddress.Text.Trim();
+            cc.TelephoneNumber = txtTelephone.Text.Trim();
+            cc.UserPhotoName = txtUserLogoName.Text.Trim();
 
-            if (ClubLogoFile.PostedFile.FileName == "")
+            if (UserLogoFile.PostedFile.FileName == "")
             {
                 DataTable dt1 = new DataTable();
-                cc.ClubId = Convert.ToInt32(hidRegID.Value);
-                dt1 = ccc.GetClubLogo(cc);
-                ClubLogoImage.ImageUrl = dt1.Rows[0]["ClubLogoFile"].ToString();
-                string ufname = dt1.Rows[0]["ClubLogoFile"].ToString().Replace(" ", "");
-                ClubLogoFile.ResolveUrl("ufname");
-                cc.ClubLogoFile = ufname.Replace(" ", "");
+                cc.UserId = Convert.ToInt32(hidRegID.Value);
+                dt1 = ccc.GetUserPhotoByUserID(cc);
+                UserLogoImage.ImageUrl = dt1.Rows[0]["UserPhotoFile"].ToString();
+                string ufname = dt1.Rows[0]["UserPhotoFile"].ToString().Replace(" ", "");
+                UserLogoFile.ResolveUrl("ufname");
+                cc.UserPhotoFile = ufname.Replace(" ", "");
                 FileOKForUpdate = true;
             }
             else
             {
 
-                cc.ClubLogoFile = imhpathDB + ClubLogoFile.PostedFile.FileName.Replace(" ", "");
+                cc.UserPhotoFile = imhpathDB + UserLogoFile.PostedFile.FileName.Replace(" ", "");
 
-                if (ClubLogoFile.PostedFile != null)
+                if (UserLogoFile.PostedFile != null)
                 {
-                    String FileExtension = Path.GetExtension(ClubLogoFile.PostedFile.FileName.Replace(" ", "")).ToLower();
+                    String FileExtension = Path.GetExtension(UserLogoFile.PostedFile.FileName.Replace(" ", "")).ToLower();
                     String[] allowedExtensions = { ".png", ".jpg", ".gif", ".jpeg" };
                     for (int i = 0; i < allowedExtensions.Length; i++)
                     {
@@ -334,7 +349,7 @@ namespace DotNetNuke.Modules.ThSport
                     }
                 }
 
-                if (!string.IsNullOrEmpty(ClubLogoFile.PostedFile.FileName))
+                if (!string.IsNullOrEmpty(UserLogoFile.PostedFile.FileName))
                 {
                     if (!FileOK)
                     {
@@ -345,7 +360,7 @@ namespace DotNetNuke.Modules.ThSport
 
                 if (FileOK)
                 {
-                    if (ClubLogoFile.PostedFile.ContentLength > 10485760)
+                    if (UserLogoFile.PostedFile.ContentLength > 10485760)
                     {
                         //dvMsg.Attributes.Add("style", "display:block;");
                         //return;
@@ -357,7 +372,7 @@ namespace DotNetNuke.Modules.ThSport
 
                     try
                     {
-                        ClubLogoFile.PostedFile.SaveAs(physicalpath + ImageUploadFolder + ClubLogoFile.PostedFile.FileName.Replace(" ", ""));
+                        UserLogoFile.PostedFile.SaveAs(physicalpath + ImageUploadFolder + UserLogoFile.PostedFile.FileName.Replace(" ", ""));
                         FileSaved = true;
                     }
                     catch (Exception ex)
@@ -366,69 +381,6 @@ namespace DotNetNuke.Modules.ThSport
                     }
                 }
             }
-
-            if (ClubPhotoFile.PostedFile.FileName == "")
-            {
-                DataTable dt1 = new DataTable();
-                cc.ClubId = Convert.ToInt32(hidRegID.Value);
-                dt1 = ccc.GetClubPhoto(cc);
-                ClubPhotoImage.ImageUrl = dt1.Rows[0]["ClubPhotoFile"].ToString();
-                string ufname = dt1.Rows[0]["ClubPhotoFile"].ToString().Replace(" ", "");
-                ClubPhotoFile.ResolveUrl("ufname");
-                cc.ClubPhotoFile = ufname.Replace(" ", "");
-                FileOKForUpdate = true;
-            }
-            else
-            {
-                cc.ClubPhotoFile = imhpathDB + ClubPhotoFile.PostedFile.FileName.Replace(" ", "");
-
-                if (ClubPhotoFile.PostedFile != null)
-                {
-                    String FileExtension = Path.GetExtension(ClubPhotoFile.PostedFile.FileName.Replace(" ", "")).ToLower();
-                    String[] allowedExtensions = { ".png", ".jpg", ".gif", ".jpeg" };
-                    for (int i = 0; i < allowedExtensions.Length; i++)
-                    {
-                        if (FileExtension == allowedExtensions[i])
-                        {
-                            FileOK = true;
-                            break;
-                        }
-                    }
-                }
-
-                if (!string.IsNullOrEmpty(ClubPhotoFile.PostedFile.FileName))
-                {
-                    if (!FileOK)
-                    {
-                        //Page.ClientScript.RegisterClientScriptBlock(typeof(Page), "Alert", "alert('Please choose only .jpg, .png and .gif images For Competition !')", true);
-                        return;
-                    }
-                }
-
-                if (FileOK)
-                {
-                    if (ClubPhotoFile.PostedFile.ContentLength > 10485760)
-                    {
-                        //dvMsg.Attributes.Add("style", "display:block;");
-                        //return;
-                    }
-                    else
-                    {
-                        //dvMsg.Attributes.Add("style", "display:none;");
-                    }
-
-                    try
-                    {
-                        ClubPhotoFile.PostedFile.SaveAs(physicalpath + ImageUploadFolder + ClubPhotoFile.PostedFile.FileName.Replace(" ", ""));
-                        FileSaved = true;
-                    }
-                    catch (Exception ex)
-                    {
-                        FileSaved = false;
-                    }
-                }
-            }
-            cc.ClubEstablishedYear = txtClubEstablishedYear.Text.Trim();
 
             if (ChkIsActive.Checked == true)
             {
@@ -449,15 +401,14 @@ namespace DotNetNuke.Modules.ThSport
             }
 
             cc.PortalID = PortalId;
-            cc.CreatedById = currentUser.Username;
             cc.ModifiedById = currentUser.Username;
 
-            int clubid = ccc.UpdateClub(cc);
+            int userid = ccc.UpdateUser(cc);
 
-            int ucsid = ccc.UpdateClubSports(cc.ClubId, cc.SportID);
+            int userregistrationid = ccc.UpdateRegistration(cc);
 
-            mainContentClub.Visible = false;
-            PnlGridClub.Visible = true;
+            pnlEntryRegistration.Visible = false;
+            PnlGridRegistration.Visible = true;
             FillGridView();
             funClearData();
         }
@@ -530,60 +481,53 @@ namespace DotNetNuke.Modules.ThSport
                         ChkIsShow.Checked = false;
                     }
 
-			us.,us.,us.,us.,us.ActiveFlagId,us.ShowFlagId,
-			re.RegistrationId,re.Gender,re.AddressLine1,re.AddressLine2,re.City,re.State,re.ZipPostalCode,re.Country,
-			re.DateOfBirth,re.PlaceOfBirth,re.Height,re.Weight
-
-
-                    txtClubName.Text = dt.Rows[0]["ClubName"].ToString();
-                    txtClubAddress.Text = dt.Rows[0]["ClubAbbr"].ToString();
-                    txtClubDescription.Text = dt.Rows[0]["ClubDesc"].ToString();
-                    txtClubFamousName.Text = dt.Rows[0]["ClubFamousName"].ToString();
-                    txtClubLogoName.Text = dt.Rows[0]["ClubLogoName"].ToString();
-
-
-                    ClubPhotoImage.ImageUrl = dt.Rows[0]["ClubPhotoFile"].ToString();
-
-                    string ufnamephoto = dt.Rows[0]["ClubPhotoFile"].ToString().Replace(" ", "");
-                    ClubPhotoFile.ResolveUrl("ufnamephoto");
-
-                    txtClubEstablishedYear.Text = dt.Rows[0]["ClubEstablishedYear"].ToString();
-
-                   
-
-                    DataTable dt2 = ccc.GetSportIDByClubID(ClubID);
-                    if (dt2.Rows.Count > 0)
-                    {
-                        ddlSport.SelectedValue = dt2.Rows[0]["SportID"].ToString();
-                    }
-                    else
-                    {
-                        ddlSport.SelectedValue = "1";
-                    }
-
-                    mainContentClub.Visible = true;
-                    PnlGridClub.Visible = false;
-                    btnUpdateClub.Visible = true;
-                    btnSaveClub.Visible = false;
+                    ddlGender.SelectedValue = dt.Rows[0]["Gender"].ToString();
+                    txtAddress1.Text = dt.Rows[0]["AddressLine1"].ToString();
+                    txtAddress2.Text = dt.Rows[0]["AddressLine2"].ToString();
+                    txtCity.Text = dt.Rows[0]["City"].ToString();
+                    txtState.Text = dt.Rows[0]["State"].ToString();
+                    txtZipPostalCode.Text = dt.Rows[0]["ZipPostalCode"].ToString();
+                    ddlCountry.SelectedValue = dt.Rows[0]["Country"].ToString();
+                    txtDateOfBirth.Text = dt.Rows[0]["DateOfBirth"].ToString();
+                    txtPlaceOfBirth.Text = dt.Rows[0]["PlaceOfBirth"].ToString();
+                    txtHeight.Text = dt.Rows[0]["Height"].ToString();
+                    txtWeight.Text = dt.Rows[0]["Weight"].ToString();
+                        
+                    pnlEntryRegistration.Visible = true;
+                    PnlGridRegistration.Visible = false;
+                    btnUpdateRegistration.Visible = true;
+                    btnSaveRegistration.Visible = false;
                 }
             }
-            else if (ddlSelectedValue == "Owner")
+            else if (ddlSelectedValue == "AddDocuments")
             {
-                PnlGridClub.Visible = false;
-                mainContentClub.Visible = false;
+                PnlGridRegistration.Visible = false;
+                pnlEntryRegistration.Visible = false;
                 hidRegID.Value = str;
-                int ClubID = Convert.ToInt32(hidRegID.Value);
-                Response.Redirect(DotNetNuke.Common.Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmClubOwner", "ClubID=" + ClubID));
+                int UserID = Convert.ToInt32(hidRegID.Value);
+                DataTable dt1 = new DataTable();
+                dt1 = ccc.GetRegistrationIDByUserID(UserID);
+                if (dt1.Rows.Count > 0)
+                {
+                    int RegistrationId = Convert.ToInt32(dt1.Rows[0]["RegistrationId"].ToString());
+                    Response.Redirect(DotNetNuke.Common.Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmAddDocuments", "RegistrationId=" + RegistrationId)); 
+                }
             }
-            else if (ddlSelectedValue == "Member")
+            else if (ddlSelectedValue == "CreateAdmin")
             {
-                PnlGridClub.Visible = false;
-                mainContentClub.Visible = false;
+                PnlGridRegistration.Visible = false;
+                pnlEntryRegistration.Visible = false;
                 hidRegID.Value = str;
-                int ClubID = Convert.ToInt32(hidRegID.Value);
-                Response.Redirect(DotNetNuke.Common.Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmClubMember", "ClubID=" + ClubID));
+                int UserID = Convert.ToInt32(hidRegID.Value);
+                DataTable dt1 = new DataTable();
+                dt1 = ccc.GetRegistrationIDByUserID(UserID);
+                if (dt1.Rows.Count > 0)
+                {
+                    int RegistrationId = Convert.ToInt32(dt1.Rows[0]["RegistrationId"].ToString());
+                    Response.Redirect(DotNetNuke.Common.Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmAddDocuments", "RegistrationId=" + RegistrationId));
+                }
             }
-            else if (ddlSelectedValue == "Delete")
+             else if (ddlSelectedValue == "Delete")
             {
                 //Page.ClientScript.RegisterStartupScript(this.GetType(), "", "javascript:confirm('Are You Sure? Want To Delete.');", true);
                 //Page.ClientScript.RegisterStartupScript(this.GetType(), "confirm", "javascript:Confirmation();", true);

@@ -27,6 +27,10 @@
 	        <asp:HyperLink id="hlRegistration" runat="server" ToolTip=" Registration Form"> Registration </asp:HyperLink>
 		</li>
 
+        <li id="li_Event" runat="server">
+	        <asp:HyperLink id="hlEvent" runat="server" ToolTip=" Event Form"> Event </asp:HyperLink>
+		</li>
+        
         <li id="li_Competition" runat="server">
 	        <asp:HyperLink id="hlCompetition" runat="server" ToolTip="Competition Form">Competition </asp:HyperLink>
 		</li>
@@ -43,6 +47,9 @@
               </li>
               <li id="li_UserType" runat="server">
                   <asp:HyperLink id="hlUserType" runat="server" ToolTip=" User Type Form"> User Type </asp:HyperLink>
+              </li>
+              <li id="li_AddDocumentsType" runat="server">
+                  <asp:HyperLink id="hlAddDocumentsType" runat="server" ToolTip=" Documents Type  Form"> Documents Type  </asp:HyperLink>
               </li>
               <li id="li_CompetitionType" runat="server">
                   <asp:HyperLink id="hlCompetitionType" runat="server" ToolTip=" Competition Type Form"> Competition Type </asp:HyperLink>

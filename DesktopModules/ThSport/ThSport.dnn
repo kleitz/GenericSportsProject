@@ -187,6 +187,39 @@
                     <viewOrder>0</viewOrder>
                   </moduleControl>
 
+                  <moduleControl>
+                    <controlKey>frmAddDocuments</controlKey>
+                    <controlSrc>DesktopModules/ThSport/frmAddDocuments.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle>ThSport frmAddDocuments</controlTitle>
+                    <controlType>Edit</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+
+                  <moduleControl>
+                    <controlKey>frmAddDocumentsType</controlKey>
+                    <controlSrc>DesktopModules/ThSport/frmAddDocumentsType.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle>ThSport frmAddDocumentsType</controlTitle>
+                    <controlType>Edit</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+
+                  <moduleControl>
+                    <controlKey>frmEvent</controlKey>
+                    <controlSrc>DesktopModules/ThSport/frmEvent.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle>ThSport frmEvent</controlTitle>
+                    <controlType>Edit</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+
                 </moduleControls>
               </moduleDefinition>
             </moduleDefinitions>
