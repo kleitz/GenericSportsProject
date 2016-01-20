@@ -20,8 +20,21 @@ namespace DotNetNuke.Modules.ThSport
     {
         private readonly UserInfo currentUser = DotNetNuke.Entities.Users.UserController.GetCurrentUserInfo();
 
+        public string entry_mode_masterplayer
+        {
+            get
+            {
+                if ((Request.QueryString["entry_mode_masterplayer"] != null))
+                {
+                    return Request.QueryString["entry_mode_masterplayer"].ToString();
+                }
+                return "";
+            }
+        }
+
         clsRegistration cc = new clsRegistration();
         clsRegistrationController ccc = new clsRegistrationController();
+
 
         string m_controlToLoad;
         string VName;
@@ -39,6 +52,12 @@ namespace DotNetNuke.Modules.ThSport
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (entry_mode_masterplayer == "editmasterplayer")
+            {
+                pnlEntryRegistration.Visible = true;
+                PnlGridRegistration.Visible = false;
+            }
+
             if (!IsPostBack)
             {
                 FillUserType();
@@ -90,6 +109,7 @@ namespace DotNetNuke.Modules.ThSport
                 ddlUserType.DataValueField = "UserTypeId";
                 ddlUserType.DataBind();
                 ddlUserType.Items.Insert(0, new ListItem("-- Select User Type --", "0"));
+                //ddlUserType.SelectedValue = "4";
             }
         }
 
@@ -269,6 +289,16 @@ namespace DotNetNuke.Modules.ThSport
             PnlGridRegistration.Visible = true;
             FillGridView();
             funClearData();
+
+            DataTable dt1 = ccc.GetLatestRegistrationID();
+            if (dt1.Rows.Count > 0)
+            {
+                if (entry_mode_masterplayer == "editmasterplayer")
+                {
+                    int RegistrationId = Convert.ToInt32(dt1.Rows[0]["RegistrationId"].ToString());
+                    Response.Redirect(Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmRegistrationParentOrRelatives" + "&entry_mode_masterplayer=editmasterplayer" + "&RegistrationId=" + RegistrationId));
+                }
+            }
         }
 
         protected void btnAddRegistration_Click(object sender, EventArgs e)
@@ -513,7 +543,7 @@ namespace DotNetNuke.Modules.ThSport
                     Response.Redirect(DotNetNuke.Common.Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmAddDocuments", "RegistrationId=" + RegistrationId)); 
                 }
             }
-            else if (ddlSelectedValue == "CreateAdmin")
+            else if (ddlSelectedValue == "AddParentORRelatives")
             {
                 PnlGridRegistration.Visible = false;
                 pnlEntryRegistration.Visible = false;
@@ -524,7 +554,7 @@ namespace DotNetNuke.Modules.ThSport
                 if (dt1.Rows.Count > 0)
                 {
                     int RegistrationId = Convert.ToInt32(dt1.Rows[0]["RegistrationId"].ToString());
-                    Response.Redirect(DotNetNuke.Common.Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmAddDocuments", "RegistrationId=" + RegistrationId));
+                    Response.Redirect(DotNetNuke.Common.Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmRegistrationParentOrRelatives", "RegistrationId=" + RegistrationId));
                 }
             }
              else if (ddlSelectedValue == "Delete")

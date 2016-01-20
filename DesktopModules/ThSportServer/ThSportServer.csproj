@@ -109,6 +109,7 @@
     <Compile Include="clsDivision.cs" />
     <Compile Include="clsEvent.cs" />
     <Compile Include="clsRegistration.cs" />
+    <Compile Include="clsRegistrationParentsOrRelatives.cs" />
     <Compile Include="clsSeason.cs" />
     <Compile Include="clsSport.cs" />
     <Compile Include="Data\DataProvider.cs" />

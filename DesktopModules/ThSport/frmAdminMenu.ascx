@@ -23,16 +23,16 @@
 	        <asp:HyperLink id="hlSeason" runat="server" ToolTip=" Season Form"> Season </asp:HyperLink>
 		</li>
 
-        <li id="li_Registration" runat="server">
-	        <asp:HyperLink id="hlRegistration" runat="server" ToolTip=" Registration Form"> Registration </asp:HyperLink>
+        <li id="li_Competition" runat="server">
+	        <asp:HyperLink id="hlCompetition" runat="server" ToolTip="Competition Form">Competition </asp:HyperLink>
 		</li>
-
+        
         <li id="li_Event" runat="server">
 	        <asp:HyperLink id="hlEvent" runat="server" ToolTip=" Event Form"> Event </asp:HyperLink>
 		</li>
         
-        <li id="li_Competition" runat="server">
-	        <asp:HyperLink id="hlCompetition" runat="server" ToolTip="Competition Form">Competition </asp:HyperLink>
+        <li id="li_Registration" runat="server">
+	        <asp:HyperLink id="hlRegistration" runat="server" ToolTip=" Registration Form"> Registration </asp:HyperLink>
 		</li>
 
         <li id="li_Masters" runat="server">

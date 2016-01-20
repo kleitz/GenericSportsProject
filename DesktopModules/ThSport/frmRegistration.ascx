@@ -346,7 +346,7 @@
                 </ItemTemplate>
          </asp:TemplateField>
 
-            <asp:BoundField DataField="UserName" HeaderText="User Name" HeaderStyle-CssClass="grid-header-column" ItemStyle-Width="30%" ItemStyle-CssClass="grid-column" HeaderStyle-Width="30%" />
+            <asp:BoundField DataField="UserName" HeaderText=" Name " HeaderStyle-CssClass="grid-header-column" ItemStyle-Width="30%" ItemStyle-CssClass="grid-column" HeaderStyle-Width="30%" />
 
               <asp:TemplateField HeaderText="Email ID" ItemStyle-VerticalAlign="Middle" HeaderStyle-CssClass="grid-header-column" 
                                ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center" HeaderStyle-Width="22px" 
@@ -389,14 +389,13 @@
                             <asp:ListItem Value="0"> -- Action -- </asp:ListItem>
                             <asp:ListItem Value="Edit">Edit</asp:ListItem>
                             <asp:ListItem Value="AddDocuments">Add Document's</asp:ListItem>
-                            <asp:ListItem Value="CreateAdmin"> Create Admin </asp:ListItem>
+                            <asp:ListItem Value="AddParentORRelatives"> Add Parent / Relatives  </asp:ListItem>
                             <%--<asp:ListItem Value="Delete">Delete</asp:ListItem>--%>
                     </asp:DropDownList>
                     <asp:Label ID="lblddlActionUserID" runat="server" Text='<%#Eval("UserId") %>' Visible="false">
                     </asp:Label>
                 </ItemTemplate>
-
-     </asp:TemplateField>
+            </asp:TemplateField>
 
         </Columns>
         <PagerSettings Mode="NumericFirstLast" PageButtonCount="8" /> 
@@ -660,8 +659,16 @@
 		    <label class="control-label"> 
                 <asp:Label ID="lblDateOfBirth" runat="server" Text=" Date Of Birth :"></asp:Label>
              </label>
+               <div class="startsetallfrom">
+                 <span class="help-inline"><font Color="red"><b>*</b></font></span>
+             </div>
              <div class="controls" style="position:relative;">   
                   <asp:TextBox ID="txtDateOfBirth" runat="server" CssClass="enddatetimepicker m-wrap medium"/>
+                   <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="Date Of Birth,"
+                                                ControlToValidate="txtDateOfBirth" SetFocusOnError="true"  
+                                                ValidationGroup="Sports" 
+                                                InitialValue="0" Text="Select Date Of Birth Required !" CssClass="errorfordnn" 
+                                                ClientIDMode="Static"/>
                   <asp:RegularExpressionValidator ID="RegularExpressionValidator2"
                                                  Display="Static" ControlToValidate="txtDateOfBirth"  
                                                  ValidationGroup="Sports" CssClass="errorfordnn"

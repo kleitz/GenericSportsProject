@@ -269,5 +269,25 @@ namespace ThSportServer
                 return dt;
             }
         }
+
+        public DataTable GetLatestRegistrationID()
+        {
+            using (DataTable dt = new DataTable())
+            {
+                try
+                {
+                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetLatestRegistrationID"))
+                    {
+                        dt.Load(reader);
+                        return dt;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Exceptions.LogException(ex);
+                }
+                return dt;
+            }
+        }
     }
 }

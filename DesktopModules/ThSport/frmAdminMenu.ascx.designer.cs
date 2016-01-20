@@ -85,22 +85,22 @@ namespace DotNetNuke.Modules.ThSport {
         protected global::System.Web.UI.WebControls.HyperLink hlSeason;
         
         /// <summary>
-        /// li_Registration control.
+        /// li_Competition control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl li_Registration;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl li_Competition;
         
         /// <summary>
-        /// hlRegistration control.
+        /// hlCompetition control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlRegistration;
+        protected global::System.Web.UI.WebControls.HyperLink hlCompetition;
         
         /// <summary>
         /// li_Event control.
@@ -121,22 +121,22 @@ namespace DotNetNuke.Modules.ThSport {
         protected global::System.Web.UI.WebControls.HyperLink hlEvent;
         
         /// <summary>
-        /// li_Competition control.
+        /// li_Registration control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl li_Competition;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl li_Registration;
         
         /// <summary>
-        /// hlCompetition control.
+        /// hlRegistration control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlCompetition;
+        protected global::System.Web.UI.WebControls.HyperLink hlRegistration;
         
         /// <summary>
         /// li_Masters control.
