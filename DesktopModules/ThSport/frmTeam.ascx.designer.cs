@@ -10,7 +10,7 @@
 namespace DotNetNuke.Modules.ThSport {
     
     
-    public partial class frmCompetition {
+    public partial class frmTeam {
         
         /// <summary>
         /// divsavemassage control.
@@ -85,13 +85,13 @@ namespace DotNetNuke.Modules.ThSport {
         protected global::System.Web.UI.WebControls.Label msgConfirm;
         
         /// <summary>
-        /// pnlCompetitionGrid control.
+        /// pnlTeamGrid control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlCompetitionGrid;
+        protected global::System.Web.UI.WebControls.Panel pnlTeamGrid;
         
         /// <summary>
         /// addPanel control.
@@ -103,40 +103,58 @@ namespace DotNetNuke.Modules.ThSport {
         protected global::System.Web.UI.WebControls.Panel addPanel;
         
         /// <summary>
-        /// btnAddCompetition control.
+        /// btnAddTeam control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnAddCompetition;
+        protected global::System.Web.UI.WebControls.LinkButton btnAddTeam;
         
         /// <summary>
-        /// gvCompetition control.
+        /// gvTeam control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvCompetition;
+        protected global::System.Web.UI.WebControls.GridView gvTeam;
         
         /// <summary>
-        /// pnlCompetitionEntry control.
+        /// pnlTeamEntry control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlCompetitionEntry;
+        protected global::System.Web.UI.WebControls.Panel pnlTeamEntry;
         
         /// <summary>
-        /// hdnCompetitionID control.
+        /// hdnTeamID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hdnCompetitionID;
+        protected global::System.Web.UI.WebControls.HiddenField hdnTeamID;
+        
+        /// <summary>
+        /// ddlClub control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlClub;
+        
+        /// <summary>
+        /// rfvddlClub control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvddlClub;
         
         /// <summary>
         /// ddlSport control.
@@ -157,229 +175,193 @@ namespace DotNetNuke.Modules.ThSport {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvddlSport;
         
         /// <summary>
-        /// ddlSeason control.
+        /// lblTeam control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlSeason;
+        protected global::System.Web.UI.WebControls.Label lblTeam;
         
         /// <summary>
-        /// rfvddlSeason control.
+        /// txtTeam control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvddlSeason;
+        protected global::System.Web.UI.WebControls.TextBox txtTeam;
         
         /// <summary>
-        /// ddlCompetitionLeague control.
+        /// rfvTeam control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlCompetitionLeague;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvTeam;
         
         /// <summary>
-        /// rfvddlCompetitionLeague control.
+        /// rgvtxtTeam control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvddlCompetitionLeague;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator rgvtxtTeam;
         
         /// <summary>
-        /// ddlDivision control.
+        /// cvtxtTeam control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlDivision;
+        protected global::System.Web.UI.WebControls.CustomValidator cvtxtTeam;
         
         /// <summary>
-        /// ddlCompetitionType control.
+        /// lblTeamAbbr control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlCompetitionType;
+        protected global::System.Web.UI.WebControls.Label lblTeamAbbr;
         
         /// <summary>
-        /// rfvddlCompetitionType control.
+        /// txtTeamAbbr control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvddlCompetitionType;
+        protected global::System.Web.UI.WebControls.TextBox txtTeamAbbr;
         
         /// <summary>
-        /// ddlCompetitionFormat control.
+        /// rgvtxtTeamAbbr control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlCompetitionFormat;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator rgvtxtTeamAbbr;
         
         /// <summary>
-        /// rfvddlCompetitionFormat control.
+        /// cvtxtTeamAbbr control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvddlCompetitionFormat;
+        protected global::System.Web.UI.WebControls.CustomValidator cvtxtTeamAbbr;
         
         /// <summary>
-        /// lblCompetition control.
+        /// lblTeamDesc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCompetition;
+        protected global::System.Web.UI.WebControls.Label lblTeamDesc;
         
         /// <summary>
-        /// txtCompetition control.
+        /// txtTeamDesc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCompetition;
+        protected global::System.Web.UI.WebControls.TextBox txtTeamDesc;
         
         /// <summary>
-        /// rfvCompetition control.
+        /// rgvtxtTeamDesc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvCompetition;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator rgvtxtTeamDesc;
         
         /// <summary>
-        /// rgvtxtCompetition control.
+        /// cvtxtTeamDesc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator rgvtxtCompetition;
+        protected global::System.Web.UI.WebControls.CustomValidator cvtxtTeamDesc;
         
         /// <summary>
-        /// cvtxtCompetition control.
+        /// txtFamousName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CustomValidator cvtxtCompetition;
+        protected global::System.Web.UI.WebControls.TextBox txtFamousName;
         
         /// <summary>
-        /// lblCompetitionAbbr control.
+        /// rfvtxtFamousName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCompetitionAbbr;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvtxtFamousName;
         
         /// <summary>
-        /// txtCompetitionAbbr control.
+        /// rgvtxtFamousName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCompetitionAbbr;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator rgvtxtFamousName;
         
         /// <summary>
-        /// rgvtxtCompetitionAbbr control.
+        /// cvtxtFamousName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator rgvtxtCompetitionAbbr;
+        protected global::System.Web.UI.WebControls.CustomValidator cvtxtFamousName;
         
         /// <summary>
-        /// cvtxtCompetitionAbbr control.
+        /// txtTeamLogoName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CustomValidator cvtxtCompetitionAbbr;
+        protected global::System.Web.UI.WebControls.TextBox txtTeamLogoName;
         
         /// <summary>
-        /// lblCompetitionDesc control.
+        /// rfvtxtTeamLogoName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCompetitionDesc;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvtxtTeamLogoName;
         
         /// <summary>
-        /// txtCompetitionDesc control.
+        /// rgvtxtTeamLogoName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCompetitionDesc;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator rgvtxtTeamLogoName;
         
         /// <summary>
-        /// rgvtxtCompetitionDesc control.
+        /// cvtxtTeamLogoName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator rgvtxtCompetitionDesc;
-        
-        /// <summary>
-        /// cvtxtCompetitionDesc control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CustomValidator cvtxtCompetitionDesc;
-        
-        /// <summary>
-        /// lblCompetitionLogoName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCompetitionLogoName;
-        
-        /// <summary>
-        /// txtCompetitionLogoName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCompetitionLogoName;
-        
-        /// <summary>
-        /// rgvCompetitionLogoName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator rgvCompetitionLogoName;
+        protected global::System.Web.UI.WebControls.CustomValidator cvtxtTeamLogoName;
         
         /// <summary>
         /// lblUploadLogo control.
@@ -391,139 +373,103 @@ namespace DotNetNuke.Modules.ThSport {
         protected global::System.Web.UI.WebControls.Label lblUploadLogo;
         
         /// <summary>
-        /// CompetitionLogoFile control.
+        /// TeamLogoFile control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputFile CompetitionLogoFile;
+        protected global::System.Web.UI.HtmlControls.HtmlInputFile TeamLogoFile;
         
         /// <summary>
-        /// rgvCompetitionLogoFile control.
+        /// rgvTeamLogoFile control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator rgvCompetitionLogoFile;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator rgvTeamLogoFile;
         
         /// <summary>
-        /// CompetitionLogoImage control.
+        /// TeamLogoImage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image CompetitionLogoImage;
+        protected global::System.Web.UI.WebControls.Image TeamLogoImage;
         
         /// <summary>
-        /// lblStartDate control.
+        /// TeamPhotoFile control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblStartDate;
+        protected global::System.Web.UI.HtmlControls.HtmlInputFile TeamPhotoFile;
         
         /// <summary>
-        /// txtStartDate control.
+        /// rgvTeamPhotoFile control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtStartDate;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator rgvTeamPhotoFile;
         
         /// <summary>
-        /// rfvtxtStartDate control.
+        /// TeamPhotoImage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvtxtStartDate;
+        protected global::System.Web.UI.WebControls.Image TeamPhotoImage;
         
         /// <summary>
-        /// lblEndDate control.
+        /// txtEstablishedYear control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblEndDate;
+        protected global::System.Web.UI.WebControls.TextBox txtEstablishedYear;
         
         /// <summary>
-        /// txtEndDate control.
+        /// rfvtxtEstablishedYear control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEndDate;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvtxtEstablishedYear;
         
         /// <summary>
-        /// rfvtxtEndDate control.
+        /// TeamAnthemAudioFile control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvtxtEndDate;
+        protected global::System.Web.UI.HtmlControls.HtmlInputFile TeamAnthemAudioFile;
         
         /// <summary>
-        /// cvDatesValidator control.
+        /// rgvTeamAnthemAudioFile control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CustomValidator cvDatesValidator;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator rgvTeamAnthemAudioFile;
         
         /// <summary>
-        /// lblNoOfGroup control.
+        /// lblAudioFile control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNoOfGroup;
-        
-        /// <summary>
-        /// txtNoOfGroup control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNoOfGroup;
-        
-        /// <summary>
-        /// lblNoOfTeam control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNoOfTeam;
-        
-        /// <summary>
-        /// txtNoOfTeam control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNoOfTeam;
-        
-        /// <summary>
-        /// lblActive control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblActive;
+        protected global::System.Web.UI.WebControls.Label lblAudioFile;
         
         /// <summary>
         /// ChkIsActive control.
@@ -535,15 +481,6 @@ namespace DotNetNuke.Modules.ThSport {
         protected global::System.Web.UI.WebControls.CheckBox ChkIsActive;
         
         /// <summary>
-        /// lblShow control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblShow;
-        
-        /// <summary>
         /// ChkIsShow control.
         /// </summary>
         /// <remarks>
@@ -553,30 +490,30 @@ namespace DotNetNuke.Modules.ThSport {
         protected global::System.Web.UI.WebControls.CheckBox ChkIsShow;
         
         /// <summary>
-        /// btnSaveCompetition control.
+        /// btnSaveTeam control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSaveCompetition;
+        protected global::System.Web.UI.WebControls.Button btnSaveTeam;
         
         /// <summary>
-        /// btnUpdateCompetition control.
+        /// btnUpdateTeam control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnUpdateCompetition;
+        protected global::System.Web.UI.WebControls.Button btnUpdateTeam;
         
         /// <summary>
-        /// btnCancelCompetition control.
+        /// btnCancelTeam control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCancelCompetition;
+        protected global::System.Web.UI.WebControls.Button btnCancelTeam;
     }
 }

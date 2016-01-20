@@ -95,9 +95,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
-    <Compile Include="clsAddDocuments.cs" />
-    <Compile Include="clsAddDocumentsType.cs" />
+    <Compile Include="clsTeam.cs" />
     <Compile Include="clsCompetitionFormat.cs" />
     <Compile Include="clsClub.cs" />
     <Compile Include="clsClubMember.cs" />
@@ -107,7 +105,6 @@
     <Compile Include="clsCompetitionLeague.cs" />
     <Compile Include="clsCompetitionType.cs" />
     <Compile Include="clsDivision.cs" />
-    <Compile Include="clsEvent.cs" />
     <Compile Include="clsRegistration.cs" />
     <Compile Include="clsRegistrationParentsOrRelatives.cs" />
     <Compile Include="clsSeason.cs" />

@@ -50,7 +50,7 @@
         }
     }
 
-    function previewFilephoto() {
+    function previewFileLogo() {
         var preview = document.querySelector('#<%=CompetitionLogoImage.ClientID %>');
         var file = document.querySelector('#<%=CompetitionLogoFile.ClientID %>').files[0];
         var reader = new FileReader();
@@ -61,7 +61,7 @@
 
         if (file) {
             if (file.size > 10485760) {
-                document.getElementById('dvMsg').style.display = "block";
+                document.getElementById('span_logo_size_error').style.display = "block";
                 preview.src = "";
             }
             reader.readAsDataURL(file);
@@ -566,6 +566,8 @@
                                                     ValidationExpression = "^[\s\S]{0,5}$" 
                                                     runat="server" ErrorMessage="Maximum 5 characters allowed.">
                     </asp:RegularExpressionValidator>  
+            <asp:CustomValidator ID="cvtxtCompetitionAbbr" ValidationGroup="Sports" runat="server" ErrorMessage="" SetFocusOnError="true" ControlToValidate="txtCompetitionAbbr"
+                                    EnableClientScript="true" ClientValidationFunction="validateTextBox" CssClass="errorfordnn" Text="First Character Should Not Be Special Character"></asp:CustomValidator>
            </div>
         </div>
     
@@ -608,14 +610,15 @@
                 <asp:Label ID="lblUploadLogo" runat="server" Text="Upload Logo : "></asp:Label>
              </label>
             <div class="controls" style="position:relative;">  
-                <input ID="CompetitionLogoFile" type="file" name="file" runat="server" onchange="previewFilephoto()"/>
+                <input ID="CompetitionLogoFile" type="file" name="file" runat="server" onchange="previewFileLogo()"/>
                 <span class="help-inline"><font Color="red"><b>*</b></font></span>
                 <asp:RegularExpressionValidator ID="rgvCompetitionLogoFile" 
-                                                ValidationExpression="([a-zA-Z0-9\s_\\.\-:])+(.png|.jpg|.gif)$"
+                                                ValidationExpression="/^(([a-zA-Z]:)|(\\{2}\w+)\$?)(\\(\w[\w].*))+(.jpeg|.JPEG|.gif|.GIF| .png|.PNG)$/"
                                                 ControlToValidate="CompetitionLogoFile" ValidationGroup="Sports" 
                                                 runat="server"  
-                                                ErrorMessage="Please choose only .jpg, .png and .gif images!"
+                                                ErrorMessage="Please choose only .jpg, .jpeg, .png and .gif images!"
                                                 CssClass ="errorfordnn" />
+                <span id="span_logo_size_error" style="display:none;"><font style="color:red;">Can Not Upload Logo Larger Than 10 MB</font></span> 
                 <div style="padding-top:10px;border:none; Width:200px;">
                     <asp:Image ID="CompetitionLogoImage" runat="server" />
                 </div>
