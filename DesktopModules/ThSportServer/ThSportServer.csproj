@@ -95,13 +95,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="clsCompetitionFormat.cs" />
     <Compile Include="clsClub.cs" />
     <Compile Include="clsClubMember.cs" />
     <Compile Include="clsClubOwner.cs" />
+    <Compile Include="clsCompetition.cs" />
     <Compile Include="clsCompetitionGroup.cs" />
     <Compile Include="clsCompetitionLeague.cs" />
     <Compile Include="clsCompetitionType.cs" />
+    <Compile Include="clsDivision.cs" />
     <Compile Include="clsRegistration.cs" />
     <Compile Include="clsSeason.cs" />
     <Compile Include="clsSport.cs" />

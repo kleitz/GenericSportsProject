@@ -10,7 +10,7 @@
 namespace DotNetNuke.Modules.ThSport {
     
     
-    public partial class frmCompetitionType {
+    public partial class frmCompetitionGroup {
         
         /// <summary>
         /// divsavemassage control.
@@ -85,13 +85,13 @@ namespace DotNetNuke.Modules.ThSport {
         protected global::System.Web.UI.WebControls.Label msgConfirm;
         
         /// <summary>
-        /// pnlCompetitionTypeGrid control.
+        /// pnlCompetitionGroupGrid control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlCompetitionTypeGrid;
+        protected global::System.Web.UI.WebControls.Panel pnlCompetitionGroupGrid;
         
         /// <summary>
         /// addPanel control.
@@ -103,183 +103,156 @@ namespace DotNetNuke.Modules.ThSport {
         protected global::System.Web.UI.WebControls.Panel addPanel;
         
         /// <summary>
-        /// btnAddCompetitionType control.
+        /// btnAddCompetitionGroup control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnAddCompetitionType;
+        protected global::System.Web.UI.WebControls.LinkButton btnAddCompetitionGroup;
         
         /// <summary>
-        /// gvCompetitionType control.
+        /// gvCompetitionGroup control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvCompetitionType;
+        protected global::System.Web.UI.WebControls.GridView gvCompetitionGroup;
         
         /// <summary>
-        /// pnlCompetitionTypeEntry control.
+        /// pnlCompetitionGroupEntry control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlCompetitionTypeEntry;
+        protected global::System.Web.UI.WebControls.Panel pnlCompetitionGroupEntry;
         
         /// <summary>
-        /// hdnCompetitionTypeId control.
+        /// hdnCompetitionGroupID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hdnCompetitionTypeId;
+        protected global::System.Web.UI.WebControls.HiddenField hdnCompetitionGroupID;
         
         /// <summary>
-        /// lblCompetitionType control.
+        /// txtCompetitionGroup control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCompetitionType;
+        protected global::System.Web.UI.WebControls.TextBox txtCompetitionGroup;
         
         /// <summary>
-        /// txtCompetitionType control.
+        /// rfvCompetitionGroup control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCompetitionType;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvCompetitionGroup;
         
         /// <summary>
-        /// rfvCompetitionType control.
+        /// rgvtxtCompetitionGroup control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvCompetitionType;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator rgvtxtCompetitionGroup;
         
         /// <summary>
-        /// rgvtxtCompetitionType control.
+        /// cvtxtCompetitionGroup control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator rgvtxtCompetitionType;
+        protected global::System.Web.UI.WebControls.CustomValidator cvtxtCompetitionGroup;
         
         /// <summary>
-        /// cvtxtCompetitionType control.
+        /// lblCompetitionGroupAbbr control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CustomValidator cvtxtCompetitionType;
+        protected global::System.Web.UI.WebControls.Label lblCompetitionGroupAbbr;
         
         /// <summary>
-        /// lblCompetitionTypeDesc control.
+        /// txtCompetitionGroupAbbr control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCompetitionTypeDesc;
+        protected global::System.Web.UI.WebControls.TextBox txtCompetitionGroupAbbr;
         
         /// <summary>
-        /// txtCompetitionTypeDesc control.
+        /// rgvtxtCompetitionGroupAbbr control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCompetitionTypeDesc;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator rgvtxtCompetitionGroupAbbr;
         
         /// <summary>
-        /// rgvtxtCompetitionTypeDesc control.
+        /// lblNoOfTeam control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator rgvtxtCompetitionTypeDesc;
+        protected global::System.Web.UI.WebControls.Label lblNoOfTeam;
         
         /// <summary>
-        /// cvtxtCompetitionTypeDesc control.
+        /// txtNoOfTeam control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CustomValidator cvtxtCompetitionTypeDesc;
+        protected global::System.Web.UI.WebControls.TextBox txtNoOfTeam;
         
         /// <summary>
-        /// lblActive control.
+        /// ChkIsConfirm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblActive;
+        protected global::System.Web.UI.WebControls.CheckBox ChkIsConfirm;
         
         /// <summary>
-        /// ChkIsActive control.
+        /// btnSaveCompetitionGroup control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox ChkIsActive;
+        protected global::System.Web.UI.WebControls.Button btnSaveCompetitionGroup;
         
         /// <summary>
-        /// lblShow control.
+        /// btnUpdateCompetitionGroup control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblShow;
+        protected global::System.Web.UI.WebControls.Button btnUpdateCompetitionGroup;
         
         /// <summary>
-        /// ChkIsShow control.
+        /// btnCancelCompetitionGroup control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox ChkIsShow;
-        
-        /// <summary>
-        /// btnSaveCompetitionType control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSaveCompetitionType;
-        
-        /// <summary>
-        /// btnUpdateCompetitionType control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnUpdateCompetitionType;
-        
-        /// <summary>
-        /// btnCancelCompetitionType control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCancelCompetitionType;
+        protected global::System.Web.UI.WebControls.Button btnCancelCompetitionGroup;
     }
 }

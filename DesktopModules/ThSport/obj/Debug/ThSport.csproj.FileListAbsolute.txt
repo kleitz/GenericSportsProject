@@ -4,3 +4,9 @@ D:\thsportsitednn\bin\ThSport.xml
 D:\thsportsitednn\DesktopModules\ThSport\obj\Debug\ThSport.csprojResolveAssemblyReference.cache
 D:\thsportsitednn\DesktopModules\ThSport\obj\Debug\ThSport.dll
 D:\thsportsitednn\DesktopModules\ThSport\obj\Debug\ThSport.pdb
+E:\Projects\ProjThSport\bin\ThSport.dll
+E:\Projects\ProjThSport\bin\ThSport.pdb
+E:\Projects\ProjThSport\bin\ThSport.xml
+E:\Projects\ProjThSport\DesktopModules\ThSport\obj\Debug\ThSport.csprojResolveAssemblyReference.cache
+E:\Projects\ProjThSport\DesktopModules\ThSport\obj\Debug\ThSport.dll
+E:\Projects\ProjThSport\DesktopModules\ThSport\obj\Debug\ThSport.pdb

@@ -21,7 +21,7 @@ namespace DotNetNuke.Modules.ThSport
         clsCompetitionLeague cl = new clsCompetitionLeague();
         clsCompetitionLeagueController clc = new clsCompetitionLeagueController();
 
-        private readonly UserInfo currentLeague = DotNetNuke.Entities.Users.UserController.GetCurrentUserInfo();
+        private readonly UserInfo currentUser = DotNetNuke.Entities.Users.UserController.GetCurrentUserInfo();
 
         #region variables
 
@@ -33,13 +33,16 @@ namespace DotNetNuke.Modules.ThSport
         Boolean FileOKForUpdate = false;
         Boolean FileSavedForUpdate = false;
 
-        string currentId
+        int competitionleagueID
         {
             get
             {
-                if (ViewState["currentId"] != null)
-                    return ViewState["currentId"].ToString();
-                return null;
+                int id = 0;
+                if (!string.IsNullOrEmpty(hdnCompetitionLeagueID.Value))
+                {
+                    int.TryParse(hdnCompetitionLeagueID.Value, out id);
+                }
+                return id;
             }
         }
 
@@ -66,11 +69,8 @@ namespace DotNetNuke.Modules.ThSport
             DataTable dt = new DataTable();
             dt = clc.GetCompetitionLeagueList();
 
-            if (dt.Rows.Count > 0)
-            {
-                gvCompetitionLeague.DataSource = dt;
-                gvCompetitionLeague.DataBind();
-            }
+            gvCompetitionLeague.DataSource = dt;
+            gvCompetitionLeague.DataBind();
         }
 
         #endregion Methods
@@ -138,8 +138,8 @@ namespace DotNetNuke.Modules.ThSport
             cl.ActiveFlagId = Convert.ToInt32(ChkIsActive.Checked);
             cl.ShowFlagId = Convert.ToInt32(ChkIsShow.Checked);
             cl.PortalID = PortalId;
-            cl.CreatedById = currentLeague.Username;
-            cl.ModifiedById = currentLeague.Username;
+            cl.CreatedById = currentUser.Username;
+            cl.ModifiedById = currentUser.Username;
 
             // Call Save Method
             clc.InsertCompetitionLeague(cl);
@@ -155,7 +155,7 @@ namespace DotNetNuke.Modules.ThSport
         {
             Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "UpdateSuccessfully();", true);
 
-
+            cl.CompetitionLeagueId = competitionleagueID;
             cl.CompetitionLeagueName = txtCompetitionLeague.Text.Trim();
             cl.CompeititionLeagueAbbr = txtCompetitionLeagueAbbr.Text;
             cl.CompetitionLeagueDesc = txtCompetitionLeagueDesc.Text.Trim();
@@ -163,80 +163,20 @@ namespace DotNetNuke.Modules.ThSport
 
             if (CompetitionLeagueLogoFile.PostedFile.FileName == "")
             {
-                DataTable dt1 = new DataTable();
-                cl.CompetitionLeagueId = Convert.ToInt32(hdnCompetitionLeagueID.Value);
-                dt1 = clc.GetCompetitionLeagueDetailByCompetitionLeagueID(cl.CompetitionLeagueId);
-                CompetitionLeagueLogoImage.ImageUrl = dt1.Rows[0]["CompetitionLeagueLogoFile"].ToString();
-                string ufname = dt1.Rows[0]["CompetitionLeagueLogoFile"].ToString().Replace(" ", "");
-                CompetitionLeagueLogoFile.ResolveUrl("ufname");
-                cl.CompetitionLeagueLogoFile = ufname.Replace(" ", "");
+                //DataTable dt1 = new DataTable();
+                //cl.CompetitionLeagueId = Convert.ToInt32(hdnCompetitionLeagueID.Value);
+                //dt1 = clc.GetCompetitionLeagueDetailByCompetitionLeagueID(cl.CompetitionLeagueId);
+                //CompetitionLeagueLogoImage.ImageUrl = dt1.Rows[0]["CompetitionLeagueLogoFile"].ToString();
+                //string ufname = dt1.Rows[0]["CompetitionLeagueLogoFile"].ToString().Replace(" ", "");
+                //CompetitionLeagueLogoFile.ResolveUrl("ufname");
+                //cl.CompetitionLeagueLogoFile = ufname.Replace(" ", "");
+
+                cl.CompetitionLeagueLogoFile = CompetitionLeagueLogoImage.ImageUrl;
                 FileOKForUpdate = true;
             }
             else
             {
 
-                cl.CompetitionLeagueLogoFile = imhpathDB + CompetitionLeagueLogoFile.PostedFile.FileName.Replace(" ", "");
-
-                if (CompetitionLeagueLogoFile.PostedFile != null)
-                {
-                    String FileExtension = Path.GetExtension(CompetitionLeagueLogoFile.PostedFile.FileName.Replace(" ", "")).ToLower();
-                    String[] allowedExtensions = { ".png", ".jpg", ".gif", ".jpeg" };
-                    for (int i = 0; i < allowedExtensions.Length; i++)
-                    {
-                        if (FileExtension == allowedExtensions[i])
-                        {
-                            FileOK = true;
-                            break;
-                        }
-                    }
-                }
-
-                if (!string.IsNullOrEmpty(CompetitionLeagueLogoFile.PostedFile.FileName))
-                {
-                    if (!FileOK)
-                    {
-                        //Page.ClientScript.RegisterClientScriptBlock(typeof(Page), "Alert", "alert('Please choose only .jpg, .png and .gif images For Competition !')", true);
-                        return;
-                    }
-                }
-
-                if (FileOK)
-                {
-                    if (CompetitionLeagueLogoFile.PostedFile.ContentLength > 10485760)
-                    {
-                        //dvMsg.Attributes.Add("style", "display:block;");
-                        //return;
-                    }
-                    else
-                    {
-                        //dvMsg.Attributes.Add("style", "display:none;");
-                    }
-
-                    try
-                    {
-                        CompetitionLeagueLogoFile.PostedFile.SaveAs(physicalpath + ImageUploadFolder + CompetitionLeagueLogoFile.PostedFile.FileName.Replace(" ", ""));
-                        FileSaved = true;
-                    }
-                    catch (Exception ex)
-                    {
-                        FileSaved = false;
-                    }
-                }
-            }
-
-            if (CompetitionLeagueLogoFile.PostedFile.FileName == "")
-            {
-                DataTable dt1 = new DataTable();
-                cl.CompetitionLeagueId = Convert.ToInt32(hdnCompetitionLeagueID.Value);
-                dt1 = clc.GetCompetitionLeagueDetailByCompetitionLeagueID(cl.CompetitionLeagueId);
-                CompetitionLeagueLogoImage.ImageUrl = dt1.Rows[0]["CompetitionLeagueLogoFile"].ToString();
-                string ufname = dt1.Rows[0]["CompetitionLeagueLogoFile"].ToString().Replace(" ", "");
-                CompetitionLeagueLogoFile.ResolveUrl("ufname");
-                cl.CompetitionLeagueLogoFile = ufname.Replace(" ", "");
-                FileOKForUpdate = true;
-            }
-            else
-            {
                 cl.CompetitionLeagueLogoFile = imhpathDB + CompetitionLeagueLogoFile.PostedFile.FileName.Replace(" ", "");
 
                 if (CompetitionLeagueLogoFile.PostedFile != null)
@@ -289,7 +229,7 @@ namespace DotNetNuke.Modules.ThSport
             cl.ActiveFlagId = Convert.ToInt32(ChkIsActive.Checked);
             cl.ShowFlagId = Convert.ToInt32(ChkIsShow.Checked);
             cl.PortalID = PortalId;
-            cl.ModifiedById = currentLeague.Username;
+            cl.ModifiedById = currentUser.Username;
 
             // Call Update Method
             clc.UpdateCompetitionLeague(cl);
@@ -341,27 +281,24 @@ namespace DotNetNuke.Modules.ThSport
 
         protected void ddlAction_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int competitionLeagueID = 0;
-            int.TryParse(((HiddenField)((DropDownList)sender).Parent.FindControl("hdnCompetitionLeagueId")).Value, out competitionLeagueID);
-
+            hdnCompetitionLeagueID.Value = ((HiddenField)((DropDownList)sender).Parent.FindControl("hdn_CompetitionLeague_Id")).Value;
+            
             string ddlSelectedValue = ((DropDownList)sender).SelectedValue;
 
             if (ddlSelectedValue == "Edit")
             {
-                ViewState["currentId"] = Convert.ToInt16(competitionLeagueID);
-
                 ClearData();
-                DataTable dt1 = clc.GetCompetitionLeagueDetailByCompetitionLeagueID(competitionLeagueID);
+                DataTable dt1 = clc.GetCompetitionLeagueDetailByCompetitionLeagueID(competitionleagueID);
 
                 if (dt1.Rows.Count > 0)
                 {
                     txtCompetitionLeague.Text = dt1.Rows[0]["CompetitionLeagueName"].ToString();
                     txtCompetitionLeagueDesc.Text = dt1.Rows[0]["CompetitionLeagueDesc"].ToString();
                     txtCompetitionLeagueAbbr.Text = dt1.Rows[0]["CompetitionLeagueAbbr"].ToString();
-
+                    txtCompetitionLeagueLogoName.Text = dt1.Rows[0]["CompetitionLeagueLogoName"].ToString();
                     CompetitionLeagueLogoImage.ImageUrl = dt1.Rows[0]["CompetitionLeagueLogoFile"].ToString();
 
-                    string ufname = dt1.Rows[0]["CompetitionImagePath"].ToString().Replace(" ", "");
+                    string ufname = dt1.Rows[0]["CompetitionLeagueLogoFile"].ToString().Replace(" ", "");
                     CompetitionLeagueLogoImage.ResolveUrl("ufname");
 
 

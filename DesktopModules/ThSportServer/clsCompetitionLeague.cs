@@ -56,7 +56,7 @@ namespace ThSportServer
         {
             try
             {
-                dataProvider.ExecuteNonQuery("usp_UpdateCompetitionLegaue", cl.CompetitionLeagueId,cl.CompetitionLeagueName, cl.CompeititionLeagueAbbr, cl.CompetitionLeagueDesc, cl.CompetitionLeagueLogoName, cl.CompetitionLeagueLogoFile, cl.ActiveFlagId, cl.ShowFlagId, cl.PortalID, cl.CreatedById, cl.ModifiedById);
+                dataProvider.ExecuteNonQuery("usp_UpdateCompetitionLegaue", cl.CompetitionLeagueId,cl.CompetitionLeagueName, cl.CompeititionLeagueAbbr, cl.CompetitionLeagueDesc, cl.CompetitionLeagueLogoName, cl.CompetitionLeagueLogoFile, cl.ActiveFlagId, cl.ShowFlagId, cl.PortalID, cl.ModifiedById);
             }
             catch (Exception ex)
             {

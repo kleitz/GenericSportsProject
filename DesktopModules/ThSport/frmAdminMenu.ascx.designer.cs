@@ -103,6 +103,24 @@ namespace DotNetNuke.Modules.ThSport {
         protected global::System.Web.UI.WebControls.HyperLink hlRegistration;
         
         /// <summary>
+        /// li_Competition control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl li_Competition;
+        
+        /// <summary>
+        /// hlCompetition control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink hlCompetition;
+        
+        /// <summary>
         /// li_Masters control.
         /// </summary>
         /// <remarks>
@@ -191,6 +209,42 @@ namespace DotNetNuke.Modules.ThSport {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink hlCompetitionLeague;
+        
+        /// <summary>
+        /// li_CompetitionFormat control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl li_CompetitionFormat;
+        
+        /// <summary>
+        /// hlCompetitionFormat control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink hlCompetitionFormat;
+        
+        /// <summary>
+        /// li_Division control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl li_Division;
+        
+        /// <summary>
+        /// hlDivision control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink hlDivision;
         
         /// <summary>
         /// titela control.

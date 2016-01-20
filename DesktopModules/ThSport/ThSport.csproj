@@ -138,7 +138,6 @@
     <Compile Include="Admin\Security\Password.ascx.designer.cs">
       <DependentUpon>Password.ascx</DependentUpon>
     </Compile>
-    <Compile Include="clsCompetition.cs" />
     <Compile Include="Components\FeatureController.cs" />
     <Compile Include="Data\DataProvider.cs" />
     <Content Include="Admin\Security\labelcontrol.ascx" />
@@ -231,6 +230,27 @@
     <Compile Include="frmClubOwner.ascx.designer.cs">
       <DependentUpon>frmClubOwner.ascx</DependentUpon>
     </Compile>
+    <Compile Include="frmCompetition.ascx.cs">
+      <DependentUpon>frmCompetition.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmCompetition.ascx.designer.cs">
+      <DependentUpon>frmCompetition.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="frmCompetitionFormat.ascx.cs">
+      <DependentUpon>frmCompetitionFormat.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmCompetitionFormat.ascx.designer.cs">
+      <DependentUpon>frmCompetitionFormat.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="frmCompetitionGroup.ascx.cs">
+      <DependentUpon>frmCompetitionGroup.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmCompetitionGroup.ascx.designer.cs">
+      <DependentUpon>frmCompetitionGroup.ascx</DependentUpon>
+    </Compile>
     <Compile Include="frmCompetitionLeague.ascx.cs">
       <DependentUpon>frmCompetitionLeague.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -244,6 +264,13 @@
     </Compile>
     <Compile Include="frmCompetitionType.ascx.designer.cs">
       <DependentUpon>frmCompetitionType.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="frmDivision.ascx.cs">
+      <DependentUpon>frmDivision.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmDivision.ascx.designer.cs">
+      <DependentUpon>frmDivision.ascx</DependentUpon>
     </Compile>
     <Compile Include="frmSeason.ascx.cs">
       <DependentUpon>frmSeason.ascx</DependentUpon>
@@ -306,8 +333,12 @@
     <Content Include="frmClubMember.ascx" />
     <Content Include="frmClubMemberType.ascx" />
     <Content Include="frmClubOwner.ascx" />
+    <Content Include="frmCompetition.ascx" />
+    <Content Include="frmCompetitionFormat.ascx" />
+    <Content Include="frmCompetitionGroup.ascx" />
     <Content Include="frmCompetitionLeague.ascx" />
     <Content Include="frmCompetitionType.ascx" />
+    <Content Include="frmDivision.ascx" />
     <Content Include="frmSeason.ascx" />
     <Content Include="frmSports.ascx" />
     <Content Include="frmUserType.ascx" />
@@ -973,6 +1004,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Images\CompetitionLeagueLogo\" />
+    <Folder Include="Images\CompetitionLogo\" />
+    <Folder Include="Images\DivisionLogo\" />
     <Folder Include="obj\JSON\" />
     <Folder Include="TestResults\" />
   </ItemGroup>

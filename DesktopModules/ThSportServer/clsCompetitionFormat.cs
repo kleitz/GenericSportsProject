@@ -16,31 +16,26 @@ using System.Collections;
 
 namespace ThSportServer
 {
-    public class clsCompetitionGroup
+    public class clsCompetitionFormat
     {
-        public int CompetitionGroupId;
-        public int CompetitionId;
-        public string CompetitionGroupName;
-        public string CompetitionGroupAbbr;
-        public int NumberofTeams;
-        public int ConfirmFlag;
+        public int CompetitionFormatId;
+        public string CompetitionFormatName;
+        public string CompetitionFormatDesc;
         public int PortalID;
-        public string CreatedById;
-        public string ModifiedById;
     }
 
-    public class clsCompetitionGroupController
+    public class clsCompetitionFormatController
     {
         private readonly DataProvider dataProvider = DataProvider.Instance();
         private readonly UserInfo currentUser = DotNetNuke.Entities.Users.UserController.GetCurrentUserInfo();
 
         #region Insert,Update Method
 
-        public int InsertCompetitionGroup(clsCompetitionGroup cg)
+        public int InsertCompetitionFormat(clsCompetitionFormat cf)
         {
             try
             {
-                dataProvider.ExecuteNonQuery("usp_InsertCompetitionGroup", cg.CompetitionId, cg.CompetitionGroupName, cg.CompetitionGroupAbbr, cg.NumberofTeams, cg.ConfirmFlag, cg.CreatedById, cg.ModifiedById);
+                dataProvider.ExecuteNonQuery("usp_InsertCompetitionFormat", cf.CompetitionFormatName,cf.CompetitionFormatDesc,cf.PortalID);
             }
             catch (Exception ex)
             {
@@ -49,11 +44,11 @@ namespace ThSportServer
             return 0;
         }
 
-        public int UpdateCompetitionGroup(clsCompetitionGroup cg)
+        public int UpdateCompetitionFormat(clsCompetitionFormat cf)
         {
             try
             {
-                dataProvider.ExecuteNonQuery("usp_UpdateCompetitionGroup", cg.CompetitionGroupId, cg.CompetitionId, cg.CompetitionGroupName, cg.CompetitionGroupAbbr, cg.NumberofTeams, cg.ConfirmFlag, cg.ModifiedById);
+                dataProvider.ExecuteNonQuery("usp_UpdateCompetitionFormat", cf.CompetitionFormatId,cf.CompetitionFormatName,cf.CompetitionFormatDesc,cf.PortalID);
             }
             catch (Exception ex)
             {
@@ -62,30 +57,30 @@ namespace ThSportServer
             return 0;
         }
 
-        public int DeleteCompetitionGroup(int gid)
-        {
-            try
-            {
-                dataProvider.ExecuteNonQuery("usp_DeleteCompetitionGroup", gid);
-            }
-            catch (Exception ex)
-            {
-                Exceptions.LogException(ex);
-            }
-            return 0;
-        }
+        //public int DeleteCompetition(int cid)
+        //{
+        //    try
+        //    {
+        //        dataProvider.ExecuteNonQuery("usp_DeleteCompetition", cid);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Exceptions.LogException(ex);
+        //    }
+        //    return 0;
+        //}
 
         #endregion Insert,Update Method
 
         #region Getdata Method
 
-        public DataTable GetCompetitionGroupList(int cid)
+        public DataTable GetCompetitionFormatList()
         {
             using (DataTable dt = new DataTable())
             {
                 try
                 {
-                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetCompetitionGroupList",cid))
+                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetCompetitionFormatList"))
                     {
                         dt.Load(reader);
                         return dt;
@@ -99,13 +94,13 @@ namespace ThSportServer
             }
         }
 
-        public DataTable GetCompetitionGroupDetailByCompetitionGroupID(int CompetitionGroupID)
+        public DataTable GetCompetitionFormatDetailByCompetitionFormatID(int CompetitionFormatID)
         {
             DataTable dt = new DataTable();
 
             try
             {
-                using (IDataReader rdr = dataProvider.ExecuteReader("usp_GetCompetitionGroupDetailByCompetitionGroupID", CompetitionGroupID))
+                using (IDataReader rdr = dataProvider.ExecuteReader("usp_GetCompetitionFormatDetailByCompetitionFormatID", CompetitionFormatID))
                 {
                     dt.Load(rdr);
                 }
@@ -120,4 +115,5 @@ namespace ThSportServer
         #endregion Getdata Methods
 
     }
+
 }

@@ -10,7 +10,7 @@
 namespace DotNetNuke.Modules.ThSport {
     
     
-    public partial class frmCompetitionType {
+    public partial class frmDivision {
         
         /// <summary>
         /// divsavemassage control.
@@ -85,13 +85,13 @@ namespace DotNetNuke.Modules.ThSport {
         protected global::System.Web.UI.WebControls.Label msgConfirm;
         
         /// <summary>
-        /// pnlCompetitionTypeGrid control.
+        /// pnlDivisionGrid control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlCompetitionTypeGrid;
+        protected global::System.Web.UI.WebControls.Panel pnlDivisionGrid;
         
         /// <summary>
         /// addPanel control.
@@ -103,183 +103,300 @@ namespace DotNetNuke.Modules.ThSport {
         protected global::System.Web.UI.WebControls.Panel addPanel;
         
         /// <summary>
-        /// btnAddCompetitionType control.
+        /// btnAddDivision control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnAddCompetitionType;
+        protected global::System.Web.UI.WebControls.LinkButton btnAddDivision;
         
         /// <summary>
-        /// gvCompetitionType control.
+        /// gvDivision control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvCompetitionType;
+        protected global::System.Web.UI.WebControls.GridView gvDivision;
         
         /// <summary>
-        /// pnlCompetitionTypeEntry control.
+        /// pnlDivisionEntry control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlCompetitionTypeEntry;
+        protected global::System.Web.UI.WebControls.Panel pnlDivisionEntry;
         
         /// <summary>
-        /// hdnCompetitionTypeId control.
+        /// hdnDivisionID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hdnCompetitionTypeId;
+        protected global::System.Web.UI.WebControls.HiddenField hdnDivisionID;
         
         /// <summary>
-        /// lblCompetitionType control.
+        /// ddlSeason control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCompetitionType;
+        protected global::System.Web.UI.WebControls.DropDownList ddlSeason;
         
         /// <summary>
-        /// txtCompetitionType control.
+        /// rfvddlSeason control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCompetitionType;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvddlSeason;
         
         /// <summary>
-        /// rfvCompetitionType control.
+        /// lblDivision control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvCompetitionType;
+        protected global::System.Web.UI.WebControls.Label lblDivision;
         
         /// <summary>
-        /// rgvtxtCompetitionType control.
+        /// txtDivision control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator rgvtxtCompetitionType;
+        protected global::System.Web.UI.WebControls.TextBox txtDivision;
         
         /// <summary>
-        /// cvtxtCompetitionType control.
+        /// rfvDivision control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CustomValidator cvtxtCompetitionType;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvDivision;
         
         /// <summary>
-        /// lblCompetitionTypeDesc control.
+        /// rgvtxtDivision control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCompetitionTypeDesc;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator rgvtxtDivision;
         
         /// <summary>
-        /// txtCompetitionTypeDesc control.
+        /// cvtxtDivision control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCompetitionTypeDesc;
+        protected global::System.Web.UI.WebControls.CustomValidator cvtxtDivision;
         
         /// <summary>
-        /// rgvtxtCompetitionTypeDesc control.
+        /// lblDivisionAbbr control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator rgvtxtCompetitionTypeDesc;
+        protected global::System.Web.UI.WebControls.Label lblDivisionAbbr;
         
         /// <summary>
-        /// cvtxtCompetitionTypeDesc control.
+        /// txtDivisionAbbr control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CustomValidator cvtxtCompetitionTypeDesc;
+        protected global::System.Web.UI.WebControls.TextBox txtDivisionAbbr;
         
         /// <summary>
-        /// lblActive control.
+        /// rgvtxtDivisionAbbr control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblActive;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator rgvtxtDivisionAbbr;
         
         /// <summary>
-        /// ChkIsActive control.
+        /// lblDivisionDesc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox ChkIsActive;
+        protected global::System.Web.UI.WebControls.Label lblDivisionDesc;
         
         /// <summary>
-        /// lblShow control.
+        /// txtDivisionDesc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblShow;
+        protected global::System.Web.UI.WebControls.TextBox txtDivisionDesc;
         
         /// <summary>
-        /// ChkIsShow control.
+        /// rgvtxtDivisionDesc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox ChkIsShow;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator rgvtxtDivisionDesc;
         
         /// <summary>
-        /// btnSaveCompetitionType control.
+        /// cvtxtDivisionDesc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSaveCompetitionType;
+        protected global::System.Web.UI.WebControls.CustomValidator cvtxtDivisionDesc;
         
         /// <summary>
-        /// btnUpdateCompetitionType control.
+        /// lblDivisionLogoName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnUpdateCompetitionType;
+        protected global::System.Web.UI.WebControls.Label lblDivisionLogoName;
         
         /// <summary>
-        /// btnCancelCompetitionType control.
+        /// txtDivisionLogoName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCancelCompetitionType;
+        protected global::System.Web.UI.WebControls.TextBox txtDivisionLogoName;
+        
+        /// <summary>
+        /// rgvDivisionLogoName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator rgvDivisionLogoName;
+        
+        /// <summary>
+        /// lblUploadLogo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblUploadLogo;
+        
+        /// <summary>
+        /// DivisionLogoFile control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputFile DivisionLogoFile;
+        
+        /// <summary>
+        /// rgvDivisionLogoFile control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator rgvDivisionLogoFile;
+        
+        /// <summary>
+        /// DivisionLogoImage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image DivisionLogoImage;
+        
+        /// <summary>
+        /// txtDivisionLevel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDivisionLevel;
+        
+        /// <summary>
+        /// lblTotalNoOfTeam control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTotalNoOfTeam;
+        
+        /// <summary>
+        /// txtTotalNoOfTeam control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtTotalNoOfTeam;
+        
+        /// <summary>
+        /// txtPromotedNum control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPromotedNum;
+        
+        /// <summary>
+        /// txtDemotedNum control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDemotedNum;
+        
+        /// <summary>
+        /// btnSaveDivision control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSaveDivision;
+        
+        /// <summary>
+        /// btnUpdateDivision control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnUpdateDivision;
+        
+        /// <summary>
+        /// btnCancelDivision control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCancelDivision;
     }
 }

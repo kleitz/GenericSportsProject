@@ -96,8 +96,9 @@ namespace DotNetNuke.Modules.ThSport
 
                 hlCompetitionType.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmCompetitionType");
                 hlCompetitionLeague.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmCompetitionLeague");
-                
-                
+                hlCompetitionFormat.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmCompetitionFormat");
+                hlCompetition.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmCompetition");
+                hlDivision.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmDivision");
             }
 
         }
@@ -180,40 +181,32 @@ namespace DotNetNuke.Modules.ThSport
                     titela.Text = "Registration &raquo;";
                     titela.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmRegistration");
                     break;
-                        
+
+
+                case "frmCompetition.ascx":
+                    HtmlGenericControl li_Competition = this.li_Competition as HtmlGenericControl;
+                    if (li_Competition != null)
+                        this.li_Competition.Attributes.Add("class", "active");
+                    titela.Text = "Competition &raquo;";
+                    titela.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmCompetition");
+                    break;
+
+                case "frmCompetitionGroup.ascx":
+                    HtmlGenericControl li_CompetitionGroup = this.li_Competition as HtmlGenericControl;
+                    if (li_CompetitionGroup != null)
+                        this.li_Competition.Attributes.Add("class", "active");
+                    titela.Text = "Competition";
+                    titela.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmCompetition");
+                    titel.Text = "&raquo; Competition Group";
+                    break;
+
+                //case "frmDivision.ascx":
+                //    HtmlGenericControl li_Division = this.li_Division as HtmlGenericControl;
+                //    if (li_Division != null)
+                //        this.li_Division.Attributes.Add("class", "active");
+                //    titela.Text = "Division";
+                //    titela.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmDivision");
                     
-                //case "Tournament.ascx":
-                //    HtmlGenericControl li_TournamentLink = this.li_TournamentLink as HtmlGenericControl;
-                //    if (li_TournamentLink != null)
-                //        this.li_TournamentLink.Attributes.Add("class", "active");
-                //    titela.Text = "Tournament &raquo;";
-                //    titela.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "Tournament");
-                //    break;
-
-                //case "Competition.ascx":
-                //    HtmlGenericControl li_CompetitionLink = this.li_CompetitionLink as HtmlGenericControl;
-                //    if (li_CompetitionLink != null)
-                //        this.li_CompetitionLink.Attributes.Add("class", "active");
-                //    titela.Text = "Competition &raquo;";
-                //    titela.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "Competition");
-                //    break;
-
-                //case "CompetitionGallery.ascx":
-                //    HtmlGenericControl li_CompetitionGalleryLink = this.li_CompetitionLink as HtmlGenericControl;
-                //    if (li_CompetitionGalleryLink != null)
-                //        this.li_CompetitionLink.Attributes.Add("class", "active");
-                //    titela.Text = "Competition";
-                //    titela.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "Competition");
-                //    titel.Text = "&raquo; Competition Gallery";
-                //    break;
-
-                //case "CompetitionLocation.ascx":
-                //    HtmlGenericControl li_CompetitionLocationLink = this.li_CompetitionLink as HtmlGenericControl;
-                //    if (li_CompetitionLocationLink != null)
-                //        this.li_CompetitionLink.Attributes.Add("class", "active");
-                //    titela.Text = "Competition";
-                //    titela.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "Competition");
-                //    titel.Text = "&raquo; Competition Location";
                 //    break;
 
                 //case "CompetitionVideo.ascx":

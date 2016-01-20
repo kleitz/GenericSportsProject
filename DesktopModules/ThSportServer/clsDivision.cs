@@ -16,31 +16,38 @@ using System.Collections;
 
 namespace ThSportServer
 {
-    public class clsCompetitionGroup
+    public class clsDivision
     {
-        public int CompetitionGroupId;
-        public int CompetitionId;
-        public string CompetitionGroupName;
-        public string CompetitionGroupAbbr;
-        public int NumberofTeams;
-        public int ConfirmFlag;
+        public int DivisionId;
+        public int SeasonId;
+        public string DivisionName;
+        public string DivisionAbbr;
+        public string DivisionDesc;
+        public string DivisionLogoName;
+        public string DivisionLogoFile;
+        public int DivisionLevel;
+        public int TotalNumofTeams;
+        public int PromotedNum;
+        public int DemotedNum;
+        public int ActiveFlagId;
+        public int ShowFlagId;
         public int PortalID;
         public string CreatedById;
         public string ModifiedById;
     }
 
-    public class clsCompetitionGroupController
+    public class clsDivisionController
     {
         private readonly DataProvider dataProvider = DataProvider.Instance();
         private readonly UserInfo currentUser = DotNetNuke.Entities.Users.UserController.GetCurrentUserInfo();
 
         #region Insert,Update Method
 
-        public int InsertCompetitionGroup(clsCompetitionGroup cg)
+        public int InsertDivision(clsDivision dv)
         {
             try
             {
-                dataProvider.ExecuteNonQuery("usp_InsertCompetitionGroup", cg.CompetitionId, cg.CompetitionGroupName, cg.CompetitionGroupAbbr, cg.NumberofTeams, cg.ConfirmFlag, cg.CreatedById, cg.ModifiedById);
+                dataProvider.ExecuteNonQuery("usp_InsertDivision", dv.SeasonId, dv.DivisionName , dv.DivisionAbbr, dv.DivisionDesc, dv.DivisionLogoName , dv.DivisionLogoFile , dv.DivisionLevel,dv.TotalNumofTeams,dv.PromotedNum,dv.DemotedNum,dv.PortalID, dv.CreatedById, dv.ModifiedById);
             }
             catch (Exception ex)
             {
@@ -49,11 +56,11 @@ namespace ThSportServer
             return 0;
         }
 
-        public int UpdateCompetitionGroup(clsCompetitionGroup cg)
+        public int UpdateDivision(clsDivision dv)
         {
             try
             {
-                dataProvider.ExecuteNonQuery("usp_UpdateCompetitionGroup", cg.CompetitionGroupId, cg.CompetitionId, cg.CompetitionGroupName, cg.CompetitionGroupAbbr, cg.NumberofTeams, cg.ConfirmFlag, cg.ModifiedById);
+                dataProvider.ExecuteNonQuery("usp_UpdateDivision", dv.DivisionId, dv.SeasonId, dv.DivisionName, dv.DivisionAbbr, dv.DivisionDesc, dv.DivisionLogoName, dv.DivisionLogoFile, dv.DivisionLevel, dv.TotalNumofTeams, dv.PromotedNum, dv.DemotedNum, dv.PortalID, dv.ModifiedById);
             }
             catch (Exception ex)
             {
@@ -62,11 +69,12 @@ namespace ThSportServer
             return 0;
         }
 
-        public int DeleteCompetitionGroup(int gid)
+        public int DeleteDivision(int cid)
         {
             try
             {
-                dataProvider.ExecuteNonQuery("usp_DeleteCompetitionGroup", gid);
+
+                dataProvider.ExecuteNonQuery("usp_DeleteDivision", cid);
             }
             catch (Exception ex)
             {
@@ -79,13 +87,13 @@ namespace ThSportServer
 
         #region Getdata Method
 
-        public DataTable GetCompetitionGroupList(int cid)
+        public DataTable GetDivisionList()
         {
             using (DataTable dt = new DataTable())
             {
                 try
                 {
-                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetCompetitionGroupList",cid))
+                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetDivisionList"))
                     {
                         dt.Load(reader);
                         return dt;
@@ -99,13 +107,13 @@ namespace ThSportServer
             }
         }
 
-        public DataTable GetCompetitionGroupDetailByCompetitionGroupID(int CompetitionGroupID)
+        public DataTable GetDivisionByDivisionID(int DivisionID)
         {
             DataTable dt = new DataTable();
 
             try
             {
-                using (IDataReader rdr = dataProvider.ExecuteReader("usp_GetCompetitionGroupDetailByCompetitionGroupID", CompetitionGroupID))
+                using (IDataReader rdr = dataProvider.ExecuteReader("usp_GetDivisionByDivisionID", DivisionID))
                 {
                     dt.Load(rdr);
                 }
@@ -120,4 +128,5 @@ namespace ThSportServer
         #endregion Getdata Methods
 
     }
+
 }

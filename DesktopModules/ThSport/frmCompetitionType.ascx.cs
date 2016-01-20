@@ -25,13 +25,16 @@ namespace DotNetNuke.Modules.ThSport
 
         #region variables
 
-        string currentId
+        int competitiontypeID
         {
             get
             {
-                if (ViewState["currentId"] != null)
-                    return ViewState["currentId"].ToString();
-                return null;
+                int id = 0;
+                if (!string.IsNullOrEmpty(hdnCompetitionTypeId.Value))
+                {
+                    int.TryParse(hdnCompetitionTypeId.Value, out id);
+                }
+                return id;
             }
         }
 
@@ -58,11 +61,9 @@ namespace DotNetNuke.Modules.ThSport
             DataTable dt = new DataTable();
             dt = ccmc.GetCompetitionTypeList();
 
-            if (dt.Rows.Count > 0)
-            {
-                gvCompetitionType.DataSource = dt;
-                gvCompetitionType.DataBind();
-            }
+            gvCompetitionType.DataSource = dt;
+            gvCompetitionType.DataBind();
+            
         }
 
         #endregion Methods
@@ -95,8 +96,7 @@ namespace DotNetNuke.Modules.ThSport
         {
             Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "UpdateSuccessfully();", true);
 
-
-            ccm.CompetitionTypeId = Convert.ToInt32(currentId);
+            ccm.CompetitionTypeId = competitiontypeID;
             ccm.CompetitionTypeName = txtCompetitionType.Text.Trim();
             ccm.CompetitionTypeDesc = txtCompetitionTypeDesc.Text.Trim();
             ccm.ActiveFlagId = Convert.ToInt32(ChkIsActive.Checked);
@@ -154,17 +154,16 @@ namespace DotNetNuke.Modules.ThSport
 
         protected void ddlAction_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int competitionTypeID = 0;
-            int.TryParse(((HiddenField)((DropDownList)sender).Parent.FindControl("hdnCompetitionTypeId")).Value,out competitionTypeID);
+            
+            hdnCompetitionTypeId.Value = ((HiddenField)((DropDownList)sender).Parent.FindControl("hdn_CompetitionType_Id")).Value;
 
             string ddlSelectedValue = ((DropDownList)sender).SelectedValue;
 
             if (ddlSelectedValue == "Edit")
             {
-                ViewState["currentId"] = Convert.ToInt16(competitionTypeID);
-
+                
                 ClearData();
-                DataTable dt1 = ccmc.GetCompetitionTypeDetailByCompetitionTypeID(competitionTypeID);
+                DataTable dt1 = ccmc.GetCompetitionTypeDetailByCompetitionTypeID(competitiontypeID);
 
                 if (dt1.Rows.Count > 0)
                 {

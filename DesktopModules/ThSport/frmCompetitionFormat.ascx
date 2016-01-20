@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="frmCompetitionLeague.ascx.cs" Inherits="DotNetNuke.Modules.ThSport.frmCompetitionLeague" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="frmCompetitionFormat.ascx.cs" Inherits="DotNetNuke.Modules.ThSport.frmCompetitionFormat" %>
 
 <script type="text/javascript">
 
@@ -23,26 +23,7 @@
         }
     }
 
-    function previewFilephoto() {
-        var preview = document.querySelector('#<%=CompetitionLeagueLogoImage.ClientID %>');
-        var file = document.querySelector('#<%=CompetitionLeagueLogoFile.ClientID %>').files[0];
-        var reader = new FileReader();
 
-        reader.onloadend = function () {
-            preview.src = reader.result;
-        }
-
-        if (file) {
-            if (file.size > 10485760) {
-                document.getElementById('dvMsg').style.display = "block";
-                preview.src = "";
-            }
-            reader.readAsDataURL(file);
-        }
-        else {
-            preview.src = "";
-        }
-    }
 
     function SaveSuccessfully() {
         $(document).ready(function () {
@@ -167,8 +148,8 @@
      function validateAndConfirmClose(OnlyClose) {
          var validated = Page_ClientValidate('CloseSports');
 
-         if (OnlyClose == "btnCancelCompetitionLeague") {
-             document.getElementById("msgConfirm").innerHTML = "Are You Sure, You Want to Close CompetitionLeague Form ?";
+         if (OnlyClose == "btnCancelCompetitionFormat") {
+             document.getElementById("msgConfirm").innerHTML = "Are You Sure, You Want to Close CompetitionFormat Form ?";
          }
 
          if (validated) {
@@ -184,8 +165,8 @@
                  buttons: {
                      Ok: function () {
 
-                         if (OnlyClose == "btnCancelCompetitionLeague") {
-                             <%=this.Page.ClientScript.GetPostBackEventReference(new PostBackOptions(this.btnCancelCompetitionLeague))%>;
+                         if (OnlyClose == "btnCancelCompetitionFormat") {
+                             <%=this.Page.ClientScript.GetPostBackEventReference(new PostBackOptions(this.btnCancelCompetitionFormat))%>;
                          }
 
                      },
@@ -204,8 +185,8 @@
      function validateAndConfirm(btn_clientid) {
          var validated = Page_ClientValidate('Sports');
 
-         if (btn_clientid == "btnUpdateCompetitionLeague") {
-             document.getElementById("msgConfirm").innerHTML = "Are You Sure, You Want to Update CompetitionLeague Details ?";
+         if (btn_clientid == "btnUpdateCompetitionFormat") {
+             document.getElementById("msgConfirm").innerHTML = "Are You Sure, You Want to Update CompetitionFormat Details ?";
          }
 
          if (validated) {
@@ -221,12 +202,12 @@
                  buttons: {
                      Ok: function () {
 
-                         if (btn_clientid == "btnSaveCompetitionLeague") {
-                             <%=this.Page.ClientScript.GetPostBackEventReference(new PostBackOptions(this.btnSaveCompetitionLeague))%>;
+                         if (btn_clientid == "btnSaveCompetitionFormat") {
+                             <%=this.Page.ClientScript.GetPostBackEventReference(new PostBackOptions(this.btnSaveCompetitionFormat))%>;
                          }
 
-                         if (btn_clientid == "btnUpdateCompetitionLeague") {
-                             <%=this.Page.ClientScript.GetPostBackEventReference(new PostBackOptions(this.btnUpdateCompetitionLeague))%>;
+                         if (btn_clientid == "btnUpdateCompetitionFormat") {
+                             <%=this.Page.ClientScript.GetPostBackEventReference(new PostBackOptions(this.btnUpdateCompetitionFormat))%>;
                          }
 
                      },
@@ -251,40 +232,40 @@
 
 <div id="divsavemassage" runat="server" clientidmode="static" style="display: none;position:inherit !important;">
     <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/AllImage/Ok.png")%>" />
-     <asp:Label CssClass="lobibox-body-text" ID="Label1" ClientIDMode="Static" runat="server" Text=" CompetitionLeague detail are save successfully. ">
+     <asp:Label CssClass="lobibox-body-text" ID="Label1" ClientIDMode="Static" runat="server" Text=" CompetitionFormat detail are save successfully. ">
      </asp:Label>
 </div>
 
 <div id="divupdatemassage" runat="server" clientidmode="static" style="display: none;position:inherit !important;">
     <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/AllImage/Ok.png")%>" />
-     <asp:Label CssClass="lobibox-body-text" ID="Label2" ClientIDMode="Static" runat="server" Text=" CompetitionLeague detail are update successfully. ">
+     <asp:Label CssClass="lobibox-body-text" ID="Label2" ClientIDMode="Static" runat="server" Text=" CompetitionFormat detail are update successfully. ">
      </asp:Label>
 </div>
 
 <div id="divcancelmassage" runat="server" clientidmode="static" style="display: none;position:inherit !important;">
     <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/AllImage/Cancel.png")%>" />
-     <asp:Label CssClass="lobibox-body-text" ID="Label3" ClientIDMode="Static" runat="server" Text=" CompetitionLeague detail are delete successfully. ">
+     <asp:Label CssClass="lobibox-body-text" ID="Label3" ClientIDMode="Static" runat="server" Text=" CompetitionFormat detail are delete successfully. ">
      </asp:Label>
 </div>
 
 <div id="dialogBox" runat="server" clientidmode="static"  style="display:none;">
     <div class="lobibox-body-text-wrapper">
-        <asp:Label CssClass="lobibox-body-text" ID="msgConfirm" ClientIDMode="Static" runat="server" Text="Are You Sure, You Want to Save CompetitionLeague Details ?"></asp:Label>
+        <asp:Label CssClass="lobibox-body-text" ID="msgConfirm" ClientIDMode="Static" runat="server" Text="Are You Sure, You Want to Save CompetitionFormat Details ?"></asp:Label>
     </div>
 </div>
 
 <div class="row-fluid">
 	<div class="span12">
 
-   <asp:Panel id="pnlCompetitionLeagueGrid" runat="server">
+   <asp:Panel id="pnlCompetitionFormatGrid" runat="server">
 
     <asp:Panel ID="addPanel" runat="server">    
         <div id="submenu">
             <ul>
                 <li class="active">
-                    <asp:LinkButton ID="btnAddCompetitionLeague" runat="server" 
-                                    Height="35px" Text=" Add Competition League" 
-                                    onclick="btnAddCompetitionLeague_Click" ForeColor="White"/>
+                    <asp:LinkButton ID="btnAddCompetitionFormat" runat="server" 
+                                    Height="35px" Text=" Add Competition Format" 
+                                    onclick="btnAddCompetitionFormat_Click" ForeColor="White"/>
                 </li>
             </ul>
         </div>
@@ -297,7 +278,7 @@
 			<div class="portlet-title">
 				<div class="caption">
 					<i class="icon-reorder"></i>
-					<span class="hidden-480"> Competition League List</span>
+					<span class="hidden-480"> Competition Format List</span>
 				</div>
                 <div class="tools">
 					<a href="javascript:;" class="collapse"></a>
@@ -307,30 +288,30 @@
 
     <div class="portlet-body flip-scroll">
 		
-          <asp:GridView ID="gvCompetitionLeague" runat="server" AutoGenerateColumns="false" ShowHeaderWhenEmpty="true" 
+          <asp:GridView ID="gvCompetitionFormat" runat="server" AutoGenerateColumns="false" ShowHeaderWhenEmpty="true" 
                         AllowPaging="true" PageSize="10" EmptyDataText="No Records Found" 
                         CssClass="table-bordered table-striped table-condensed flip-content" 
                         HorizontalAlign="Center" AlternatingRowStyle-Font-Size="X-Large" 
                         CellPadding="5" CellSpacing="5" Width="100%"
-                        onpageindexchanging="gvCompetitionLeague_PageIndexChanging">
+                        onpageindexchanging="gvCompetitionFormat_PageIndexChanging">
             <RowStyle CssClass="grid-row" />
         <AlternatingRowStyle CssClass="grid-row grid-row-alternet" />
 
 		<Columns>
 
-            <asp:TemplateField HeaderText="Competition League" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center">
+            <asp:TemplateField HeaderText="Competition Format" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center">
 				<ItemTemplate>
                     <div class="grid-cell-inner" style="text-align:center;">
-					    <asp:Label ID="lblCompetitionLeagueName" runat="server" Text='<%#Eval("CompetitionLeagueName") %>' ToolTip="Competition League"></asp:Label>
+					    <asp:Label ID="lblCompetitionFormatName" runat="server" Text='<%#Eval("CompetitionFormatName") %>' ToolTip="Competition Format"></asp:Label>
                     </div> 
-                    <asp:HiddenField ID="hdn_CompetitionLeague_Id" runat="server" Value='<%#Eval("CompetitionLeagueId") %>'></asp:HiddenField>
+                    <asp:HiddenField ID="hdn_CompetitionFormat_Id" runat="server" Value='<%#Eval("CompetitionFormatId") %>'></asp:HiddenField>
 				</ItemTemplate>
 			</asp:TemplateField>
 
             <asp:TemplateField HeaderText="Description" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center">
 				<ItemTemplate>
                     <div class="grid-cell-inner" style="text-align:center;">
-					    <asp:Label ID="lblCompetitionLeagueDesc" runat="server" Text='<%#Eval("CompetitionLeagueDesc") %>' ToolTip="Description"></asp:Label>
+					    <asp:Label ID="lblCompetitionFormatDesc" runat="server" Text='<%#Eval("CompetitionFormatDesc") %>' ToolTip="Description"></asp:Label>
                     </div> 
 				</ItemTemplate>
 			</asp:TemplateField>
@@ -357,7 +338,7 @@
 
     </asp:Panel>
 
-<asp:Panel ID="pnlCompetitionLeagueEntry" runat="server">
+<asp:Panel ID="pnlCompetitionFormatEntry" runat="server">
 
     <div style="padding:10px 0px;">
             * Note: All Fields marked with an asterisk (*) are required.
@@ -367,7 +348,7 @@
 			<div class="portlet-title">
 				<div class="caption">
 					<i class="icon-reorder"></i>
-					<span class="hidden-480"> Competition League Details</span>
+					<span class="hidden-480"> Competition Format Details</span>
 				</div>
 			</div>
 
@@ -380,136 +361,66 @@
 
         <div class="form-horizontal">
 
-        <div style="width: 100%;margin-top:20px;"></div>
-
-        <asp:HiddenField ID="hdnCompetitionLeagueID" runat="server" />
+        <div style="width: 100%;margin-top:20px;">
+                
+        </div>
+    <asp:HiddenField ID="hdnCompetitionFormatId" runat="server" ></asp:HiddenField>
        <div class="control-group">
 		     <label class="control-label">          
-                   <asp:Label ID="lblCompetitionLeague" runat="server" Text=" Competition League :" ></asp:Label>
+                   <asp:Label ID="lblCompetitionFormat" runat="server" Text=" Competition Format :" ></asp:Label>
              </label>
              <div class="startsetallfrom">
                  <span class="help-inline"><font Color="red"><b>*</b></font></span>
              </div>
              <div class="controls" style="position:relative;">
-                  <asp:TextBox ID="txtCompetitionLeague" runat="server"  CssClass="m-wrap large" />
-                  <asp:RequiredFieldValidator ID="rfvCompetitionLeague" runat="server" ErrorMessage="Competition League"
-                                              ControlToValidate="txtCompetitionLeague" SetFocusOnError="true" 
-                                              ValidationGroup="Sports" Text="Competition League Required !" 
+                  <asp:TextBox ID="txtCompetitionFormat" runat="server"  CssClass="m-wrap large" />
+                  <asp:RequiredFieldValidator ID="rfvCompetitionFormat" runat="server" ErrorMessage="Competition Format"
+                                              ControlToValidate="txtCompetitionFormat" SetFocusOnError="true" 
+                                              ValidationGroup="Sports" Text="Competition Format Required !" 
                                               CssClass="errorfordnn" ClientIDMode="Static"/>
-                   <asp:RegularExpressionValidator ID="rgvtxtCompetitionLeague"
-                                                    Display="Static" ControlToValidate="txtCompetitionLeague"  
+                   <asp:RegularExpressionValidator ID="rgvtxtCompetitionFormat"
+                                                    Display="Static" ControlToValidate="txtCompetitionFormat"  
                                                     ValidationGroup="Sports" CssClass="errorfordnn"
                                                     ValidationExpression = "^[\s\S]{0,100}$" 
                                                     runat="server" ErrorMessage="Maximum 100 characters allowed.">
                    </asp:RegularExpressionValidator>  
-                   <asp:CustomValidator ID="cvtxtCompetitionLeague" ValidationGroup="Sports" runat="server" ErrorMessage="" SetFocusOnError="true" ControlToValidate="txtCompetitionLeague"
+                   <asp:CustomValidator ID="cvtxtCompetitionFormat" ValidationGroup="Sports" runat="server" ErrorMessage="" SetFocusOnError="true" ControlToValidate="txtCompetitionFormat"
                                     EnableClientScript="true" ClientValidationFunction="validateTextBox" CssClass="errorfordnn" Text="First Character Should Not Be Special Character"></asp:CustomValidator>
              </div>
-        </div>
-
-        <div class="control-group">
-		    <label class="control-label">
-                <asp:Label ID="lblCompetitionLeagueAbbr" runat="server" Text="Abbreviation :" ></asp:Label>
-            </label>
-            <div class="controls" style="position:relative;">
-                <asp:TextBox ID="txtCompetitionLeagueAbbr" runat="server"  CssClass="m-wrap small" />
-                    <asp:RegularExpressionValidator ID="rgvtxtCompetitionLeagueAbbr"
-                                                    Display="Static" ControlToValidate="txtCompetitionLeagueAbbr"  
-                                                    ValidationGroup="Sports" CssClass="errorfordnn"
-                                                    ValidationExpression = "^[\s\S]{0,5}$" 
-                                                    runat="server" ErrorMessage="Maximum 5 characters allowed.">
-                    </asp:RegularExpressionValidator>  
-           </div>
         </div>
     
         <div class="control-group">
 		    <label class="control-label">
-                <asp:Label ID="lblCompetitionLeagueDesc" runat="server" Text="Description :" ></asp:Label>
+                <asp:Label ID="lblCompetitionFormatDesc" runat="server" Text="Description :" ></asp:Label>
             </label>
             <div class="controls" style="position:relative;">
-                <asp:TextBox ID="txtCompetitionLeagueDesc" runat="server"  
+                <asp:TextBox ID="txtCompetitionFormatDesc" runat="server"  
                              CssClass="m-wrap mediumSmallDesc" TextMode="MultiLine" Width="319px" Height="150px"/>
-                    <asp:RegularExpressionValidator ID="rgvtxtCompetitionLeagueDesc"
-                                                    Display="Static" ControlToValidate="txtCompetitionLeagueDesc"  
+                    <asp:RegularExpressionValidator ID="rgvtxtCompetitionFormatDesc"
+                                                    Display="Static" ControlToValidate="txtCompetitionFormatDesc"  
                                                     ValidationGroup="Sports" CssClass="errorfordnn"
                                                     ValidationExpression = "^[\s\S]{0,200}$" 
                                                     runat="server" ErrorMessage="Maximum 200 characters allowed.">
                     </asp:RegularExpressionValidator>  
-                <asp:CustomValidator ID="cvtxtCompetitionLeagueDesc" ValidationGroup="Sports" runat="server" ErrorMessage="" SetFocusOnError="true" ControlToValidate="txtCompetitionLeagueDesc"
+                <asp:CustomValidator ID="cvtxtCompetitionFormatDesc" ValidationGroup="Sports" runat="server" ErrorMessage="" SetFocusOnError="true" ControlToValidate="txtCompetitionFormatDesc"
                                     EnableClientScript="true" ClientValidationFunction="validateTextBox" CssClass="errorfordnn" Text="First Character Should Not Be Special Character"></asp:CustomValidator>
            </div>
         </div>
-
-
-        <div class="control-group">
-		    <label class="control-label">
-                <asp:Label ID="lblCompetitionLeagueLogoName" runat="server" Text="Competition League Logo Name :" ></asp:Label>
-            </label>
-            <div class="controls" style="position:relative;">
-                <asp:TextBox ID="txtCompetitionLeagueLogoName" runat="server"  CssClass="m-wrap large" />
-                    <asp:RegularExpressionValidator ID="rgvCompetitionLeagueLogoName"
-                                                    Display="Static" ControlToValidate="txtCompetitionLeagueLogoName"  
-                                                    ValidationGroup="Sports" CssClass="errorfordnn"
-                                                    ValidationExpression = "^[\s\S]{0,200}$" 
-                                                    runat="server" ErrorMessage="Maximum 200 characters allowed.">
-                    </asp:RegularExpressionValidator>  
-           </div>
-        </div>
-
-        <div class="control-group">
-		    <label class="control-label"> 
-                <asp:Label ID="lblUploadLogo" runat="server" Text="Upload Logo : "></asp:Label>
-             </label>
-            <div class="controls" style="position:relative;">  
-                <input ID="CompetitionLeagueLogoFile" type="file" name="file" runat="server" onchange="previewFilephoto()"/>
-                <asp:RegularExpressionValidator ID="rgvCompetitionLeagueLogoFile" 
-                                                ValidationExpression="([a-zA-Z0-9\s_\\.\-:])+(.png|.jpg|.gif)$"
-                                                ControlToValidate="CompetitionLeagueLogoFile" ValidationGroup="Sports" 
-                                                runat="server"  
-                                                ErrorMessage="Please choose only .jpg, .png and .gif images!"
-                                                CssClass ="errorfordnn" />
-                <div style="padding-top:10px;border:none; Width:200px;">
-                    <asp:Image ID="CompetitionLeagueLogoImage" runat="server" />
-                </div>
-            </div>
-        </div>
-
-        <div class="control-group">
-		    <label class="control-label">
-            <asp:Label ID="lblActive" runat="server" Text=" Is Active :"></asp:Label>
-        </label>
-            <div class="controls">
-                <label class="checkbox"> 
-                    <asp:CheckBox ID="ChkIsActive" runat="server" />
-                </label>
-             </div>
-        </div>
-
-       <div class="control-group">
-		    <label class="control-label">
-            <asp:Label ID="lblShow" runat="server" Text=" Is Show :"></asp:Label>
-        </label>
-            <div class="controls">
-                <label class="checkbox"> 
-                    <asp:CheckBox ID="ChkIsShow" runat="server" />
-                </label>
-                </div>
-        </div>    
        
        </div>
 
         <div class="form-actions">
             <div class="right_div_css">
 
-                    <asp:Button ID="btnSaveCompetitionLeague" runat="server"  Text=" Save " OnClick="btnSaveCompetitionLeague_Click" 
+                    <asp:Button ID="btnSaveCompetitionFormat" runat="server"  Text=" Save " OnClick="btnSaveCompetitionFormat_Click" 
                                 ValidationGroup="Sports" CssClass="btn blue" ClientIDMode="Static" Width="100px"
                                 OnClientClick="return validateAndConfirm(this.id);" />
 
-                    <asp:Button ID="btnUpdateCompetitionLeague" runat="server"  Text=" Update " OnClick="btnUpdateCompetitionLeague_Click" 
+                    <asp:Button ID="btnUpdateCompetitionFormat" runat="server"  Text=" Update " OnClick="btnUpdateCompetitionFormat_Click" 
                                 ValidationGroup="Sports" CssClass="btn red" ClientIDMode="Static" Width="100px"
                                 OnClientClick="return validateAndConfirm(this.id);" />
 
-                    <asp:Button ID="btnCancelCompetitionLeague" runat="server" Text="Cancel" OnClick="btnCancelCompetitionLeague_Click" CssClass="btn" 
+                    <asp:Button ID="btnCancelCompetitionFormat" runat="server" Text="Cancel" OnClick="btnCancelCompetitionFormat_Click" CssClass="btn" 
                                 ClientIDMode="Static" ValidationGroup="CloseSports" Width="100px"
                                 OnClientClick="return validateAndConfirmClose(this.id);"/>
 
