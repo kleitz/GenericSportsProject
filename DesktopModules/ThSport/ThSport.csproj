@@ -286,6 +286,13 @@
     <Compile Include="frmSports.ascx.designer.cs">
       <DependentUpon>frmSports.ascx</DependentUpon>
     </Compile>
+    <Compile Include="frmTeam.ascx.cs">
+      <DependentUpon>frmTeam.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmTeam.ascx.designer.cs">
+      <DependentUpon>frmTeam.ascx</DependentUpon>
+    </Compile>
     <Compile Include="frmUserType.ascx.cs">
       <DependentUpon>frmUserType.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -341,6 +348,7 @@
     <Content Include="frmDivision.ascx" />
     <Content Include="frmSeason.ascx" />
     <Content Include="frmSports.ascx" />
+    <Content Include="frmTeam.ascx" />
     <Content Include="frmUserType.ascx" />
     <Content Include="Images\AllImage\1_pix.png" />
     <Content Include="Images\AllImage\active-header.gif" />
@@ -1006,6 +1014,7 @@
     <Folder Include="Images\CompetitionLeagueLogo\" />
     <Folder Include="Images\CompetitionLogo\" />
     <Folder Include="Images\DivisionLogo\" />
+    <Folder Include="Images\TeamLogo\" />
     <Folder Include="obj\JSON\" />
     <Folder Include="TestResults\" />
   </ItemGroup>

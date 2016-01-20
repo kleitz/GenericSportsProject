@@ -31,6 +31,10 @@
 	        <asp:HyperLink id="hlCompetition" runat="server" ToolTip="Competition Form">Competition </asp:HyperLink>
 		</li>
 
+        <li id="li_Team" runat="server">
+	        <asp:HyperLink id="hlTeam" runat="server" ToolTip="Team Form">Team </asp:HyperLink>
+		</li>
+
         <li id="li_Masters" runat="server">
             <asp:HyperLink id="hlMaster" runat="server" ToolTip=" Master Form " NavigateUrl="javascript:;"> Masters Form <span class="arrow selected"></span></asp:HyperLink>
             <ul class="sub-menu">

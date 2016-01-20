@@ -95,6 +95,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clsTeam.cs" />
     <Compile Include="clsCompetitionFormat.cs" />
     <Compile Include="clsClub.cs" />
     <Compile Include="clsClubMember.cs" />

@@ -99,6 +99,8 @@ namespace DotNetNuke.Modules.ThSport
                 hlCompetitionFormat.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmCompetitionFormat");
                 hlCompetition.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmCompetition");
                 hlDivision.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmDivision");
+
+                hlTeam.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmTeam");
             }
 
         }
@@ -200,14 +202,22 @@ namespace DotNetNuke.Modules.ThSport
                     titel.Text = "&raquo; Competition Group";
                     break;
 
-                //case "frmDivision.ascx":
-                //    HtmlGenericControl li_Division = this.li_Division as HtmlGenericControl;
-                //    if (li_Division != null)
-                //        this.li_Division.Attributes.Add("class", "active");
-                //    titela.Text = "Division";
-                //    titela.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmDivision");
-                    
-                //    break;
+                case "frmDivision.ascx":
+                    HtmlGenericControl li_Division = this.li_Division as HtmlGenericControl;
+                    if (li_Division != null)
+                        this.li_Division.Attributes.Add("class", "active");
+                    titela.Text = "Division";
+                    titela.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmDivision");
+
+                    break;
+
+                case "frmTeam.ascx":
+                    HtmlGenericControl li_Team = this.li_Team as HtmlGenericControl;
+                    if (li_Team != null)
+                        this.li_Team.Attributes.Add("class", "active");
+                    titela.Text = "Team &raquo;";
+                    titela.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmTeam");
+                    break;
 
                 //case "CompetitionVideo.ascx":
                 //    HtmlGenericControl li_CompetitionVideoLink = this.li_CompetitionLink as HtmlGenericControl;
@@ -304,13 +314,7 @@ namespace DotNetNuke.Modules.ThSport
                 //    titela.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "SponsorReg");
                 //    break;
 
-                //case "TeamMaster.ascx":
-                //    HtmlGenericControl li_TeamProfile = this.li_TeamProfile as HtmlGenericControl;
-                //    if (li_TeamProfile != null)
-                //        this.li_TeamProfile.Attributes.Add("class", "active");
-                //    titela.Text = "TeamMaster &raquo;";
-                //    titela.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "TeamMaster");
-                //    break;
+                
 
                 //case "TeamMasterPlayerCoach.ascx":
                 //    HtmlGenericControl li_TeamMasterPlayerCoachProfile = this.li_TeamProfile as HtmlGenericControl;
