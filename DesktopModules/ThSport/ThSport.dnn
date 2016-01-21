@@ -220,6 +220,17 @@
                     <viewOrder>0</viewOrder>
                   </moduleControl>
 
+                  <moduleControl>
+                    <controlKey>frmSponsorType</controlKey>
+                    <controlSrc>DesktopModules/ThSport/frmSponsorType.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle>ThSport frmSponsorType</controlTitle>
+                    <controlType>Edit</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+
                 </moduleControls>
               </moduleDefinition>
             </moduleDefinitions>

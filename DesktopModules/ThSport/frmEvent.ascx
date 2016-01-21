@@ -388,8 +388,6 @@
 			</div>
 		</div>
 
-
-
 <div class="portlet-body form">
 	<div class="tabbable portlet-tabs">
 
@@ -406,7 +404,86 @@
             
             </div>
                         
-      
+       <div class="control-group">
+		     <label class="control-label">
+                   <asp:Label ID="lblSports" runat="server" Text="  Sport :" ></asp:Label>
+             </label>
+             <div class="controls" style="position:relative;">
+                  <asp:DropDownList ID="ddlSports" runat="server" CssClass="medium m-wrap"/>
+             </div>
+        </div>
+
+        <div class="control-group">
+		     <label class="control-label">
+                   <asp:Label ID="lblSeason" runat="server" Text="  Season :" ></asp:Label>
+             </label>
+             <div class="controls" style="position:relative;">
+                  <asp:DropDownList ID="ddlSeason" runat="server" CssClass="medium m-wrap"/>
+             </div>
+        </div>
+
+        <div class="control-group">
+		     <label class="control-label">
+                   <asp:Label ID="lblCompetition" runat="server" Text="  Competition :" ></asp:Label>
+             </label>
+             <div class="controls" style="position:relative;">
+                  <asp:DropDownList ID="ddlCompetition" runat="server" CssClass="medium m-wrap"/>
+             </div>
+        </div>
+
+        <div class="control-group">
+		     <label class="control-label">
+                   <asp:Label ID="lblClub" runat="server" Text="  Club :" ></asp:Label>
+             </label>
+             <div class="controls" style="position:relative;">
+                  <asp:DropDownList ID="ddlClub" runat="server" CssClass="medium m-wrap"/>
+             </div>
+        </div>
+
+        <div class="control-group">
+		     <label class="control-label">
+                   <asp:Label ID="lblClubOwner" runat="server" Text="  Club Owner :" ></asp:Label>
+             </label>
+             <div class="controls" style="position:relative;">
+                  <asp:DropDownList ID="ddlClubOwner" runat="server" CssClass="medium m-wrap"/>
+             </div>
+        </div>
+
+        <div class="control-group">
+		     <label class="control-label">
+                   <asp:Label ID="lblClubMember" runat="server" Text="  Club Member :" ></asp:Label>
+             </label>
+             <div class="controls" style="position:relative;">
+                  <asp:DropDownList ID="ddlClubMember" runat="server" CssClass="medium m-wrap"/>
+             </div>
+        </div>
+
+        <div class="control-group">
+		     <label class="control-label">
+                   <asp:Label ID="lblTeam" runat="server" Text="  Team :" ></asp:Label>
+             </label>
+             <div class="controls" style="position:relative;">
+                  <asp:DropDownList ID="ddlTeam" runat="server" CssClass="medium m-wrap"/>
+             </div>
+        </div>
+
+        <div class="control-group">
+		     <label class="control-label">
+                   <asp:Label ID="lblTeamMember" runat="server" Text="  Team Member :" ></asp:Label>
+             </label>
+             <div class="controls" style="position:relative;">
+                  <asp:DropDownList ID="ddlTeamMember" runat="server" CssClass="medium m-wrap"/>
+             </div>
+        </div>
+
+        <div class="control-group">
+		     <label class="control-label">
+                   <asp:Label ID="lblSponsor" runat="server" Text="  Sponsor :" ></asp:Label>
+             </label>
+             <div class="controls" style="position:relative;">
+                  <asp:DropDownList ID="ddlSponsor" runat="server" CssClass="medium m-wrap"/>
+             </div>
+        </div>
             
         <div class="control-group">
 		     <label class="control-label">          

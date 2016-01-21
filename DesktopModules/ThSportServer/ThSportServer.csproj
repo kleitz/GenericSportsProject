@@ -95,6 +95,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class1.cs" />
+    <Compile Include="clsAddDocuments.cs" />
+    <Compile Include="clsAddDocumentsType.cs" />
+    <Compile Include="clsEvent.cs" />
+    <Compile Include="clsSponsorType.cs" />
     <Compile Include="clsTeam.cs" />
     <Compile Include="clsCompetitionFormat.cs" />
     <Compile Include="clsClub.cs" />

@@ -16,34 +16,33 @@ using System.Collections;
 
 namespace ThSportServer
 {
-    public class clsUserType
+    public class clsSponsorType
     {
-        public int UserTypeId { get; set; }
-        public string UserTypeName { get; set; }
-        public string UserTypeAbbr { get; set; }
-        public string UserTypeDesc { get; set; }
-        public int PortalID { get; set; }
-        public string CreatedById { get; set; }
-        public string ModifiedById { get; set; }
+         public int SponsorTypeId { get; set; }
+         public string SponsorTypeValue { get; set; }
+	     public string SponsorTypeDesc { get; set; }
+	     public int PortalID { get; set; }
+	     public string CreatedById { get; set; }
+	     public string ModifiedById { get; set; }
     }
 
-    public class clsUserTypeController
+    public class clsSponsorTypeController
     {
         private readonly DataProvider dataProvider = DataProvider.Instance();
         private readonly UserInfo currentUser = DotNetNuke.Entities.Users.UserController.GetCurrentUserInfo();
 
-        public clsUserTypeController()
+        public clsSponsorTypeController()
         {
 
         }
 
         #region Insert,Update Method
 
-        public int InsertUserType(clsUserType ccm)
+        public int InsertSponsorType(clsSponsorType ccm)
         {
             try
             {
-                dataProvider.ExecuteNonQuery("usp_InsertUserType", ccm.UserTypeName, ccm.UserTypeAbbr, ccm.UserTypeDesc, ccm.PortalID, ccm.CreatedById, ccm.ModifiedById);
+                dataProvider.ExecuteNonQuery("usp_InsertSponsorType", ccm.SponsorTypeValue, ccm.SponsorTypeDesc, ccm.PortalID, ccm.CreatedById, ccm.ModifiedById);
             }
             catch (Exception ex)
             {
@@ -52,13 +51,13 @@ namespace ThSportServer
             return 0;
         }
 
-        public int UpdateUserType(clsUserType ccm)
+        public int UpdateSponsorType(clsSponsorType ccm)
         {
             int i = 0;
 
             try
             {
-                dataProvider.ExecuteNonQuery("usp_UpdateUserType", ccm.UserTypeId,ccm.UserTypeName,ccm.UserTypeAbbr,ccm.UserTypeDesc,ccm.PortalID,ccm.@ModifiedById);
+                dataProvider.ExecuteNonQuery("usp_UpdateSponsorType", ccm.SponsorTypeId, ccm.SponsorTypeValue, ccm.SponsorTypeDesc, ccm.PortalID, ccm.ModifiedById);
                 return i;
             }
             catch (Exception ex)
@@ -72,13 +71,13 @@ namespace ThSportServer
 
         #region Getdata Method
 
-        public DataTable GetUserTypeList()
+        public DataTable GetSponsorTypeList()
         {
             using (DataTable dt = new DataTable())
             {
                 try
                 {
-                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetUserTypeList"))
+                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetSponsorTypeList"))
                     {
                         dt.Load(reader);
                         return dt;
@@ -92,13 +91,13 @@ namespace ThSportServer
             }
         }
 
-        public DataTable GetUserTypeDetailByUserTypeID(int UserTypeID)
+        public DataTable GetSponsorTypeDetailBySponsorTypeID(int SponsorTypeID)
         {
             DataTable dt = new DataTable();
 
             try
             {
-                using (IDataReader rdr = dataProvider.ExecuteReader("usp_GetUserTypeDetailByUserTypeID", UserTypeID))
+                using (IDataReader rdr = dataProvider.ExecuteReader("usp_GetSponsorTypeDetailBySponsorTypeID", SponsorTypeID))
                 {
                     dt.Load(rdr);
                 }
@@ -111,6 +110,5 @@ namespace ThSportServer
         }
 
         #endregion Getdata Methods
-
     }
 }

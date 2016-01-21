@@ -61,7 +61,10 @@
                   <asp:HyperLink id="hlCompetitionFormat" runat="server" ToolTip="Competition Format Form"> Competition Format </asp:HyperLink>
               </li>
               <li id="li_Division" runat="server">
-                  <asp:HyperLink id="hlDivision" runat="server" ToolTip="Division Form"> Division</asp:HyperLink>
+                  <asp:HyperLink id="hlDivision" runat="server" ToolTip="Division Form"> Division </asp:HyperLink>
+              </li>
+              <li id="li_SponsorType" runat="server">
+                  <asp:HyperLink id="hlSponsorType" runat="server" ToolTip=" Sponsor Type Form "> Sponsor Type </asp:HyperLink>
               </li>
            </ul>
 	    </li>

@@ -48,6 +48,7 @@ namespace DotNetNuke.Modules.ThSport
                 li_Registration.Visible = false;
                 li_AddDocumentsType.Visible = false;
                 li_Event.Visible = false;
+                li_SponsorType.Visible = false;
                 
                 //li_TournamentLink.Visible = false;
                 
@@ -97,6 +98,7 @@ namespace DotNetNuke.Modules.ThSport
                 hlRegistration.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmRegistration");
                 hlAddDocumentsType.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmAddDocumentsType");
                 hlEvent.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmEvent");
+                hlSponsorType.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmSponsorType");
 
                 hlCompetitionType.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmCompetitionType");
                 hlCompetitionLeague.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmCompetitionLeague");
@@ -212,6 +214,9 @@ namespace DotNetNuke.Modules.ThSport
                         this.li_Division.Attributes.Add("class", "active");
                     titela.Text = "Division";
                     titela.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmDivision");
+                    titel.Text = "&raquo; Division";
+                    break;
+
                 case "frmAddDocumentsType.ascx":
                     HtmlGenericControl li_AddDocumentsType = this.li_AddDocumentsType as HtmlGenericControl;
                     if (li_AddDocumentsType != null)
@@ -227,6 +232,15 @@ namespace DotNetNuke.Modules.ThSport
                     titela.Text = "Event &raquo;";
                     titela.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmEvent");
                     break;
+
+                case "frmSponsorType.ascx":
+                    HtmlGenericControl li_SponsorType = this.li_SponsorType as HtmlGenericControl;
+                    if (li_SponsorType != null)
+                        this.li_SponsorType.Attributes.Add("class", "active");
+                    titela.Text = "Sponsor Type &raquo;";
+                    titela.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmSponsorType");
+                    break;
+
                 //case "frmDivision.ascx":
                 //    HtmlGenericControl li_Division = this.li_Division as HtmlGenericControl;
                 //    if (li_Division != null)
