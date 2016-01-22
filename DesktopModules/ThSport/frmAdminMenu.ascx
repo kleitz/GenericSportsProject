@@ -66,6 +66,15 @@
               <li id="li_SponsorType" runat="server">
                   <asp:HyperLink id="hlSponsorType" runat="server" ToolTip=" Sponsor Type Form "> Sponsor Type </asp:HyperLink>
               </li>
+              <li id="li_SponsorLevel" runat="server">
+                  <asp:HyperLink id="hlSponsorLevel" runat="server" ToolTip=" Sponsor Level Form "> Sponsor Level </asp:HyperLink>
+              </li>
+              <li id="li_PlayerType" runat="server">
+                  <asp:HyperLink id="hlPlayerType" runat="server" ToolTip=" Player Type Form "> Player Type </asp:HyperLink>
+              </li>
+              <li id="li_TeamMemberType" runat="server">
+                  <asp:HyperLink id="hlTeamMemberType" runat="server" ToolTip=" Team Member Type Form "> Team Member Type </asp:HyperLink>
+              </li>  
            </ul>
 	    </li>
         

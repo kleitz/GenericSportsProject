@@ -32,6 +32,15 @@ namespace DotNetNuke.Modules.ThSport
         {
             if (!IsPostBack)
             {
+                FillSport();
+                FillSeason();
+                FillCompetition();
+                FillClub();
+                FillClubOwner();
+                //FillClubMember();
+                //FillTeam();
+                //FillTeamMember();
+                //FillSponsor();
                 FillGridView();
             }
         }
@@ -240,6 +249,96 @@ namespace DotNetNuke.Modules.ThSport
                 //CompRegInfo.DeleteCompetitionReg(competition_Id);
 
                 //FillGridView();
+            }
+        }
+
+        private void FillSport()
+        {
+            clsEvent e = new clsEvent();
+            clsEventController ec = new clsEventController();
+            DataTable dt = new DataTable();
+
+            dt = ec.GetSportIDAndSportName();
+            if (dt.Rows.Count > 0)
+            {
+                ddlSports.DataSource = dt;
+                ddlSports.DataTextField = "SportName";
+                ddlSports.DataValueField = "SportID";
+                ddlSports.DataBind();
+                ddlSports.Items.Insert(0, new ListItem("-- Select Sport --", "0"));
+            }
+        }
+
+        private void FillSeason()
+        {
+            clsEvent e = new clsEvent();
+            clsEventController ec = new clsEventController();
+            DataTable dt = new DataTable();
+
+            dt = ec.GetSeasonIDAndSeasonName();
+            if (dt.Rows.Count > 0)
+            {
+                ddlSeason.DataSource = dt;
+                ddlSeason.DataTextField = "SeasonName";
+                ddlSeason.DataValueField = "SeasonID";
+                ddlSeason.DataBind();
+                ddlSeason.Items.Insert(0, new ListItem("-- Select Season --", "0"));
+            }
+        }
+
+        private void FillCompetition()
+        {
+            clsEvent e = new clsEvent();
+            clsEventController ec = new clsEventController();
+            DataTable dt = new DataTable();
+
+            dt = ec.GetCompetitionIDAndCompetitionName();
+            if (dt.Rows.Count > 0)
+            {
+                ddlCompetition.DataSource = dt;
+                ddlCompetition.DataTextField = "CompetitionName";
+                ddlCompetition.DataValueField = "CompetitionId";
+                ddlCompetition.DataBind();
+                ddlCompetition.Items.Insert(0, new ListItem("-- Select Competition --", "0"));
+            }
+        }
+
+        private void FillClub()
+        {
+            clsEvent e = new clsEvent();
+            clsEventController ec = new clsEventController();
+            DataTable dt = new DataTable();
+
+            dt = ec.GetClubIDAndClubName();
+            if (dt.Rows.Count > 0)
+            {
+                ddlClub.DataSource = dt;
+                ddlClub.DataTextField = "ClubName";
+                ddlClub.DataValueField = "ClubId";
+                ddlClub.DataBind();
+                ddlClub.Items.Insert(0, new ListItem("-- Select Club --", "0"));
+            }
+        }
+
+        protected void ddlClub_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            FillClubOwner();
+        }
+
+        private void FillClubOwner()
+        {
+            clsEvent e = new clsEvent();
+            clsEventController ec = new clsEventController();
+            DataTable dt = new DataTable();
+
+            dt = ec.GetClubOwnerIDAndClubOwnerName();
+            if (dt.Rows.Count > 0)
+            {
+                ddlClub.DataSource = dt;
+                ddlClub.DataTextField = "ClubName";
+                ddlClub.DataValueField = "ClubId";
+                ddlClub.DataBind();
+                ddlClub.Items.Insert(0, new ListItem("-- Select Club --", "0"));
             }
         }
    }

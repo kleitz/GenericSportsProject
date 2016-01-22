@@ -436,7 +436,7 @@
                         
         <div class="control-group">
 		     <label class="control-label">          
-                   <asp:Label ID="lblRegistrationDocNumber" runat="server" Text=" Doc. No. :" ></asp:Label>
+                   <asp:Label ID="lblRegistrationDocNumber" runat="server" Text=" Document No. :" ></asp:Label>
              </label>
              <div class="controls" style="position:relative;">
                   <asp:TextBox ID="txtRegistrationDocNumber" runat="server" 

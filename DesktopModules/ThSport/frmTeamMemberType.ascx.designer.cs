@@ -10,7 +10,7 @@
 namespace DotNetNuke.Modules.ThSport {
     
     
-    public partial class frmUserType {
+    public partial class frmTeamMemberType {
         
         /// <summary>
         /// divsavemassage control.
@@ -85,13 +85,13 @@ namespace DotNetNuke.Modules.ThSport {
         protected global::System.Web.UI.WebControls.Label msgConfirm;
         
         /// <summary>
-        /// pnlUserTypeGrid control.
+        /// pnlTeamMemberTypeGrid control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pnlUserTypeGrid;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pnlTeamMemberTypeGrid;
         
         /// <summary>
         /// addPanel control.
@@ -103,22 +103,22 @@ namespace DotNetNuke.Modules.ThSport {
         protected global::System.Web.UI.WebControls.Panel addPanel;
         
         /// <summary>
-        /// btnAddUserType control.
+        /// btnAddTeamMemberType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnAddUserType;
+        protected global::System.Web.UI.WebControls.LinkButton btnAddTeamMemberType;
         
         /// <summary>
-        /// gvUserType control.
+        /// gvTeamMemberType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvUserType;
+        protected global::System.Web.UI.WebControls.GridView gvTeamMemberType;
         
         /// <summary>
         /// hidRegID control.
@@ -130,40 +130,40 @@ namespace DotNetNuke.Modules.ThSport {
         protected global::System.Web.UI.HtmlControls.HtmlInputHidden hidRegID;
         
         /// <summary>
-        /// pnlUserTypeEntry control.
+        /// pnlTeamMemberTypeEntry control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlUserTypeEntry;
+        protected global::System.Web.UI.WebControls.Panel pnlTeamMemberTypeEntry;
         
         /// <summary>
-        /// lblUserType control.
+        /// lblTeamMemberType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblUserType;
+        protected global::System.Web.UI.WebControls.Label lblTeamMemberType;
         
         /// <summary>
-        /// txtUserType control.
+        /// txtTeamMemberType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUserType;
+        protected global::System.Web.UI.WebControls.TextBox txtTeamMemberType;
         
         /// <summary>
-        /// rfvUserType control.
+        /// rfvTeamMemberType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvUserType;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvTeamMemberType;
         
         /// <summary>
         /// RegularExpressionValidator1 control.
@@ -184,49 +184,22 @@ namespace DotNetNuke.Modules.ThSport {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl nameError;
         
         /// <summary>
-        /// lblUserTypeAddress control.
+        /// lblTeamMemberTypeDesc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblUserTypeAddress;
+        protected global::System.Web.UI.WebControls.Label lblTeamMemberTypeDesc;
         
         /// <summary>
-        /// txtUserTypeAddress control.
+        /// txtTeamMemberTypeDesc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUserTypeAddress;
-        
-        /// <summary>
-        /// rgvtxtUserTypeAddress control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator rgvtxtUserTypeAddress;
-        
-        /// <summary>
-        /// lblUserTypeDesc control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblUserTypeDesc;
-        
-        /// <summary>
-        /// txtUserTypeDesc control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUserTypeDesc;
+        protected global::System.Web.UI.WebControls.TextBox txtTeamMemberTypeDesc;
         
         /// <summary>
         /// RegularExpressionValidator2 control.
@@ -238,30 +211,102 @@ namespace DotNetNuke.Modules.ThSport {
         protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator2;
         
         /// <summary>
-        /// btnSaveUserType control.
+        /// lblActive control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSaveUserType;
+        protected global::System.Web.UI.WebControls.Label lblActive;
         
         /// <summary>
-        /// btnUpdateUserType control.
+        /// checkdiv control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnUpdateUserType;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl checkdiv;
         
         /// <summary>
-        /// btnCancelUserType control.
+        /// ChkIsActive control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCancelUserType;
+        protected global::System.Web.UI.WebControls.CheckBox ChkIsActive;
+        
+        /// <summary>
+        /// lblChkIsActive control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblChkIsActive;
+        
+        /// <summary>
+        /// lblShow control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblShow;
+        
+        /// <summary>
+        /// checdivshow control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl checdivshow;
+        
+        /// <summary>
+        /// ChkIsShow control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox ChkIsShow;
+        
+        /// <summary>
+        /// lblChkIsShow control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblChkIsShow;
+        
+        /// <summary>
+        /// btnSaveTeamMemberType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSaveTeamMemberType;
+        
+        /// <summary>
+        /// btnUpdateTeamMemberType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnUpdateTeamMemberType;
+        
+        /// <summary>
+        /// btnCancelTeamMemberType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCancelTeamMemberType;
     }
 }

@@ -436,7 +436,8 @@
                    <asp:Label ID="lblClub" runat="server" Text="  Club :" ></asp:Label>
              </label>
              <div class="controls" style="position:relative;">
-                  <asp:DropDownList ID="ddlClub" runat="server" CssClass="medium m-wrap"/>
+                  <asp:DropDownList ID="ddlClub" runat="server" CssClass="medium m-wrap" AutoPostBack="true" 
+                      OnSelectedIndexChanged="ddlClub_SelectedIndexChanged"/>
              </div>
         </div>
 

@@ -1,7 +1,8 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="frmUserType.ascx.cs" Inherits="DotNetNuke.Modules.ThSport.frmUserType" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="frmSponsorLevel.ascx.cs" Inherits="DotNetNuke.Modules.ThSport.frmSponsorLevel" %>
 
 <script type="text/javascript">
-    function SaveSuccessfully() {
+    function SaveSuccessfully()
+    {
         $(document).ready(function () {
             $.blockUI();
             setTimeout(function () {
@@ -14,7 +15,8 @@
 </script>
 
 <script type="text/javascript">
-    function savevalidateAndConfirmClose() {
+    function savevalidateAndConfirmClose()
+    {
         $(document).ready(function () {
             $("#divsavemassage").dialog({
                 modal: true,
@@ -35,7 +37,8 @@
 </script>
 
 <script type="text/javascript">
-    function UpdateSuccessfully() {
+    function UpdateSuccessfully()
+    {
         $(document).ready(function () {
             $.blockUI();
             setTimeout(function () {
@@ -48,7 +51,8 @@
 </script>
 
 <script type="text/javascript">
-    function updatevalidateAndConfirmClose() {
+    function updatevalidateAndConfirmClose()
+    {
         $(document).ready(function () {
             $("#divupdatemassage").dialog({
                 modal: true,
@@ -69,7 +73,8 @@
 </script>
 
 <script type="text/javascript">
-    function DeleteSuccessfully() {
+    function DeleteSuccessfully()
+    {
         $(document).ready(function () {
             $.blockUI();
             setTimeout(function () {
@@ -82,7 +87,8 @@
 </script>
 
 <script type="text/javascript">
-    function cancelvalidateAndConfirmClose() {
+    function cancelvalidateAndConfirmClose()
+    {
         $(document).ready(function () {
             $("#divcancelmassage").dialog({
                 modal: true,
@@ -121,11 +127,13 @@
 </style>
 
  <script type="text/javascript">
-     function validateAndConfirmClose(OnlyClose) {
+     function validateAndConfirmClose(OnlyClose)
+     {
          var validated = Page_ClientValidate('CloseSports');
 
-         if (OnlyClose == "btnCancelUserType") {
-             document.getElementById("msgConfirm").innerHTML = "Are You Sure, You Want to Close UserType Form ?";
+         if (OnlyClose == "btnCancelSponsorLevel")
+         {
+             document.getElementById("msgConfirm").innerHTML = "Are You Sure, You Want to Close SponsorLevel Form ?";
          }
 
          if (validated) {
@@ -141,29 +149,31 @@
                  buttons: {
                      Ok: function () {
 
-                         if (OnlyClose == "btnCancelUserType")
+                         if (OnlyClose == "btnCancelSponsorLevel")
                          {
-                             <%=this.Page.ClientScript.GetPostBackEventReference(new PostBackOptions(this.btnCancelUserType))%>;
+                             <%=this.Page.ClientScript.GetPostBackEventReference(new PostBackOptions(this.btnCancelSponsorLevel))%>;
                          }
 
                      },
-                     Cancel: function () {
+                     Cancel: function ()
+                     {
                          $(this).dialog('close');
                          return false;
                      }
                  }
 
              });
-
          }
          return false;
      }
 
-     function validateAndConfirm(btn_clientid) {
+     function validateAndConfirm(btn_clientid)
+     {
          var validated = Page_ClientValidate('Sports');
 
-         if (btn_clientid == "btnUpdateUserType") {
-             document.getElementById("msgConfirm").innerHTML = "Are You Sure, You Want to Update UserType Details ?";
+         if (btn_clientid == "btnUpdateSponsorLevel")
+         {
+             document.getElementById("msgConfirm").innerHTML = "Are You Sure, You Want to Update SponsorLevel Details ?";
          }
 
          if (validated) {
@@ -179,14 +189,14 @@
                  buttons: {
                      Ok: function () {
 
-                         if (btn_clientid == "btnSaveUserType")
+                         if (btn_clientid == "btnSaveSponsorLevel")
                          {
-                             <%=this.Page.ClientScript.GetPostBackEventReference(new PostBackOptions(this.btnSaveUserType))%>;
+                             <%=this.Page.ClientScript.GetPostBackEventReference(new PostBackOptions(this.btnSaveSponsorLevel))%>;
                          }
 
-                         if (btn_clientid == "btnUpdateUserType")
+                         if (btn_clientid == "btnUpdateSponsorLevel")
                          {
-                             <%=this.Page.ClientScript.GetPostBackEventReference(new PostBackOptions(this.btnUpdateUserType))%>;
+                             <%=this.Page.ClientScript.GetPostBackEventReference(new PostBackOptions(this.btnUpdateSponsorLevel))%>;
                          }
 
                      },
@@ -211,40 +221,40 @@
 
 <div id="divsavemassage" runat="server" clientidmode="static" style="display: none;position:inherit !important;">
     <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/AllImage/Ok.png")%>" />
-     <asp:Label CssClass="lobibox-body-text" ID="Label1" ClientIDMode="Static" runat="server" Text=" UserType detail are save successfully. ">
+     <asp:Label CssClass="lobibox-body-text" ID="Label1" ClientIDMode="Static" runat="server" Text=" SponsorLevel detail are save successfully. ">
      </asp:Label>
 </div>
 
 <div id="divupdatemassage" runat="server" clientidmode="static" style="display: none;position:inherit !important;">
     <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/AllImage/Ok.png")%>" />
-     <asp:Label CssClass="lobibox-body-text" ID="Label2" ClientIDMode="Static" runat="server" Text=" UserType detail are update successfully. ">
+     <asp:Label CssClass="lobibox-body-text" ID="Label2" ClientIDMode="Static" runat="server" Text=" SponsorLevel detail are update successfully. ">
      </asp:Label>
 </div>
 
 <div id="divcancelmassage" runat="server" clientidmode="static" style="display: none;position:inherit !important;">
     <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/AllImage/Cancel.png")%>" />
-     <asp:Label CssClass="lobibox-body-text" ID="Label3" ClientIDMode="Static" runat="server" Text=" UserType detail are delete successfully. ">
+     <asp:Label CssClass="lobibox-body-text" ID="Label3" ClientIDMode="Static" runat="server" Text=" SponsorLevel detail are delete successfully. ">
      </asp:Label>
 </div>
 
 <div id="dialogBox" runat="server" clientidmode="static"  style="display:none;">
     <div class="lobibox-body-text-wrapper">
-        <asp:Label CssClass="lobibox-body-text" ID="msgConfirm" ClientIDMode="Static" runat="server" Text="Are You Sure, You Want to Save UserType Details ?"></asp:Label>
+        <asp:Label CssClass="lobibox-body-text" ID="msgConfirm" ClientIDMode="Static" runat="server" Text="Are You Sure, You Want to Save SponsorLevel Details ?"></asp:Label>
     </div>
 </div>
 
 <div class="row-fluid">
 	<div class="span12">
 
-   <panel id="pnlUserTypeGrid" runat="server">
+   <panel id="pnlSponsorLevelGrid" runat="server">
 
     <asp:Panel ID="addPanel" runat="server">    
         <div id="submenu">
             <ul>
                 <li class="active">
-                    <asp:LinkButton ID="btnAddUserType" runat="server" 
-                                    Height="35px" Text=" Add User Type" 
-                                    onclick="btnAddUserType_Click" ForeColor="White"/>
+                    <asp:LinkButton ID="btnAddSponsorLevel" runat="server" 
+                                    Height="35px" Text=" Add Sponsor Level" 
+                                    onclick="btnAddSponsorLevel_Click" ForeColor="White"/>
                 </li>
             </ul>
         </div>
@@ -257,7 +267,7 @@
 			<div class="portlet-title">
 				<div class="caption">
 					<i class="icon-reorder"></i>
-					<span class="hidden-480"> User Type List</span>
+					<span class="hidden-480"> Sponsor Level List</span>
 				</div>
                 <div class="tools">
 					<a href="javascript:;" class="collapse"></a>
@@ -267,38 +277,30 @@
 
     <div class="portlet-body flip-scroll">
 		
-          <asp:GridView ID="gvUserType" runat="server" AutoGenerateColumns="false" ShowHeaderWhenEmpty="true" 
+          <asp:GridView ID="gvSponsorLevel" runat="server" AutoGenerateColumns="false" ShowHeaderWhenEmpty="true" 
                         AllowPaging="true" PageSize="10" EmptyDataText="No Records Found" 
                         CssClass="table-bordered table-striped table-condensed flip-content" 
                         HorizontalAlign="Center" AlternatingRowStyle-Font-Size="X-Large" 
                         CellPadding="5" CellSpacing="5" Width="100%"
-                        onpageindexchanging="gvUserType_PageIndexChanging">
+                        onpageindexchanging="gvSponsorLevel_PageIndexChanging">
             <RowStyle CssClass="grid-row" />
         <AlternatingRowStyle CssClass="grid-row grid-row-alternet" />
 
 		<Columns>
 
-        <asp:TemplateField HeaderText="UserTypeId" ItemStyle-VerticalAlign="Middle" ItemStyle-HorizontalAlign="Center" 
+        <asp:TemplateField HeaderText="SponsorLevelId" ItemStyle-VerticalAlign="Middle" ItemStyle-HorizontalAlign="Center" 
                                     Visible="false" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column">
                 <ItemTemplate>
                     <div class="grid-cell-inner" style="width:130px; display: inline-block;">
-                        <asp:Label ID="lblUserTypeId" runat="server" Text='<%#Eval("UserTypeId") %>'></asp:Label>
+                        <asp:Label ID="lblSponsorLevelId" runat="server" Text='<%#Eval("SponsorLevelId") %>'></asp:Label>
                     </div> 
                 </ItemTemplate>
          </asp:TemplateField>
 
-            <asp:TemplateField HeaderText="User Type" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center">
+            <asp:TemplateField HeaderText="Sponsor Level" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center">
 				<ItemTemplate>
                     <div class="grid-cell-inner" style="text-align:center;">
-					    <asp:Label ID="lblUserTypeName" runat="server" Text='<%#Eval("UserTypeName") %>' ToolTip=" User Type "></asp:Label>
-                    </div> 
-				</ItemTemplate>
-			</asp:TemplateField>
-
-              <asp:TemplateField HeaderText=" Abbreviation " HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center">
-				<ItemTemplate>
-                    <div class="grid-cell-inner" style="text-align:center;">
-					    <asp:Label ID="lblUserTypeAbbr" runat="server" Text='<%#Eval("UserTypeAbbr") %>' ToolTip=" User Address "></asp:Label>
+					    <asp:Label ID="lblSponsorLevelName" runat="server" Text='<%#Eval("SponsorLevelValue") %>' ToolTip=" Sponsor Level Value "></asp:Label>
                     </div> 
 				</ItemTemplate>
 			</asp:TemplateField>
@@ -306,12 +308,12 @@
             <asp:TemplateField HeaderText=" Description " HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center" Visible="false">
 				<ItemTemplate>
                     <div class="grid-cell-inner" style="text-align:center;">
-					    <asp:Label ID="lblUserTypeDesc" runat="server" Text='<%#Eval("UserTypeDesc") %>' ToolTip=" User Type Description"></asp:Label>
+					    <asp:Label ID="lblSponsorLevelDesc" runat="server" Text='<%#Eval("SponsorLevelDesc") %>' ToolTip=" Sponsor Level Description"></asp:Label>
                     </div> 
 				</ItemTemplate>
 			</asp:TemplateField>
-
-             <asp:TemplateField HeaderText="Action"  HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" 
+            
+        <asp:TemplateField HeaderText="Action"  HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" 
                                ItemStyle-HorizontalAlign="Center" HeaderStyle-Width="135px">
                 <ItemTemplate>
                     <asp:DropDownList ID="ddlAction" runat="server" CssClass="small m-wrap ddlActionSelect" 
@@ -320,7 +322,7 @@
                             <asp:ListItem Value="Edit">Edit</asp:ListItem>
                             <%--<asp:ListItem Value="Delete">Delete</asp:ListItem>--%>
                     </asp:DropDownList>
-                        <asp:Label ID="lblddlActionUserTypeId" runat="server" Text='<%#Eval("UserTypeId") %>' Visible="false">
+                        <asp:Label ID="lblddlActionSponsorLevelId" runat="server" Text='<%#Eval("SponsorLevelId") %>' Visible="false">
                         </asp:Label>
                 </ItemTemplate>
             </asp:TemplateField>
@@ -337,7 +339,7 @@
 
 </panel>
 
-<asp:Panel ID="pnlUserTypeEntry" runat="server">
+<asp:Panel ID="pnlSponsorLevelEntry" runat="server">
 
     <div style="padding:10px 0px;">
             * Note: All Fields marked with an asterisk (*) are required.
@@ -347,7 +349,7 @@
 			<div class="portlet-title">
 				<div class="caption">
 					<i class="icon-reorder"></i>
-					<span class="hidden-480"> User Type Details</span>
+					<span class="hidden-480"> Sponsor Level Details </span>
 				</div>
 			</div>
 
@@ -366,21 +368,21 @@
 
        <div class="control-group">
 		     <label class="control-label">          
-                   <asp:Label ID="lblUserType" runat="server" Text=" User Type :" ></asp:Label>
+                   <asp:Label ID="lblSponsorLevel" runat="server" Text=" Sponsor Level :" ></asp:Label>
              </label>
              <div class="startsetallfrom">
                  <span class="help-inline"><font Color="red"><b>*</b></font></span>
              </div>
              <div class="controls" style="position:relative;">
-                  <asp:TextBox ID="txtUserType" runat="server" 
+                  <asp:TextBox ID="txtSponsorLevel" runat="server" 
                                      CssClass="m-wrap large" onchange="textBoxOnBlur(this,this.id)" 
                                      ClientIDMode="Static"/>
-                  <asp:RequiredFieldValidator ID="rfvUserType" runat="server" ErrorMessage="User Type,"
-                                              ControlToValidate="txtUserType" SetFocusOnError="true" 
-                                              ValidationGroup="Sports" Text="User Type Required !" 
+                  <asp:RequiredFieldValidator ID="rfvSponsorLevel" runat="server" ErrorMessage="Sponsor Level,"
+                                              ControlToValidate="txtSponsorLevel" SetFocusOnError="true" 
+                                              ValidationGroup="Sports" Text="Sponsor Level Required !" 
                                               CssClass="errorfordnn" ClientIDMode="Static"/>
                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1"
-                                                    Display="Static" ControlToValidate="txtUserType"  
+                                                    Display="Static" ControlToValidate="txtSponsorLevel"  
                                                     ValidationGroup="Sports" CssClass="errorfordnn"
                                                     ValidationExpression = "^[\s\S]{0,100}$" 
                                                     runat="server" ErrorMessage="Maximum 100 characters allowed.">
@@ -391,30 +393,15 @@
              </div>
         </div>
 
-         <div class="control-group">
-		    <label class="control-label">
-                <asp:Label ID="lblUserTypeAddress" runat="server" Text=" Abbreviation :" ></asp:Label>
-            </label>
-            <div class="controls" style="position:relative;">
-                <asp:TextBox ID="txtUserTypeAddress" runat="server" CssClass="m-wrap small"/>
-                     <asp:RegularExpressionValidator ID="rgvtxtUserTypeAddress"
-                                                    Display="Static" ControlToValidate="txtUserTypeAddress"  
-                                                    ValidationGroup="Sports" CssClass="errorfordnn"
-                                                    ValidationExpression = "^[\s\S]{0,5}$" 
-                                                    runat="server" ErrorMessage="Maximum 5 characters allowed.">
-                    </asp:RegularExpressionValidator>  
-           </div>
-        </div>
-                
         <div class="control-group">
 		    <label class="control-label">
-                <asp:Label ID="lblUserTypeDesc" runat="server" Text="Description :" ></asp:Label>
+                <asp:Label ID="lblSponsorLevelDesc" runat="server" Text="Description :" ></asp:Label>
             </label>
             <div class="controls" style="position:relative;">
-                <asp:TextBox ID="txtUserTypeDesc" runat="server"  
+                <asp:TextBox ID="txtSponsorLevelDesc" runat="server"  
                              CssClass="m-wrap mediumSmallDesc" TextMode="MultiLine" Width="319px" Height="150px"/>
                     <asp:RegularExpressionValidator ID="RegularExpressionValidator2"
-                                                    Display="Static" ControlToValidate="txtUserTypeDesc"  
+                                                    Display="Static" ControlToValidate="txtSponsorLevelDesc"  
                                                     ValidationGroup="Sports" CssClass="errorfordnn"
                                                     ValidationExpression = "^[\s\S]{0,500}$" 
                                                     runat="server" ErrorMessage="Maximum 500 characters allowed.">
@@ -425,15 +412,15 @@
         <div class="form-actions">
             <div class="right_div_css">
 
-                    <asp:Button ID="btnSaveUserType" runat="server"  Text=" Save " OnClick="btnSaveUserType_Click" 
+                    <asp:Button ID="btnSaveSponsorLevel" runat="server"  Text=" Save " OnClick="btnSaveSponsorLevel_Click" 
                                 ValidationGroup="Sports" CssClass="btn blue" ClientIDMode="Static" Width="100px"
                                 OnClientClick="return validateAndConfirm(this.id);" />
 
-                    <asp:Button ID="btnUpdateUserType" runat="server"  Text=" Update " OnClick="btnUpdateUserType_Click" 
+                    <asp:Button ID="btnUpdateSponsorLevel" runat="server"  Text=" Update " OnClick="btnUpdateSponsorLevel_Click" 
                                 ValidationGroup="Sports" CssClass="btn red" ClientIDMode="Static" Width="100px"
                                 OnClientClick="return validateAndConfirm(this.id);" />
 
-                    <asp:Button ID="btnCancelUserType" runat="server" Text="Cancel" OnClick="btnCancelUserType_Click" CssClass="btn" 
+                    <asp:Button ID="btnCancelSponsorLevel" runat="server" Text="Cancel" OnClick="btnCancelSponsorLevel_Click" CssClass="btn" 
                                 ClientIDMode="Static" ValidationGroup="CloseSports" Width="100px"
                                 OnClientClick="return validateAndConfirmClose(this.id);"/>
 

@@ -10,7 +10,7 @@
 namespace DotNetNuke.Modules.ThSport {
     
     
-    public partial class frmUserType {
+    public partial class frmSponsorLevel {
         
         /// <summary>
         /// divsavemassage control.
@@ -85,13 +85,13 @@ namespace DotNetNuke.Modules.ThSport {
         protected global::System.Web.UI.WebControls.Label msgConfirm;
         
         /// <summary>
-        /// pnlUserTypeGrid control.
+        /// pnlSponsorLevelGrid control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pnlUserTypeGrid;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pnlSponsorLevelGrid;
         
         /// <summary>
         /// addPanel control.
@@ -103,22 +103,22 @@ namespace DotNetNuke.Modules.ThSport {
         protected global::System.Web.UI.WebControls.Panel addPanel;
         
         /// <summary>
-        /// btnAddUserType control.
+        /// btnAddSponsorLevel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnAddUserType;
+        protected global::System.Web.UI.WebControls.LinkButton btnAddSponsorLevel;
         
         /// <summary>
-        /// gvUserType control.
+        /// gvSponsorLevel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvUserType;
+        protected global::System.Web.UI.WebControls.GridView gvSponsorLevel;
         
         /// <summary>
         /// hidRegID control.
@@ -130,40 +130,40 @@ namespace DotNetNuke.Modules.ThSport {
         protected global::System.Web.UI.HtmlControls.HtmlInputHidden hidRegID;
         
         /// <summary>
-        /// pnlUserTypeEntry control.
+        /// pnlSponsorLevelEntry control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlUserTypeEntry;
+        protected global::System.Web.UI.WebControls.Panel pnlSponsorLevelEntry;
         
         /// <summary>
-        /// lblUserType control.
+        /// lblSponsorLevel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblUserType;
+        protected global::System.Web.UI.WebControls.Label lblSponsorLevel;
         
         /// <summary>
-        /// txtUserType control.
+        /// txtSponsorLevel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUserType;
+        protected global::System.Web.UI.WebControls.TextBox txtSponsorLevel;
         
         /// <summary>
-        /// rfvUserType control.
+        /// rfvSponsorLevel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvUserType;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvSponsorLevel;
         
         /// <summary>
         /// RegularExpressionValidator1 control.
@@ -184,49 +184,22 @@ namespace DotNetNuke.Modules.ThSport {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl nameError;
         
         /// <summary>
-        /// lblUserTypeAddress control.
+        /// lblSponsorLevelDesc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblUserTypeAddress;
+        protected global::System.Web.UI.WebControls.Label lblSponsorLevelDesc;
         
         /// <summary>
-        /// txtUserTypeAddress control.
+        /// txtSponsorLevelDesc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUserTypeAddress;
-        
-        /// <summary>
-        /// rgvtxtUserTypeAddress control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator rgvtxtUserTypeAddress;
-        
-        /// <summary>
-        /// lblUserTypeDesc control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblUserTypeDesc;
-        
-        /// <summary>
-        /// txtUserTypeDesc control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUserTypeDesc;
+        protected global::System.Web.UI.WebControls.TextBox txtSponsorLevelDesc;
         
         /// <summary>
         /// RegularExpressionValidator2 control.
@@ -238,30 +211,30 @@ namespace DotNetNuke.Modules.ThSport {
         protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator2;
         
         /// <summary>
-        /// btnSaveUserType control.
+        /// btnSaveSponsorLevel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSaveUserType;
+        protected global::System.Web.UI.WebControls.Button btnSaveSponsorLevel;
         
         /// <summary>
-        /// btnUpdateUserType control.
+        /// btnUpdateSponsorLevel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnUpdateUserType;
+        protected global::System.Web.UI.WebControls.Button btnUpdateSponsorLevel;
         
         /// <summary>
-        /// btnCancelUserType control.
+        /// btnCancelSponsorLevel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCancelUserType;
+        protected global::System.Web.UI.WebControls.Button btnCancelSponsorLevel;
     }
 }

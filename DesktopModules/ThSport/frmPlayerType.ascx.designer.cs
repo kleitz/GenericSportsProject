@@ -10,7 +10,7 @@
 namespace DotNetNuke.Modules.ThSport {
     
     
-    public partial class frmUserType {
+    public partial class frmPlayerType {
         
         /// <summary>
         /// divsavemassage control.
@@ -85,13 +85,13 @@ namespace DotNetNuke.Modules.ThSport {
         protected global::System.Web.UI.WebControls.Label msgConfirm;
         
         /// <summary>
-        /// pnlUserTypeGrid control.
+        /// pnlPlayerTypeGrid control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pnlUserTypeGrid;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pnlPlayerTypeGrid;
         
         /// <summary>
         /// addPanel control.
@@ -103,22 +103,22 @@ namespace DotNetNuke.Modules.ThSport {
         protected global::System.Web.UI.WebControls.Panel addPanel;
         
         /// <summary>
-        /// btnAddUserType control.
+        /// btnAddPlayerType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnAddUserType;
+        protected global::System.Web.UI.WebControls.LinkButton btnAddPlayerType;
         
         /// <summary>
-        /// gvUserType control.
+        /// gvPlayerType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvUserType;
+        protected global::System.Web.UI.WebControls.GridView gvPlayerType;
         
         /// <summary>
         /// hidRegID control.
@@ -130,40 +130,40 @@ namespace DotNetNuke.Modules.ThSport {
         protected global::System.Web.UI.HtmlControls.HtmlInputHidden hidRegID;
         
         /// <summary>
-        /// pnlUserTypeEntry control.
+        /// pnlPlayerTypeEntry control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlUserTypeEntry;
+        protected global::System.Web.UI.WebControls.Panel pnlPlayerTypeEntry;
         
         /// <summary>
-        /// lblUserType control.
+        /// lblPlayerType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblUserType;
+        protected global::System.Web.UI.WebControls.Label lblPlayerType;
         
         /// <summary>
-        /// txtUserType control.
+        /// txtPlayerType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUserType;
+        protected global::System.Web.UI.WebControls.TextBox txtPlayerType;
         
         /// <summary>
-        /// rfvUserType control.
+        /// rfvPlayerType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvUserType;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvPlayerType;
         
         /// <summary>
         /// RegularExpressionValidator1 control.
@@ -184,49 +184,22 @@ namespace DotNetNuke.Modules.ThSport {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl nameError;
         
         /// <summary>
-        /// lblUserTypeAddress control.
+        /// lblPlayerTypeDesc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblUserTypeAddress;
+        protected global::System.Web.UI.WebControls.Label lblPlayerTypeDesc;
         
         /// <summary>
-        /// txtUserTypeAddress control.
+        /// txtPlayerTypeDesc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUserTypeAddress;
-        
-        /// <summary>
-        /// rgvtxtUserTypeAddress control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator rgvtxtUserTypeAddress;
-        
-        /// <summary>
-        /// lblUserTypeDesc control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblUserTypeDesc;
-        
-        /// <summary>
-        /// txtUserTypeDesc control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUserTypeDesc;
+        protected global::System.Web.UI.WebControls.TextBox txtPlayerTypeDesc;
         
         /// <summary>
         /// RegularExpressionValidator2 control.
@@ -238,30 +211,30 @@ namespace DotNetNuke.Modules.ThSport {
         protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator2;
         
         /// <summary>
-        /// btnSaveUserType control.
+        /// btnSavePlayerType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSaveUserType;
+        protected global::System.Web.UI.WebControls.Button btnSavePlayerType;
         
         /// <summary>
-        /// btnUpdateUserType control.
+        /// btnUpdatePlayerType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnUpdateUserType;
+        protected global::System.Web.UI.WebControls.Button btnUpdatePlayerType;
         
         /// <summary>
-        /// btnCancelUserType control.
+        /// btnCancelPlayerType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCancelUserType;
+        protected global::System.Web.UI.WebControls.Button btnCancelPlayerType;
     }
 }

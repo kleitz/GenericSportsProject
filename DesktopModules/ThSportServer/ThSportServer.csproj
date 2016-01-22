@@ -99,6 +99,8 @@
     <Compile Include="clsAddDocuments.cs" />
     <Compile Include="clsAddDocumentsType.cs" />
     <Compile Include="clsEvent.cs" />
+    <Compile Include="clsPlayerType.cs" />
+    <Compile Include="clsSponsorLevel.cs" />
     <Compile Include="clsSponsorType.cs" />
     <Compile Include="clsTeam.cs" />
     <Compile Include="clsCompetitionFormat.cs" />
@@ -114,6 +116,8 @@
     <Compile Include="clsRegistrationParentsOrRelatives.cs" />
     <Compile Include="clsSeason.cs" />
     <Compile Include="clsSport.cs" />
+    <Compile Include="clsTeamMember.cs" />
+    <Compile Include="clsTeamMemberType.cs" />
     <Compile Include="Data\DataProvider.cs" />
     <Compile Include="DTOs\DTOAssign.cs" />
     <Compile Include="clsClubMemberType.cs" />

@@ -1,23 +1,24 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="frmTeam.ascx.cs" Inherits="DotNetNuke.Modules.ThSport.frmTeam" %>
 
 <script type="text/javascript">
-
-    function validateTextBox(sender, args) {
-
+    function validateTextBox(sender, args)
+    {
         var txtcheckValue = args.Value;
 
         var chars = ['<', '>', '*', '$', '@', ',', '_', '%', '.'];
         args.IsValid = true;
 
-        if (txtcheckValue.length > 0) {
+        if (txtcheckValue.length > 0)
+        {
             var currentChar = txtcheckValue.charAt(0);
 
-            if (chars.indexOf(currentChar) >= 0) {
+            if (chars.indexOf(currentChar) >= 0)
+            {
                 args.IsValid = false;
                 txtcheckValue.value = "";
-
             }
-            else {
+            else
+            {
                 args.IsValid = true;
             }
         }
@@ -65,7 +66,8 @@
         }
     }
 
-    function SaveSuccessfully() {
+    function SaveSuccessfully()
+    {
         $(document).ready(function () {
             $.blockUI();
             setTimeout(function () {
@@ -78,7 +80,8 @@
 </script>
 
 <script type="text/javascript">
-    function savevalidateAndConfirmClose() {
+    function savevalidateAndConfirmClose()
+    {
         $(document).ready(function () {
             $("#divsavemassage").dialog({
                 modal: true,
@@ -444,31 +447,40 @@
 
 	<div class="tabbable portlet-tabs">
 
-    <div class="tab-content" style="margin-top:10px !important;">
-		<div class="tab-pane active" id="portlet_tab1">
+          <div id="error_div" runat="server" style="display:none;">
+            <asp:Label Id="error_msg" runat="server"  Text="" Visible="false"></asp:Label>
+        </div>
 
+    <div class="tab-content">
+		<div class="tab-pane active" id="portlet_tab1">
+             <asp:HiddenField ID="hdnTeamID" runat="server" />
         <div class="form-horizontal">
 
         <div style="width: 100%;margin-top:20px;"></div>
 
-        <asp:HiddenField ID="hdnTeamID" runat="server" />
+       
 
         <div class="control-group">
-		    <label class="control-label">Club : </label>
+		    <label class="control-label">
+                <asp:Label ID="lblClub" runat="server" Text="Club :" ></asp:Label>
+            </label>
+             <span class="help-inline"><font Color="red"><b>*</b></font></span>
             <div class="controls" style="position:relative;">  
                 <asp:DropDownList ID="ddlClub" runat="server"  CssClass="large m-wrap"/>
-                <span class="help-inline"><font Color="red"><b>*</b></font></span>
                 <asp:RequiredFieldValidator ID="rfvddlClub" ClientIDMode="Static" runat="server" InitialValue="0" 
-                    ErrorMessage="Club Required !" CssClass="errorfordnn" SetFocusOnError="true" ControlToValidate="ddlClub"
-                    ValidationGroup="Sports" Text="Club Required !"></asp:RequiredFieldValidator>
+                                                      ErrorMessage="Club Required !" CssClass="errorfordnn" SetFocusOnError="true" ControlToValidate="ddlClub"
+                                                      ValidationGroup="Sports" Text="Club Required !"></asp:RequiredFieldValidator>
             </div>
         </div>
 
         <div class="control-group">
-		    <label class="control-label">Sport : </label>
+		   <label class="control-label">
+                <asp:Label ID="lblSport" runat="server" Text="Sport :" ></asp:Label>
+            </label>
+             <span class="help-inline"><font Color="red"><b>*</b></font></span>
             <div class="controls" style="position:relative;">  
                 <asp:DropDownList ID="ddlSport" runat="server"  CssClass="large m-wrap"/>
-                <span class="help-inline"><font Color="red"><b>*</b></font></span>
+               
                 <asp:RequiredFieldValidator ID="rfvddlSport" ClientIDMode="Static" runat="server" InitialValue="0" 
                     ErrorMessage="Sport Required !" CssClass="errorfordnn" SetFocusOnError="true" ControlToValidate="ddlSport"
                     ValidationGroup="Sports" Text="Sport Required !"></asp:RequiredFieldValidator>
@@ -479,9 +491,9 @@
 		     <label class="control-label">          
                    <asp:Label ID="lblTeam" runat="server" Text=" Team  :" ></asp:Label>
              </label>
+             <span class="help-inline"><font Color="red"><b>*</b></font></span>
              <div class="controls" style="position:relative;">
                   <asp:TextBox ID="txtTeam" runat="server"  CssClass="m-wrap large" />
-                 <span class="help-inline"><font Color="red"><b>*</b></font></span>
                   <asp:RequiredFieldValidator ID="rfvTeam" runat="server" ErrorMessage="Team"  ControlToValidate="txtTeam" SetFocusOnError="true" 
                                               ValidationGroup="Sports" Text="Team  Required !" CssClass="errorfordnn" ClientIDMode="Static"/>
                    <asp:RegularExpressionValidator ID="rgvtxtTeam"
@@ -490,8 +502,10 @@
                                                     ValidationExpression = "^[\s\S]{0,100}$" 
                                                     runat="server" ErrorMessage="Maximum 100 characters allowed.">
                    </asp:RegularExpressionValidator>  
-                   <asp:CustomValidator ID="cvtxtTeam" ValidationGroup="Sports" runat="server" ErrorMessage="" SetFocusOnError="true" ControlToValidate="txtTeam"
-                                    EnableClientScript="true" ClientValidationFunction="validateTextBox" CssClass="errorfordnn" Text="First Character Should Not Be Special Character"></asp:CustomValidator>
+                   <asp:CustomValidator ID="cvtxtTeam" ValidationGroup="Sports" runat="server" ErrorMessage="" SetFocusOnError="true" 
+                                                 ControlToValidate="txtTeam" EnableClientScript="true" ClientValidationFunction="validateTextBox" 
+                                                 CssClass="errorfordnn" Text="First Character Should Not Be Special Character">
+                   </asp:CustomValidator>
              </div>
         </div>
 
@@ -499,9 +513,10 @@
 		    <label class="control-label">
                 <asp:Label ID="lblTeamAbbr" runat="server" Text="Abbreviation :" ></asp:Label>
             </label>
+            <span class="help-inline"><font Color="red"><b>*</b></font></span>
             <div class="controls" style="position:relative;">
                 <asp:TextBox ID="txtTeamAbbr" runat="server"  CssClass="m-wrap small" />
-                <span class="help-inline"><font Color="red"><b>*</b></font></span>
+                
                     <asp:RegularExpressionValidator ID="rgvtxtTeamAbbr"
                                                     Display="Static" ControlToValidate="txtTeamAbbr"  
                                                     ValidationGroup="Sports" CssClass="errorfordnn"
@@ -532,10 +547,12 @@
         </div>
 
         <div class="control-group">
-		     <label class="control-label">Famous Name  :</label>
-             <div class="controls" style="position:relative;">
+            <label class="control-label">          
+                   <asp:Label ID="lblFamousName" runat="server" Text=" Famous Name :" ></asp:Label>
+             </label>
+             <span class="help-inline"><font Color="red"><b>*</b></font></span>
+		     <div class="controls" style="position:relative;">
                   <asp:TextBox ID="txtFamousName" runat="server"  CssClass="m-wrap large" />
-                 <span class="help-inline"><font Color="red"><b>*</b></font></span>
                   <asp:RequiredFieldValidator ID="rfvtxtFamousName" runat="server" ErrorMessage="Team"  ControlToValidate="txtFamousName" SetFocusOnError="true" 
                                               ValidationGroup="Sports" Text="Famous Name  Required !" CssClass="errorfordnn" ClientIDMode="Static"/>
                    <asp:RegularExpressionValidator ID="rgvtxtFamousName"
@@ -550,10 +567,12 @@
         </div>
 
         <div class="control-group">
-		     <label class="control-label">Team Logo Name : </label>
+            <label class="control-label">          
+                   <asp:Label ID="lblTeamLogoName" runat="server" Text=" Team Logo Name :" ></asp:Label>
+             </label>
+             <span class="help-inline"><font Color="red"><b>*</b></font></span>
              <div class="controls" style="position:relative;">
                   <asp:TextBox ID="txtTeamLogoName" runat="server"  CssClass="m-wrap large" />
-                 <span class="help-inline"><font Color="red"><b>*</b></font></span>
                   <asp:RequiredFieldValidator ID="rfvtxtTeamLogoName" runat="server" ErrorMessage="Team"  ControlToValidate="txtTeamLogoName" SetFocusOnError="true" 
                                               ValidationGroup="Sports" Text="Team Logo Name Required !" CssClass="errorfordnn" ClientIDMode="Static"/>
                    <asp:RegularExpressionValidator ID="rgvtxtTeamLogoName"
@@ -571,9 +590,9 @@
 		    <label class="control-label"> 
                 <asp:Label ID="lblUploadLogo" runat="server" Text="Upload Logo : "></asp:Label>
              </label>
+              <span class="help-inline"><font Color="red"><b>*</b></font></span>
             <div class="controls" style="position:relative;">  
                 <input ID="TeamLogoFile" type="file" name="file" runat="server" onchange="previewFileLogo()"/>
-                <span class="help-inline"><font Color="red"><b>*</b></font></span>
                 <asp:RegularExpressionValidator ID="rgvTeamLogoFile" 
                                                 ValidationExpression="([a-zA-Z\\].*(.jpg|.png|.bmp|.jpeg|.gif|.tif)$)"
                                                 ControlToValidate="TeamLogoFile" ValidationGroup="Sports" 
@@ -588,10 +607,12 @@
         </div>
 
         <div class="control-group">
-		    <label class="control-label">Upload Photo :</label>
-            <div class="controls" style="position:relative;">  
+             <label class="control-label"> 
+                <asp:Label ID="lblUploadPhoto" runat="server" Text="Upload Photo : "></asp:Label>
+             </label>
+              <span class="help-inline"><font Color="red"><b>*</b></font></span>
+		    <div class="controls" style="position:relative;">  
                 <input ID="TeamPhotoFile" type="file" name="file" runat="server" onchange="previewFilePhoto()"/>
-                <span class="help-inline"><font Color="red"><b>*</b></font></span>
                 <asp:RegularExpressionValidator ID="rgvTeamPhotoFile" 
                                                 ValidationExpression="([a-zA-Z\\].*(.jpg|.png|.bmp|.jpeg|.gif|.tif)$)"
                                                 ControlToValidate="TeamPhotoFile" ValidationGroup="Sports" 
@@ -606,10 +627,12 @@
         </div>
 
         <div class="control-group">
-		    <label class="control-label">Established Year : </label>
-            <div class="controls" style="position:relative;">  
+            <label class="control-label"> 
+                <asp:Label ID="lblEstablishedYear" runat="server" Text="Established Year : "></asp:Label>
+             </label>
+              <span class="help-inline"><font Color="red"><b>*</b></font></span>
+		    <div class="controls" style="position:relative;">  
                 <asp:TextBox ID="txtEstablishedYear" runat="server" ClientIDMode="Static"  CssClass="datetimepicker m-wrap medium"/>
-                <span class="help-inline"><font Color="red"><b>*</b></font></span>
                 <asp:RequiredFieldValidator ID="rfvtxtEstablishedYear" runat="server" ErrorMessage="Enter Start Date"
                                                  ControlToValidate="txtEstablishedYear" SetFocusOnError="true" 
                                                  ValidationGroup="Sports" Text="Established Year Required !" CssClass="errorfordnn" 
@@ -618,8 +641,10 @@
         </div>
 
         <div class="control-group">
-		    <label class="control-label">Upload Anthem Audio File :</label>
-            <div class="controls" style="position:relative;">  
+              <label class="control-label"> 
+                <asp:Label ID="lblUploadAnthemAudioFile" runat="server" Text="Upload Anthem Audio File : "></asp:Label>
+             </label>
+		    <div class="controls" style="position:relative;">  
                 <input ID="TeamAnthemAudioFile" type="file" name="file" runat="server"/>
                 <asp:RegularExpressionValidator ID="rgvTeamAnthemAudioFile" 
                     ValidationExpression="([a-zA-Z\\].*(.mp3|.MP3|.mpeg|.MPEG|.m3u|.M3U)$)"
@@ -648,6 +673,7 @@
                 </label>
              </div>
         </div>    
+
    </div>
 
         <div class="form-actions">
