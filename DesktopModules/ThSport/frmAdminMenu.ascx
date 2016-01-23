@@ -75,9 +75,9 @@
               <li id="li_TeamMemberType" runat="server">
                   <asp:HyperLink id="hlTeamMemberType" runat="server" ToolTip=" Team Member Type Form "> Team Member Type </asp:HyperLink>
               </li>  
-              <li id="li_UserRole" runat="server">
+              <%--<li id="li_UserRole" runat="server">
                   <asp:HyperLink id="hlUserRole" runat="server" ToolTip=" User Role Form "> User Role </asp:HyperLink>
-              </li>  
+              </li>  --%>
            </ul>
 	    </li>
         

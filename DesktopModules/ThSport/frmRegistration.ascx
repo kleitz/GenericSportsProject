@@ -469,7 +469,7 @@
              </div>
              <div class="controls" style="position:relative;">
                   <asp:DropDownList ID="ddlSuffix" runat="server" CssClass="medium m-wrap">
-                            <asp:ListItem Text="Select Suffix" Value="0"></asp:ListItem>
+                            <asp:ListItem Text="-- Select --" Value="0"></asp:ListItem>
                             <asp:ListItem Text="Mr" Value="1"></asp:ListItem>
                             <asp:ListItem Text="Mrs" Value="2"></asp:ListItem>
                             <asp:ListItem Text="Ms" Value="3"></asp:ListItem>
@@ -483,102 +483,7 @@
              </div>
         </div>
                       
-        <div class="control-group">
-		     <label class="control-label">
-                   <asp:Label ID="lblUserRole" runat="server" Text=" User Role :" ></asp:Label>
-             </label>
-             <div class="startsetallfrom">
-                   <span class="help-inline"><font Color="red"><b>*</b></font></span>
-             </div>
-             <div class="controls" style="position:relative;">
-                  <asp:DropDownList ID="ddlUserRole" runat="server" CssClass="medium m-wrap" 
-                                            AutoPostBack="true" OnSelectedIndexChanged="ddlUserRole_SelectedIndexChanged"/>
-                  <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage=" User Role,"
-                                                ControlToValidate="ddlUserRole" SetFocusOnError="true"  
-                                                ValidationGroup="Sports" 
-                                                InitialValue="0" Text="Select User Role Required !" CssClass="errorfordnn" 
-                                                ClientIDMode="Static"/>
-             </div>
-        </div>
-
-        <div ID="divUserType" runat="server" visible="false">
-
-            <div class="control-group">
-		         <label class="control-label">
-                       <asp:Label ID="lblUserType" runat="server" Text=" User Type :" ></asp:Label>
-                 </label>
-                  <div class="startsetallfrom">
-                        <span class="help-inline"><font Color="red"><b>*</b></font></span>
-                 </div>
-                 <div class="controls" style="position:relative;">
-                      <asp:DropDownList ID="ddlUserType" runat="server" CssClass="medium m-wrap"/>
-                      <asp:RequiredFieldValidator ID="RFVUserType" runat="server" ErrorMessage=" User Type,"
-                                                    ControlToValidate="ddlUserType" SetFocusOnError="true"  
-                                                    ValidationGroup="Sports" 
-                                                    InitialValue="0" Text="Select UserType Required !" CssClass="errorfordnn" 
-                                                    ClientIDMode="Static"/>
-                 </div>
-            </div>
-
-        </div>       
-
-        <div ID="divPlayerType" runat="server" visible="false">
-
-            <div class="control-group">
-		         <label class="control-label">
-                       <asp:Label ID="lblPlayerType" runat="server" Text=" Player Type :" ></asp:Label>
-                 </label>
-                  <div class="startsetallfrom">
-                        <span class="help-inline"><font Color="red"><b>*</b></font></span>
-                 </div>
-                 <div class="controls" style="position:relative;">
-                      <asp:DropDownList ID="ddlPlayerType" runat="server" CssClass="medium m-wrap"/>
-                      <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ErrorMessage=" Player Type,"
-                                                    ControlToValidate="ddlPlayerType" SetFocusOnError="true"  
-                                                    ValidationGroup="Sports" 
-                                                    InitialValue="0" Text="Select Player Type Required !" CssClass="errorfordnn" 
-                                                    ClientIDMode="Static"/>
-                 </div>
-            </div>
-
-        </div>       
-            
-         <div ID="divSport" runat="server" visible="false">
-            <div class="control-group">
-		         <label class="control-label">
-                       <asp:Label ID="lblSport" runat="server" Text=" Sport :" ></asp:Label>
-                 </label>
-                 <div class="controls" style="position:relative;">
-                      <asp:DropDownList ID="ddlSport" runat="server" CssClass="medium m-wrap" AutoPostBack="true"
-                          OnSelectedIndexChanged="ddlSport_SelectedIndexChanged"/>
-                 </div>
-            </div>
-        </div>          
-
-        <div ID="divCompetition" runat="server" visible="false">
-            <div class="control-group">
-		         <label class="control-label">
-                       <asp:Label ID="lblCompetition" runat="server" Text=" Competition :" ></asp:Label>
-                 </label>
-                 <div class="controls" style="position:relative;">
-                      <asp:DropDownList ID="ddlCompetition" runat="server" CssClass="medium m-wrap"/>
-                 </div>
-            </div>
-        </div>          
-
-
-       <div ID="divTeam" runat="server" visible="false">
-
-            <div class="control-group">
-		         <label class="control-label">
-                       <asp:Label ID="lblTeam" runat="server" Text=" Team :" ></asp:Label>
-                 </label>
-                 <div class="controls" style="position:relative;">
-                      <asp:DropDownList ID="ddlTeam" runat="server" CssClass="medium m-wrap"/>
-                 </div>
-            </div>
-
-        </div>          
+        
 
         <div class="control-group">
 		     <label class="control-label">          
@@ -951,7 +856,219 @@
             </div>
         </div>
 
-         <div class="control-group">
+       <div ID="divUserRole" runat="server">
+        <div class="control-group">
+		     <label class="control-label">
+                   <asp:Label ID="lblUserRole" runat="server" Text=" User Role :" ></asp:Label>
+             </label>
+             <div class="startsetallfrom">
+                   <span class="help-inline"><font Color="red"><b>*</b></font></span>
+             </div>
+             <div class="controls" style="position:relative;">
+                  <asp:DropDownList ID="ddlUserRole" runat="server" CssClass="medium m-wrap" 
+                                            AutoPostBack="true" OnSelectedIndexChanged="ddlUserRole_SelectedIndexChanged"/>
+                  <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage=" User Role,"
+                                                ControlToValidate="ddlUserRole" SetFocusOnError="true"  
+                                                ValidationGroup="Sports" 
+                                                InitialValue="0" Text="Select User Role Required !" CssClass="errorfordnn" 
+                                                ClientIDMode="Static"/>
+             </div>
+        </div>
+        </div>
+
+        <div ID="divUserType" runat="server" visible="false">
+            <div class="control-group">
+		         <label class="control-label">
+                       <asp:Label ID="lblUserType" runat="server" Text=" User Type :" ></asp:Label>
+                 </label>
+                  <div class="startsetallfrom">
+                        <span class="help-inline"><font Color="red"><b>*</b></font></span>
+                 </div>
+                 <div class="controls" style="position:relative;">
+                      <asp:DropDownList ID="ddlUserType" runat="server" CssClass="medium m-wrap"/>
+                      <asp:RequiredFieldValidator ID="RFVUserType" runat="server" ErrorMessage=" User Type,"
+                                                    ControlToValidate="ddlUserType" SetFocusOnError="true"  
+                                                    ValidationGroup="Sports" 
+                                                    InitialValue="0" Text="Select UserType Required !" CssClass="errorfordnn" 
+                                                    ClientIDMode="Static"/>
+                 </div>
+            </div>
+        </div>       
+
+     <div ID="divAssignToTeam" runat="server" visible="false">
+       <div class="control-group">
+         <label class="control-label"> 
+               <asp:Label ID="lblSelect" runat="server" Text="Assign To :" ></asp:Label>
+         </label>
+         <div class="controls" style="position:relative;">
+                   <asp:DropDownList ID="drpSelectionEntry" runat="server"  AutoPostBack="true" CssClass="medium m-wrap"  
+                                             OnSelectedIndexChanged="drpSelectionEntry_SelectedIndexChanged">
+                        <asp:ListItem Text="Enter As" Value="0"></asp:ListItem>
+                        <asp:ListItem Text="Direct in Team" Value="1"></asp:ListItem>
+                    </asp:DropDownList>
+          </div>
+        </div>
+       </div>
+
+    <div ID="divAssignToClub" runat="server" visible="false">
+       <div class="control-group">
+         <label class="control-label"> 
+               <asp:Label ID="lblSelectAssignToClub" runat="server" Text="Assign To :" ></asp:Label>
+         </label>
+         <div class="controls" style="position:relative;">
+                <asp:DropDownList ID="ddlAssignToClub" runat="server"  AutoPostBack="true" CssClass="medium m-wrap"  
+                                          OnSelectedIndexChanged="ddlAssignToClub_SelectedIndexChanged">
+                     <asp:ListItem Text="Enter As" Value="0"></asp:ListItem>
+                     <asp:ListItem Text="Direct in Club" Value="1"></asp:ListItem>
+                </asp:DropDownList>
+          </div>
+        </div>
+       </div>
+
+      <div ID="divPlayerType" runat="server" visible="false">
+            <div class="control-group">
+		         <label class="control-label">
+                       <asp:Label ID="lblPlayerType" runat="server" Text=" Player Type :" ></asp:Label>
+                 </label>
+                  <div class="startsetallfrom">
+                        <span class="help-inline"><font Color="red"><b>*</b></font></span>
+                 </div>
+                 <div class="controls" style="position:relative;">
+                      <asp:DropDownList ID="ddlPlayerType" runat="server" CssClass="medium m-wrap"/>
+                      <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ErrorMessage=" Player Type,"
+                                                    ControlToValidate="ddlPlayerType" SetFocusOnError="true"  
+                                                    ValidationGroup="Sports" 
+                                                    InitialValue="0" Text="Select Player Type Required !" CssClass="errorfordnn" 
+                                                    ClientIDMode="Static"/>
+                 </div>
+            </div>
+
+        </div>       
+            
+      <div ID="divSport" runat="server" visible="false">
+            <div class="control-group">
+		         <label class="control-label">
+                       <asp:Label ID="lblSport" runat="server" Text=" Sport :" ></asp:Label>
+                 </label>
+                <div class="startsetallfrom">
+                        <span class="help-inline"><font Color="red"><b>*</b></font></span>
+                 </div>
+                 <div class="controls" style="position:relative;">
+                      <asp:DropDownList ID="ddlSport" runat="server" CssClass="medium m-wrap" AutoPostBack="true"
+                          OnSelectedIndexChanged="ddlSport_SelectedIndexChanged"/>
+                     <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage=" Sport,"
+                                                ControlToValidate="ddlSport" SetFocusOnError="true"  
+                                                ValidationGroup="Sports" 
+                                                InitialValue="0" Text="Select Sport Required !" CssClass="errorfordnn" 
+                                                ClientIDMode="Static"/>
+                 </div>
+            </div>
+        </div>          
+
+      <div ID="divCompetition" runat="server" visible="false">
+            <div class="control-group">
+		         <label class="control-label">
+                       <asp:Label ID="lblCompetition" runat="server" Text=" Competition :" ></asp:Label>
+                 </label>
+                 <div class="controls" style="position:relative;">
+                      <asp:DropDownList ID="ddlCompetition" runat="server" CssClass="medium m-wrap"/>
+                 </div>
+            </div>
+        </div>          
+
+      <div ID="divTeam" runat="server" visible="false">
+
+            <div class="control-group">
+		         <label class="control-label">
+                       <asp:Label ID="lblTeam" runat="server" Text=" Team :" ></asp:Label>
+                 </label>
+                <div class="startsetallfrom">
+                        <span class="help-inline"><font Color="red"><b>*</b></font></span>
+                 </div>
+                 <div class="controls" style="position:relative;">
+                      <asp:DropDownList ID="ddlTeam" runat="server" CssClass="medium m-wrap"/>
+                     <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage=" Team,"
+                                                ControlToValidate="ddlTeam" SetFocusOnError="true"  
+                                                ValidationGroup="Sports" 
+                                                InitialValue="0" Text="Select Team Required !" CssClass="errorfordnn" 
+                                                ClientIDMode="Static"/>
+                 </div>
+            </div>
+
+        </div>          
+
+      <div ID="divPlayerJerseyNo" runat="server" visible="false">
+                   <div class="control-group">
+		     <label class="control-label">          
+                   <asp:Label ID="lblPlayerJerseyNo" runat="server" Text=" Player Jersey No :" ></asp:Label>
+             </label>
+             <div class="startsetallfrom">
+                    <span class="help-inline"><font Color="red"><b>*</b></font></span>
+             </div>
+             <div class="controls" style="position:relative;">
+                  <asp:TextBox ID="txtPlayerJerseyNo" runat="server" CssClass="m-wrap small" />
+                  <asp:RegularExpressionValidator ID="RegularExpressionValidator16"
+                                                    Display="Static" ControlToValidate="txtPlayerJerseyNo"  
+                                                    ValidationGroup="Sports" CssClass="errorfordnn"
+                                                    ValidationExpression = "^[\s\S]{0,5}$" 
+                                                    runat="server" ErrorMessage="Maximum 5 characters allowed.">
+                    </asp:RegularExpressionValidator> 
+                 <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ErrorMessage=" Player Jersey No,"
+                                                ControlToValidate="txtPlayerJerseyNo" SetFocusOnError="true"  
+                                                ValidationGroup="Sports" 
+                                                InitialValue="0" Text=" Player Jersey No Required !" CssClass="errorfordnn" 
+                                                ClientIDMode="Static"/>
+                  <asp:CustomValidator ID="CustomValidator15" ValidationGroup="Sports" runat="server" ErrorMessage="" SetFocusOnError="true" 
+                                                 ControlToValidate="txtPlayerJerseyNo" EnableClientScript="true" ClientValidationFunction="validateTextBox" 
+                                                 CssClass="errorfordnn" Text="First Character Should Not Be Special Character">
+                   </asp:CustomValidator>
+             </div>
+        </div>
+              </div>
+            
+      <div ID="divPlayerJerseyName" runat="server" visible="false">
+                   <div class="control-group">
+		     <label class="control-label">          
+                   <asp:Label ID="lblPlayerJerseyName" runat="server" Text=" Player Jersey Name :" ></asp:Label>
+             </label>
+             <div class="controls" style="position:relative;">
+                  <asp:TextBox ID="txtPlayerJerseyName" runat="server" CssClass="m-wrap large" />
+                  <asp:RegularExpressionValidator ID="RegularExpressionValidator17"
+                                                    Display="Static" ControlToValidate="txtPlayerJerseyName"  
+                                                    ValidationGroup="Sports" CssClass="errorfordnn"
+                                                    ValidationExpression = "^[\s\S]{0,50}$" 
+                                                    runat="server" ErrorMessage="Maximum 50 characters allowed.">
+                    </asp:RegularExpressionValidator> 
+                  <asp:CustomValidator ID="CustomValidator16" ValidationGroup="Sports" runat="server" ErrorMessage="" SetFocusOnError="true" 
+                                                 ControlToValidate="txtPlayerJerseyName" EnableClientScript="true" ClientValidationFunction="validateTextBox" 
+                                                 CssClass="errorfordnn" Text="First Character Should Not Be Special Character">
+                   </asp:CustomValidator>
+             </div>
+        </div>
+              </div>
+
+      <div ID="divPlayerFamousName" runat="server" visible="false">
+                   <div class="control-group">
+		     <label class="control-label">          
+                   <asp:Label ID="lblPlayerFamousName" runat="server" Text=" Player Famous Name :" ></asp:Label>
+             </label>
+             <div class="controls" style="position:relative;">
+                  <asp:TextBox ID="txtPlayerFamousName" runat="server" CssClass="m-wrap large" />
+                  <asp:RegularExpressionValidator ID="RegularExpressionValidator19"
+                                                    Display="Static" ControlToValidate="txtPlayerFamousName"  
+                                                    ValidationGroup="Sports" CssClass="errorfordnn"
+                                                    ValidationExpression = "^[\s\S]{0,50}$" 
+                                                    runat="server" ErrorMessage="Maximum 50 characters allowed.">
+                    </asp:RegularExpressionValidator> 
+                  <asp:CustomValidator ID="CustomValidator17" ValidationGroup="Sports" runat="server" ErrorMessage="" SetFocusOnError="true" 
+                                                 ControlToValidate="txtPlayerFamousName" EnableClientScript="true" ClientValidationFunction="validateTextBox" 
+                                                 CssClass="errorfordnn" Text="First Character Should Not Be Special Character">
+                   </asp:CustomValidator>
+             </div>
+        </div>
+              </div>
+
+      <div class="control-group">
 		    <label class="control-label">
             <asp:Label ID="lblActive" runat="server" Text=" IsActive :"></asp:Label>
         </label>
@@ -964,7 +1081,7 @@
              </div>
         </div>
 
-       <div class="control-group">
+      <div class="control-group">
 		    <label class="control-label">
             <asp:Label ID="lblShow" runat="server" Text=" IsShow :"></asp:Label>
         </label>

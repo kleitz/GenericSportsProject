@@ -179,10 +179,6 @@ namespace DotNetNuke.Modules.ThSport
         private void funClearData()
         {
             ddlSuffix.SelectedValue = "0";
-            FillUserRole();
-            FillUserType();
-            FillPlayerType();
-            FillCountry();
             txtFirstName.Text = "";
             txtMiddleName.Text = "";
             txtLastName.Text = "";
@@ -192,7 +188,7 @@ namespace DotNetNuke.Modules.ThSport
             txtCity.Text = "";
             txtState.Text = "";
             txtZipPostalCode.Text = "";
-            FillCountry();
+           
             txtDateOfBirth.Text = "";
             txtPlaceOfBirth.Text = "";
             txtHeight.Text = "";
@@ -219,8 +215,6 @@ namespace DotNetNuke.Modules.ThSport
 
         protected void btnSaveRegistration_Click(object sender, EventArgs e)
         {
-            Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "SaveSuccessfully();", true);
-
             Boolean FileOK = false;
             Boolean FileSaved = false;
 
@@ -317,14 +311,130 @@ namespace DotNetNuke.Modules.ThSport
             cc.CreatedById = currentUser.Username;
             cc.ModifiedById = currentUser.Username;
 
-            ccc.InsertUser(cc);
-
-            DataTable dt = ccc.GetLatestUserID();
-            if (dt.Rows.Count > 0)
+            if (ddlUserRole.SelectedItem.ToString() == "Player")
             {
-                cc.UserId = Convert.ToInt32(dt.Rows[0]["UserId"].ToString());
-                cc.UserId_Admin = cc.UserId;
-                ccc.InsertRegistration(cc);
+                if (drpSelectionEntry.SelectedValue == "0")
+                {
+                    cc.UserTypeId = 4;
+                    ccc.InsertUser(cc);
+
+                    DataTable dt = ccc.GetLatestUserID();
+                    if (dt.Rows.Count > 0)
+                    {
+                        cc.UserId = Convert.ToInt32(dt.Rows[0]["UserId"].ToString());
+                        cc.UserId_Admin = cc.UserId;
+                        ccc.InsertRegistration(cc);
+                    }
+
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "SaveSuccessfully();", true);
+                }
+                else
+                {
+                    cc.UserTypeId = 4;
+                    // Entry in User Table 
+                    ccc.InsertUser(cc);
+
+                    // Entry in Registration Table
+                    DataTable dt = ccc.GetLatestUserID();
+                    if (dt.Rows.Count > 0)
+                    {
+                        cc.UserId = Convert.ToInt32(dt.Rows[0]["UserId"].ToString());
+                        cc.UserId_Admin = cc.UserId;
+                        ccc.InsertRegistration(cc);
+                    }
+
+                    // Entry in Player Table
+                    DataTable dt1 = ccc.GetLatestRegistrationID();
+                    if (dt1.Rows.Count > 0)
+                    {
+                        cc.TeamId = Convert.ToInt32(ddlTeam.SelectedValue);
+                        cc.RegistrationId = Convert.ToInt32(dt1.Rows[0]["RegistrationId"].ToString());
+                        if (txtPlayerJerseyNo.Text == " ")
+                        {
+                            cc.PlayerJerseyNo = 0;
+                        }
+                        else
+                        {
+                            cc.PlayerJerseyNo = Convert.ToInt32(txtPlayerJerseyNo.Text.Trim());
+                        }
+                        cc.PlayerJerseyName = txtPlayerJerseyName.Text.Trim();
+                        cc.PlayerFamousName = txtPlayerFamousName.Text.Trim();
+                        cc.PlayerTypeId = Convert.ToInt32(ddlPlayerType.SelectedValue);
+
+                        ccc.InsertPlayer(cc);
+                    }
+
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "SaveSuccessfully();", true);
+                }
+            }
+            else if (ddlUserRole.SelectedItem.ToString() == "Parents / Relatives")
+            {
+                    ccc.InsertUser(cc);
+
+                    DataTable dt = ccc.GetLatestUserID();
+                    if (dt.Rows.Count > 0)
+                    {
+                        cc.UserId = Convert.ToInt32(dt.Rows[0]["UserId"].ToString());
+                        cc.UserId_Admin = cc.UserId;
+                        ccc.InsertRegistration(cc);
+                    }
+
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "SaveSuccessfully();", true);
+                
+            }
+            else if (ddlUserRole.SelectedItem.ToString() == "Team Member")
+            {
+                if (drpSelectionEntry.SelectedValue == "0")
+                {
+                    cc.UserTypeId = 0;
+                    ccc.InsertUser(cc);
+
+                    DataTable dt = ccc.GetLatestUserID();
+                    if (dt.Rows.Count > 0)
+                    {
+                        cc.UserId = Convert.ToInt32(dt.Rows[0]["UserId"].ToString());
+                        cc.UserId_Admin = cc.UserId;
+                        ccc.InsertRegistration(cc);
+                    }
+
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "SaveSuccessfully();", true);
+                }
+            }
+            else if (ddlUserRole.SelectedItem.ToString() == "Club Owner")
+            {
+                if (ddlAssignToClub.SelectedValue == "0")
+                {
+                    cc.UserTypeId = 0;
+                    ccc.InsertUser(cc);
+
+                    DataTable dt = ccc.GetLatestUserID();
+                    if (dt.Rows.Count > 0)
+                    {
+                        cc.UserId = Convert.ToInt32(dt.Rows[0]["UserId"].ToString());
+                        cc.UserId_Admin = cc.UserId;
+                        ccc.InsertRegistration(cc);
+                    }
+
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "SaveSuccessfully();", true);
+                }
+            }
+            else if (ddlUserRole.SelectedItem.ToString() == "Club Member")
+            {
+                if (ddlAssignToClub.SelectedValue == "0")
+                {
+                    cc.UserTypeId = 0;
+                    ccc.InsertUser(cc);
+
+                    DataTable dt = ccc.GetLatestUserID();
+                    if (dt.Rows.Count > 0)
+                    {
+                        cc.UserId = Convert.ToInt32(dt.Rows[0]["UserId"].ToString());
+                        cc.UserId_Admin = cc.UserId;
+                        ccc.InsertRegistration(cc);
+                    }
+
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "SaveSuccessfully();", true);
+                }
             }
 
             pnlEntryRegistration.Visible = false;
@@ -332,15 +442,16 @@ namespace DotNetNuke.Modules.ThSport
             FillGridView();
             funClearData();
 
-            DataTable dt1 = ccc.GetLatestRegistrationID();
-            if (dt1.Rows.Count > 0)
+            DataTable dt3 = ccc.GetLatestRegistrationID();
+            if (dt3.Rows.Count > 0)
             {
-                if (entry_mode_masterplayer == "editmasterplayer")
-                {
-                    int RegistrationId = Convert.ToInt32(dt1.Rows[0]["RegistrationId"].ToString());
-                    Response.Redirect(Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmRegistrationParentOrRelatives" + "&entry_mode_masterplayer=editmasterplayer" + "&RegistrationId=" + RegistrationId));
-                }
-            }
+               if (entry_mode_masterplayer == "editmasterplayer")
+              {
+                  int RegistrationId = Convert.ToInt32(dt3.Rows[0]["RegistrationId"].ToString());
+                  Response.Redirect(Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmRegistrationParentOrRelatives" + "&entry_mode_masterplayer=editmasterplayer" + "&RegistrationId=" + RegistrationId));
+              }
+           }
+            
         }
 
         protected void btnAddRegistration_Click(object sender, EventArgs e)
@@ -350,9 +461,11 @@ namespace DotNetNuke.Modules.ThSport
             PnlGridRegistration.Visible = false;
             btnSaveRegistration.Visible = true;
             btnUpdateRegistration.Visible = false;
+            divAssignToTeam.Visible = false;
             FillUserRole();
             FillUserType();
             FillPlayerType();
+            FillCountry();
             FillCountry();
         }
 
@@ -572,6 +685,16 @@ namespace DotNetNuke.Modules.ThSport
                     btnUpdateRegistration.Visible = true;
                     btnSaveRegistration.Visible = false;
                 }
+
+                divUserRole.Visible = false;
+                ddlUserType.Enabled = false;
+                divPlayerType.Visible = false;
+                divSport.Visible = false;
+                divCompetition.Visible = false;
+                divTeam.Visible = false;
+                divPlayerJerseyNo.Visible = false;
+                divPlayerJerseyName.Visible = false;
+                divPlayerFamousName.Visible = false;
             }
             else if (ddlSelectedValue == "AddDocuments")
             {
@@ -616,19 +739,18 @@ namespace DotNetNuke.Modules.ThSport
         {
             if (ddlUserRole.SelectedItem.ToString() == "Player")
             {
-                divUserType.Visible = true;
-                ddlUserType.SelectedValue = "4";
-                ddlUserType.Enabled = false;
-                divPlayerType.Visible = true;
-                divSport.Visible = true;
-                divCompetition.Visible = true;
-                divTeam.Visible = true;
+                divAssignToTeam.Visible = true;
+            }
+            else if (ddlUserRole.SelectedItem.ToString() == "Team Member")
+            {
+                divAssignToTeam.Visible = true;    
             }
             else if (ddlUserRole.SelectedItem.ToString() == "Parents / Relatives")
             {
                 divUserType.Visible = true;
                 ddlUserType.Enabled = true;
                 FillUserType();
+                divAssignToTeam.Visible = false;
                 divPlayerType.Visible = false;
                 divSport.Visible = false;
                 divCompetition.Visible = false;
@@ -636,6 +758,7 @@ namespace DotNetNuke.Modules.ThSport
             }
             else
             {
+                divAssignToTeam.Visible = false;
                 divUserType.Visible = false;
                 divPlayerType.Visible = false;
                 divSport.Visible = false;
@@ -678,5 +801,62 @@ namespace DotNetNuke.Modules.ThSport
                 ddlTeam.Items.Insert(0, new ListItem("-- Select --", "0"));
             }
         }
+
+        protected void drpSelectionEntry_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (drpSelectionEntry.SelectedValue == "1")
+            {
+                divUserType.Visible = true;
+                ddlUserType.SelectedValue = "4";
+                ddlUserType.Enabled = false;
+                divPlayerType.Visible = true;
+                divSport.Visible = true;
+                divCompetition.Visible = true;
+                divTeam.Visible = true;
+                divPlayerJerseyNo.Visible = true;
+                divPlayerJerseyName.Visible = true;
+                divPlayerFamousName.Visible = true;
+            }
+            else
+            {
+                ddlUserType.Enabled = false;
+                divPlayerType.Visible = false;
+                divSport.Visible = false;
+                divCompetition.Visible = false;
+                divTeam.Visible = false;
+                divPlayerJerseyNo.Visible = false;
+                divPlayerJerseyName.Visible = false;
+                divPlayerFamousName.Visible = false;
+            }
+        }
+
+        protected void ddlAssignToClub_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (drpSelectionEntry.SelectedValue == "1")
+            {
+                divUserType.Visible = true;
+                ddlUserType.SelectedValue = "4";
+                ddlUserType.Enabled = false;
+                divPlayerType.Visible = true;
+                divSport.Visible = true;
+                divCompetition.Visible = true;
+                divTeam.Visible = true;
+                divPlayerJerseyNo.Visible = true;
+                divPlayerJerseyName.Visible = true;
+                divPlayerFamousName.Visible = true;
+            }
+            else
+            {
+                ddlUserType.Enabled = false;
+                divPlayerType.Visible = false;
+                divSport.Visible = false;
+                divCompetition.Visible = false;
+                divTeam.Visible = false;
+                divPlayerJerseyNo.Visible = false;
+                divPlayerJerseyName.Visible = false;
+                divPlayerFamousName.Visible = false;
+            }
+        }
+
     }
 }

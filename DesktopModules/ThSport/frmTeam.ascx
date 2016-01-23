@@ -5,7 +5,7 @@
     {
         var txtcheckValue = args.Value;
 
-        var chars = ['<', '>', '*', '$', '@', ',', '_', '%', '.'];
+        var chars = ['<', '>', '*', '$', '@', ',', '_', '%', '.', '!', '#', '^', '&', '(', ')', '-', '=', '+', '\\', '|', '?', '/', '[', ']', '{', '}'];
         args.IsValid = true;
 
         if (txtcheckValue.length > 0)
@@ -412,6 +412,7 @@
                                       OnSelectedIndexChanged="ddlAction_SelectedIndexChanged" AutoPostBack="true">
                             <asp:ListItem Value="0"> -- Action -- </asp:ListItem>
                             <asp:ListItem Value="Edit">Edit</asp:ListItem>
+                            <asp:ListItem Value="Player">Add Player</asp:ListItem>
                             <asp:ListItem Value="Member">Add Member</asp:ListItem>
                             <asp:ListItem Value="Delete">Delete</asp:ListItem>
                     </asp:DropDownList>

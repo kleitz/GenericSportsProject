@@ -18,6 +18,7 @@ namespace ThSportServer
 {
     public class clsRegistration
     {
+        // Filed in User Table
             public int UserId { get; set; }
             public int UserRoleId { get; set; }
             public int UserTypeId { get; set; }
@@ -37,6 +38,7 @@ namespace ThSportServer
             public string CreatedById { get; set; }
             public string ModifiedById { get; set; }
 
+        // Filed in Registration
             public int RegistrationId { get; set; }
             public int UserId_Admin { get; set; }
             public string Gender { get; set; }
@@ -51,6 +53,12 @@ namespace ThSportServer
             public string Height { get; set; }
             public string Weight { get; set; }
 
+        // Filed in Player Table
+            public int TeamId { get; set; }
+            public int PlayerJerseyNo { get; set; }
+            public string PlayerJerseyName { get; set; }
+            public string PlayerFamousName { get; set; }
+            public int PlayerTypeId { get; set; }
     }
 
     public class clsRegistrationController
@@ -248,7 +256,7 @@ namespace ThSportServer
         {
             try
             {
-                dataProvider.ExecuteNonQuery("usp_InsertUser", cc.UserTypeId, cc.UserName, cc.UserPassword, cc.UserPhotoName, cc.UserPhotoFile, cc.FirstName, cc.MiddleName, cc.LastName, cc.SuffixId, cc.EmailId, cc.TelephoneNumber, cc.ActiveFlagId, cc.ShowFlagId, cc.PortalID, cc.CreatedById, cc.ModifiedById);
+                dataProvider.ExecuteNonQuery("usp_InsertUser", cc.UserTypeId, cc.UserName, cc.UserPassword, cc.UserPhotoName, cc.UserPhotoFile, cc.FirstName, cc.MiddleName, cc.LastName, cc.SuffixId, cc.EmailId, cc.TelephoneNumber, cc.ActiveFlagId, cc.ShowFlagId, cc.PortalID, cc.CreatedById, cc.ModifiedById,cc.UserRoleId);
             }
             catch (Exception ex)
             {
@@ -269,6 +277,21 @@ namespace ThSportServer
             }
             return 0;
         }
+
+        public int InsertPlayer(clsRegistration cc)
+        {
+            try
+            {
+                dataProvider.ExecuteNonQuery("usp_InsertPlayer", cc.TeamId, cc.RegistrationId, cc.PlayerJerseyNo, cc.PlayerJerseyName, cc.PlayerFamousName, cc.PortalID, cc.CreatedById, cc.ModifiedById, cc.PlayerTypeId);
+            }
+            catch (Exception ex)
+            {
+                Exceptions.LogException(ex);
+            }
+            return 0;
+        }
+
+        
 
 
         public int UpdateUser(clsRegistration cc)
