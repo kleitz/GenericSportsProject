@@ -2,22 +2,25 @@
 
 <script type="text/javascript">
 
-    function validateTextBox(sender, args) {
+    function validateTextBox(sender, args)
+    {
 
         var txtcheckValue = args.Value;
 
-        var chars = ['<', '>', '*', '$', '@', ',', '_', '%', '.'];
+        var chars = ['<', '>', '*', '$', '@', ',', '_', '%', '.', '!', '#', '^', '&', '(', ')', '-', '=', '+', '\\', '|', '?', '/', '[', ']', '{', '}'];
         args.IsValid = true;
 
-        if (txtcheckValue.length > 0) {
+        if (txtcheckValue.length > 0)
+        {
             var currentChar = txtcheckValue.charAt(0);
 
-            if (chars.indexOf(currentChar) >= 0) {
+            if (chars.indexOf(currentChar) >= 0)
+            {
                 args.IsValid = false;
                 txtcheckValue.value = "";
-
             }
-            else {
+            else
+            {
                 args.IsValid = true;
             }
         }

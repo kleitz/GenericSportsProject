@@ -19,6 +19,7 @@ namespace ThSportServer
     public class clsRegistration
     {
             public int UserId { get; set; }
+            public int UserRoleId { get; set; }
             public int UserTypeId { get; set; }
             public string UserName { get; set; }
             public string UserPassword { get; set; }
@@ -107,6 +108,72 @@ namespace ThSportServer
             }
         }
 
+        public DataTable GetUserRole()
+        {
+            using (DataTable dt = new DataTable())
+            {
+                try
+                {
+                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetUserRole"))
+                    {
+                        dt.Load(reader);
+                        return dt;
+                    }
+                }
+
+                catch (Exception ex)
+                {
+                    Exceptions.LogException(ex);
+                }
+
+                return dt;
+            }
+        }
+
+        public DataTable GetPlayerType()
+        {
+            using (DataTable dt = new DataTable())
+            {
+                try
+                {
+                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetPlayerType"))
+                    {
+                        dt.Load(reader);
+                        return dt;
+                    }
+                }
+
+                catch (Exception ex)
+                {
+                    Exceptions.LogException(ex);
+                }
+
+                return dt;
+            }
+        }
+
+        public DataTable GetSport()
+        {
+            using (DataTable dt = new DataTable())
+            {
+                try
+                {
+                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetSport"))
+                    {
+                        dt.Load(reader);
+                        return dt;
+                    }
+                }
+
+                catch (Exception ex)
+                {
+                    Exceptions.LogException(ex);
+                }
+
+                return dt;
+            }
+        }
+
         public DataTable GetCountryList()
         {
             using (DataTable dt = new DataTable())
@@ -114,6 +181,50 @@ namespace ThSportServer
                 try
                 {
                     using (IDataReader reader = dataProvider.ExecuteReader("usp_GetCountryList"))
+                    {
+                        dt.Load(reader);
+                        return dt;
+                    }
+                }
+
+                catch (Exception ex)
+                {
+                    Exceptions.LogException(ex);
+                }
+
+                return dt;
+            }
+        }
+
+        public DataTable GetCompetitionBySportID(int sportid)
+        {
+            using (DataTable dt = new DataTable())
+            {
+                try
+                {
+                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetCompetitionBySportID", sportid))
+                    {
+                        dt.Load(reader);
+                        return dt;
+                    }
+                }
+
+                catch (Exception ex)
+                {
+                    Exceptions.LogException(ex);
+                }
+
+                return dt;
+            }
+        }
+
+        public DataTable GetTeamBySportID(int sportid)
+        {
+            using (DataTable dt = new DataTable())
+            {
+                try
+                {
+                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetTeamBySportID", sportid))
                     {
                         dt.Load(reader);
                         return dt;

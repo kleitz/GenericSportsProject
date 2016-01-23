@@ -6,7 +6,7 @@
 
         var txtcheckValue = args.Value;
 
-        var chars = ['<', '>', '*', '$', '@', ',', '_', '%', '.'];
+        var chars = ['<', '>', '*', '$', '@', ',', '_', '%', '.', '!', '#', '^', '&', '(', ')', '-', '=', '+', '\\', '|', '?', '/', '[', ']', '{', '}'];
         args.IsValid = true;
 
         if (txtcheckValue.length > 0) {

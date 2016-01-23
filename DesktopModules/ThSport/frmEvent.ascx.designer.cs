@@ -337,31 +337,31 @@ namespace DotNetNuke.Modules.ThSport {
         protected global::System.Web.UI.WebControls.TextBox txtEventName;
         
         /// <summary>
-        /// rfvEventName control.
+        /// rfvtxtEventName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvEventName;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvtxtEventName;
         
         /// <summary>
-        /// RegularExpressionValidator1 control.
+        /// rgvtxtEventName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator rgvtxtEventName;
         
         /// <summary>
-        /// nameError control.
+        /// cvtxtEventName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl nameError;
+        protected global::System.Web.UI.WebControls.CustomValidator cvtxtEventName;
         
         /// <summary>
         /// lblEventDetail control.
@@ -389,6 +389,15 @@ namespace DotNetNuke.Modules.ThSport {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator2;
+        
+        /// <summary>
+        /// cvtxtEventDetail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator cvtxtEventDetail;
         
         /// <summary>
         /// lblEventStartDateTime control.
@@ -427,6 +436,15 @@ namespace DotNetNuke.Modules.ThSport {
         protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator3;
         
         /// <summary>
+        /// CustomValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator CustomValidator1;
+        
+        /// <summary>
         /// lblEventEndDateTime control.
         /// </summary>
         /// <remarks>
@@ -461,6 +479,15 @@ namespace DotNetNuke.Modules.ThSport {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator4;
+        
+        /// <summary>
+        /// CustomValidator2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator CustomValidator2;
         
         /// <summary>
         /// lblActive control.

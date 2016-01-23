@@ -175,13 +175,13 @@ namespace DotNetNuke.Modules.ThSport {
         protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
         
         /// <summary>
-        /// nameError control.
+        /// cvtxtUserType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl nameError;
+        protected global::System.Web.UI.WebControls.CustomValidator cvtxtUserType;
         
         /// <summary>
         /// lblUserTypeAddress control.
@@ -211,6 +211,15 @@ namespace DotNetNuke.Modules.ThSport {
         protected global::System.Web.UI.WebControls.RegularExpressionValidator rgvtxtUserTypeAddress;
         
         /// <summary>
+        /// CustomValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator CustomValidator1;
+        
+        /// <summary>
         /// lblUserTypeDesc control.
         /// </summary>
         /// <remarks>
@@ -236,6 +245,15 @@ namespace DotNetNuke.Modules.ThSport {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator2;
+        
+        /// <summary>
+        /// CustomValidator2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator CustomValidator2;
         
         /// <summary>
         /// btnSaveUserType control.

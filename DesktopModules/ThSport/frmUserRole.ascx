@@ -1,4 +1,5 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="frmClubOwner.ascx.cs" Inherits="DotNetNuke.Modules.ThSport.frmClubOwner" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="frmUserRole.ascx.cs" Inherits="DotNetNuke.Modules.ThSport.frmUserRole" %>
+
 
 <script type="text/javascript">
     function validateTextBox(sender, args)
@@ -25,8 +26,10 @@
     }
 </script>
 
+
 <script type="text/javascript">
-    function SaveSuccessfully() {
+    function SaveSuccessfully()
+    {
         $(document).ready(function () {
             $.blockUI();
             setTimeout(function () {
@@ -39,7 +42,8 @@
 </script>
 
 <script type="text/javascript">
-    function savevalidateAndConfirmClose() {
+    function savevalidateAndConfirmClose()
+    {
         $(document).ready(function () {
             $("#divsavemassage").dialog({
                 modal: true,
@@ -60,7 +64,8 @@
 </script>
 
 <script type="text/javascript">
-    function UpdateSuccessfully() {
+    function UpdateSuccessfully()
+    {
         $(document).ready(function () {
             $.blockUI();
             setTimeout(function () {
@@ -73,7 +78,8 @@
 </script>
 
 <script type="text/javascript">
-    function updatevalidateAndConfirmClose() {
+    function updatevalidateAndConfirmClose()
+    {
         $(document).ready(function () {
             $("#divupdatemassage").dialog({
                 modal: true,
@@ -94,7 +100,8 @@
 </script>
 
 <script type="text/javascript">
-    function DeleteSuccessfully() {
+    function DeleteSuccessfully()
+    {
         $(document).ready(function () {
             $.blockUI();
             setTimeout(function () {
@@ -107,7 +114,8 @@
 </script>
 
 <script type="text/javascript">
-    function cancelvalidateAndConfirmClose() {
+    function cancelvalidateAndConfirmClose()
+    {
         $(document).ready(function () {
             $("#divcancelmassage").dialog({
                 modal: true,
@@ -146,11 +154,13 @@
 </style>
 
  <script type="text/javascript">
-     function validateAndConfirmClose(OnlyClose) {
+     function validateAndConfirmClose(OnlyClose)
+     {
          var validated = Page_ClientValidate('CloseSports');
 
-         if (OnlyClose == "btnCancelClubOwner") {
-             document.getElementById("msgConfirm").innerHTML = "Are You Sure, You Want to Close ClubOwner Form ?";
+         if (OnlyClose == "btnCancelUserRole")
+         {
+             document.getElementById("msgConfirm").innerHTML = "Are You Sure, You Want to Close UserRole Form ?";
          }
 
          if (validated) {
@@ -166,9 +176,9 @@
                  buttons: {
                      Ok: function () {
 
-                         if (OnlyClose == "btnCancelClubOwner")
+                         if (OnlyClose == "btnCancelUserRole")
                          {
-                             <%=this.Page.ClientScript.GetPostBackEventReference(new PostBackOptions(this.btnCancelClubOwner))%>;
+                             <%=this.Page.ClientScript.GetPostBackEventReference(new PostBackOptions(this.btnCancelUserRole))%>;
                          }
 
                      },
@@ -184,11 +194,13 @@
          return false;
      }
 
-     function validateAndConfirm(btn_clientid) {
+     function validateAndConfirm(btn_clientid)
+     {
          var validated = Page_ClientValidate('Sports');
 
-         if (btn_clientid == "btnUpdateClubOwner") {
-             document.getElementById("msgConfirm").innerHTML = "Are You Sure, You Want to Update ClubOwner Details ?";
+         if (btn_clientid == "btnUpdateUserRole")
+         {
+             document.getElementById("msgConfirm").innerHTML = "Are You Sure, You Want to Update UserRole Details ?";
          }
 
          if (validated) {
@@ -204,19 +216,18 @@
                  buttons: {
                      Ok: function () {
 
-                         if (btn_clientid == "btnSaveClubOwner")
+                         if (btn_clientid == "btnSaveUserRole")
                          {
-                             <%=this.Page.ClientScript.GetPostBackEventReference(new PostBackOptions(this.btnSaveClubOwner))%>;
+                             <%=this.Page.ClientScript.GetPostBackEventReference(new PostBackOptions(this.btnSaveUserRole))%>;
                          }
 
-                         if (btn_clientid == "btnUpdateClubOwner")
+                         if (btn_clientid == "btnUpdateUserRole")
                          {
-                             <%=this.Page.ClientScript.GetPostBackEventReference(new PostBackOptions(this.btnUpdateClubOwner))%>;
+                             <%=this.Page.ClientScript.GetPostBackEventReference(new PostBackOptions(this.btnUpdateUserRole))%>;
                          }
 
                      },
-                     Cancel: function ()
-                     {
+                     Cancel: function () {
                          $(this).dialog('close');
                          return false;
                      }
@@ -228,8 +239,7 @@
          return false;
      }
 
-     $(document).ready(function ()
-     {
+     $(document).ready(function () {
          //Reset drop down list
          $(".ddlActionSelect > option:first").attr("selected", "selected");
      });
@@ -238,47 +248,44 @@
 
 <div id="divsavemassage" runat="server" clientidmode="static" style="display: none;position:inherit !important;">
     <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/AllImage/Ok.png")%>" />
-     <asp:Label CssClass="lobibox-body-text" ID="Label1" ClientIDMode="Static" runat="server" Text=" ClubOwner detail are save successfully. ">
+     <asp:Label CssClass="lobibox-body-text" ID="Label1" ClientIDMode="Static" runat="server" Text=" UserRole detail are save successfully. ">
      </asp:Label>
 </div>
 
 <div id="divupdatemassage" runat="server" clientidmode="static" style="display: none;position:inherit !important;">
     <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/AllImage/Ok.png")%>" />
-     <asp:Label CssClass="lobibox-body-text" ID="Label2" ClientIDMode="Static" runat="server" Text=" ClubOwner detail are update successfully. ">
+     <asp:Label CssClass="lobibox-body-text" ID="Label2" ClientIDMode="Static" runat="server" Text=" UserRole detail are update successfully. ">
      </asp:Label>
 </div>
 
 <div id="divcancelmassage" runat="server" clientidmode="static" style="display: none;position:inherit !important;">
     <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/AllImage/Cancel.png")%>" />
-     <asp:Label CssClass="lobibox-body-text" ID="Label3" ClientIDMode="Static" runat="server" Text=" ClubOwner detail are delete successfully. ">
+     <asp:Label CssClass="lobibox-body-text" ID="Label3" ClientIDMode="Static" runat="server" Text=" UserRole detail are delete successfully. ">
      </asp:Label>
 </div>
 
 <div id="dialogBox" runat="server" clientidmode="static"  style="display:none;">
     <div class="lobibox-body-text-wrapper">
-        <asp:Label CssClass="lobibox-body-text" ID="msgConfirm" ClientIDMode="Static" runat="server" Text="Are You Sure, You Want to Save ClubOwner Details ?"></asp:Label>
+        <asp:Label CssClass="lobibox-body-text" ID="msgConfirm" ClientIDMode="Static" runat="server" Text="Are You Sure, You Want to Save UserRole Details ?"></asp:Label>
     </div>
 </div>
 
 <div class="row-fluid">
 	<div class="span12">
 
-        <panel id="pnlClubOwnerGrid" runat="server">
+   <panel id="pnlUserRoleGrid" runat="server">
 
     <asp:Panel ID="addPanel" runat="server">    
         <div id="submenu">
             <ul>
                 <li class="active">
-                    <asp:LinkButton ID="btnAddClubOwner" runat="server" 
-                                    Height="35px" Text=" Add Owner " 
-                                    onclick="btnAddClubOwner_Click" ForeColor="White"/>
+                    <asp:LinkButton ID="btnAddUserRole" runat="server" 
+                                    Height="35px" Text=" Add User Role " 
+                                    onclick="btnAddUserRole_Click" ForeColor="White"/>
                 </li>
             </ul>
         </div>
         <div style="position: relative;float: right;padding-top: 15px;margin-right: -0.9%;">
-             <asp:Button ID="btnGoToBack" runat="server" Text="Back" 
-                         OnClick="btnGoToBack_Click" 
-                         CssClass="btn blue back_btn_Position" />
         </div>
     </asp:Panel>
  
@@ -287,7 +294,7 @@
 			<div class="portlet-title">
 				<div class="caption">
 					<i class="icon-reorder"></i>
-					<span class="hidden-480"> <asp:Label ID="lbl_Club_Name" runat="server"></asp:Label> - Club Owner List</span>
+					<span class="hidden-480"> User Role List</span>
 				</div>
                 <div class="tools">
 					<a href="javascript:;" class="collapse"></a>
@@ -295,65 +302,63 @@
 			</div>
 			
 
-<div class="portlet-body flip-scroll">
+    <div class="portlet-body flip-scroll">
 		
-          <asp:GridView ID="gvClubOwner" runat="server" AutoGenerateColumns="false" ShowHeaderWhenEmpty="true" 
+          <asp:GridView ID="gvUserRole" runat="server" AutoGenerateColumns="false" ShowHeaderWhenEmpty="true" 
                         AllowPaging="true" PageSize="10" EmptyDataText="No Records Found" 
                         CssClass="table-bordered table-striped table-condensed flip-content" 
                         HorizontalAlign="Center" AlternatingRowStyle-Font-Size="X-Large" 
                         CellPadding="5" CellSpacing="5" Width="100%"
-                        onpageindexchanging="gvClubOwner_PageIndexChanging">
+                        onpageindexchanging="gvUserRole_PageIndexChanging">
             <RowStyle CssClass="grid-row" />
         <AlternatingRowStyle CssClass="grid-row grid-row-alternet" />
 
 		<Columns>
 
-        <asp:TemplateField HeaderText="ClubOwnersId" ItemStyle-VerticalAlign="Middle" ItemStyle-HorizontalAlign="Center" 
-                                    Visible="false" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column">
-                <ItemTemplate>
-                    <div class="grid-cell-inner" style="width:130px; display: inline-block;">
-                        <asp:Label ID="lblClubOwnersId" runat="server" Text='<%#Eval("ClubOwnersId") %>'></asp:Label>
-                    </div> 
-                </ItemTemplate>
-         </asp:TemplateField>
+            <asp:TemplateField HeaderText="UserRoleId" ItemStyle-VerticalAlign="Middle" ItemStyle-HorizontalAlign="Center" 
+                                        Visible="false" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column">
+                    <ItemTemplate>
+                        <div class="grid-cell-inner" style="width:130px; display: inline-block;">
+                            <asp:Label ID="lblUserRoleId" runat="server" Text='<%#Eval("UserRoleId") %>'></asp:Label>
+                        </div> 
+                    </ItemTemplate>
+             </asp:TemplateField>
 
-        	<%--<asp:TemplateField HeaderText="Club Name" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center">
-				<ItemTemplate>
-                    <div class="grid-cell-inner" style="width:364px; display: inline-block;">
-					    <asp:Label ID="lblClubName" runat="server" Text='<%#Eval("ClubName") %>' ToolTip="Club Name"></asp:Label>
-                    </div> 
-				</ItemTemplate>
-			</asp:TemplateField>--%>
+            <asp:TemplateField HeaderText=" User Role " HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center">
+	    	    <ItemTemplate>
+                      <div class="grid-cell-inner" style="text-align:center;">
+					        <asp:Label ID="lblUserRoleName" runat="server" Text='<%#Eval("UserRoleName") %>' ToolTip=" User Role Name"></asp:Label>
+                      </div> 
+		        </ItemTemplate>
+		    </asp:TemplateField>
 
-            <asp:TemplateField HeaderText="Owner Name" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center">
+            <asp:TemplateField HeaderText=" Abbreviation " HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center">
 				<ItemTemplate>
                     <div class="grid-cell-inner" style="text-align:center;">
-					    <asp:Label ID="lblOwnerName" runat="server" Text='<%#Eval("OwnerName") %>' ToolTip="Club Owner Name"></asp:Label>
+					    <asp:Label ID="lblUserRoleAbbr" runat="server" Text='<%#Eval("UserRoleAbbr") %>' ToolTip=" Abbreviation "></asp:Label>
                     </div> 
 				</ItemTemplate>
 			</asp:TemplateField>
 
-            <asp:TemplateField HeaderText="Percentage" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center">
+            <asp:TemplateField HeaderText=" Description " HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center" Visible="false">
 				<ItemTemplate>
                     <div class="grid-cell-inner" style="text-align:center;">
-					    <asp:Label ID="lblOwnerPercentage" runat="server" Text='<%#Eval("OwnerPercentage") %>' ToolTip="Club Owner Percentage"></asp:Label>
+					    <asp:Label ID="lblUserRoleDesc" runat="server" Text='<%#Eval("UserRoleDesc") %>' ToolTip=" Description "></asp:Label>
                     </div> 
 				</ItemTemplate>
 			</asp:TemplateField>
-
-             <asp:TemplateField HeaderText="Action"  HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" 
-                               ItemStyle-HorizontalAlign="Center" HeaderStyle-Width="135px">
+            
+            <asp:TemplateField HeaderText="Action"  HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" 
+                                   ItemStyle-HorizontalAlign="Center" HeaderStyle-Width="135px">
                 <ItemTemplate>
                     <asp:DropDownList ID="ddlAction" runat="server" CssClass="small m-wrap ddlActionSelect" 
                                       OnSelectedIndexChanged="ddlAction_SelectedIndexChanged" AutoPostBack="true">
                             <asp:ListItem Value="0"> -- Action -- </asp:ListItem>
                             <asp:ListItem Value="Edit">Edit</asp:ListItem>
                             <%--<asp:ListItem Value="Delete">Delete</asp:ListItem>--%>
-                            
                     </asp:DropDownList>
-                        <asp:Label ID="lblddlActionClubOwnersId" runat="server" Text='<%#Eval("ClubOwnersId") %>' Visible="false">
+                        <asp:Label ID="lblddlActionUserRoleId" runat="server" Text='<%#Eval("UserRoleId") %>' Visible="false">
                         </asp:Label>
-                              
                 </ItemTemplate>
             </asp:TemplateField>
 
@@ -369,7 +374,7 @@
 
 </panel>
 
-<asp:Panel ID="pnlClubOwnerEntry" runat="server">
+<asp:Panel ID="pnlUserRoleEntry" runat="server">
 
     <div style="padding:10px 0px;">
             * Note: All Fields marked with an asterisk (*) are required.
@@ -379,7 +384,7 @@
 			<div class="portlet-title">
 				<div class="caption">
 					<i class="icon-reorder"></i>
-					<span class="hidden-480">Club Owner Detail</span>
+					<span class="hidden-480"> User Role Details </span>
 				</div>
 			</div>
 
@@ -396,27 +401,27 @@
                 
         </div>
 
-
        <div class="control-group">
 		     <label class="control-label">          
-                   <asp:Label ID="lblClubOwnerName" runat="server" Text=" Owner Name :" ></asp:Label>
+                   <asp:Label ID="lblUserRole" runat="server" Text=" User Role :" ></asp:Label>
              </label>
              <div class="startsetallfrom">
                  <span class="help-inline"><font Color="red"><b>*</b></font></span>
              </div>
              <div class="controls" style="position:relative;">
-                  <asp:TextBox ID="txtClubOwnerName" runat="server" CssClass="m-wrap large"/>
-                  <asp:RequiredFieldValidator ID="rfvtxtClubOwnerName" runat="server" ErrorMessage="ClubOwnerName"  
-                                                ControlToValidate="txtClubOwnerName" SetFocusOnError="true" 
-                                                ValidationGroup="Sports" Text=" Club Owner Name Required !" CssClass="errorfordnn" ClientIDMode="Static"/>
-                   <asp:RegularExpressionValidator ID="rgvtxtClubOwnerName"
-                                                    Display="Static" ControlToValidate="txtClubOwnerName"  
+                  <asp:TextBox ID="txtUserRole" runat="server" CssClass="m-wrap large"/>
+                  <asp:RequiredFieldValidator ID="rfvUserRole" runat="server" ErrorMessage="User Role,"
+                                              ControlToValidate="txtUserRole" SetFocusOnError="true" 
+                                              ValidationGroup="Sports" Text="User Role Required !" 
+                                              CssClass="errorfordnn" ClientIDMode="Static"/>
+                   <asp:RegularExpressionValidator ID="RegularExpressionValidator1"
+                                                    Display="Static" ControlToValidate="txtUserRole"  
                                                     ValidationGroup="Sports" CssClass="errorfordnn"
                                                     ValidationExpression = "^[\s\S]{0,100}$" 
                                                     runat="server" ErrorMessage="Maximum 100 characters allowed.">
                    </asp:RegularExpressionValidator>  
-                   <asp:CustomValidator ID="cvtxtClubOwnerName" ValidationGroup="Sports" runat="server" ErrorMessage="" SetFocusOnError="true" 
-                                                 ControlToValidate="txtClubOwnerName" EnableClientScript="true" ClientValidationFunction="validateTextBox" 
+                   <asp:CustomValidator ID="cvtxtUserRole" ValidationGroup="Sports" runat="server" ErrorMessage="" SetFocusOnError="true" 
+                                                 ControlToValidate="txtUserRole" EnableClientScript="true" ClientValidationFunction="validateTextBox" 
                                                  CssClass="errorfordnn" Text="First Character Should Not Be Special Character">
                    </asp:CustomValidator>
              </div>
@@ -424,55 +429,55 @@
 
         <div class="control-group">
 		    <label class="control-label">
-                <asp:Label ID="lblClubOwnerDescription" runat="server" Text="Description :" ></asp:Label>
+                <asp:Label ID="lblUserRoleAbbr" runat="server" Text=" Abbreviation :" ></asp:Label>
             </label>
             <div class="controls" style="position:relative;">
-                <asp:TextBox ID="txtClubOwnerDescription" runat="server"  
-                             CssClass="m-wrap mediumSmallDesc" TextMode="MultiLine" Width="319px" Height="150px"/>
-                   <asp:RegularExpressionValidator ID="RegularExpressionValidator2"
-                                                    Display="Static" ControlToValidate="txtClubOwnerDescription"  
+                <asp:TextBox ID="txtUserRoleAbbr" runat="server" CssClass="m-wrap small"/>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator6"
+                                                    Display="Static" ControlToValidate="txtUserRoleAbbr"  
                                                     ValidationGroup="Sports" CssClass="errorfordnn"
-                                                    ValidationExpression = "^[\s\S]{0,300}$" 
-                                                    runat="server" ErrorMessage="Maximum 300 characters allowed.">
+                                                    ValidationExpression = "^[\s\S]{0,5}$" 
+                                                    runat="server" ErrorMessage="Maximum 5 characters allowed.">
                     </asp:RegularExpressionValidator>  
-                  <asp:CustomValidator ID="cvtxtClubOwnerDescription" ValidationGroup="Sports" runat="server" ErrorMessage="" SetFocusOnError="true" 
-                                                 ControlToValidate="txtClubOwnerDescription" EnableClientScript="true" ClientValidationFunction="validateTextBox" 
+                 <asp:CustomValidator ID="cvtxtUserRoleAbbr" ValidationGroup="Sports" runat="server" ErrorMessage="" SetFocusOnError="true" 
+                                                 ControlToValidate="txtUserRoleAbbr" EnableClientScript="true" ClientValidationFunction="validateTextBox" 
                                                  CssClass="errorfordnn" Text="First Character Should Not Be Special Character">
                    </asp:CustomValidator>
            </div>
         </div>
 
-         <div class="control-group">
+        <div class="control-group">
 		    <label class="control-label">
-                <asp:Label ID="lblClubOwnerPercentage" runat="server" Text="Percentage :"></asp:Label>
+                <asp:Label ID="lblUserRoleDesc" runat="server" Text="Description :" ></asp:Label>
             </label>
-		    <div class="controls" style="position:relative;">
-                   <asp:TextBox ID="txtClubOwnerPercentage" runat="server" CssClass="m-wrap small"></asp:TextBox>%
-                  <asp:RegularExpressionValidator ID="RegularExpressionValidator1"
-                                                    Display="Static" ControlToValidate="txtClubOwnerPercentage"  
+            <div class="controls" style="position:relative;">
+                <asp:TextBox ID="txtUserRoleDesc" runat="server"  
+                             CssClass="m-wrap mediumSmallDesc" TextMode="MultiLine" Width="319px" Height="150px"/>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator2"
+                                                    Display="Static" ControlToValidate="txtUserRoleDesc"  
                                                     ValidationGroup="Sports" CssClass="errorfordnn"
-                                                    ValidationExpression = "^[\s\S]{0,5}$" 
-                                                    runat="server" ErrorMessage="Maximum 5 characters allowed.">
+                                                    ValidationExpression = "^[\s\S]{0,300}$" 
+                                                    runat="server" ErrorMessage="Maximum 300 characters allowed.">
                     </asp:RegularExpressionValidator>  
-                  <asp:CustomValidator ID="cvtxtClubOwnerPercentage" ValidationGroup="Sports" runat="server" ErrorMessage="" SetFocusOnError="true" 
-                                                 ControlToValidate="txtClubOwnerPercentage" EnableClientScript="true" ClientValidationFunction="validateTextBox" 
+                 <asp:CustomValidator ID="CustomValidator1" ValidationGroup="Sports" runat="server" ErrorMessage="" SetFocusOnError="true" 
+                                                 ControlToValidate="txtUserRoleDesc" EnableClientScript="true" ClientValidationFunction="validateTextBox" 
                                                  CssClass="errorfordnn" Text="First Character Should Not Be Special Character">
                    </asp:CustomValidator>
-            </div> 
+           </div>
         </div>
 
         <div class="form-actions">
             <div class="right_div_css">
 
-                    <asp:Button ID="btnSaveClubOwner" runat="server"  Text=" Save " OnClick="btnSaveClubOwner_Click" 
+                    <asp:Button ID="btnSaveUserRole" runat="server"  Text=" Save " OnClick="btnSaveUserRole_Click" 
                                 ValidationGroup="Sports" CssClass="btn blue" ClientIDMode="Static" Width="100px"
                                 OnClientClick="return validateAndConfirm(this.id);" />
 
-                    <asp:Button ID="btnUpdateClubOwner" runat="server"  Text=" Update " OnClick="btnUpdateClubOwner_Click" 
+                    <asp:Button ID="btnUpdateUserRole" runat="server"  Text=" Update " OnClick="btnUpdateUserRole_Click" 
                                 ValidationGroup="Sports" CssClass="btn red" ClientIDMode="Static" Width="100px"
                                 OnClientClick="return validateAndConfirm(this.id);" />
 
-                    <asp:Button ID="btnCancelClubOwner" runat="server" Text="Cancel" OnClick="btnCancelClubOwner_Click" CssClass="btn" 
+                    <asp:Button ID="btnCancelUserRole" runat="server" Text="Cancel" OnClick="btnCancelUserRole_Click" CssClass="btn" 
                                 ClientIDMode="Static" ValidationGroup="CloseSports" Width="100px"
                                 OnClientClick="return validateAndConfirmClose(this.id);"/>
 

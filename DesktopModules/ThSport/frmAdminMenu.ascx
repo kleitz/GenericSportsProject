@@ -32,7 +32,7 @@
 		</li>
         
         <li id="li_Registration" runat="server">
-	        <asp:HyperLink id="hlRegistration" runat="server" ToolTip=" Registration Form"> Registration </asp:HyperLink>
+	        <asp:HyperLink id="hlRegistration" runat="server" ToolTip=" Registration Form "> Registration </asp:HyperLink>
 		</li>
 
         <li id="li_Team" runat="server">
@@ -74,6 +74,9 @@
               </li>
               <li id="li_TeamMemberType" runat="server">
                   <asp:HyperLink id="hlTeamMemberType" runat="server" ToolTip=" Team Member Type Form "> Team Member Type </asp:HyperLink>
+              </li>  
+              <li id="li_UserRole" runat="server">
+                  <asp:HyperLink id="hlUserRole" runat="server" ToolTip=" User Role Form "> User Role </asp:HyperLink>
               </li>  
            </ul>
 	    </li>

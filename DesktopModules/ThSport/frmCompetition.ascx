@@ -1,10 +1,9 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="frmCompetition.ascx.cs" Inherits="DotNetNuke.Modules.ThSport.frmCompetition" %>
 
-
-
 <script type="text/javascript">
 
-    function CompareDates(source, args) {
+    function CompareDates(source, args)
+    {
         var str1 = document.getElementById("txtStartDate").value;
         var str2 = document.getElementById("txtEndDate").value;
 
@@ -17,23 +16,23 @@
         var date1 = new Date(yr1, mon1, dt1);
         var date2 = new Date(yr2, mon2, dt2);
 
-
-
-        if (date2 < date1) {
+        if (date2 < date1)
+        {
             //alert("To date cannot be greater than from date");
             args.IsValid = false;
         }
-        else {
+        else
+        {
             //alert("Submitting ...");
             args.IsValid = true;
         }
     }
 
-    function validateTextBox(sender, args) {
-
+    function validateTextBox(sender, args)
+    {
         var txtcheckValue = args.Value;
 
-        var chars = ['<', '>', '*', '$', '@', ',', '_', '%', '.'];
+        var chars = ['<', '>', '*', '$', '@', ',', '_', '%', '.', '!', '#', '^', '&', '(', ')', '-', '=', '+', '\\', '|', '?', '/', '[', ']', '{', '}'];
         args.IsValid = true;
 
         if (txtcheckValue.length > 0) {

@@ -1,6 +1,27 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="frmUserType.ascx.cs" Inherits="DotNetNuke.Modules.ThSport.frmUserType" %>
 
 <script type="text/javascript">
+    function validateTextBox(sender, args) {
+        var txtcheckValue = args.Value;
+
+        var chars = ['<', '>', '*', '$', '@', ',', '_', '%', '.', '!', '#', '^', '&', '(', ')', '-', '=', '+', '\\', '|', '?', '/', '[', ']', '{', '}'];
+        args.IsValid = true;
+
+        if (txtcheckValue.length > 0) {
+            var currentChar = txtcheckValue.charAt(0);
+
+            if (chars.indexOf(currentChar) >= 0) {
+                args.IsValid = false;
+                txtcheckValue.value = "";
+            }
+            else {
+                args.IsValid = true;
+            }
+        }
+    }
+</script>
+
+<script type="text/javascript">
     function SaveSuccessfully() {
         $(document).ready(function () {
             $.blockUI();
@@ -121,14 +142,17 @@
 </style>
 
  <script type="text/javascript">
-     function validateAndConfirmClose(OnlyClose) {
+     function validateAndConfirmClose(OnlyClose)
+     {
          var validated = Page_ClientValidate('CloseSports');
 
-         if (OnlyClose == "btnCancelUserType") {
+         if (OnlyClose == "btnCancelUserType")
+         {
              document.getElementById("msgConfirm").innerHTML = "Are You Sure, You Want to Close UserType Form ?";
          }
 
-         if (validated) {
+         if (validated)
+         {
              $("#dialogBox").dialog({
 
                  modal: true,
@@ -372,9 +396,7 @@
                  <span class="help-inline"><font Color="red"><b>*</b></font></span>
              </div>
              <div class="controls" style="position:relative;">
-                  <asp:TextBox ID="txtUserType" runat="server" 
-                                     CssClass="m-wrap large" onchange="textBoxOnBlur(this,this.id)" 
-                                     ClientIDMode="Static"/>
+                  <asp:TextBox ID="txtUserType" runat="server" CssClass="m-wrap large"/>
                   <asp:RequiredFieldValidator ID="rfvUserType" runat="server" ErrorMessage="User Type,"
                                               ControlToValidate="txtUserType" SetFocusOnError="true" 
                                               ValidationGroup="Sports" Text="User Type Required !" 
@@ -385,9 +407,10 @@
                                                     ValidationExpression = "^[\s\S]{0,100}$" 
                                                     runat="server" ErrorMessage="Maximum 100 characters allowed.">
                    </asp:RegularExpressionValidator>  
-                   <span id="nameError" clientidmode="static" runat="server" class="help-inline charError" style="display:none;">
-                        <font Color="red">First Character Should Not Special Character</font>
-                   </span>
+                 <asp:CustomValidator ID="cvtxtUserType" ValidationGroup="Sports" runat="server" ErrorMessage="" SetFocusOnError="true" 
+                                                 ControlToValidate="txtUserType" EnableClientScript="true" ClientValidationFunction="validateTextBox" 
+                                                 CssClass="errorfordnn" Text="First Character Should Not Be Special Character">
+                   </asp:CustomValidator>
              </div>
         </div>
 
@@ -403,6 +426,10 @@
                                                     ValidationExpression = "^[\s\S]{0,5}$" 
                                                     runat="server" ErrorMessage="Maximum 5 characters allowed.">
                     </asp:RegularExpressionValidator>  
+                 <asp:CustomValidator ID="CustomValidator1" ValidationGroup="Sports" runat="server" ErrorMessage="" SetFocusOnError="true" 
+                                                 ControlToValidate="txtUserTypeAddress" EnableClientScript="true" ClientValidationFunction="validateTextBox" 
+                                                 CssClass="errorfordnn" Text="First Character Should Not Be Special Character">
+                   </asp:CustomValidator>
            </div>
         </div>
                 
@@ -412,13 +439,17 @@
             </label>
             <div class="controls" style="position:relative;">
                 <asp:TextBox ID="txtUserTypeDesc" runat="server"  
-                             CssClass="m-wrap mediumSmallDesc" TextMode="MultiLine" Width="319px" Height="150px"/>
+                                   CssClass="m-wrap mediumSmallDesc" TextMode="MultiLine" Width="319px" Height="150px"/>
                     <asp:RegularExpressionValidator ID="RegularExpressionValidator2"
-                                                    Display="Static" ControlToValidate="txtUserTypeDesc"  
-                                                    ValidationGroup="Sports" CssClass="errorfordnn"
-                                                    ValidationExpression = "^[\s\S]{0,500}$" 
-                                                    runat="server" ErrorMessage="Maximum 500 characters allowed.">
+                                                                Display="Static" ControlToValidate="txtUserTypeDesc"  
+                                                                ValidationGroup="Sports" CssClass="errorfordnn"
+                                                                ValidationExpression = "^[\s\S]{0,300}$" 
+                                                                runat="server" ErrorMessage="Maximum 300 characters allowed.">
                     </asp:RegularExpressionValidator>  
+                 <asp:CustomValidator ID="CustomValidator2" ValidationGroup="Sports" runat="server" ErrorMessage="" SetFocusOnError="true" 
+                                                 ControlToValidate="txtUserTypeDesc" EnableClientScript="true" ClientValidationFunction="validateTextBox" 
+                                                 CssClass="errorfordnn" Text="First Character Should Not Be Special Character">
+                   </asp:CustomValidator>
            </div>
         </div>
 

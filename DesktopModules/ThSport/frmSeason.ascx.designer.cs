@@ -202,31 +202,31 @@ namespace DotNetNuke.Modules.ThSport {
         protected global::System.Web.UI.WebControls.TextBox txtSeasonTitle;
         
         /// <summary>
-        /// rfvSeasonTitle control.
+        /// rfvtxtSeasonTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvSeasonTitle;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvtxtSeasonTitle;
         
         /// <summary>
-        /// RegularExpressionValidator1 control.
+        /// rgvtxtSeasonTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator rgvtxtSeasonTitle;
         
         /// <summary>
-        /// nameError control.
+        /// cvtxtSeasonTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl nameError;
+        protected global::System.Web.UI.WebControls.CustomValidator cvtxtSeasonTitle;
         
         /// <summary>
         /// lblSeasonDescription control.
@@ -247,13 +247,22 @@ namespace DotNetNuke.Modules.ThSport {
         protected global::System.Web.UI.WebControls.TextBox txtSeasonDescription;
         
         /// <summary>
-        /// RegularExpressionValidator2 control.
+        /// RegularExpressionValidator6 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator2;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator6;
+        
+        /// <summary>
+        /// cvtxtSeasonDescription control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator cvtxtSeasonDescription;
         
         /// <summary>
         /// lblSeasonStartDate control.
@@ -292,6 +301,15 @@ namespace DotNetNuke.Modules.ThSport {
         protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator3;
         
         /// <summary>
+        /// cvtxtSeasonStartDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator cvtxtSeasonStartDate;
+        
+        /// <summary>
         /// lblSeasonEndDate control.
         /// </summary>
         /// <remarks>
@@ -319,6 +337,15 @@ namespace DotNetNuke.Modules.ThSport {
         protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator4;
         
         /// <summary>
+        /// CustomValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator CustomValidator1;
+        
+        /// <summary>
         /// lblSeasonLogoName control.
         /// </summary>
         /// <remarks>
@@ -335,6 +362,15 @@ namespace DotNetNuke.Modules.ThSport {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtSeasonLogoName;
+        
+        /// <summary>
+        /// CustomValidator2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator CustomValidator2;
         
         /// <summary>
         /// lblUploadPhoto control.

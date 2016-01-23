@@ -363,6 +363,13 @@
     <Compile Include="frmTeamMemberType.ascx.designer.cs">
       <DependentUpon>frmTeamMemberType.ascx</DependentUpon>
     </Compile>
+    <Compile Include="frmUserRole.ascx.cs">
+      <DependentUpon>frmUserRole.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmUserRole.ascx.designer.cs">
+      <DependentUpon>frmUserRole.ascx</DependentUpon>
+    </Compile>
     <Compile Include="frmUserType.ascx.cs">
       <DependentUpon>frmUserType.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -429,6 +436,7 @@
     <Content Include="frmTeam.ascx" />
     <Content Include="frmTeamMember.ascx" />
     <Content Include="frmTeamMemberType.ascx" />
+    <Content Include="frmUserRole.ascx" />
     <Content Include="frmUserType.ascx" />
     <Content Include="Images\AllImage\1_pix.png" />
     <Content Include="Images\AllImage\active-header.gif" />

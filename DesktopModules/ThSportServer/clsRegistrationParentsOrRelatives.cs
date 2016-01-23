@@ -120,6 +120,20 @@ namespace ThSportServer
             return 0;
         }
 
+        public int UpdateAdminIDForRegistrationForm(clsRegistrationParentsOrRelatives cc)
+        {
+            try
+            {
+                dataProvider.ExecuteNonQuery("usp_UpdateAdminIDForRegistrationForm", cc.RegistrationId, cc.UserIdRelated);
+            }
+            catch (Exception ex)
+            {
+                Exceptions.LogException(ex);
+            }
+            return 0;
+        }
+        
+
         public int UpdateRegistrationParents(clsRegistrationParentsOrRelatives cc)
         {
             int i = 0;

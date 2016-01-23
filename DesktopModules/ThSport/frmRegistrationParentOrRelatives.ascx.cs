@@ -159,6 +159,8 @@ namespace DotNetNuke.Modules.ThSport
 
             ccc.InsertRegistrationParents(cc);
 
+            ccc.UpdateAdminIDForRegistrationForm(cc);
+
             pnlEntryRegistrationParents.Visible = false;
             PnlGridRegistrationParents.Visible = true;
             FillGridView();

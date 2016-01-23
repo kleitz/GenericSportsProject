@@ -118,6 +118,7 @@
     <Compile Include="clsSport.cs" />
     <Compile Include="clsTeamMember.cs" />
     <Compile Include="clsTeamMemberType.cs" />
+    <Compile Include="clsUserRole.cs" />
     <Compile Include="Data\DataProvider.cs" />
     <Compile Include="DTOs\DTOAssign.cs" />
     <Compile Include="clsClubMemberType.cs" />

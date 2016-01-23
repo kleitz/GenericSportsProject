@@ -34,8 +34,7 @@ namespace DotNetNuke.Modules.ThSport
 
         clsRegistration cc = new clsRegistration();
         clsRegistrationController ccc = new clsRegistrationController();
-
-
+        
         string m_controlToLoad;
         string VName;
         int SeasonID = 0;
@@ -60,7 +59,10 @@ namespace DotNetNuke.Modules.ThSport
 
             if (!IsPostBack)
             {
+                FillUserRole();
                 FillUserType();
+                FillPlayerType();
+                FillSport();
                 FillCountry();
                 FillGridView();
             }
@@ -108,9 +110,51 @@ namespace DotNetNuke.Modules.ThSport
                 ddlUserType.DataTextField = "UserTypeName";
                 ddlUserType.DataValueField = "UserTypeId";
                 ddlUserType.DataBind();
-                ddlUserType.Items.Insert(0, new ListItem("-- Select User Type --", "0"));
+                ddlUserType.Items.Insert(0, new ListItem("-- Select --", "0"));
                 //ddlUserType.SelectedValue = "4";
             }
+        }
+
+        private void FillUserRole()
+        {
+            DataTable dt = new DataTable();
+            dt = ccc.GetUserRole();
+            if (dt.Rows.Count > 0)
+            {
+                ddlUserRole.DataSource = dt;
+                ddlUserRole.DataTextField = "UserRoleName";
+                ddlUserRole.DataValueField = "UserRoleId";
+                ddlUserRole.DataBind();
+                ddlUserRole.Items.Insert(0, new ListItem("-- Select --", "0"));
+            }
+        }
+
+        private void FillPlayerType()
+        {
+            DataTable dt = new DataTable();
+            dt = ccc.GetPlayerType();
+            if (dt.Rows.Count > 0)
+            {
+                ddlPlayerType.DataSource = dt;
+                ddlPlayerType.DataTextField = "PlayerTypeName";
+                ddlPlayerType.DataValueField = "PlayerTypeId";
+                ddlPlayerType.DataBind();
+                ddlPlayerType.Items.Insert(0, new ListItem("-- Select --", "0"));
+            }  
+        }
+
+        private void FillSport()
+        {
+            DataTable dt = new DataTable();
+            dt = ccc.GetSport();
+            if (dt.Rows.Count > 0)
+            {
+                ddlSport.DataSource = dt;
+                ddlSport.DataTextField = "SportName";
+                ddlSport.DataValueField = "SportID";
+                ddlSport.DataBind();
+                ddlSport.Items.Insert(0, new ListItem("-- Select --", "0"));
+            }  
         }
 
         private void FillCountry()
@@ -135,7 +179,9 @@ namespace DotNetNuke.Modules.ThSport
         private void funClearData()
         {
             ddlSuffix.SelectedValue = "0";
+            FillUserRole();
             FillUserType();
+            FillPlayerType();
             FillCountry();
             txtFirstName.Text = "";
             txtMiddleName.Text = "";
@@ -171,11 +217,6 @@ namespace DotNetNuke.Modules.ThSport
             return new string(chars);
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-           
-        }
-
         protected void btnSaveRegistration_Click(object sender, EventArgs e)
         {
             Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "SaveSuccessfully();", true);
@@ -184,6 +225,7 @@ namespace DotNetNuke.Modules.ThSport
             Boolean FileSaved = false;
 
             cc.SuffixId = Convert.ToInt32(ddlSuffix.SelectedValue);
+            cc.UserRoleId = Convert.ToInt32(ddlUserRole.SelectedValue);
             cc.UserTypeId = Convert.ToInt32(ddlUserType.SelectedValue);
             cc.FirstName = txtFirstName.Text.Trim();
             cc.MiddleName = txtMiddleName.Text.Trim();
@@ -308,7 +350,9 @@ namespace DotNetNuke.Modules.ThSport
             PnlGridRegistration.Visible = false;
             btnSaveRegistration.Visible = true;
             btnUpdateRegistration.Visible = false;
+            FillUserRole();
             FillUserType();
+            FillPlayerType();
             FillCountry();
         }
 
@@ -328,6 +372,7 @@ namespace DotNetNuke.Modules.ThSport
 
             cc.UserId = Convert.ToInt32(hidRegID.Value);
             cc.SuffixId = Convert.ToInt32(ddlSuffix.SelectedValue);
+            cc.UserRoleId = Convert.ToInt32(ddlUserRole.SelectedValue);
             cc.UserTypeId = Convert.ToInt32(ddlUserType.SelectedValue);
             cc.FirstName = txtFirstName.Text.Trim();
             cc.MiddleName = txtMiddleName.Text.Trim();
@@ -362,7 +407,6 @@ namespace DotNetNuke.Modules.ThSport
             }
             else
             {
-
                 cc.UserPhotoFile = imhpathDB + UserLogoFile.PostedFile.FileName.Replace(" ", "");
 
                 if (UserLogoFile.PostedFile != null)
@@ -478,11 +522,11 @@ namespace DotNetNuke.Modules.ThSport
                 if (dt.Rows.Count > 0)
                 {
                     hidRegID.Value = dt.Rows[0]["UserId"].ToString();
+                    ddlUserRole.SelectedValue = dt.Rows[0]["UserRoleId"].ToString();
                     ddlUserType.SelectedValue =  dt.Rows[0]["UserTypeId"].ToString();
                     txtUserLogoName.Text = dt.Rows[0]["UserPhotoName"].ToString();
                     
                     UserLogoImage.ImageUrl = dt.Rows[0]["UserPhotoFile"].ToString();
-
                     string ufname = dt.Rows[0]["UserPhotoFile"].ToString().Replace(" ", "");
                     UserLogoFile.ResolveUrl("ufname");
 
@@ -568,5 +612,71 @@ namespace DotNetNuke.Modules.ThSport
             }
         }
 
+        protected void ddlUserRole_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ddlUserRole.SelectedItem.ToString() == "Player")
+            {
+                divUserType.Visible = true;
+                ddlUserType.SelectedValue = "4";
+                ddlUserType.Enabled = false;
+                divPlayerType.Visible = true;
+                divSport.Visible = true;
+                divCompetition.Visible = true;
+                divTeam.Visible = true;
+            }
+            else if (ddlUserRole.SelectedItem.ToString() == "Parents / Relatives")
+            {
+                divUserType.Visible = true;
+                ddlUserType.Enabled = true;
+                FillUserType();
+                divPlayerType.Visible = false;
+                divSport.Visible = false;
+                divCompetition.Visible = false;
+                divTeam.Visible = false;
+            }
+            else
+            {
+                divUserType.Visible = false;
+                divPlayerType.Visible = false;
+                divSport.Visible = false;
+                divCompetition.Visible = false;
+                divTeam.Visible = false;
+            }
+        }
+
+        protected void ddlSport_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int sportid = Convert.ToInt32(ddlSport.SelectedValue);
+            FillCompetition(sportid);
+            FillTeam(sportid);
+        }
+
+        private void FillCompetition(int sportid)
+        {
+            DataTable dt = new DataTable();
+            dt = ccc.GetCompetitionBySportID(sportid);
+            if (dt.Rows.Count > 0)
+            {
+                ddlCompetition.DataSource = dt;
+                ddlCompetition.DataTextField = "CompetitionName";
+                ddlCompetition.DataValueField = "CompetitionId";
+                ddlCompetition.DataBind();
+                ddlCompetition.Items.Insert(0, new ListItem("-- Select --", "0"));
+            }
+        }
+
+        private void FillTeam(int sportid)
+        {
+            DataTable dt = new DataTable();
+            dt = ccc.GetTeamBySportID(sportid);
+            if (dt.Rows.Count > 0)
+            {
+                ddlTeam.DataSource = dt;
+                ddlTeam.DataTextField = "TeamName";
+                ddlTeam.DataValueField = "TeamId";
+                ddlTeam.DataBind();
+                ddlTeam.Items.Insert(0, new ListItem("-- Select --", "0"));
+            }
+        }
     }
 }

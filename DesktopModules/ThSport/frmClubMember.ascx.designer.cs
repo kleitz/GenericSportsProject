@@ -202,31 +202,31 @@ namespace DotNetNuke.Modules.ThSport {
         protected global::System.Web.UI.WebControls.TextBox txtClubMemberTitle;
         
         /// <summary>
-        /// rfvClubMemberTitle control.
+        /// rfvtxtClubMemberTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvClubMemberTitle;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvtxtClubMemberTitle;
         
         /// <summary>
-        /// RegularExpressionValidator1 control.
+        /// rgvtxtClubMemberTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator rgvtxtClubMemberTitle;
         
         /// <summary>
-        /// nameError control.
+        /// cvtxtClubMemberTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl nameError;
+        protected global::System.Web.UI.WebControls.CustomValidator cvtxtClubMemberTitle;
         
         /// <summary>
         /// lblClubMemberDesc control.
@@ -254,6 +254,15 @@ namespace DotNetNuke.Modules.ThSport {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator2;
+        
+        /// <summary>
+        /// cvtxtClubMemberDesc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator cvtxtClubMemberDesc;
         
         /// <summary>
         /// lblActive control.

@@ -10,7 +10,7 @@
 namespace DotNetNuke.Modules.ThSport {
     
     
-    public partial class frmClubOwner {
+    public partial class frmUserRole {
         
         /// <summary>
         /// divsavemassage control.
@@ -85,13 +85,13 @@ namespace DotNetNuke.Modules.ThSport {
         protected global::System.Web.UI.WebControls.Label msgConfirm;
         
         /// <summary>
-        /// pnlClubOwnerGrid control.
+        /// pnlUserRoleGrid control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pnlClubOwnerGrid;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pnlUserRoleGrid;
         
         /// <summary>
         /// addPanel control.
@@ -103,40 +103,22 @@ namespace DotNetNuke.Modules.ThSport {
         protected global::System.Web.UI.WebControls.Panel addPanel;
         
         /// <summary>
-        /// btnAddClubOwner control.
+        /// btnAddUserRole control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnAddClubOwner;
+        protected global::System.Web.UI.WebControls.LinkButton btnAddUserRole;
         
         /// <summary>
-        /// btnGoToBack control.
+        /// gvUserRole control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnGoToBack;
-        
-        /// <summary>
-        /// lbl_Club_Name control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_Club_Name;
-        
-        /// <summary>
-        /// gvClubOwner control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvClubOwner;
+        protected global::System.Web.UI.WebControls.GridView gvUserRole;
         
         /// <summary>
         /// hidRegID control.
@@ -148,112 +130,40 @@ namespace DotNetNuke.Modules.ThSport {
         protected global::System.Web.UI.HtmlControls.HtmlInputHidden hidRegID;
         
         /// <summary>
-        /// pnlClubOwnerEntry control.
+        /// pnlUserRoleEntry control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlClubOwnerEntry;
+        protected global::System.Web.UI.WebControls.Panel pnlUserRoleEntry;
         
         /// <summary>
-        /// lblClubOwnerName control.
+        /// lblUserRole control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblClubOwnerName;
+        protected global::System.Web.UI.WebControls.Label lblUserRole;
         
         /// <summary>
-        /// txtClubOwnerName control.
+        /// txtUserRole control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtClubOwnerName;
+        protected global::System.Web.UI.WebControls.TextBox txtUserRole;
         
         /// <summary>
-        /// rfvtxtClubOwnerName control.
+        /// rfvUserRole control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvtxtClubOwnerName;
-        
-        /// <summary>
-        /// rgvtxtClubOwnerName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator rgvtxtClubOwnerName;
-        
-        /// <summary>
-        /// cvtxtClubOwnerName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CustomValidator cvtxtClubOwnerName;
-        
-        /// <summary>
-        /// lblClubOwnerDescription control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblClubOwnerDescription;
-        
-        /// <summary>
-        /// txtClubOwnerDescription control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtClubOwnerDescription;
-        
-        /// <summary>
-        /// RegularExpressionValidator2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator2;
-        
-        /// <summary>
-        /// cvtxtClubOwnerDescription control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CustomValidator cvtxtClubOwnerDescription;
-        
-        /// <summary>
-        /// lblClubOwnerPercentage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblClubOwnerPercentage;
-        
-        /// <summary>
-        /// txtClubOwnerPercentage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtClubOwnerPercentage;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvUserRole;
         
         /// <summary>
         /// RegularExpressionValidator1 control.
@@ -265,39 +175,111 @@ namespace DotNetNuke.Modules.ThSport {
         protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
         
         /// <summary>
-        /// cvtxtClubOwnerPercentage control.
+        /// cvtxtUserRole control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CustomValidator cvtxtClubOwnerPercentage;
+        protected global::System.Web.UI.WebControls.CustomValidator cvtxtUserRole;
         
         /// <summary>
-        /// btnSaveClubOwner control.
+        /// lblUserRoleAbbr control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSaveClubOwner;
+        protected global::System.Web.UI.WebControls.Label lblUserRoleAbbr;
         
         /// <summary>
-        /// btnUpdateClubOwner control.
+        /// txtUserRoleAbbr control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnUpdateClubOwner;
+        protected global::System.Web.UI.WebControls.TextBox txtUserRoleAbbr;
         
         /// <summary>
-        /// btnCancelClubOwner control.
+        /// RegularExpressionValidator6 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCancelClubOwner;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator6;
+        
+        /// <summary>
+        /// cvtxtUserRoleAbbr control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator cvtxtUserRoleAbbr;
+        
+        /// <summary>
+        /// lblUserRoleDesc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblUserRoleDesc;
+        
+        /// <summary>
+        /// txtUserRoleDesc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtUserRoleDesc;
+        
+        /// <summary>
+        /// RegularExpressionValidator2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator2;
+        
+        /// <summary>
+        /// CustomValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator CustomValidator1;
+        
+        /// <summary>
+        /// btnSaveUserRole control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSaveUserRole;
+        
+        /// <summary>
+        /// btnUpdateUserRole control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnUpdateUserRole;
+        
+        /// <summary>
+        /// btnCancelUserRole control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCancelUserRole;
     }
 }

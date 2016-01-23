@@ -6,7 +6,7 @@
 
         var txtcheckValue = args.Value;
 
-        var chars = ['<', '>', '*', '$', '@', ',', '_', '%', '.'];
+        var chars = ['<', '>', '*', '$', '@', ',', '_', '%', '.', '!', '#', '^', '&', '(', ')', '-', '=', '+', '\\', '|', '?', '/', '[', ']', '{', '}'];
         args.IsValid = true;
 
         if (txtcheckValue.length > 0) {
@@ -21,9 +21,7 @@
                 args.IsValid = true;
             }
         }
-    }
-
-    
+    }    
 
     function SaveSuccessfully() {
         $(document).ready(function () {
@@ -399,8 +397,8 @@
                     <asp:RegularExpressionValidator ID="rgvtxtCompetitionTypeDesc"
                                                     Display="Static" ControlToValidate="txtCompetitionTypeDesc"  
                                                     ValidationGroup="Sports" CssClass="errorfordnn"
-                                                    ValidationExpression = "^[\s\S]{0,200}$" 
-                                                    runat="server" ErrorMessage="Maximum 200 characters allowed.">
+                                                    ValidationExpression = "^[\s\S]{0,300}$" 
+                                                    runat="server" ErrorMessage="Maximum 300 characters allowed.">
                     </asp:RegularExpressionValidator>  
                 <asp:CustomValidator ID="cvtxtCompetitionTypeDesc" ValidationGroup="Sports" runat="server" ErrorMessage="" SetFocusOnError="true" ControlToValidate="txtCompetitionTypeDesc"
                                     EnableClientScript="true" ClientValidationFunction="validateTextBox" CssClass="errorfordnn" Text="First Character Should Not Be Special Character"></asp:CustomValidator>
