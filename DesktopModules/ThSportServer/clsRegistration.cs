@@ -59,6 +59,21 @@ namespace ThSportServer
             public string PlayerJerseyName { get; set; }
             public string PlayerFamousName { get; set; }
             public int PlayerTypeId { get; set; }
+
+        // Filed in Team Member Table
+            public int TeamMemberJerseyNo { get; set; }
+            public string TeamMemberJerseyName { get; set; }
+            public string TeamMemberFamousName { get; set; }
+            public int TeamMemberTypeId { get; set; }
+
+        //Filed in Clud Table
+            public int ClubID { get; set; }
+            public string OwnerDescription { get; set; }
+            public int OwnerPercentage { get; set; }
+
+        //Filed in Club Member Type 
+            public int ClubMemberTypeId { get; set;}
+            public string ClubMemberDesc { get; set;}
     }
 
     public class clsRegistrationController
@@ -138,13 +153,13 @@ namespace ThSportServer
             }
         }
 
-        public DataTable GetPlayerType()
+        public DataTable GetPlayerTypeBySportID(int SportID)
         {
             using (DataTable dt = new DataTable())
             {
                 try
                 {
-                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetPlayerType"))
+                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetPlayerTypeBySportID", SportID))
                     {
                         dt.Load(reader);
                         return dt;
@@ -159,6 +174,74 @@ namespace ThSportServer
                 return dt;
             }
         }
+
+        public DataTable GetTeamMemberTypeBySportID(int SportID)
+        {
+            using (DataTable dt = new DataTable())
+            {
+                try
+                {
+                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetTeamMemberTypeBySportID", SportID))
+                    {
+                        dt.Load(reader);
+                        return dt;
+                    }
+                }
+
+                catch (Exception ex)
+                {
+                    Exceptions.LogException(ex);
+                }
+
+                return dt;
+            }
+        }
+
+        public DataTable GetClubBySportID(int SportID)
+        {
+            using (DataTable dt = new DataTable())
+            {
+                try
+                {
+                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetClubBySportID", SportID))
+                    {
+                        dt.Load(reader);
+                        return dt;
+                    }
+                }
+
+                catch (Exception ex)
+                {
+                    Exceptions.LogException(ex);
+                }
+
+                return dt;
+            }
+        }
+
+        public DataTable GetClubMemberTypeBySportID(int SportID)
+        {
+            using (DataTable dt = new DataTable())
+            {
+                try
+                {
+                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetClubMemberTypeBySportID", SportID))
+                    {
+                        dt.Load(reader);
+                        return dt;
+                    }
+                }
+
+                catch (Exception ex)
+                {
+                    Exceptions.LogException(ex);
+                }
+
+                return dt;
+            }
+        }
+
+        
 
         public DataTable GetSport()
         {
@@ -291,8 +374,46 @@ namespace ThSportServer
             return 0;
         }
 
-        
+        public int InsertTeamMember(clsRegistration cc)
+        {
+            try
+            {
+                dataProvider.ExecuteNonQuery("usp_InsertTeamMember", cc.TeamId, cc.RegistrationId, cc.TeamMemberTypeId, cc.TeamMemberJerseyNo, cc.TeamMemberJerseyName, cc.TeamMemberFamousName, cc.PortalID, cc.CreatedById, cc.ModifiedById);
+            }
+            catch (Exception ex)
+            {
+                Exceptions.LogException(ex);
+            }
+            return 0;
+        }
 
+        public int InsertClubOwner(clsRegistration cc)
+        {
+            try
+            {
+                dataProvider.ExecuteNonQuery("usp_InsertClubOwner", cc.ClubID, cc.OwnerDescription, cc.OwnerPercentage, cc.PortalID, cc.CreatedById, cc.ModifiedById, cc.RegistrationId);
+            }
+            catch (Exception ex)
+            {
+                Exceptions.LogException(ex);
+            }
+            return 0;
+        }
+
+        public int InsertClubMember(clsRegistration cc)
+        {
+            try
+            {
+                dataProvider.ExecuteNonQuery("usp_InsertClubMember", cc.RegistrationId, cc.ClubMemberTypeId, cc.ClubID, cc.ClubMemberDesc, cc.PortalID, cc.CreatedById, cc.ModifiedById);
+            }
+            catch (Exception ex)
+            {
+                Exceptions.LogException(ex);
+            }
+            return 0;
+        }
+
+        
 
         public int UpdateUser(clsRegistration cc)
         {

@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="frmEvent.ascx.cs" Inherits="DotNetNuke.Modules.ThSport.frmEvent" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="frmNews.ascx.cs" Inherits="DotNetNuke.Modules.ThSport.frmNews" %>
 
 <%@ Register TagPrefix="dnn" Namespace="DotNetNuke.Web.Client.ClientResourceManagement" Assembly="DotNetNuke.Web.Client" %>
 <dnn:DnnCssInclude FilePath="~/DesktopModules/ThSport/CSS/jquery.datetimepicker.css" runat="server"/>
@@ -29,23 +29,69 @@
     }
 </script>
 
+    <script type="text/javascript">
+        function previewFile() {
+            var file = document.querySelector('#<%=CompetitionVideoLogoFile.ClientID %>').files[0];
+            var reader = new FileReader();
+
+            reader.onloadend = function () {
+                preview.src = reader.result;
+            }
+
+            if (file) {
+                reader.readAsDataURL(file);
+            }
+            else {
+                preview.src = "";
+            }
+        }
+    </script>
+</head>
+
+
+<script type="text/javascript">
+    function previewFilelogo()
+    {
+        var preview = document.querySelector('#<%=NewsLogoImage.ClientID %>');
+        var file = document.querySelector('#<%=NewsLogoFile.ClientID %>').files[0];
+        var reader = new FileReader();
+
+        reader.onloadend = function ()
+        {
+            preview.src = reader.result;
+        }
+
+        if (file)
+        {
+            if (file.size > 10485760)
+            {
+                document.getElementById('dvMsg').style.display = "block";
+                preview.src = "";
+            }
+            reader.readAsDataURL(file);
+        }
+        else
+        {
+            preview.src = "";
+        }
+    }
+</script>
+
+
 <script type="text/javascript">
     $(document).ready(function () {
         $('.ddlActionSelect').change(function (evt) {
             evt.preventDefault();
             if ($(this).val() == "Delete") {
-                if (confirm('Are you sure to delete this Event?'))
-                {
+                if (confirm('Are you sure to delete this News ?')) {
                     setTimeout("__doPostBack('" + this.id + "','')", 0);
                 }
-                else
-                {
+                else {
                     //do nothing, prevent postback
                     $(this).prop('selectedIndex', 0);
                 }
             }
-            else
-            {
+            else {
                 setTimeout("__doPostBack('" + this.id + "','')", 0);
             }
         });
@@ -57,8 +103,8 @@
 <script type="text/javascript">
     function textBoxOnBlur(elementRef, id) {
         var checkValue = new String(elementRef.value);
-        var save_btn = document.getElementById("<%=btnSaveEvent.ClientID %>");
-        var update_btn = document.getElementById("<%=btnUpdateEvent.ClientID %>");
+        var save_btn = document.getElementById("<%=btnSaveNews.ClientID %>");
+        var update_btn = document.getElementById("<%=btnUpdateNews.ClientID %>");
         var chars = ['<', '>', '*', '$', '@', ',', '_', '%'];
         var realted_span = document.getElementById("nameError");
         if (checkValue.length > 0) {
@@ -87,15 +133,16 @@
         }
     }
 
-    function validateAndConfirmClose(OnlyClose) {
+    function validateAndConfirmClose(OnlyClose)
+    {
         var validated = Page_ClientValidate('CloseSports');
-        if (OnlyClose == "btnCloseEvent")
+
+        if (OnlyClose == "btnCloseNews")
         {
-            document.getElementById("msgConfirm").innerHTML = "Are You Sure, You Want to Close Event Form ?";
+            document.getElementById("msgConfirm").innerHTML = "Are You Sure, You Want to Close News Form ?";
         }
 
-        if (validated)
-        {
+        if (validated) {
             $("#dialogBox").dialog({
                 modal: true,
                 resizable: true,
@@ -107,9 +154,9 @@
                 buttons: {
                     Ok: function () {
 
-                        if (OnlyClose == "btnCloseEvent")
+                        if (OnlyClose == "btnCloseNews")
                         {
-                            <%=this.Page.ClientScript.GetPostBackEventReference(new PostBackOptions(this.btnCloseEvent))%>;
+                            <%=this.Page.ClientScript.GetPostBackEventReference(new PostBackOptions(this.btnCloseNews))%>;
                         }
                     },
                     Cancel: function () {
@@ -126,9 +173,9 @@
     {
         var validated = Page_ClientValidate('Sports');
 
-        if (btn_clientid == "btnUpdateEvent")
+        if (btn_clientid == "btnUpdateNews")
         {
-            document.getElementById("msgConfirm").innerHTML = "Are You Sure, You Want to Update Event Details ?";
+            document.getElementById("msgConfirm").innerHTML = "Are You Sure, You Want to Update News Details ?";
         }
 
         if (validated) {
@@ -145,14 +192,14 @@
 
                         btn_clientid.disabled = true;
 
-                        if (btn_clientid == "btnSaveEvent")
+                        if (btn_clientid == "btnSaveNews")
                         {
-                            <%=this.Page.ClientScript.GetPostBackEventReference(new PostBackOptions(this.btnSaveEvent))%>;
+                            <%=this.Page.ClientScript.GetPostBackEventReference(new PostBackOptions(this.btnSaveNews))%>;
                         }
 
-                        if (btn_clientid == "btnUpdateEvent")
+                        if (btn_clientid == "btnUpdateNews")
                         {
-                            <%=this.Page.ClientScript.GetPostBackEventReference(new PostBackOptions(this.btnUpdateEvent))%>;
+                            <%=this.Page.ClientScript.GetPostBackEventReference(new PostBackOptions(this.btnUpdateNews))%>;
                         }
 
                     },
@@ -259,35 +306,35 @@
 
 <div id="divsavemassage" runat="server" clientidmode="static" style="display: none;position:inherit !important;">
     <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/AllImage/Ok.png")%>" />
-     <asp:Label CssClass="lobibox-body-text" ID="Label1" ClientIDMode="Static" runat="server" Text=" Event detail are save successfully. ">
+     <asp:Label CssClass="lobibox-body-text" ID="Label1" ClientIDMode="Static" runat="server" Text=" News detail are save successfully. ">
      </asp:Label>
 </div>
 
 <div id="divupdatemassage" runat="server" clientidmode="static" style="display: none;position:inherit !important;">
     <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/AllImage/Ok.png")%>" />
-     <asp:Label CssClass="lobibox-body-text" ID="Label2" ClientIDMode="Static" runat="server" Text=" Event detail are update successfully. ">
+     <asp:Label CssClass="lobibox-body-text" ID="Label2" ClientIDMode="Static" runat="server" Text=" News detail are update successfully. ">
      </asp:Label>
 </div>
 
 <div id="dialogBox" runat="server" clientidmode="static"  style="display:none;">
      <div class="lobibox-body-text-wrapper">
-        <asp:Label CssClass="lobibox-body-text" ID="msgConfirm" ClientIDMode="Static" runat="server" Text="Are You Sure, You Want to Save Event Details ?"></asp:Label>
+        <asp:Label CssClass="lobibox-body-text" ID="msgConfirm" ClientIDMode="Static" runat="server" Text="Are You Sure, You Want to Save News Details ?"></asp:Label>
     </div>
 </div>
 
 <div class="row-fluid">
 	<div class="span12">
 
-<asp:Panel ID="PnlGridEvent" runat="server">
+<asp:Panel ID="PnlGridNews" runat="server">
    <asp:Panel ID="addPanel" runat="server">
         <div id="submenu" style="float:left;">
             <ul>
                 <li class="active">
-                    <asp:LinkButton ID="btnAddEvent" 
+                    <asp:LinkButton ID="btnAddNews" 
                                     runat="server" 
                                     Height="35px" 
-                                    Text=" Add Event " 
-                                    onclick="btnAddEvent_Click" 
+                                    Text=" Add News " 
+                                    onclick="btnAddNews_Click" 
                                     ForeColor="White">
                     </asp:LinkButton>
                 </li>
@@ -295,10 +342,7 @@
         </div>
 
         <div class="teams-search-area">
-            <asp:TextBox ID="txtEventNameSearch" runat="server"  placeholder=" Enter Event Name" Width="250px" CssClass="m-wrap medium" 
-                             Height="35px" Font-Size="14px"/>&nbsp;
-             <asp:LinkButton id="lbGo" runat="server" Text=" Go " ForeColor="White" CssClass="btn blue" Height="24px"
-                                onclick="lbGo_Click"></asp:LinkButton>
+            
         </div>
    </asp:Panel>
 
@@ -310,7 +354,7 @@
 			<div class="portlet-title">
 				<div class="caption">
 					<i class="icon-reorder"></i>
-					<span class="hidden-480">Event List</span>
+					<span class="hidden-480">News List</span>
 				</div>
                 <div class="tools">
 					<a href="javascript:;" class="collapse"></a>
@@ -319,60 +363,54 @@
       
     <div class="portlet-body flip-scroll">
 
-    <asp:GridView ID="gvEvent" runat="server" 
+    <asp:GridView ID="gvNews" runat="server" 
                   CssClass="table-bordered table-striped table-condensed flip-content" 
                   AutoGenerateColumns="false" width="100%"
                   ShowHeaderWhenEmpty="true" 
                   AllowPaging="true" PageSize="10"
                   EmptyDataText="No Records Found" 
                   EmptyDataRowStyle-ForeColor="Red" 
-                  onpageindexchanging="gvEvent_PageIndexChanging"
-                  DataKeyNames ="EventID">
+                  onpageindexchanging="gvNews_PageIndexChanging"
+                  DataKeyNames ="NewsId">
         <RowStyle CssClass="grid-row" />
         <AlternatingRowStyle CssClass="grid-row grid-row-alternet" />
         <Columns>
 
-         <asp:TemplateField HeaderText="EventID" ItemStyle-VerticalAlign="Middle" ItemStyle-HorizontalAlign="Center" 
+         <asp:TemplateField HeaderText="NewsId" ItemStyle-VerticalAlign="Middle" ItemStyle-HorizontalAlign="Center" 
                                     Visible="false" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column">
                 <ItemTemplate>
                     <div class="grid-cell-inner" style="width:130px; display: inline-block;">
-                        <asp:Label ID="lblEventID" runat="server" Text='<%#Eval("EventID") %>'></asp:Label>
+                        <asp:Label ID="lblNewsId" runat="server" Text='<%#Eval("NewsId") %>'></asp:Label>
                     </div> 
                 </ItemTemplate>
          </asp:TemplateField>
 
-         <asp:BoundField DataField="EventName" HeaderText="Event Name" HeaderStyle-CssClass="grid-header-column" ItemStyle-Width="30%" ItemStyle-CssClass="grid-column" HeaderStyle-Width="30%" />
-
-            <asp:TemplateField HeaderText="Start Date" ItemStyle-VerticalAlign="Middle" HeaderStyle-CssClass="grid-header-column" 
-                               ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center" HeaderStyle-Width="22px" 
-                               ItemStyle-Width="20px">
+            <asp:TemplateField HeaderText="News Title" ItemStyle-VerticalAlign="Middle" ItemStyle-HorizontalAlign="Center" 
+                                     HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column">
                 <ItemTemplate>
-                    <div class="grid-cell-inner" style="text-align:center;">                    
-                        <asp:Label ID="lblEventStartDateTime" runat="server" Text='<%#Eval("EventStartDateTime") %>' ToolTip="Event Start Date">
-                        </asp:Label>
+                    <div class="grid-cell-inner" style="width:130px; display: inline-block;">
+                        <asp:Label ID="lblNewsTitle" runat="server" Text='<%#Eval("NewsTitle") %>'></asp:Label>
                     </div> 
                 </ItemTemplate>
-            </asp:TemplateField>
+         </asp:TemplateField>
 
-            <asp:TemplateField HeaderText="End Date" ItemStyle-VerticalAlign="Middle" HeaderStyle-CssClass="grid-header-column" 
-                               ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center" HeaderStyle-Width="22px" 
-                               ItemStyle-Width="20px">
+         <asp:TemplateField HeaderText="News Date" ItemStyle-VerticalAlign="Middle" ItemStyle-HorizontalAlign="Center" 
+                                    HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column">
                 <ItemTemplate>
-                    <div class="grid-cell-inner" style="text-align:center;">
-                         <asp:Label ID="lblEventEndDateTime" runat="server" Text='<%#Eval("EventEndDateTime") %>' ToolTip="Event End Date">
-                         </asp:Label>
-                    </div>
-                </ItemTemplate>
-            </asp:TemplateField>
-
-            <asp:TemplateField HeaderText="Priority" ItemStyle-VerticalAlign="Middle" HeaderStyle-CssClass="grid-header-column" 
-                               ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center">
-                <ItemTemplate>
-                    <div class="grid-cell-inner" style="text-align:center;">
-                        <asp:Label ID="lblEventPriority" runat="server" Text='<%#Eval("EventPriority") %>'></asp:Label>
+                    <div class="grid-cell-inner" style="width:130px; display: inline-block;">
+                        <asp:Label ID="lblNewsDate" runat="server" Text='<%#Eval("NewsDate") %>'></asp:Label>
                     </div> 
                 </ItemTemplate>
-            </asp:TemplateField>
+         </asp:TemplateField>
+
+            <asp:TemplateField HeaderText="News Level" ItemStyle-VerticalAlign="Middle" ItemStyle-HorizontalAlign="Center" 
+                                     HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column">
+                <ItemTemplate>
+                    <div class="grid-cell-inner" style="width:130px; display: inline-block;">
+                        <asp:Label ID="lblNewsLevel" runat="server" Text='<%#Eval("NewsLevelId") %>'></asp:Label>
+                    </div> 
+                </ItemTemplate>
+         </asp:TemplateField>
 
             <asp:TemplateField HeaderText="Action"  HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" 
                                ItemStyle-HorizontalAlign="Center" ItemStyle-Width="15%">
@@ -383,11 +421,10 @@
                             <asp:ListItem Value="Edit">Edit</asp:ListItem>
                             <%--<asp:ListItem Value="Delete">Delete</asp:ListItem>--%>
                     </asp:DropDownList>
-                    <asp:Label ID="lblddlActionEventID" runat="server" Text='<%#Eval("EventID") %>' Visible="false">
+                    <asp:Label ID="lblddlActionNewsID" runat="server" Text='<%#Eval("NewsId") %>' Visible="false">
                     </asp:Label>
                 </ItemTemplate>
-
-     </asp:TemplateField>
+            </asp:TemplateField>
 
         </Columns>
         <PagerSettings Mode="NumericFirstLast" PageButtonCount="8" /> 
@@ -398,7 +435,7 @@
    </div>
 </asp:Panel>
 
-<asp:Panel ID="pnlEventEntry" runat="server" Visible="false">
+<asp:Panel ID="pnlEntryNews" runat="server" Visible="false">
 
    <div style="padding:10px 0px;">
         * Note: All Fields marked with an asterisk (*) are required.
@@ -409,7 +446,7 @@
 		<div class="portlet-title">
 			<div class="caption">
 				<i class="icon-reorder"></i>
-				<span class="hidden-480"> Event Detail</span>
+				<span class="hidden-480"> News Detail</span>
 			</div>
 		</div>
 
@@ -428,7 +465,7 @@
             <div style="width: 100%;margin-top:20px;">
             
             </div>
-                        
+
             <div class="control-group">
 		         <label class="control-label">
                        <asp:Label ID="lblSport" runat="server" Text=" Sport :" ></asp:Label>
@@ -436,6 +473,24 @@
                  <div class="controls" style="position:relative;">
                       <asp:DropDownList ID="ddlSports" runat="server" CssClass="medium m-wrap" AutoPostBack="true"
                           OnSelectedIndexChanged="ddlSports_SelectedIndexChanged"/>
+                 </div>
+            </div>
+
+            <div class="control-group">
+		         <label class="control-label">
+                       <asp:Label ID="lblCountryId" runat="server" Text=" Country :" ></asp:Label>
+                 </label>
+                 <div class="controls" style="position:relative;">
+                      <asp:DropDownList ID="ddlCountry" runat="server" CssClass="medium m-wrap"/>
+                 </div>
+            </div>
+
+            <div class="control-group">
+		         <label class="control-label">
+                       <asp:Label ID="lblEvent" runat="server" Text=" Event :" ></asp:Label>
+                 </label>
+                 <div class="controls" style="position:relative;">
+                      <asp:DropDownList ID="ddlEvent" runat="server" CssClass="medium m-wrap"/>
                  </div>
             </div>
       
@@ -512,33 +567,42 @@
 
         <div class="control-group">
 		     <label class="control-label">
-                   <asp:Label ID="lblSponsor" runat="server" Text="  Sponsor :" ></asp:Label>
+                   <asp:Label ID="lblPlayer" runat="server" Text="  Player :" ></asp:Label>
+             </label>
+             <div class="controls" style="position:relative;">
+                  <asp:DropDownList ID="ddlPlayer" runat="server" CssClass="medium m-wrap"/>
+             </div>
+        </div>
+
+        <div class="control-group">
+		     <label class="control-label">
+                   <asp:Label ID="lblSponsor" runat="server" Text=" Sponsor :" ></asp:Label>
              </label>
              <div class="controls" style="position:relative;">
                   <asp:DropDownList ID="ddlSponsor" runat="server" CssClass="medium m-wrap"/>
              </div>
         </div>
-            
+
         <div class="control-group">
 		     <label class="control-label">          
-                   <asp:Label ID="lblEventName" runat="server" Text=" Event Name :" ></asp:Label>
+                   <asp:Label ID="lblNewsTitle" runat="server" Text=" News Title :" ></asp:Label>
              </label>
              <div class="startsetallfrom">
                  <span class="help-inline"><font Color="red"><b>*</b></font></span>
              </div>
              <div class="controls" style="position:relative;">
-                  <asp:TextBox ID="txtEventName" runat="server" CssClass="m-wrap large"/>
-                   <asp:RequiredFieldValidator ID="rfvtxtEventName" runat="server" ErrorMessage="EventName"  
-                                                ControlToValidate="txtEventName" SetFocusOnError="true" 
-                                                ValidationGroup="Sports" Text=" Event Name Required !" CssClass="errorfordnn" ClientIDMode="Static"/>
-                   <asp:RegularExpressionValidator ID="rgvtxtEventName"
-                                                    Display="Static" ControlToValidate="txtEventName"  
+                  <asp:TextBox ID="txtNewsTitle" runat="server" CssClass="m-wrap large"/>
+                   <asp:RequiredFieldValidator ID="rfvtxtNewsTitle" runat="server" ErrorMessage="NewsTitle"  
+                                                ControlToValidate="txtNewsTitle" SetFocusOnError="true" 
+                                                ValidationGroup="Sports" Text=" News Title Required !" CssClass="errorfordnn" ClientIDMode="Static"/>
+                   <asp:RegularExpressionValidator ID="rgvtxtNewsTitle"
+                                                    Display="Static" ControlToValidate="txtNewsTitle"  
                                                     ValidationGroup="Sports" CssClass="errorfordnn"
                                                     ValidationExpression = "^[\s\S]{0,100}$" 
                                                     runat="server" ErrorMessage="Maximum 100 characters allowed.">
                    </asp:RegularExpressionValidator>  
-                   <asp:CustomValidator ID="cvtxtEventName" ValidationGroup="Sports" runat="server" ErrorMessage="" SetFocusOnError="true" 
-                                                 ControlToValidate="txtEventName" EnableClientScript="true" ClientValidationFunction="validateTextBox" 
+                   <asp:CustomValidator ID="cvtxtNewsTitle" ValidationGroup="Sports" runat="server" ErrorMessage="" SetFocusOnError="true" 
+                                                 ControlToValidate="txtNewsTitle" EnableClientScript="true" ClientValidationFunction="validateTextBox" 
                                                  CssClass="errorfordnn" Text="First Character Should Not Be Special Character">
                    </asp:CustomValidator>
              </div>
@@ -546,98 +610,167 @@
 
         <div class="control-group">
 		    <label class="control-label">
-                <asp:Label ID="lblEventDetail" runat="server" Text="Description :" ></asp:Label>
+                <asp:Label ID="lblNewsDesc" runat="server" Text=" Description :" ></asp:Label>
             </label>
             <div class="controls" style="position:relative;">
-                <asp:TextBox ID="txtEventDetail" runat="server"  
-                             CssClass="m-wrap mediumSmallDesc" TextMode="MultiLine" Width="319px" Height="150px"/>
+                <asp:TextBox ID="txtNewsDesc" runat="server" CssClass="m-wrap mediumSmallDesc" TextMode="MultiLine" Width="319px" Height="150px"/>
                     <asp:RegularExpressionValidator ID="RegularExpressionValidator2"
-                                                    Display="Static" ControlToValidate="txtEventDetail"  
+                                                    Display="Static" ControlToValidate="txtNewsDesc"  
                                                     ValidationGroup="Sports" CssClass="errorfordnn"
                                                     ValidationExpression = "^[\s\S]{0,300}$" 
                                                     runat="server" ErrorMessage="Maximum 300 characters allowed.">
                     </asp:RegularExpressionValidator>  
-                 <asp:CustomValidator ID="cvtxtEventDetail" ValidationGroup="Sports" runat="server" ErrorMessage="" SetFocusOnError="true" 
-                                                 ControlToValidate="txtEventDetail" EnableClientScript="true" ClientValidationFunction="validateTextBox" 
+                 <asp:CustomValidator ID="cvtxtNewsDesc" ValidationGroup="Sports" runat="server" ErrorMessage="" SetFocusOnError="true" 
+                                                 ControlToValidate="txtNewsDesc" EnableClientScript="true" ClientValidationFunction="validateTextBox" 
                                                  CssClass="errorfordnn" Text="First Character Should Not Be Special Character">
                    </asp:CustomValidator>
            </div>
         </div>
 
-              <div class="control-group">
+        <div class="control-group">
+		     <label class="control-label">          
+                   <asp:Label ID="lblNewText" runat="server" Text=" News Text :" ></asp:Label>
+             </label>
+             <div class="controls" style="position:relative;">
+                  <asp:TextBox ID="txtNewText" runat="server" CssClass="m-wrap mediumSmallDesc" TextMode="MultiLine" Width="319px" Height="100px"/>
+                   <asp:RegularExpressionValidator ID="RegularExpressionValidator1"
+                                                    Display="Static" ControlToValidate="txtNewsText"  
+                                                    ValidationGroup="Sports" CssClass="errorfordnn"
+                                                    ValidationExpression = "^[\s\S]{0,200}$" 
+                                                    runat="server" ErrorMessage="Maximum 200 characters allowed.">
+                   </asp:RegularExpressionValidator>  
+                   <asp:CustomValidator ID="CustomValidator3" ValidationGroup="Sports" runat="server" ErrorMessage="" SetFocusOnError="true" 
+                                                 ControlToValidate="txtNewsText" EnableClientScript="true" ClientValidationFunction="validateTextBox" 
+                                                 CssClass="errorfordnn" Text="First Character Should Not Be Special Character">
+                   </asp:CustomValidator>
+             </div>
+        </div>
+
+        <div class="control-group">
 		    <label class="control-label"> 
-                <asp:Label ID="lblEventStartDateTime" runat="server" Text="Start Date :" ></asp:Label>
+                <asp:Label ID="lblNewsDate" runat="server" Text="News Date :" ></asp:Label>
             </label>
-                  <div class="startsetallfrom">
-                      <span class="help-inline"><font Color="red"><b>*</b></font></span>
-                  </div>
+            <div class="startsetallfrom">
+                  <span class="help-inline"><font Color="red"><b>*</b></font></span>
+            </div>
             <div class="controls" style="position:relative;">  
-                <asp:TextBox ID="txtEventStartDateTime" runat="server"  CssClass="datetimepicker m-wrap medium onlynumeric"/>
-                <asp:RequiredFieldValidator ID="rfvtxtEventStartDateTime" runat="server" ErrorMessage="Enter Start Date"
-                                                 ControlToValidate="txtEventStartDateTime" SetFocusOnError="true" 
-                                                 ValidationGroup="Sports" Text="Start Date Required !" CssClass="errorfordnn" 
+                <asp:TextBox ID="txtNewsDate" runat="server" CssClass="datetimepicker m-wrap medium onlynumeric"/>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Enter News Date"
+                                                 ControlToValidate="txtNewsDate" SetFocusOnError="true" 
+                                                 ValidationGroup="Sports" Text="News Date Required !" CssClass="errorfordnn" 
                                                  ClientIDMode="Static"/>
-                 <asp:RegularExpressionValidator ID="RegularExpressionValidator3"
-                                                 Display="Static" ControlToValidate="txtEventStartDateTime"  
+                 <asp:RegularExpressionValidator ID="RegularExpressionValidator8"
+                                                 Display="Static" ControlToValidate="txtNewsDate"  
                                                  ValidationGroup="Sports" CssClass="errorfordnn"
                                                  ValidationExpression = "^[\s\S]{0,25}$" 
                                                  runat="server" ErrorMessage="Maximum 25 characters allowed.">
                  </asp:RegularExpressionValidator>  
-                <asp:CustomValidator ID="CustomValidator1" ValidationGroup="Sports" runat="server" ErrorMessage="" SetFocusOnError="true" 
-                                                 ControlToValidate="txtEventStartDateTime" EnableClientScript="true" ClientValidationFunction="validateTextBox" 
+                <asp:CustomValidator ID="CustomValidator6" ValidationGroup="Sports" runat="server" ErrorMessage="" SetFocusOnError="true" 
+                                                 ControlToValidate="txtNewsDate" EnableClientScript="true" ClientValidationFunction="validateTextBox" 
                                                  CssClass="errorfordnn" Text="First Character Should Not Be Special Character">
                    </asp:CustomValidator>
             </div>
         </div>
-    
+
         <div class="control-group">
 		    <label class="control-label"> 
-                <asp:Label ID="lblEventEndDateTime" runat="server" Text="End Date :"></asp:Label>
+                <asp:Label ID="lblNewsLogo" runat="server" Text=" Photo : "></asp:Label>
              </label>
-              <div class="startsetallfrom">
-                      <span class="help-inline"><font Color="red"><b>*</b></font></span>
-                  </div>
-             <div class="controls" style="position:relative;">   
-                  <asp:TextBox ID="txtEventEndDateTime" runat="server" CssClass="enddatetimepicker m-wrap medium"/>
-                  <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Enter End Date"
-                                                 ControlToValidate="txtEventEndDateTime" SetFocusOnError="true" 
-                                                 ValidationGroup="Sports" Text="End Date Required !" CssClass="errorfordnn" 
-                                                 ClientIDMode="Static"/>
-                  <asp:RegularExpressionValidator ID="RegularExpressionValidator4"
-                                                 Display="Static" ControlToValidate="txtEventEndDateTime"  
-                                                 ValidationGroup="Sports" CssClass="errorfordnn"
-                                                 ValidationExpression = "^[\s\S]{0,25}$" 
-                                                 runat="server" ErrorMessage="Maximum 25 characters allowed.">
-                 </asp:RegularExpressionValidator>   
-                 <asp:CustomValidator ID="CustomValidator2" ValidationGroup="Sports" runat="server" ErrorMessage="" SetFocusOnError="true" 
-                                                 ControlToValidate="txtEventEndDateTime" EnableClientScript="true" ClientValidationFunction="validateTextBox" 
-                                                 CssClass="errorfordnn" Text="First Character Should Not Be Special Character">
-                   </asp:CustomValidator>
-             </div> 
+            <div class="controls" style="position:relative;">  
+                <input ID="NewsLogoFile" type="file" name="file" runat="server" onchange="previewFilelogo()"/>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator6" 
+                                                ValidationExpression="([a-zA-Z0-9\s_\\.\-:])+(.png|.jpg|.gif)$"
+                                                ControlToValidate="NewsLogoFile" ValidationGroup="Sports" 
+                                                runat="server" ForeColor="Red" 
+                                                ErrorMessage="Please choose only .jpg, .png and .gif images!"
+                                                CssClass ="errorfordnn" />
+                <div style="padding-top:10px;border:none; Width:200px;">
+                    <asp:Image ID="NewsLogoImage" runat="server" onError="imgError(this);"/>
+                </div>
+            </div>
         </div>
 
-     
-
-       <div class="control-group">
+        <div class="control-group">
 		     <label class="control-label">
-                   <asp:Label ID="lblEventPriority" runat="server" Text=" Priority :" ></asp:Label>
+                   <asp:Label ID="lblNewsPriority" runat="server" Text=" Priority :" ></asp:Label>
              </label>
               <div class="startsetallfrom">
                  <span class="help-inline"><font Color="red"><b>*</b></font></span>
              </div>
              <div class="controls" style="position:relative;">
-                  <asp:DropDownList ID="ddlEventPriority" runat="server" CssClass="medium m-wrap">
+                  <asp:DropDownList ID="ddlNewsPriority" runat="server" CssClass="medium m-wrap">
                         <asp:ListItem Text=" -- Select Priority -- " Value="0" Selected="True"></asp:ListItem>
                         <asp:ListItem Text="High" Value="High" ></asp:ListItem>
                         <asp:ListItem Text="Low" Value="Low"></asp:ListItem>
                   </asp:DropDownList>
-                  <asp:RequiredFieldValidator ID="RFVEventPriority" runat="server" ErrorMessage="Event Priority,"
-                                                ControlToValidate="ddlEventPriority" SetFocusOnError="true"  
+                  <asp:RequiredFieldValidator ID="RFVNewsPriority" runat="server" ErrorMessage="News Priority,"
+                                                ControlToValidate="ddlNewsPriority" SetFocusOnError="true"  
                                                 ValidationGroup="Sports" 
-                                                InitialValue="0" Text="Select Event Priority Required !" CssClass="errorfordnn" 
+                                                InitialValue="0" Text="Select News Priority Required !" CssClass="errorfordnn" 
                                                 ClientIDMode="Static"/>
              </div>
         </div>
+
+      <div class="control-group">
+		    <label class="control-label"> 
+                <asp:Label ID="lblVideoType" runat="server" Text="Video Type :" ></asp:Label>
+             </label>
+            <div class="controls" style="position:relative;">
+                    <asp:DropDownList ID="ddlvideotype" runat="server" Width="320px" Height="34px" 
+                                      OnSelectedIndexChanged="ddlvideotype_SelectedIndexChanged" AutoPostBack="true">
+                            <asp:ListItem Value="YouTube">YouTube</asp:ListItem>
+                            <asp:ListItem Value="Other">Other</asp:ListItem>
+                    </asp:DropDownList>
+             </div>
+     </div>
+
+    <div ID="divvideopath" runat="server">
+        <div class="control-group">
+		    <label class="control-label">
+                <asp:Label ID="lblVideoPath" runat="server" Text="Video Path :" ></asp:Label>
+		    </label>
+            <div class="startsetallfrom">
+                        <span class="help-inline"><font Color="red"><b>*</b></font></span>
+                  </div>
+            <div class="controls" style="position:relative;">
+                <asp:TextBox ID="txtVideoPath" runat="server" CssClass="m-wrap large"></asp:TextBox>  
+                <asp:RequiredFieldValidator ID="RFVVideoPath" runat="server" ErrorMessage="Video Path"
+                                            ControlToValidate="txtVideoPath" SetFocusOnError="true"  
+                                            ValidationGroup="Sports" Text="Video Path Required !" ClientIDMode="Static" 
+                                            CssClass="errorfordnn">
+                </asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator3"
+                                              Display="Static" ControlToValidate="txtVideoPath"  
+                                              ValidationGroup="Sports" CssClass="errorfordnn"
+                                              ValidationExpression = "^[\s\S]{0,30}$" 
+                                              runat="server" ErrorMessage="Maximum 30 characters allowed.">
+                </asp:RegularExpressionValidator>
+           </div>
+        </div>
+         
+        <div class="control-group">
+		    <label class="control-label">
+                <asp:Label ID="lblVideoPathExample" runat="server" Text=""></asp:Label>
+            </label>
+            <div class="controls">
+                <asp:Label ID="lblVideoPathExample1" runat="server" Text="http://www.youtube.com/watch?v=_____________________" ></asp:Label>
+		    </div>
+        </div>  
+    </div>
+
+    <div id="divOtherVideoPath" runat="server">
+        <div class="control-group">
+		    <div class="controls">
+                <input ID="NewsVideoLogoFile" type="file" name="file" runat="server" onchange="previewFile()"/>
+            </div>
+            <div class="controls">
+               <asp:Label ID="lblErrorVideo" runat="server" Text="Video Must be Less Than 10 MB." ForeColor="Red"></asp:Label>
+            </div> 
+            <div class="controls">
+                <iframe id="ifmOtherVideoPath" runat="server" width="200" height="150" visible="false"></iframe>
+            </div> 
+         </div>
+    </div>
 
        <div class="control-group">
 		    <label class="control-label">
@@ -651,6 +784,19 @@
                 </div>
              </div>
         </div>
+
+        <div class="control-group">
+		    <label class="control-label">
+            <asp:Label ID="lblShow" runat="server" Text=" IsShow :"></asp:Label>
+        </label>
+            <div class="controls" style="margin-top:8px;">
+                <div id="checdivshow" runat="server" class="SingleCheckbox col-left">
+                    <asp:CheckBox ID="ChkIsShow" runat="server" />
+                        <asp:Label ID="lblChkIsShow" AssociatedControlID="ChkIsShow" runat="server" Text="" CssClass="CheckBoxLabel">
+                        </asp:Label>
+                </div>
+             </div>
+        </div>    
        
        </div>
 
@@ -658,18 +804,18 @@
                     
         <div class="right_div_css">
 
-               <asp:Button id="btnSaveEvent" runat="server" Width="100px" Text="Save" ClientIDMode="Static"
-                         onclick="btnSaveEvent_Click" ValidationGroup="Sports" 
+               <asp:Button id="btnSaveNews" runat="server" Width="100px" Text="Save" ClientIDMode="Static"
+                         onclick="btnSaveNews_Click" ValidationGroup="Sports" 
                          OnClientClick="return validateAndConfirm(this.id);"
                          CssClass="btn blue"/>
 
-             <asp:Button id="btnUpdateEvent" runat="server" Width="100px" Text="Update"  ClientIDMode="Static"
-                         onclick="btnUpdateEvent_Click" Visible="false" 
+             <asp:Button id="btnUpdateNews" runat="server" Width="100px" Text="Update"  ClientIDMode="Static"
+                         onclick="btnUpdateNews_Click" Visible="false" 
                          OnClientClick="return validateAndConfirm(this.id);"
                          CssClass="btn red"  ValidationGroup="Sports"/>        
 
-             <asp:Button id="btnCloseEvent" runat="server" Width="100px"  Text="Cancel" 
-                         onclick="btnCloseEvent_Click" CssClass="btn" ClientIDMode="Static" ValidationGroup="CloseSports"
+             <asp:Button id="btnCloseNews" runat="server" Width="100px"  Text="Cancel" 
+                         onclick="btnCloseNews_Click" CssClass="btn" ClientIDMode="Static" ValidationGroup="CloseSports"
                          OnClientClick="return validateAndConfirmClose(this.id);"/>        
 
           </div>

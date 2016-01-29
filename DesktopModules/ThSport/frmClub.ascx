@@ -590,14 +590,24 @@
 		    <label class="control-label"> 
                 <asp:Label ID="lblClubEstablishedYear" runat="server" Text="Established Year :"></asp:Label>
              </label>
+             <div class="startsetallfrom">
+                 <span class="help-inline"><font Color="red"><b>*</b></font></span>
+             </div>
              <div class="controls" style="position:relative;">   
                   <asp:TextBox ID="txtClubEstablishedYear" runat="server" CssClass="enddatetimepicker m-wrap medium"/>
+                  <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Club Established Year"  
+                                                ControlToValidate="txtClubEstablishedYear" SetFocusOnError="true" 
+                                                ValidationGroup="Sports" Text=" Club Established Year Required !" CssClass="errorfordnn" ClientIDMode="Static"/>
                   <asp:RegularExpressionValidator ID="RegularExpressionValidator4"
                                                  Display="Static" ControlToValidate="txtClubEstablishedYear"  
                                                  ValidationGroup="Sports" CssClass="errorfordnn"
                                                  ValidationExpression = "^[\s\S]{0,25}$" 
                                                  runat="server" ErrorMessage="Maximum 25 characters allowed.">
                  </asp:RegularExpressionValidator>   
+                 <asp:CustomValidator ID="CustomValidator2" ValidationGroup="Sports" runat="server" ErrorMessage="" SetFocusOnError="true" 
+                                                 ControlToValidate="txtClubEstablishedYear" EnableClientScript="true" ClientValidationFunction="validateTextBox" 
+                                                 CssClass="errorfordnn" Text="First Character Should Not Be Special Character">
+                   </asp:CustomValidator>
              </div> 
         </div>
 

@@ -14,18 +14,22 @@ using DotNetNuke.Entities.Modules;
 
 namespace DotNetNuke.Modules.ThSport
 {
-    public partial class frmEvent : PortalModuleBase
+    public partial class frmSponsor : PortalModuleBase
     {
         private readonly UserInfo currentUser = DotNetNuke.Entities.Users.UserController.GetCurrentUserInfo();
+        public string ImageUploadFolder = "DesktopModules\\ThSport\\Images\\AllImage\\";
+        public string imhpathDB = "Images\\AllImage\\";
 
-        clsEvent cs = new clsEvent();
-        clsEventController csc = new clsEventController();
+        clsSponsor cs = new clsSponsor();
+        clsSponsorController csc = new clsSponsorController();
 
         string m_controlToLoad;
         string VName;
-        int SeasonID = 0;
         string physicalpath = HttpContext.Current.Request.PhysicalApplicationPath;
-        
+
+        Boolean FileOKForUpdate = false;
+        Boolean FileSavedForUpdate = false;
+
         #region Page events
 
         protected void Page_Load(object sender, EventArgs e)
@@ -53,18 +57,18 @@ namespace DotNetNuke.Modules.ThSport
 
             if (currentUser.IsSuperUser || currentUser.IsInRole("Club Admin"))
             {
-                dt = csc.GetDataEvent();
+                dt = csc.GetDataSponsor();
             }
 
             DataView dv = new DataView();
             dv = dt.AsDataView();
-            dv.RowFilter = " EventName like '%%" + txtEventNameSearch.Text.Trim() + "%%'";
+            dv.RowFilter = " SponsorName like '%%" + txtSponsorNameSearch.Text.Trim() + "%%'";
 
             if (dv.ToTable().Rows.Count > 0)
             {
                 ViewState["dt"] = dv.ToTable();
-                gvEvent.DataSource = dv.ToTable();
-                gvEvent.DataBind();
+                gvSponsor.DataSource = dv.ToTable();
+                gvSponsor.DataBind();
             }
         }
 
@@ -75,15 +79,18 @@ namespace DotNetNuke.Modules.ThSport
 
         private void funClearData()
         {
-            txtEventName.Text = "";
-            txtEventDetail.Text = "";
-            txtEventStartDateTime.Text = "";
-            txtEventEndDateTime.Text = "";
+            txtSponsorName.Text = "";
+            txtSponsorAbbreviation.Text = "";
+            txtSponsorDetail.Text = "";
+            txtSponsorStartDate.Text = "";
+            txtSponsorEndDate.Text = "";
+            txtSponsorLogoName.Text = "";
+            txtSponsorAmount.Text = "";
             ChkIsActive.Checked = false;
-            ddlEventPriority.SelectedValue = "0";
+            ChkIsShow.Checked = false;
         }
 
-        protected void btnSaveEvent_Click(object sender, EventArgs e)
+        protected void btnSaveSponsor_Click(object sender, EventArgs e)
         {
             Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "SaveSuccessfully();", true);
 
@@ -99,6 +106,15 @@ namespace DotNetNuke.Modules.ThSport
                 cs.SportsId = Convert.ToInt32(ddlSports.SelectedValue);
             }
 
+            if (ddlEvent.SelectedValue == "")
+            {
+                cs.EventId = 0;
+            }
+            else
+            {
+                cs.EventId = Convert.ToInt32(ddlEvent.SelectedValue);
+            }
+
             if (ddlSeason.SelectedValue == "")
             {
                 cs.SeasonId = 0;
@@ -162,77 +178,191 @@ namespace DotNetNuke.Modules.ThSport
                 cs.TeamMemberId = Convert.ToInt32(ddlTeamMember.SelectedValue);
             }
 
-            if (ddlSponsor.SelectedValue == "")
+            if (ddlPlayer.SelectedValue == "")
             {
-                cs.SponsorId = 0; 
+                cs.PlayerId = 0;
             }
             else
             {
-                cs.SponsorId = Convert.ToInt32(ddlSponsor.SelectedValue); 
-            }
-              cs.EventName = txtEventName.Text.Trim();
-              cs.EventDetail = txtEventDetail.Text.Trim();
-              cs.EventStartDateTime = txtEventStartDateTime.Text.Trim();
-              cs.EventEndDateTime = txtEventEndDateTime.Text.Trim();
-            
-            if (ChkIsActive.Checked == true)
-            {
-                cs.EventActive = 1;
-            }
-            else
-            {
-                cs.EventActive = 0;
+                cs.PlayerId = Convert.ToInt32(ddlPlayer.SelectedValue);
             }
 
-            cs.EventPriority = ddlEventPriority.SelectedValue;
+            if (ddlSponsorLevel.SelectedValue == "")
+            {
+                cs.SponsorLevelId = 0;
+            }
+            else
+            {
+                cs.SponsorLevelId = Convert.ToInt32(ddlSponsorLevel.SelectedValue);
+            }
+
+            if (ddlSponsorType.SelectedValue == "")
+            {
+                cs.SponsorTypeId = 0;
+            }
+            else
+            {
+                cs.SponsorTypeId = Convert.ToInt32(ddlSponsorType.SelectedValue);
+            }
+
+            cs.SponsorName = txtSponsorName.Text.Trim();
+            cs.SponsorAbbr = txtSponsorAbbreviation.Text.Trim();
+            cs.SponsorDesc = txtSponsorDetail.Text.Trim();
+            cs.SponsorLogoName = txtSponsorLogoName.Text.Trim();
+
+            cs.SponsorLogoFile = imhpathDB + SponsorLogoFile.PostedFile.FileName.Replace(" ", "");
+
+            if (SponsorLogoFile.PostedFile != null)
+            {
+                String FileExtension = Path.GetExtension(SponsorLogoFile.PostedFile.FileName.Replace(" ", "")).ToLower();
+                String[] allowedExtensions = { ".png", ".jpg", ".gif", ".jpeg" };
+                for (int i = 0; i < allowedExtensions.Length; i++)
+                {
+                    if (FileExtension == allowedExtensions[i])
+                    {
+                        FileOK = true;
+                        break;
+                    }
+                }
+            }
+
+            if (!string.IsNullOrEmpty(SponsorLogoFile.PostedFile.FileName))
+            {
+                if (!FileOK)
+                {
+                    //Page.ClientScript.RegisterClientScriptBlock(typeof(Page), "Alert", "alert('Please choose only .jpg, .png and .gif images For Competition !')", true);
+                    return;
+                }
+            }
+
+            if (FileOK)
+            {
+                if (SponsorLogoFile.PostedFile.ContentLength > 10485760)
+                {
+                    //dvMsg.Attributes.Add("style", "display:block;");
+                    //return;
+                }
+                else
+                {
+                    //dvMsg.Attributes.Add("style", "display:none;");
+                }
+
+                try
+                {
+                    SponsorLogoFile.PostedFile.SaveAs(physicalpath + ImageUploadFolder + SponsorLogoFile.PostedFile.FileName.Replace(" ", ""));
+                    FileSaved = true;
+                }
+                catch (Exception ex)
+                {
+                    FileSaved = false;
+                }
+            }
+
+            cs.SponsorStartDate = txtSponsorStartDate.Text.Trim();
+            cs.SponsorEndDate = txtSponsorEndDate.Text.Trim();
+            cs.SponsorAmt = Convert.ToInt32(txtSponsorAmount.Text.Trim());
+
+            if (ChkIsActive.Checked == true)
+            {
+                cs.ActiveFlagId = 1;
+            }
+            else
+            {
+                cs.ActiveFlagId = 0;
+            }
+
+            if (ChkIsShow.Checked == true)
+            {
+                cs.ShowFlagId = 1;
+            }
+            else
+            {
+                cs.ShowFlagId = 0;
+            }
 
             cs.PortalID = PortalId;
             cs.CreatedById = currentUser.Username;
             cs.ModifiedById = currentUser.Username;
 
-            int eventid = csc.InsertEvent(cs);
+            int spid = csc.InsertSponsor(cs);
 
             DataTable dt = new DataTable();
-            dt = csc.GetLatestEventID();
+            dt = csc.GetLatestSponsorID();
             if (dt.Rows.Count > 0)
             {
-                cs.EventID = Convert.ToInt32(dt.Rows[0]["EventID"].ToString());
-                csc.InsertEventSports(cs);
+                cs.SponsorId = Convert.ToInt32(dt.Rows[0]["SponsorId"].ToString());
+                csc.InsertSponsorSports(cs);
             }
 
-            pnlEventEntry.Visible = false;
-            PnlGridEvent.Visible = true;
+            pnlSponsorEntry.Visible = false;
+            PnlGridSponsor.Visible = true;
             FillGridView();
             funClearData();
         }
 
-        protected void btnAddEvent_Click(object sender, EventArgs e)
+        protected void btnAddSponsor_Click(object sender, EventArgs e)
         {
             funClearData();
-            pnlEventEntry.Visible = true;
-            PnlGridEvent.Visible = false;
-            btnSaveEvent.Visible = true;
-            btnUpdateEvent.Visible = false;
+            pnlSponsorEntry.Visible = true;
+            PnlGridSponsor.Visible = false;
+            btnSaveSponsor.Visible = true;
+            btnUpdateSponsor.Visible = false;
             FillSport();
+            FillEvent();
             FillSeason();
-            FillSponsor();
+            FillSponsorLevel();
+            FillSponsorType();
         }
 
-        protected void btnCloseEvent_Click(object sender, EventArgs e)
+        private void FillSponsorLevel()
         {
-            pnlEventEntry.Visible = false;
-            PnlGridEvent.Visible = true;
+            clsSponsor e = new clsSponsor();
+            clsSponsorController ec = new clsSponsorController();
+            DataTable dt = new DataTable();
+
+            dt = ec.GetSponsorLevelIDAndSponsorLevelName();
+            if (dt.Rows.Count > 0)
+            {
+                ddlSponsorLevel.DataSource = dt;
+                ddlSponsorLevel.DataTextField = "SponsorLevelValue";
+                ddlSponsorLevel.DataValueField = "SponsorLevelId";
+                ddlSponsorLevel.DataBind();
+                ddlSponsorLevel.Items.Insert(0, new ListItem("-- Select --", "0"));
+            }
+        }
+
+        private void FillSponsorType()
+        {
+            clsSponsor e = new clsSponsor();
+            clsSponsorController ec = new clsSponsorController();
+            DataTable dt = new DataTable();
+
+            dt = ec.GetSponsorTypeIDAndSponsorTypeName();
+            if (dt.Rows.Count > 0)
+            {
+                ddlSponsorType.DataSource = dt;
+                ddlSponsorType.DataTextField = "SponsorTypeValue";
+                ddlSponsorType.DataValueField = "SponsorTypeId";
+                ddlSponsorType.DataBind();
+                ddlSponsorType.Items.Insert(0, new ListItem("-- Select --", "0"));
+            }    
+        }
+
+        protected void btnCloseSponsor_Click(object sender, EventArgs e)
+        {
+            pnlSponsorEntry.Visible = false;
+            PnlGridSponsor.Visible = true;
             FillGridView();
         }
 
-        protected void btnUpdateEvent_Click(object sender, EventArgs e)
+        protected void btnUpdateSponsor_Click(object sender, EventArgs e)
         {
             Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "UpdateSuccessfully()", true);
 
             Boolean FileOK = false;
             Boolean FileSaved = false;
 
-            cs.EventID = Convert.ToInt32(hidRegID.Value);
+            cs.SponsorId = Convert.ToInt32(hidRegID.Value);
 
             if (ddlSports.SelectedValue == "")
             {
@@ -243,6 +373,15 @@ namespace DotNetNuke.Modules.ThSport
                 cs.SportsId = Convert.ToInt32(ddlSports.SelectedValue);
             }
 
+            if (ddlEvent.SelectedValue == "")
+            {
+                cs.EventId = 0;
+            }
+            else
+            {
+                cs.EventId = Convert.ToInt32(ddlEvent.SelectedValue);
+            }
+
             if (ddlSeason.SelectedValue == "")
             {
                 cs.SeasonId = 0;
@@ -306,47 +445,138 @@ namespace DotNetNuke.Modules.ThSport
                 cs.TeamMemberId = Convert.ToInt32(ddlTeamMember.SelectedValue);
             }
 
-            if (ddlSponsor.SelectedValue == "")
+            if (ddlPlayer.SelectedValue == "")
             {
-                cs.SponsorId = 0;
+                cs.PlayerId = 0;
             }
             else
             {
-                cs.SponsorId = Convert.ToInt32(ddlSponsor.SelectedValue);
+                cs.PlayerId = Convert.ToInt32(ddlPlayer.SelectedValue);
             }
 
-            cs.EventName = txtEventName.Text.Trim();
-            cs.EventDetail = txtEventDetail.Text.Trim();
-            cs.EventStartDateTime = txtEventStartDateTime.Text.Trim();
-            cs.EventEndDateTime = txtEventEndDateTime.Text.Trim();
+            if (ddlSponsorLevel.SelectedValue == "")
+            {
+                cs.SponsorLevelId = 0;
+            }
+            else
+            {
+                cs.SponsorLevelId = Convert.ToInt32(ddlSponsorLevel.SelectedValue);
+            }
+
+            if (ddlSponsorType.SelectedValue == "")
+            {
+                cs.SponsorTypeId = 0;
+            }
+            else
+            {
+                cs.SponsorTypeId = Convert.ToInt32(ddlSponsorType.SelectedValue);
+            }
+
+            cs.SponsorName = txtSponsorName.Text.Trim();
+            cs.SponsorAbbr = txtSponsorAbbreviation.Text.Trim();
+            cs.SponsorDesc = txtSponsorDetail.Text.Trim();
+            cs.SponsorLogoName = txtSponsorLogoName.Text.Trim();
+
+            if (SponsorLogoFile.PostedFile.FileName == "")
+            {
+                DataTable dt1 = new DataTable();
+                cs.SponsorId = Convert.ToInt32(hidRegID.Value);
+                dt1 = csc.GetSponsorLogoBySponsorID(cs);
+                SponsorLogoImage.ImageUrl = dt1.Rows[0]["SponsorLogoFile"].ToString();
+                string ufname = dt1.Rows[0]["SponsorLogoFile"].ToString().Replace(" ", "");
+                SponsorLogoFile.ResolveUrl("ufname");
+                cs.SponsorLogoFile = ufname.Replace(" ", "");
+                FileOKForUpdate = true;
+            }
+            else
+            {
+                cs.SponsorLogoFile = imhpathDB + SponsorLogoFile.PostedFile.FileName.Replace(" ", "");
+
+                if (SponsorLogoFile.PostedFile != null)
+                {
+                    String FileExtension = Path.GetExtension(SponsorLogoFile.PostedFile.FileName.Replace(" ", "")).ToLower();
+                    String[] allowedExtensions = { ".png", ".jpg", ".gif", ".jpeg" };
+                    for (int i = 0; i < allowedExtensions.Length; i++)
+                    {
+                        if (FileExtension == allowedExtensions[i])
+                        {
+                            FileOK = true;
+                            break;
+                        }
+                    }
+                }
+
+                if (!string.IsNullOrEmpty(SponsorLogoFile.PostedFile.FileName))
+                {
+                    if (!FileOK)
+                    {
+                        //Page.ClientScript.RegisterClientScriptBlock(typeof(Page), "Alert", "alert('Please choose only .jpg, .png and .gif images For Competition !')", true);
+                        return;
+                    }
+                }
+
+                if (FileOK)
+                {
+                    if (SponsorLogoFile.PostedFile.ContentLength > 10485760)
+                    {
+                        //dvMsg.Attributes.Add("style", "display:block;");
+                        //return;
+                    }
+                    else
+                    {
+                        //dvMsg.Attributes.Add("style", "display:none;");
+                    }
+
+                    try
+                    {
+                        SponsorLogoFile.PostedFile.SaveAs(physicalpath + ImageUploadFolder + SponsorLogoFile.PostedFile.FileName.Replace(" ", ""));
+                        FileSaved = true;
+                    }
+                    catch (Exception ex)
+                    {
+                        FileSaved = false;
+                    }
+                }
+            }
+
+            cs.SponsorStartDate = txtSponsorStartDate.Text.Trim();
+            cs.SponsorEndDate = txtSponsorEndDate.Text.Trim();
+            cs.SponsorAmt = Convert.ToInt32(txtSponsorAmount.Text.Trim());
 
             if (ChkIsActive.Checked == true)
             {
-                cs.EventActive = 1;
+                cs.ActiveFlagId = 1;
             }
             else
             {
-                cs.EventActive = 0;
+                cs.ActiveFlagId = 0;
             }
 
-            cs.EventPriority = ddlEventPriority.SelectedValue;
+            if (ChkIsShow.Checked == true)
+            {
+                cs.ShowFlagId = 1;
+            }
+            else
+            {
+                cs.ShowFlagId = 0;
+            }
 
             cs.PortalID = PortalId;
             cs.ModifiedById = currentUser.Username;
 
-            int eventid = csc.UpdateEvent(cs);
+            int eventid = csc.UpdateSponsor(cs);
 
-            int evid = csc.UpdateEventSport(cs);
+            int evid = csc.UpdateSponsorSport(cs);
 
-            pnlEventEntry.Visible = false;
-            PnlGridEvent.Visible = true;
+            pnlSponsorEntry.Visible = false;
+            PnlGridSponsor.Visible = true;
             FillGridView();
             funClearData();
         }
 
-        protected void gvEvent_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        protected void gvSponsor_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-            gvEvent.PageIndex = e.NewPageIndex;
+            gvSponsor.PageIndex = e.NewPageIndex;
             FillGridView();
         }
 
@@ -357,7 +587,7 @@ namespace DotNetNuke.Modules.ThSport
 
         protected void ddlAction_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string str = ((Label)((DropDownList)sender).Parent.FindControl("lblddlActionEventID")).Text;
+            string str = ((Label)((DropDownList)sender).Parent.FindControl("lblddlActionSponsorID")).Text;
 
             string ddlSelectedValue = ((DropDownList)sender).SelectedValue;
 
@@ -365,6 +595,7 @@ namespace DotNetNuke.Modules.ThSport
             {
                 funClearData();
                 FillSport();
+                FillEvent();
                 FillSeason();
                 FillCompetition();
                 FillClub();
@@ -372,23 +603,25 @@ namespace DotNetNuke.Modules.ThSport
                 FillClubMember();
                 FillTeam();
                 FillTeamMember();
-                FillSponsor();
+                FillPlayer();
+                FillSponsorLevel();
+                FillSponsorType();
 
-                int EventID = 0;
-                int.TryParse(str, out EventID);
+                int SponsorID = 0;
+                int.TryParse(str, out SponsorID);
 
                 LinkButton btn = sender as LinkButton;
 
-                clsEvent cs = new clsEvent();
-                clsEventController csc = new clsEventController();
+                clsSponsor cs = new clsSponsor();
+                clsSponsorController csc = new clsSponsorController();
 
                 DataTable dt = new DataTable();
 
-                dt = csc.GetEventDataByEventID(EventID);
+                dt = csc.GetSponsorDataBySponsorID(SponsorID);
 
                 if (dt.Rows.Count > 0)
                 {
-                    hidRegID.Value = dt.Rows[0]["EventID"].ToString();
+                    hidRegID.Value = dt.Rows[0]["SponsorId"].ToString();
 
                     ddlSports.SelectedValue = dt.Rows[0]["SportsId"].ToString();
                     ddlSeason.SelectedValue = dt.Rows[0]["SeasonId"].ToString();
@@ -398,15 +631,27 @@ namespace DotNetNuke.Modules.ThSport
                     ddlClubMember.SelectedValue = dt.Rows[0]["ClubMemberId"].ToString();
                     ddlTeam.SelectedValue = dt.Rows[0]["TeamId"].ToString();
                     ddlTeamMember.SelectedValue = dt.Rows[0]["TeamMemberId"].ToString();
-                    ddlSponsor.SelectedValue = dt.Rows[0]["SponsorId"].ToString();
+                    ddlPlayer.SelectedValue = dt.Rows[0]["PlayerId"].ToString();
+                    ddlEvent.SelectedValue = dt.Rows[0]["EventId"].ToString();
 
-                    txtEventName.Text = dt.Rows[0]["EventName"].ToString();
-                    txtEventDetail.Text = dt.Rows[0]["EventDetail"].ToString();
-                    txtEventStartDateTime.Text = dt.Rows[0]["EventStartDateTime"].ToString();
-                    txtEventEndDateTime.Text = dt.Rows[0]["EventEndDateTime"].ToString();
+                    ddlSponsorLevel.SelectedValue = dt.Rows[0]["SponsorLevelId"].ToString();
+                    ddlSponsorType.SelectedValue = dt.Rows[0]["SponsorTypeId"].ToString();
 
+                    txtSponsorName.Text = dt.Rows[0]["SponsorName"].ToString();
+                    txtSponsorAbbreviation.Text = dt.Rows[0]["SponsorAbbr"].ToString();
+                    txtSponsorDetail.Text = dt.Rows[0]["SponsorDesc"].ToString();
+                    txtSponsorLogoName.Text = dt.Rows[0]["SponsorLogoName"].ToString();
 
-                    if (dt.Rows[0]["EventActive"].ToString() == "1")
+                          
+                    SponsorLogoImage.ImageUrl = dt.Rows[0]["SponsorLogoFile"].ToString();
+                    string ufname = dt.Rows[0]["SponsorLogoFile"].ToString().Replace(" ", "");
+                    SponsorLogoFile.ResolveUrl("ufname");
+                    
+                    txtSponsorStartDate.Text = dt.Rows[0]["SponsorStartDate"].ToString();
+                    txtSponsorEndDate.Text = dt.Rows[0]["SponsorEndDate"].ToString();
+                    txtSponsorAmount.Text = dt.Rows[0]["SponsorAmt"].ToString();
+
+                    if (dt.Rows[0]["ActiveFlagId"].ToString() == "1")
                     {
                         ChkIsActive.Checked = true;
                     }
@@ -415,12 +660,19 @@ namespace DotNetNuke.Modules.ThSport
                         ChkIsActive.Checked = false;
                     }
 
-                    ddlEventPriority.SelectedValue = dt.Rows[0]["EventPriority"].ToString();
+                    if (dt.Rows[0]["ShowFlagId"].ToString() == "1")
+                    {
+                        ChkIsShow.Checked = true;
+                    }
+                    else
+                    {
+                        ChkIsShow.Checked = false;
+                    }
 
-                    pnlEventEntry.Visible = true;
-                    PnlGridEvent.Visible = false;
-                    btnUpdateEvent.Visible = true;
-                    btnSaveEvent.Visible = false;
+                    pnlSponsorEntry.Visible = true;
+                    PnlGridSponsor.Visible = false;
+                    btnUpdateSponsor.Visible = true;
+                    btnSaveSponsor.Visible = false;
                 }
             }
             else if (ddlSelectedValue == "Delete")
@@ -441,8 +693,8 @@ namespace DotNetNuke.Modules.ThSport
 
         private void FillSport()
         {
-            clsEvent e = new clsEvent();
-            clsEventController ec = new clsEventController();
+            clsSponsor e = new clsSponsor();
+            clsSponsorController ec = new clsSponsorController();
             DataTable dt = new DataTable();
 
             dt = ec.GetSportIDAndSportName();
@@ -452,14 +704,31 @@ namespace DotNetNuke.Modules.ThSport
                 ddlSports.DataTextField = "SportName";
                 ddlSports.DataValueField = "SportID";
                 ddlSports.DataBind();
-                ddlSports.Items.Insert(0, new ListItem("-- Select Sport --", "0"));
+                ddlSports.Items.Insert(0, new ListItem("-- Select --", "0"));
+            }
+        }
+
+        private void FillEvent()
+        {
+            clsSponsor e = new clsSponsor();
+            clsSponsorController ec = new clsSponsorController();
+            DataTable dt = new DataTable();
+
+            dt = ec.GetEventIDAndEventName();
+            if (dt.Rows.Count > 0)
+            {
+                ddlEvent.DataSource = dt;
+                ddlEvent.DataTextField = "EventName";
+                ddlEvent.DataValueField = "EventID";
+                ddlEvent.DataBind();
+                ddlEvent.Items.Insert(0, new ListItem("-- Select --", "0"));
             }
         }
 
         private void FillSeason()
         {
-            clsEvent e = new clsEvent();
-            clsEventController ec = new clsEventController();
+            clsSponsor e = new clsSponsor();
+            clsSponsorController ec = new clsSponsorController();
             DataTable dt = new DataTable();
 
             dt = ec.GetSeasonIDAndSeasonName();
@@ -473,27 +742,44 @@ namespace DotNetNuke.Modules.ThSport
             }
         }
 
-        private void FillSponsor()
+        private void FillPlayer()
         {
-            clsEvent e = new clsEvent();
-            clsEventController ec = new clsEventController();
+            clsSponsor e = new clsSponsor();
+            clsSponsorController ec = new clsSponsorController();
             DataTable dt = new DataTable();
 
-            dt = ec.GetSponsorIDAndSponsorName();
+            dt = ec.GetPlayerIDAndPlayerName();
             if (dt.Rows.Count > 0)
             {
-                ddlSponsor.DataSource = dt;
-                ddlSponsor.DataTextField = "SponsorName";
-                ddlSponsor.DataValueField = "SponsorId";
-                ddlSponsor.DataBind();
-                ddlSponsor.Items.Insert(0, new ListItem("-- Select --", "0"));
+                ddlPlayer.DataSource = dt;
+                ddlPlayer.DataTextField = "PlayerName";
+                ddlPlayer.DataValueField = "RegistrationId";
+                ddlPlayer.DataBind();
+                ddlPlayer.Items.Insert(0, new ListItem("-- Select --", "0"));
+            }
+        }
+
+        private void FillPlayer(int TeamID)
+        {
+            clsSponsor e = new clsSponsor();
+            clsSponsorController ec = new clsSponsorController();
+            DataTable dt = new DataTable();
+
+            dt = ec.GetPlayerIDAndPlayerNameByTeamID(TeamID);
+            if (dt.Rows.Count > 0)
+            {
+                ddlPlayer.DataSource = dt;
+                ddlPlayer.DataTextField = "PlayerName";
+                ddlPlayer.DataValueField = "RegistrationId";
+                ddlPlayer.DataBind();
+                ddlPlayer.Items.Insert(0, new ListItem("-- Select --", "0"));
             }
         }
 
         private void FillCompetition(int SportID)
         {
-            clsEvent e = new clsEvent();
-            clsEventController ec = new clsEventController();
+            clsSponsor e = new clsSponsor();
+            clsSponsorController ec = new clsSponsorController();
             DataTable dt = new DataTable();
 
             dt = ec.GetCompetitionIDAndCompetitionName(SportID);
@@ -503,14 +789,14 @@ namespace DotNetNuke.Modules.ThSport
                 ddlCompetition.DataTextField = "CompetitionName";
                 ddlCompetition.DataValueField = "CompetitionId";
                 ddlCompetition.DataBind();
-                ddlCompetition.Items.Insert(0, new ListItem("-- Select Competition --", "0"));
+                ddlCompetition.Items.Insert(0, new ListItem("-- Select --", "0"));
             }
         }
 
         private void FillClub(int SportID)
         {
-            clsEvent e = new clsEvent();
-            clsEventController ec = new clsEventController();
+            clsSponsor e = new clsSponsor();
+            clsSponsorController ec = new clsSponsorController();
             DataTable dt = new DataTable();
 
             dt = ec.GetClubIDAndClubName(SportID);
@@ -520,14 +806,14 @@ namespace DotNetNuke.Modules.ThSport
                 ddlClub.DataTextField = "ClubName";
                 ddlClub.DataValueField = "ClubId";
                 ddlClub.DataBind();
-                ddlClub.Items.Insert(0, new ListItem("-- Select Club --", "0"));
+                ddlClub.Items.Insert(0, new ListItem("-- Select --", "0"));
             }
         }
 
         private void FillTeam(int SportID, int ClubID)
         {
-            clsEvent e = new clsEvent();
-            clsEventController ec = new clsEventController();
+            clsSponsor e = new clsSponsor();
+            clsSponsorController ec = new clsSponsorController();
             DataTable dt = new DataTable();
 
             dt = ec.GetTeamIDAndTeamName(SportID, ClubID);
@@ -568,8 +854,8 @@ namespace DotNetNuke.Modules.ThSport
 
         private void FillClubOwner(int ClubID)
         {
-            clsEvent e = new clsEvent();
-            clsEventController ec = new clsEventController();
+            clsSponsor e = new clsSponsor();
+            clsSponsorController ec = new clsSponsorController();
             DataTable dt = new DataTable();
 
             dt = ec.GetClubOwnerIDAndClubOwnerName(ClubID);
@@ -585,8 +871,8 @@ namespace DotNetNuke.Modules.ThSport
 
         private void FillClubMember(int ClubID)
         {
-            clsEvent e = new clsEvent();
-            clsEventController ec = new clsEventController();
+            clsSponsor e = new clsSponsor();
+            clsSponsorController ec = new clsSponsorController();
             DataTable dt = new DataTable();
 
             dt = ec.GetClubMemberIDAndClubMemberName(ClubID);
@@ -602,8 +888,8 @@ namespace DotNetNuke.Modules.ThSport
 
         private void FillTeamMember(int TeamID)
         {
-            clsEvent e = new clsEvent();
-            clsEventController ec = new clsEventController();
+            clsSponsor e = new clsSponsor();
+            clsSponsorController ec = new clsSponsorController();
             DataTable dt = new DataTable();
 
             dt = ec.GetTeamMemberIDAndTeamMemberName(TeamID);
@@ -645,6 +931,7 @@ namespace DotNetNuke.Modules.ThSport
             {
                 divteammember.Visible = true;
                 FillTeamMember(TeamID);
+                FillPlayer(TeamID);
             }
             else
             {
@@ -653,10 +940,10 @@ namespace DotNetNuke.Modules.ThSport
             }
         }
 
-         private void FillCompetition()
-         {
-            clsEvent e = new clsEvent();
-            clsEventController ec = new clsEventController();
+        private void FillCompetition()
+        {
+            clsSponsor e = new clsSponsor();
+            clsSponsorController ec = new clsSponsorController();
             DataTable dt = new DataTable();
 
             dt = ec.FillComptitionIDAndCompetitionName();
@@ -668,12 +955,12 @@ namespace DotNetNuke.Modules.ThSport
                 ddlCompetition.DataBind();
                 ddlCompetition.Items.Insert(0, new ListItem("-- Select --", "0"));
             }
-         }
+        }
 
         private void FillClub()
         {
-            clsEvent e = new clsEvent();
-            clsEventController ec = new clsEventController();
+            clsSponsor e = new clsSponsor();
+            clsSponsorController ec = new clsSponsorController();
             DataTable dt = new DataTable();
 
             dt = ec.FillClubIDAndClubName();
@@ -689,8 +976,8 @@ namespace DotNetNuke.Modules.ThSport
 
         private void FillClubOwner()
         {
-            clsEvent e = new clsEvent();
-            clsEventController ec = new clsEventController();
+            clsSponsor e = new clsSponsor();
+            clsSponsorController ec = new clsSponsorController();
             DataTable dt = new DataTable();
 
             dt = ec.FillClubOwnerIDAndClubOwnerName();
@@ -703,11 +990,11 @@ namespace DotNetNuke.Modules.ThSport
                 ddlClubOwner.Items.Insert(0, new ListItem("-- Select --", "0"));
             }
         }
-            
+
         private void FillClubMember()
         {
-             clsEvent e = new clsEvent();
-            clsEventController ec = new clsEventController();
+            clsSponsor e = new clsSponsor();
+            clsSponsorController ec = new clsSponsorController();
             DataTable dt = new DataTable();
 
             dt = ec.FillClubMemberIDAndClubMemberName();
@@ -718,13 +1005,13 @@ namespace DotNetNuke.Modules.ThSport
                 ddlClubMember.DataValueField = "ClubMemberId";
                 ddlClubMember.DataBind();
                 ddlClubMember.Items.Insert(0, new ListItem("-- Select --", "0"));
-            }       
+            }
         }
 
         private void FillTeam()
         {
-            clsEvent e = new clsEvent();
-            clsEventController ec = new clsEventController();
+            clsSponsor e = new clsSponsor();
+            clsSponsorController ec = new clsSponsorController();
             DataTable dt = new DataTable();
 
             dt = ec.FillTeamIDAndTeamName();
@@ -735,13 +1022,13 @@ namespace DotNetNuke.Modules.ThSport
                 ddlTeam.DataValueField = "TeamId";
                 ddlTeam.DataBind();
                 ddlTeam.Items.Insert(0, new ListItem("-- Select --", "0"));
-            }       
+            }
         }
 
         private void FillTeamMember()
         {
-            clsEvent e = new clsEvent();
-            clsEventController ec = new clsEventController();
+            clsSponsor e = new clsSponsor();
+            clsSponsorController ec = new clsSponsorController();
             DataTable dt = new DataTable();
 
             dt = ec.FillTeamMemberIDAndTeamMemberName();
@@ -752,8 +1039,8 @@ namespace DotNetNuke.Modules.ThSport
                 ddlTeamMember.DataValueField = "TeamMemberID";
                 ddlTeamMember.DataBind();
                 ddlTeamMember.Items.Insert(0, new ListItem("-- Select --", "0"));
-            }       
+            }
         }
-            
-   }
+        
+    }
 }

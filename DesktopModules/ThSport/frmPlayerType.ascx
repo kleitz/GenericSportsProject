@@ -268,7 +268,7 @@
             <ul>
                 <li class="active">
                     <asp:LinkButton ID="btnAddPlayerType" runat="server" 
-                                    Height="35px" Text=" Add Player Type" 
+                                    Height="35px" Text=" Add Player Position" 
                                     onclick="btnAddPlayerType_Click" ForeColor="White"/>
                 </li>
             </ul>
@@ -282,7 +282,7 @@
 			<div class="portlet-title">
 				<div class="caption">
 					<i class="icon-reorder"></i>
-					<span class="hidden-480"> Player Type List</span>
+					<span class="hidden-480"> Player Position List</span>
 				</div>
                 <div class="tools">
 					<a href="javascript:;" class="collapse"></a>
@@ -312,7 +312,15 @@
                 </ItemTemplate>
             </asp:TemplateField>
 
-            <asp:TemplateField HeaderText="Player Type" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center">
+            <asp:TemplateField HeaderText="Sport Name" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center">
+				<ItemTemplate>
+                    <div class="grid-cell-inner" style="text-align:center;">
+					    <asp:Label ID="lblSportName" runat="server" Text='<%#Eval("SportName") %>' ToolTip=" Sport Name"></asp:Label>
+                    </div> 
+				</ItemTemplate>
+			</asp:TemplateField>
+
+            <asp:TemplateField HeaderText="Player Position" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center">
 				<ItemTemplate>
                     <div class="grid-cell-inner" style="text-align:center;">
 					    <asp:Label ID="lblPlayerTypeName" runat="server" Text='<%#Eval("PlayerTypeName") %>' ToolTip=" Player Type Name"></asp:Label>
@@ -364,7 +372,7 @@
 			<div class="portlet-title">
 				<div class="caption">
 					<i class="icon-reorder"></i>
-					<span class="hidden-480"> Player Type Details </span>
+					<span class="hidden-480"> Player Position Details </span>
 				</div>
 			</div>
 
@@ -381,9 +389,28 @@
                 
         </div>
 
+        <div ID="divSport" runat="server">
+            <div class="control-group">
+		         <label class="control-label">
+                       <asp:Label ID="lblSport" runat="server" Text=" Sport :" ></asp:Label>
+                 </label>
+                <div class="startsetallfrom">
+                        <span class="help-inline"><font Color="red"><b>*</b></font></span>
+                 </div>
+                 <div class="controls" style="position:relative;">
+                      <asp:DropDownList ID="ddlSport" runat="server" CssClass="medium m-wrap"/>
+                     <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage=" Sport,"
+                                                ControlToValidate="ddlSport" SetFocusOnError="true"  
+                                                ValidationGroup="Sports" 
+                                                InitialValue="0" Text="Select Sport Required !" CssClass="errorfordnn" 
+                                                ClientIDMode="Static"/>
+                 </div>
+            </div>
+        </div>          
+
        <div class="control-group">
 		     <label class="control-label">          
-                   <asp:Label ID="lblPlayerType" runat="server" Text=" Player Type :" ></asp:Label>
+                   <asp:Label ID="lblPlayerType" runat="server" Text=" Player Position :" ></asp:Label>
              </label>
              <div class="startsetallfrom">
                  <span class="help-inline"><font Color="red"><b>*</b></font></span>

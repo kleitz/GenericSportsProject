@@ -16,49 +16,57 @@ using System.Collections;
 
 namespace ThSportServer
 {
-    public class clsEvent
+    public class clsNews
     {
-        public int EventID { get; set; }
-        public string EventName { get; set; }
-        public string EventDetail { get; set; }
-        public string EventStartDateTime { get; set; }
-        public string EventEndDateTime { get ; set; }
-        public int EventActive { get; set; }
-        public string EventPriority { get; set; }
+        public int NewsId { get; set; }
+        public int NewsLevelId { get; set; }
+        public string NewsTitle { get; set; }
+        public string NewsDesc { get; set; }
+        public string NewsText { get; set; }
+        public string NewsDate { get; set; }
+        public string NewsPicture { get; set; }
+        public string NewsVideo { get; set; }
+        public int ActiveFlagId { get; set; }
+        public int ShowFlagId { get; set; }
         public int PortalID { get; set; }
         public string CreatedById { get; set; }
         public string ModifiedById { get; set; }
-
-        public int SportsId { get; set;}
-        public int SeasonId { get; set;}
-        public int CompetitionId { get; set;}
-        public int ClubId { get; set;}
-        public int ClubMemberId { get; set;}
-        public int ClubOwnersId { get; set;}
-        public int TeamId { get; set;}
-        public int TeamMemberId { get; set;}
+        public string NewsOtherVideoPath { get; set; }
+        public int VideoType { get; set; }
+            
+        public int SportsId { get; set; }
+        public int CountryId { get; set; }
+        public int EventId { get; set; }
+        public int SeasonId { get; set; }
+        public int CompetitionId { get; set; }
+        public int ClubId { get; set; }
+        public int ClubOwnersId { get; set; }
+        public int ClubMemberId { get; set; }
+        public int TeamId { get; set; }
+        public int TeamMemberId { get; set; }
+        public int PlayerId { get; set; }
         public int SponsorId { get; set; }
     }
 
-    public class clsEventController
+    public class clsNewsController
     {
         private readonly DataProvider dataProvider = DataProvider.Instance();
         private readonly UserInfo currentUser = DotNetNuke.Entities.Users.UserController.GetCurrentUserInfo();
 
-        public clsEventController()
+        public clsNewsController()
         {
 
         }
 
         #region Getdata Methods
 
-        public DataTable GetDataEvent()
+        public DataTable GetDataSponsor()
         {
             using (DataTable dt = new DataTable())
             {
                 try
                 {
-                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetDataEvent"))
+                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetDataSponsor"))
                     {
                         dt.Load(reader);
                         return dt;
@@ -73,16 +81,16 @@ namespace ThSportServer
             }
         }
 
-      
+
         #endregion Getdata Methods
 
         #region Insert,Update,Delete Methods
 
-        public int InsertEvent(clsEvent cs)
+        public int InsertNews(clsNews cs)
         {
             try
             {
-                dataProvider.ExecuteNonQuery("usp_InsertEvent", cs.EventName, cs.EventDetail, Convert.ToDateTime(cs.EventStartDateTime), Convert.ToDateTime(cs.EventEndDateTime), cs.EventActive, cs.EventPriority, cs.PortalID, cs.CreatedById, cs.ModifiedById);
+                dataProvider.ExecuteNonQuery("usp_InsertNews", cs.NewsLevelId, cs.NewsTitle, cs.NewsDesc, cs.NewsText, Convert.ToDateTime(cs.NewsDate), cs.NewsPicture, cs.NewsVideo, cs.ActiveFlagId, cs.ShowFlagId, cs.PortalID, cs.CreatedById, cs.ModifiedById, cs.NewsOtherVideoPath, cs.VideoType);
             }
             catch (Exception ex)
             {
@@ -91,11 +99,11 @@ namespace ThSportServer
             return 0;
         }
 
-        public int InsertEventSports(clsEvent cs)
+        public int InsertNewsLinks(clsNews cs)
         {
             try
             {
-                dataProvider.ExecuteNonQuery("usp_InsertEventSports", cs.EventID, cs.SportsId, cs.SeasonId, cs.CompetitionId, cs.TeamId, cs.TeamMemberId, cs.ClubId, cs.ClubMemberId, cs.ClubOwnersId, cs.SponsorId);
+                dataProvider.ExecuteNonQuery("usp_InsertNewsLinks", cs.NewsId, cs.SportsId, cs.CountryId, cs.SeasonId, cs.CompetitionId, cs.ClubId, cs.ClubOwnersId, cs.ClubMemberId, cs.TeamId, cs.TeamMemberId, cs.SponsorId, cs.EventId, cs.PlayerId);
             }
             catch (Exception ex)
             {
@@ -104,13 +112,12 @@ namespace ThSportServer
             return 0;
         }
 
-        public int UpdateEvent(clsEvent cs)
+        public int UpdateNews(clsNews cs)
         {
             int i = 0;
             try
             {
-                //CompReg.CreatedBy,
-                dataProvider.ExecuteNonQuery("usp_UpdateEvent", cs.EventID,cs.EventName,cs.EventDetail,Convert.ToDateTime(cs.EventStartDateTime),Convert.ToDateTime(cs.EventEndDateTime),cs.EventActive,cs.EventPriority,cs.PortalID,cs.ModifiedById);
+                dataProvider.ExecuteNonQuery("usp_UpdateNews", cs.NewsId,cs.NewsLevelId,cs.NewsTitle,cs.NewsDesc,cs.NewsText,Convert.ToDateTime(cs.NewsDate),cs.NewsPicture,cs.NewsVideo,cs.ActiveFlagId,cs.ShowFlagId,cs.PortalID,cs.ModifiedById,cs.NewsOtherVideoPath,cs.VideoType);
             }
             catch (Exception ex)
             {
@@ -119,13 +126,12 @@ namespace ThSportServer
             return i;
         }
 
-        public int UpdateEventSport(clsEvent cs)
+        public int UpdateNewsLinks(clsNews cs)
         {
             int i = 0;
             try
             {
-                //CompReg.CreatedBy,
-                dataProvider.ExecuteNonQuery("usp_UpdateEventSport", cs.EventID, cs.SportsId,cs.SeasonId,cs.CompetitionId,cs.TeamId,cs.TeamMemberId,cs.ClubId,cs.ClubMemberId,cs.ClubOwnersId,cs.SponsorId);
+                dataProvider.ExecuteNonQuery("usp_UpdateNewsLinks", cs.NewsId,cs.SportsId,cs.CountryId,cs.SeasonId,cs.CompetitionId,cs.ClubId,cs.ClubOwnersId,cs.ClubMemberId,cs.TeamId,cs.TeamMemberId,cs.SponsorId,cs.EventId,cs.PlayerId);
             }
             catch (Exception ex)
             {
@@ -133,18 +139,16 @@ namespace ThSportServer
             }
             return i;
         }
-
-        
 
         #endregion Insert,Update,Delete Methods
 
-        public DataTable GetEventDataByEventID(int EventID)
+        public DataTable GetNewsDataByNewsID(int NewsID)
         {
             using (DataTable dt = new DataTable())
             {
                 try
                 {
-                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetEventDataByEventID", EventID))
+                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetNewsDataByNewsID", NewsID))
                     {
                         dt.Load(reader);
                         return dt;
@@ -178,6 +182,26 @@ namespace ThSportServer
             }
         }
 
+        public DataTable GetEventIDAndEventName()
+        {
+            using (DataTable dt = new DataTable())
+            {
+                try
+                {
+                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetEventIDAndEventName"))
+                    {
+                        dt.Load(reader);
+                        return dt;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Exceptions.LogException(ex);
+                }
+                return dt;
+            }
+        }
+
         public DataTable GetSeasonIDAndSeasonName()
         {
             using (DataTable dt = new DataTable())
@@ -198,13 +222,33 @@ namespace ThSportServer
             }
         }
 
-        public DataTable GetSponsorIDAndSponsorName()
+        public DataTable GetPlayerIDAndPlayerName()
         {
             using (DataTable dt = new DataTable())
             {
                 try
                 {
-                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetSponsorIDAndSponsorName"))
+                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetPlayerIDAndPlayerName"))
+                    {
+                        dt.Load(reader);
+                        return dt;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Exceptions.LogException(ex);
+                }
+                return dt;
+            }
+        }
+
+        public DataTable GetPlayerIDAndPlayerNameByTeamID(int TeamID)
+        {
+            using (DataTable dt = new DataTable())
+            {
+                try
+                {
+                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetPlayerIDAndPlayerNameByTeamID", TeamID))
                     {
                         dt.Load(reader);
                         return dt;
@@ -338,13 +382,13 @@ namespace ThSportServer
             }
         }
 
-        public DataTable GetLatestEventID()
+        public DataTable GetLatestNewsID()
         {
             using (DataTable dt = new DataTable())
             {
                 try
                 {
-                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetLatestEventID"))
+                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetLatestNewsID"))
                     {
                         dt.Load(reader);
                         return dt;
@@ -479,8 +523,84 @@ namespace ThSportServer
             }
         }
 
-        
-        
+        public DataTable FillCountryIDAndCountryName()
+        {
+            using (DataTable dt = new DataTable())
+            {
+                try
+                {
+                    using (IDataReader reader = dataProvider.ExecuteReader("usp_FillCountryIDAndCountryName"))
+                    {
+                        dt.Load(reader);
+                        return dt;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Exceptions.LogException(ex);
+                }
+                return dt;
+            }
+        }
 
+        public DataTable GetNewsLogoByNewsID(clsNews cs)
+        {
+            using (DataTable dt = new DataTable())
+            {
+                try
+                {
+                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetNewsLogoByNewsID", cs.NewsId))
+                    {
+                        dt.Load(reader);
+                        return dt;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Exceptions.LogException(ex);
+                }
+                return dt;
+            }
+        }
+
+        public DataTable GetSponsorIDAndSponsorName()
+        {
+            using (DataTable dt = new DataTable())
+            {
+                try
+                {
+                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetSponsorIDAndSponsorName"))
+                    {
+                        dt.Load(reader);
+                        return dt;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Exceptions.LogException(ex);
+                }
+                return dt;
+            }
+        }
+
+        public DataTable GetOtherVideoPathByNewsID(clsNews cs)
+        {
+            using (DataTable dt = new DataTable())
+            {
+                try
+                {
+                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetOtherVideoPathByNewsID", cs.NewsId))
+                    {
+                        dt.Load(reader);
+                        return dt;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Exceptions.LogException(ex);
+                }
+                return dt;
+            }
+        }
     }
 }

@@ -26,6 +26,7 @@ namespace ThSportServer
             public int PortalID { get; set; }
             public string CreatedById { get; set; }
             public string ModifiedById { get; set; }
+            public int SportID { get; set; }
     }
 
      public class clsTeamMemberTypeController
@@ -44,7 +45,7 @@ namespace ThSportServer
         {
             try
             {
-                dataProvider.ExecuteNonQuery("usp_InsertTeamMemberType", ccm.TeamMemberTypeValue, ccm.TeamMemberTypeDesc, ccm.ActiveFlagId, ccm.ShowFlagId, ccm.PortalID, ccm.CreatedById, ccm.ModifiedById);
+                dataProvider.ExecuteNonQuery("usp_InsertTeamMemberType", ccm.TeamMemberTypeValue, ccm.TeamMemberTypeDesc, ccm.ActiveFlagId, ccm.ShowFlagId, ccm.PortalID, ccm.CreatedById, ccm.ModifiedById,ccm.SportID);
             }
             catch (Exception ex)
             {
@@ -59,7 +60,7 @@ namespace ThSportServer
 
             try
             {
-                dataProvider.ExecuteNonQuery("usp_UpdateTeamMemberType", ccm.TeamMemberTypeId,ccm.TeamMemberTypeValue,ccm.TeamMemberTypeDesc,ccm.ActiveFlagId,ccm.ShowFlagId,ccm.PortalID,ccm.ModifiedById);
+                dataProvider.ExecuteNonQuery("usp_UpdateTeamMemberType", ccm.TeamMemberTypeId,ccm.TeamMemberTypeValue,ccm.TeamMemberTypeDesc,ccm.ActiveFlagId,ccm.ShowFlagId,ccm.PortalID,ccm.ModifiedById,ccm.SportID);
                 return i;
             }
             catch (Exception ex)
@@ -92,6 +93,29 @@ namespace ThSportServer
                 return dt;
             }
         }
+
+        public DataTable GetSport()
+        {
+            using (DataTable dt = new DataTable())
+            {
+                try
+                {
+                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetSport"))
+                    {
+                        dt.Load(reader);
+                        return dt;
+                    }
+                }
+
+                catch (Exception ex)
+                {
+                    Exceptions.LogException(ex);
+                }
+
+                return dt;
+            }
+        }
+
 
         public DataTable GetTeamMemberTypeDetailByTeamMemberTypeID(int TeamMemberTypeID)
         {

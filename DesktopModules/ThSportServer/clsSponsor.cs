@@ -16,49 +16,56 @@ using System.Collections;
 
 namespace ThSportServer
 {
-    public class clsEvent
+    public class clsSponsor
     {
-        public int EventID { get; set; }
-        public string EventName { get; set; }
-        public string EventDetail { get; set; }
-        public string EventStartDateTime { get; set; }
-        public string EventEndDateTime { get ; set; }
-        public int EventActive { get; set; }
-        public string EventPriority { get; set; }
+        public int SponsorId { get; set; }
+        public int SponsorTypeId { get; set; }
+        public int SponsorLevelId { get; set; }
+        public string SponsorName { get; set; }
+        public string SponsorAbbr { get; set; }
+        public string SponsorDesc { get; set; }
+        public string SponsorLogoName { get; set; }
+        public string SponsorLogoFile { get; set; }
+        public string SponsorStartDate { get; set; }
+        public string SponsorEndDate { get; set; }
+        public int SponsorAmt { get; set; }
+        public int ActiveFlagId { get; set; }
+        public int ShowFlagId { get; set; }
         public int PortalID { get; set; }
         public string CreatedById { get; set; }
         public string ModifiedById { get; set; }
 
-        public int SportsId { get; set;}
-        public int SeasonId { get; set;}
-        public int CompetitionId { get; set;}
-        public int ClubId { get; set;}
-        public int ClubMemberId { get; set;}
-        public int ClubOwnersId { get; set;}
-        public int TeamId { get; set;}
-        public int TeamMemberId { get; set;}
-        public int SponsorId { get; set; }
+        public int SportsId { get; set; }
+        public int EventId { get; set; }
+        public int SeasonId { get; set; }
+        public int CompetitionId { get; set; }
+        public int ClubId { get; set; }
+        public int ClubOwnersId { get; set; }
+        public int ClubMemberId { get; set; }
+        public int TeamId { get; set; }
+        public int TeamMemberId { get; set; }
+        public int PlayerId { get; set; }
     }
 
-    public class clsEventController
+    public class clsSponsorController
     {
         private readonly DataProvider dataProvider = DataProvider.Instance();
         private readonly UserInfo currentUser = DotNetNuke.Entities.Users.UserController.GetCurrentUserInfo();
 
-        public clsEventController()
+        public clsSponsorController()
         {
 
         }
 
         #region Getdata Methods
 
-        public DataTable GetDataEvent()
+        public DataTable GetDataSponsor()
         {
             using (DataTable dt = new DataTable())
             {
                 try
                 {
-                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetDataEvent"))
+                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetDataSponsor"))
                     {
                         dt.Load(reader);
                         return dt;
@@ -73,16 +80,16 @@ namespace ThSportServer
             }
         }
 
-      
+
         #endregion Getdata Methods
 
         #region Insert,Update,Delete Methods
 
-        public int InsertEvent(clsEvent cs)
+        public int InsertSponsor(clsSponsor cs)
         {
             try
             {
-                dataProvider.ExecuteNonQuery("usp_InsertEvent", cs.EventName, cs.EventDetail, Convert.ToDateTime(cs.EventStartDateTime), Convert.ToDateTime(cs.EventEndDateTime), cs.EventActive, cs.EventPriority, cs.PortalID, cs.CreatedById, cs.ModifiedById);
+                dataProvider.ExecuteNonQuery("usp_InsertSponsor", cs.SponsorLevelId, cs.SponsorTypeId, cs.SponsorName, cs.SponsorAbbr, cs.SponsorDesc, cs.SponsorLogoName, cs.SponsorLogoFile, Convert.ToDateTime(cs.SponsorStartDate), Convert.ToDateTime(cs.SponsorEndDate), cs.SponsorAmt, cs.ActiveFlagId, cs.ShowFlagId, cs.PortalID, cs.CreatedById, cs.ModifiedById);
             }
             catch (Exception ex)
             {
@@ -91,11 +98,11 @@ namespace ThSportServer
             return 0;
         }
 
-        public int InsertEventSports(clsEvent cs)
+        public int InsertSponsorSports(clsSponsor cs)
         {
             try
             {
-                dataProvider.ExecuteNonQuery("usp_InsertEventSports", cs.EventID, cs.SportsId, cs.SeasonId, cs.CompetitionId, cs.TeamId, cs.TeamMemberId, cs.ClubId, cs.ClubMemberId, cs.ClubOwnersId, cs.SponsorId);
+                dataProvider.ExecuteNonQuery("usp_InsertSponsorSports", cs.SponsorId, cs.SportsId, cs.EventId, cs.SeasonId, cs.CompetitionId, cs.ClubId, cs.ClubOwnersId, cs.ClubMemberId, cs.TeamId, cs.TeamMemberId, cs.PlayerId);
             }
             catch (Exception ex)
             {
@@ -104,13 +111,13 @@ namespace ThSportServer
             return 0;
         }
 
-        public int UpdateEvent(clsEvent cs)
+        public int UpdateSponsor(clsSponsor cs)
         {
             int i = 0;
             try
             {
                 //CompReg.CreatedBy,
-                dataProvider.ExecuteNonQuery("usp_UpdateEvent", cs.EventID,cs.EventName,cs.EventDetail,Convert.ToDateTime(cs.EventStartDateTime),Convert.ToDateTime(cs.EventEndDateTime),cs.EventActive,cs.EventPriority,cs.PortalID,cs.ModifiedById);
+                dataProvider.ExecuteNonQuery("usp_UpdateSponsor", cs.SponsorId,cs.SponsorLevelId,cs.SponsorTypeId,cs.SponsorName,cs.SponsorAbbr,cs.SponsorDesc,cs.SponsorLogoName,cs.SponsorLogoFile,Convert.ToDateTime(cs.SponsorStartDate),Convert.ToDateTime(cs.SponsorEndDate),cs.SponsorAmt,cs.ActiveFlagId,cs.ShowFlagId,cs.PortalID,cs.ModifiedById);
             }
             catch (Exception ex)
             {
@@ -119,13 +126,13 @@ namespace ThSportServer
             return i;
         }
 
-        public int UpdateEventSport(clsEvent cs)
+        public int UpdateSponsorSport(clsSponsor cs)
         {
             int i = 0;
             try
             {
                 //CompReg.CreatedBy,
-                dataProvider.ExecuteNonQuery("usp_UpdateEventSport", cs.EventID, cs.SportsId,cs.SeasonId,cs.CompetitionId,cs.TeamId,cs.TeamMemberId,cs.ClubId,cs.ClubMemberId,cs.ClubOwnersId,cs.SponsorId);
+                dataProvider.ExecuteNonQuery("usp_UpdateSponsorSport", cs.SponsorId,cs.SportsId,cs.EventId,cs.SeasonId,cs.CompetitionId,cs.ClubId,cs.ClubOwnersId,cs.ClubMemberId,cs.TeamId,cs.TeamMemberId,cs.PlayerId);
             }
             catch (Exception ex)
             {
@@ -134,17 +141,17 @@ namespace ThSportServer
             return i;
         }
 
-        
+
 
         #endregion Insert,Update,Delete Methods
 
-        public DataTable GetEventDataByEventID(int EventID)
+        public DataTable GetSponsorDataBySponsorID(int SponsorID)
         {
             using (DataTable dt = new DataTable())
             {
                 try
                 {
-                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetEventDataByEventID", EventID))
+                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetSponsorDataBySponsorID", SponsorID))
                     {
                         dt.Load(reader);
                         return dt;
@@ -178,6 +185,26 @@ namespace ThSportServer
             }
         }
 
+        public DataTable GetEventIDAndEventName()
+        {
+            using (DataTable dt = new DataTable())
+            {
+                try
+                {
+                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetEventIDAndEventName"))
+                    {
+                        dt.Load(reader);
+                        return dt;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Exceptions.LogException(ex);
+                }
+                return dt;
+            }
+        }
+
         public DataTable GetSeasonIDAndSeasonName()
         {
             using (DataTable dt = new DataTable())
@@ -198,13 +225,33 @@ namespace ThSportServer
             }
         }
 
-        public DataTable GetSponsorIDAndSponsorName()
+        public DataTable GetPlayerIDAndPlayerName()
         {
             using (DataTable dt = new DataTable())
             {
                 try
                 {
-                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetSponsorIDAndSponsorName"))
+                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetPlayerIDAndPlayerName"))
+                    {
+                        dt.Load(reader);
+                        return dt;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Exceptions.LogException(ex);
+                }
+                return dt;
+            }
+        }
+
+        public DataTable GetPlayerIDAndPlayerNameByTeamID(int TeamID)
+        {
+            using (DataTable dt = new DataTable())
+            {
+                try
+                {
+                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetPlayerIDAndPlayerNameByTeamID", TeamID))
                     {
                         dt.Load(reader);
                         return dt;
@@ -338,13 +385,13 @@ namespace ThSportServer
             }
         }
 
-        public DataTable GetLatestEventID()
+        public DataTable GetLatestSponsorID()
         {
             using (DataTable dt = new DataTable())
             {
                 try
                 {
-                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetLatestEventID"))
+                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetLatestSponsorID"))
                     {
                         dt.Load(reader);
                         return dt;
@@ -479,7 +526,66 @@ namespace ThSportServer
             }
         }
 
-        
+        public DataTable GetSponsorLogoBySponsorID(clsSponsor cs)
+        {
+            using (DataTable dt = new DataTable())
+            {
+                try
+                {
+                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetSponsorLogoBySponsorID", cs.SponsorId))
+                    {
+                        dt.Load(reader);
+                        return dt;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Exceptions.LogException(ex);
+                }
+                return dt;
+            }
+        }
+
+        public DataTable GetSponsorLevelIDAndSponsorLevelName()
+        {
+            using (DataTable dt = new DataTable())
+            {
+                try
+                {
+                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetSponsorLevelIDAndSponsorLevelName"))
+                    {
+                        dt.Load(reader);
+                        return dt;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Exceptions.LogException(ex);
+                }
+                return dt;
+            }
+        }
+
+        public DataTable GetSponsorTypeIDAndSponsorTypeName()
+        {
+            using (DataTable dt = new DataTable())
+            {
+                try
+                {
+                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetSponsorTypeIDAndSponsorTypeName"))
+                    {
+                        dt.Load(reader);
+                        return dt;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Exceptions.LogException(ex);
+                }
+                return dt;
+            }
+        }
+
         
 
     }

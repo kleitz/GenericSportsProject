@@ -23,7 +23,8 @@ namespace ThSportServer
 	       public string PlayerTypeDesc { get; set; } 
            public int PortalID { get; set; } 
            public string CreatedById { get; set; }
-           public string ModifiedById { get; set; } 
+           public string ModifiedById { get; set; }
+           public int SportID { get; set; } 
     }
 
     public class clsPlayerTypeController
@@ -42,7 +43,7 @@ namespace ThSportServer
         {
             try
             {
-                dataProvider.ExecuteNonQuery("usp_InsertPlayerType", ccm.PlayerTypeName, ccm.PlayerTypeDesc, ccm.PortalID, ccm.CreatedById, ccm.ModifiedById);
+                dataProvider.ExecuteNonQuery("usp_InsertPlayerType", ccm.PlayerTypeName, ccm.PlayerTypeDesc, ccm.PortalID, ccm.CreatedById, ccm.ModifiedById,ccm.SportID);
             }
             catch (Exception ex)
             {
@@ -57,7 +58,7 @@ namespace ThSportServer
 
             try
             {
-                dataProvider.ExecuteNonQuery("usp_UpdatePlayerType", ccm.PlayerTypeID,ccm.PlayerTypeName,ccm.PlayerTypeDesc,ccm.PortalID,ccm.ModifiedById);
+                dataProvider.ExecuteNonQuery("usp_UpdatePlayerType", ccm.PlayerTypeID,ccm.PlayerTypeName,ccm.PlayerTypeDesc,ccm.PortalID,ccm.ModifiedById,ccm.SportID);
                 return i;
             }
             catch (Exception ex)
@@ -87,6 +88,28 @@ namespace ThSportServer
                 {
                     Exceptions.LogException(ex);
                 }
+                return dt;
+            }
+        }
+
+        public DataTable GetSport()
+        {
+            using (DataTable dt = new DataTable())
+            {
+                try
+                {
+                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetSport"))
+                    {
+                        dt.Load(reader);
+                        return dt;
+                    }
+                }
+
+                catch (Exception ex)
+                {
+                    Exceptions.LogException(ex);
+                }
+
                 return dt;
             }
         }

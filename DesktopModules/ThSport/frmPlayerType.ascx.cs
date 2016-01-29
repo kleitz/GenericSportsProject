@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -43,6 +44,20 @@ namespace DotNetNuke.Modules.ThSport
             LoadDocumentsGrid();
         }
 
+        private void FillSport()
+        {
+            DataTable dt = new DataTable();
+            dt = ccmc.GetSport();
+            if (dt.Rows.Count > 0)
+            {
+                ddlSport.DataSource = dt;
+                ddlSport.DataTextField = "SportName";
+                ddlSport.DataValueField = "SportID";
+                ddlSport.DataBind();
+                ddlSport.Items.Insert(0, new ListItem("-- Select --", "0"));
+            }
+        }
+
         protected void btnUpdatePlayerType_Click(object sender, EventArgs e)
         {
             Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "UpdateSuccessfully();", true);
@@ -51,6 +66,7 @@ namespace DotNetNuke.Modules.ThSport
             clsPlayerTypeController ccmc = new clsPlayerTypeController();
 
             ccm.PlayerTypeID = Convert.ToInt16(currentId);
+            ccm.SportID = Convert.ToInt32(ddlSport.SelectedValue);
             ccm.PlayerTypeName = txtPlayerType.Text.Trim();
             ccm.PlayerTypeDesc = txtPlayerTypeDesc.Text.Trim();
 
@@ -98,6 +114,7 @@ namespace DotNetNuke.Modules.ThSport
             clsPlayerType ccm = new clsPlayerType();
             clsPlayerTypeController ccmc = new clsPlayerTypeController();
 
+            ccm.SportID = Convert.ToInt32(ddlSport.SelectedValue);
             ccm.PlayerTypeName = txtPlayerType.Text.Trim();
             ccm.PlayerTypeDesc = txtPlayerTypeDesc.Text.Trim();
 
@@ -140,6 +157,7 @@ namespace DotNetNuke.Modules.ThSport
             btnSavePlayerType.Visible = true;
             btnUpdatePlayerType.Visible = false;
             ClearData();
+            FillSport();
         }
 
         protected void ddlAction_SelectedIndexChanged(object sender, EventArgs e)
@@ -158,10 +176,12 @@ namespace DotNetNuke.Modules.ThSport
                 clsPlayerTypeController ccmc = new clsPlayerTypeController();
 
                 ClearData();
+                FillSport();
                 DataTable dt1 = new clsPlayerTypeController().GetPlayerTypeDetailByPlayerTypeID(editid);
 
                 if (dt1.Rows.Count > 0)
                 {
+                    ddlSport.SelectedValue = dt1.Rows[0]["SportID"].ToString();
                     txtPlayerType.Text = dt1.Rows[0]["PlayerTypeName"].ToString();
                     txtPlayerTypeDesc.Text = dt1.Rows[0]["PlayerTypeDesc"].ToString();
                 }

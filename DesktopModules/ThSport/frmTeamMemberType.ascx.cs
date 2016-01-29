@@ -43,6 +43,20 @@ namespace DotNetNuke.Modules.ThSport
             LoadDocumentsGrid();
         }
 
+        private void FillSport()
+        {
+            DataTable dt = new DataTable();
+            dt = ccmc.GetSport();
+            if (dt.Rows.Count > 0)
+            {
+                ddlSport.DataSource = dt;
+                ddlSport.DataTextField = "SportName";
+                ddlSport.DataValueField = "SportID";
+                ddlSport.DataBind();
+                ddlSport.Items.Insert(0, new ListItem("-- Select --", "0"));
+            }
+        }
+
         protected void btnUpdateTeamMemberType_Click(object sender, EventArgs e)
         {
             Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "UpdateSuccessfully();", true);
@@ -51,6 +65,7 @@ namespace DotNetNuke.Modules.ThSport
             clsTeamMemberTypeController ccmc = new clsTeamMemberTypeController();
 
             ccm.TeamMemberTypeId = Convert.ToInt16(currentId);
+            ccm.SportID = Convert.ToInt32(ddlSport.SelectedValue);
             ccm.TeamMemberTypeValue = txtTeamMemberType.Text.Trim();
             ccm.TeamMemberTypeDesc = txtTeamMemberTypeDesc.Text.Trim();
 
@@ -116,6 +131,7 @@ namespace DotNetNuke.Modules.ThSport
             clsTeamMemberType ccm = new clsTeamMemberType();
             clsTeamMemberTypeController ccmc = new clsTeamMemberTypeController();
 
+            ccm.SportID = Convert.ToInt32(ddlSport.SelectedValue);
             ccm.TeamMemberTypeValue = txtTeamMemberType.Text.Trim();
             ccm.TeamMemberTypeDesc = txtTeamMemberTypeDesc.Text.Trim();
 
@@ -176,6 +192,7 @@ namespace DotNetNuke.Modules.ThSport
             btnSaveTeamMemberType.Visible = true;
             btnUpdateTeamMemberType.Visible = false;
             ClearData();
+            FillSport();
         }
 
         protected void ddlAction_SelectedIndexChanged(object sender, EventArgs e)
@@ -194,10 +211,12 @@ namespace DotNetNuke.Modules.ThSport
                 clsTeamMemberTypeController ccmc = new clsTeamMemberTypeController();
 
                 ClearData();
+                FillSport();
                 DataTable dt = new clsTeamMemberTypeController().GetTeamMemberTypeDetailByTeamMemberTypeID(editid);
 
                 if (dt.Rows.Count > 0)
                 {
+                    ddlSport.SelectedValue = dt.Rows[0]["SportID"].ToString();
                     txtTeamMemberType.Text = dt.Rows[0]["TeamMemberTypeValue"].ToString();
                     txtTeamMemberTypeDesc.Text = dt.Rows[0]["TeamMemberTypeDesc"].ToString();
 

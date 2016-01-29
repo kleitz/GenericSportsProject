@@ -396,30 +396,19 @@
                 
         </div>
 
-
-       <div class="control-group">
-		     <label class="control-label">          
-                   <asp:Label ID="lblClubOwnerName" runat="server" Text=" Owner Name :" ></asp:Label>
-             </label>
-             <div class="startsetallfrom">
+  <div class="control-group">
+		    <label class="control-label">
+                <asp:Label ID="lblClubOwner" runat="server" Text=" Owner Name :" ></asp:Label>
+		    </label>
+            <div class="startsetallfrom">
                  <span class="help-inline"><font Color="red"><b>*</b></font></span>
-             </div>
-             <div class="controls" style="position:relative;">
-                  <asp:TextBox ID="txtClubOwnerName" runat="server" CssClass="m-wrap large"/>
-                  <asp:RequiredFieldValidator ID="rfvtxtClubOwnerName" runat="server" ErrorMessage="ClubOwnerName"  
-                                                ControlToValidate="txtClubOwnerName" SetFocusOnError="true" 
-                                                ValidationGroup="Sports" Text=" Club Owner Name Required !" CssClass="errorfordnn" ClientIDMode="Static"/>
-                   <asp:RegularExpressionValidator ID="rgvtxtClubOwnerName"
-                                                    Display="Static" ControlToValidate="txtClubOwnerName"  
-                                                    ValidationGroup="Sports" CssClass="errorfordnn"
-                                                    ValidationExpression = "^[\s\S]{0,100}$" 
-                                                    runat="server" ErrorMessage="Maximum 100 characters allowed.">
-                   </asp:RegularExpressionValidator>  
-                   <asp:CustomValidator ID="cvtxtClubOwnerName" ValidationGroup="Sports" runat="server" ErrorMessage="" SetFocusOnError="true" 
-                                                 ControlToValidate="txtClubOwnerName" EnableClientScript="true" ClientValidationFunction="validateTextBox" 
-                                                 CssClass="errorfordnn" Text="First Character Should Not Be Special Character">
-                   </asp:CustomValidator>
-             </div>
+            </div>
+            <div class="controls" style="position:relative;">  
+                <asp:DropDownList ID="ddlClubOwner" runat="server"  CssClass="large m-wrap"/>
+                <asp:RequiredFieldValidator ID="rfvddlClubOwner" ClientIDMode="Static" runat="server" InitialValue="0" 
+                                                     ErrorMessage="Club Owner Required !" CssClass="errorfordnn" SetFocusOnError="true" ControlToValidate="ddlClubOwner"
+                                                     ValidationGroup="Sports" Text="Club Owner Name Required !"></asp:RequiredFieldValidator>
+            </div>
         </div>
 
         <div class="control-group">

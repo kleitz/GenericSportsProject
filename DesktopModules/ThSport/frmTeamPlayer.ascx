@@ -320,10 +320,10 @@
                 </ItemTemplate>
          </asp:TemplateField>
 
-            <asp:TemplateField HeaderText="Player Type" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center">
+            <asp:TemplateField HeaderText="Player Position" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center">
 				<ItemTemplate>
                     <div class="grid-cell-inner" style="text-align:center;">
-					    <asp:Label ID="lblPlayerType" runat="server" Text='<%#Eval("PlayerTypeName") %>' ToolTip=" Player Type "></asp:Label>
+					    <asp:Label ID="lblPlayerType" runat="server" Text='<%#Eval("PlayerTypeName") %>' ToolTip=" Player Position "></asp:Label>
                     </div> 
 				</ItemTemplate>
 			</asp:TemplateField>
@@ -416,23 +416,6 @@
 
         <div class="control-group">
 		     <label class="control-label">
-                   <asp:Label ID="lblPlayerType" runat="server" Text=" Player Type :" ></asp:Label>
-             </label>
-              <div class="startsetallfrom">
-                 <span class="help-inline"><font Color="red"><b>*</b></font></span>
-             </div>
-             <div class="controls" style="position:relative;">
-                  <asp:DropDownList ID="ddlPlayerType" runat="server" CssClass="medium m-wrap"/>
-                  <asp:RequiredFieldValidator ID="RFVPalyerType" runat="server" ErrorMessage="Player Type,"
-                                                ControlToValidate="ddlPlayerType" SetFocusOnError="true"  
-                                                ValidationGroup="Sports" 
-                                                InitialValue="0" Text="Select Player Type Required !" CssClass="errorfordnn" 
-                                                ClientIDMode="Static"/>
-             </div>
-        </div>
-
-        <div class="control-group">
-		     <label class="control-label">
                    <asp:Label ID="lblSelectPlayer" runat="server" Text=" Player :" ></asp:Label>
              </label>
               <div class="startsetallfrom">
@@ -447,6 +430,25 @@
                                                 ClientIDMode="Static"/>
              </div>
         </div>
+
+        <div class="control-group">
+		     <label class="control-label">
+                   <asp:Label ID="lblPlayerType" runat="server" Text=" Player Position :" ></asp:Label>
+             </label>
+              <div class="startsetallfrom">
+                 <span class="help-inline"><font Color="red"><b>*</b></font></span>
+             </div>
+             <div class="controls" style="position:relative;">
+                  <asp:DropDownList ID="ddlPlayerType" runat="server" CssClass="medium m-wrap"/>
+                  <asp:RequiredFieldValidator ID="RFVPalyerType" runat="server" ErrorMessage="Player Type,"
+                                                ControlToValidate="ddlPlayerType" SetFocusOnError="true"  
+                                                ValidationGroup="Sports" 
+                                                InitialValue="0" Text="Select Player Type Required !" CssClass="errorfordnn" 
+                                                ClientIDMode="Static"/>
+             </div>
+        </div>
+
+       
 
        <div class="control-group">
 		     <label class="control-label">          

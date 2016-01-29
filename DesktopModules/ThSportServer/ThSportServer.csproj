@@ -99,7 +99,9 @@
     <Compile Include="clsAddDocuments.cs" />
     <Compile Include="clsAddDocumentsType.cs" />
     <Compile Include="clsEvent.cs" />
+    <Compile Include="clsNews.cs" />
     <Compile Include="clsPlayerType.cs" />
+    <Compile Include="clsSponsor.cs" />
     <Compile Include="clsSponsorLevel.cs" />
     <Compile Include="clsSponsorType.cs" />
     <Compile Include="clsTeam.cs" />

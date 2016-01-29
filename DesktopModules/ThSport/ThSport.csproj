@@ -293,6 +293,13 @@
     <Compile Include="frmEvent.ascx.designer.cs">
       <DependentUpon>frmEvent.ascx</DependentUpon>
     </Compile>
+    <Compile Include="frmNews.ascx.cs">
+      <DependentUpon>frmNews.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmNews.ascx.designer.cs">
+      <DependentUpon>frmNews.ascx</DependentUpon>
+    </Compile>
     <Compile Include="frmPlayerType.ascx.cs">
       <DependentUpon>frmPlayerType.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -320,6 +327,13 @@
     </Compile>
     <Compile Include="frmSeason.ascx.designer.cs">
       <DependentUpon>frmSeason.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="frmSponsor.ascx.cs">
+      <DependentUpon>frmSponsor.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmSponsor.ascx.designer.cs">
+      <DependentUpon>frmSponsor.ascx</DependentUpon>
     </Compile>
     <Compile Include="frmSponsorLevel.ascx.cs">
       <DependentUpon>frmSponsorLevel.ascx</DependentUpon>
@@ -433,10 +447,12 @@
     <Content Include="frmCompetitionType.ascx" />
     <Content Include="frmDivision.ascx" />
     <Content Include="frmEvent.ascx" />
+    <Content Include="frmNews.ascx" />
     <Content Include="frmPlayerType.ascx" />
     <Content Include="frmRegistration.ascx" />
     <Content Include="frmRegistrationParentOrRelatives.ascx" />
     <Content Include="frmSeason.ascx" />
+    <Content Include="frmSponsor.ascx" />
     <Content Include="frmSponsorLevel.ascx" />
     <Content Include="frmSponsorType.ascx" />
     <Content Include="frmSports.ascx" />

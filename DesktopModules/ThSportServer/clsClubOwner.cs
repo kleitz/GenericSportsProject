@@ -19,7 +19,7 @@ namespace ThSportServer
     {
         public int ClubOwnersId { get; set; }
         public int ClubId { get; set; }
-        public string OwnerName { get; set; }
+        public int RegistrationId { get; set; }
 	    public string OwnerDescription { get; set; } 
 	    public int OwnerPercentage { get; set; }
 	    public int PortalID { get; set; }
@@ -43,7 +43,7 @@ namespace ThSportServer
         {
             try
             {
-                dataProvider.ExecuteNonQuery("usp_InsertClubOwner", cco.ClubId, cco.OwnerName, cco.OwnerDescription, cco.OwnerPercentage, cco.PortalID, cco.CreatedById, cco.ModifiedById);
+                dataProvider.ExecuteNonQuery("usp_InsertClubOwner", cco.ClubId, cco.RegistrationId, cco.OwnerDescription, cco.OwnerPercentage, cco.PortalID, cco.CreatedById, cco.ModifiedById);
             }
             catch (Exception ex)
             {
@@ -58,7 +58,7 @@ namespace ThSportServer
 
             try
             {
-                dataProvider.ExecuteNonQuery("usp_UpdateClubOwner", cco.ClubOwnersId,cco.ClubId,cco.OwnerName,cco.OwnerDescription,cco.OwnerPercentage,cco.PortalID,cco.ModifiedById);
+                dataProvider.ExecuteNonQuery("usp_UpdateClubOwner", cco.ClubOwnersId,cco.ClubId,cco.RegistrationId,cco.OwnerDescription,cco.OwnerPercentage,cco.PortalID,cco.ModifiedById);
                 return i;
             }
             catch (Exception ex)
@@ -131,5 +131,26 @@ namespace ThSportServer
         }
 
         #endregion Getdata Methods
+
+        public DataTable GetClubOwnerbyUserForm()
+        {
+            using (DataTable dt = new DataTable())
+            {
+                try
+                {
+                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetClubOwnerbyUserForm"))
+                    {
+                        dt.Load(reader);
+                        return dt;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Exceptions.LogException(ex);
+                }
+                return dt;
+            }
+        }
+
     }
 }

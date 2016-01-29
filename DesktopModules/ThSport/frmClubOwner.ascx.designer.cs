@@ -157,49 +157,31 @@ namespace DotNetNuke.Modules.ThSport {
         protected global::System.Web.UI.WebControls.Panel pnlClubOwnerEntry;
         
         /// <summary>
-        /// lblClubOwnerName control.
+        /// lblClubOwner control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblClubOwnerName;
+        protected global::System.Web.UI.WebControls.Label lblClubOwner;
         
         /// <summary>
-        /// txtClubOwnerName control.
+        /// ddlClubOwner control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtClubOwnerName;
+        protected global::System.Web.UI.WebControls.DropDownList ddlClubOwner;
         
         /// <summary>
-        /// rfvtxtClubOwnerName control.
+        /// rfvddlClubOwner control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvtxtClubOwnerName;
-        
-        /// <summary>
-        /// rgvtxtClubOwnerName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator rgvtxtClubOwnerName;
-        
-        /// <summary>
-        /// cvtxtClubOwnerName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CustomValidator cvtxtClubOwnerName;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvddlClubOwner;
         
         /// <summary>
         /// lblClubOwnerDescription control.

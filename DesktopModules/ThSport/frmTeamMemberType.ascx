@@ -264,7 +264,7 @@
             <ul>
                 <li class="active">
                     <asp:LinkButton ID="btnAddTeamMemberType" runat="server" 
-                                    Height="35px" Text=" Add Team Member Type" 
+                                    Height="35px" Text=" Add Team Member Position" 
                                     onclick="btnAddTeamMemberType_Click" ForeColor="White"/>
                 </li>
             </ul>
@@ -278,7 +278,7 @@
 			<div class="portlet-title">
 				<div class="caption">
 					<i class="icon-reorder"></i>
-					<span class="hidden-480"> Team Member Type List</span>
+					<span class="hidden-480"> Team Member Position List</span>
 				</div>
                 <div class="tools">
 					<a href="javascript:;" class="collapse"></a>
@@ -308,7 +308,15 @@
                 </ItemTemplate>
             </asp:TemplateField>
 
-            <asp:TemplateField HeaderText="Team Member Type" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center">
+           <asp:TemplateField HeaderText="Sport Name" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center">
+				<ItemTemplate>
+                    <div class="grid-cell-inner" style="text-align:center;">
+					    <asp:Label ID="lblSportName" runat="server" Text='<%#Eval("SportName") %>' ToolTip=" Sport Name"></asp:Label>
+                    </div> 
+				</ItemTemplate>
+			</asp:TemplateField>
+
+            <asp:TemplateField HeaderText="Team Member Position" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center">
 				<ItemTemplate>
                     <div class="grid-cell-inner" style="text-align:center;">
 					    <asp:Label ID="lblTeamMemberTypeValue" runat="server" Text='<%#Eval("TeamMemberTypeValue") %>' ToolTip=" Team Member Type Name"></asp:Label>
@@ -360,7 +368,7 @@
 			<div class="portlet-title">
 				<div class="caption">
 					<i class="icon-reorder"></i>
-					<span class="hidden-480"> Team Member Type Details </span>
+					<span class="hidden-480"> Team Member Position Details </span>
 				</div>
 			</div>
 
@@ -377,18 +385,37 @@
                 
         </div>
 
+         <div ID="divSport" runat="server">
+            <div class="control-group">
+		         <label class="control-label">
+                       <asp:Label ID="lblSport" runat="server" Text=" Sport :" ></asp:Label>
+                 </label>
+                <div class="startsetallfrom">
+                        <span class="help-inline"><font Color="red"><b>*</b></font></span>
+                 </div>
+                 <div class="controls" style="position:relative;">
+                      <asp:DropDownList ID="ddlSport" runat="server" CssClass="medium m-wrap"/>
+                     <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage=" Sport,"
+                                                ControlToValidate="ddlSport" SetFocusOnError="true"  
+                                                ValidationGroup="Sports" 
+                                                InitialValue="0" Text="Select Sport Required !" CssClass="errorfordnn" 
+                                                ClientIDMode="Static"/>
+                 </div>
+            </div>
+        </div>    
+
         <div class="control-group">
 		     <label class="control-label">          
-                   <asp:Label ID="lblTeamMemberType" runat="server" Text=" Team Member Type :" ></asp:Label>
+                   <asp:Label ID="lblTeamMemberType" runat="server" Text=" Team Member Position :" ></asp:Label>
              </label>
              <div class="startsetallfrom">
                  <span class="help-inline"><font Color="red"><b>*</b></font></span>
              </div>
              <div class="controls" style="position:relative;">
                   <asp:TextBox ID="txtTeamMemberType" runat="server" CssClass="m-wrap large"/>
-                  <asp:RequiredFieldValidator ID="rfvTeamMemberType" runat="server" ErrorMessage="Team Member Type,"
+                  <asp:RequiredFieldValidator ID="rfvTeamMemberType" runat="server" ErrorMessage="Team Member Position,"
                                               ControlToValidate="txtTeamMemberType" SetFocusOnError="true" 
-                                              ValidationGroup="Sports" Text="Team Member Type Required !" 
+                                              ValidationGroup="Sports" Text="Team Member Position Required !" 
                                               CssClass="errorfordnn" ClientIDMode="Static"/>
                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1"
                                                     Display="Static" ControlToValidate="txtTeamMemberType"  

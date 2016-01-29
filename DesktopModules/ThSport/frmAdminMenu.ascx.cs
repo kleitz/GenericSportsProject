@@ -52,6 +52,9 @@ namespace DotNetNuke.Modules.ThSport
                 li_SponsorLevel.Visible = false;
                 li_PlayerType.Visible = false;
                 li_TeamMemberType.Visible = false;
+                li_Sponsor.Visible = false;
+                li_News.Visible = false;
+
                 //li_UserRole.Visible = false;
                 
                 //li_TournamentLink.Visible = false;
@@ -106,6 +109,8 @@ namespace DotNetNuke.Modules.ThSport
                 hlSponsorLevel.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmSponsorLevel");
                 hlPlayerType.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmPlayerType");
                 hlTeamMemberType.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmTeamMemberType");
+                hlSponsor.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmSponsor");
+                hlNews.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmNews"); 
                 //hlUserRole.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmUserRole");
 
                 hlCompetitionType.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmCompetitionType");
@@ -270,6 +275,22 @@ namespace DotNetNuke.Modules.ThSport
                         this.li_TeamMemberType.Attributes.Add("class", "active");
                     titela.Text = " Team Member Type &raquo;";
                     titela.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmTeamMemberType");
+                    break;
+
+                case "frmSponsor.ascx":
+                    HtmlGenericControl li_Sponsor = this.li_Sponsor as HtmlGenericControl;
+                    if (li_Sponsor != null)
+                        this.li_Sponsor.Attributes.Add("class", "active");
+                    titela.Text = " Sponsor &raquo;";
+                    titela.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmSponsor");
+                    break;
+
+                case "frmNews.ascx":
+                    HtmlGenericControl li_News = this.li_News as HtmlGenericControl;
+                    if (li_News != null)
+                        this.li_News.Attributes.Add("class", "active");
+                    titela.Text = " News &raquo;";
+                    titela.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmNews");
                     break;
 
                 //case "frmUserRole.ascx":
