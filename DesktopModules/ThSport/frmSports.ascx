@@ -345,13 +345,13 @@
 </style>
 
 <div id="divSportsavemassage" runat="server" clientidmode="static" style="display: none;position:inherit !important;">
-    <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/AllImage/Ok.png")%>" />
+    <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/OtherImages/Ok.png")%>" />
      <asp:Label CssClass="lobibox-body-text" ID="Label1" ClientIDMode="Static" runat="server" Text=" Sport detail are save successfully. ">
      </asp:Label>
 </div>
 
 <div id="divSportupdatemassage" runat="server" clientidmode="static" style="display: none;position:inherit !important;">
-    <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/AllImage/Ok.png")%>" />
+    <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/OtherImages/Ok.png")%>" />
      <asp:Label CssClass="lobibox-body-text" ID="Label2" ClientIDMode="Static" runat="server" Text=" Sport detail are update successfully. ">
      </asp:Label>
 </div>
@@ -725,7 +725,7 @@
 <script type="text/javascript">
     function imgError(image) {
         image.onerror = "";
-        image.src = "\\DesktopModules\\ThSport\\Images\\AllImage\\1_pix.png";
+        image.src = "\\DesktopModules\\ThSport\\Images\\OtherImages\\1_pix.png";
         return true;
     }
 </script>

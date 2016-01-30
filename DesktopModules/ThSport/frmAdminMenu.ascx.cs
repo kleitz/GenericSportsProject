@@ -53,8 +53,11 @@ namespace DotNetNuke.Modules.ThSport
                 li_PlayerType.Visible = false;
                 li_TeamMemberType.Visible = false;
                 li_Sponsor.Visible = false;
+                li_Media.Visible = false;
                 li_News.Visible = false;
-
+                li_Pictures.Visible = false;
+                li_Videos.Visible = false;
+                li_Albam.Visible = false;
                 //li_UserRole.Visible = false;
                 
                 //li_TournamentLink.Visible = false;

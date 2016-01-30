@@ -17,8 +17,8 @@ namespace DotNetNuke.Modules.ThSport
     public partial class frmSponsor : PortalModuleBase
     {
         private readonly UserInfo currentUser = DotNetNuke.Entities.Users.UserController.GetCurrentUserInfo();
-        public string ImageUploadFolder = "DesktopModules\\ThSport\\Images\\AllImage\\";
-        public string imhpathDB = "Images\\AllImage\\";
+        public string ImageUploadFolder = "DesktopModules\\ThSport\\Images\\SponsorImages\\";
+        public string imhpathDB = "Images\\SponsorImages\\";
 
         clsSponsor cs = new clsSponsor();
         clsSponsorController csc = new clsSponsorController();

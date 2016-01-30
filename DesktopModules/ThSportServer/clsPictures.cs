@@ -16,24 +16,20 @@ using System.Collections;
 
 namespace ThSportServer
 {
-    public class clsNews
+    public class clsPictures
     {
-        public int NewsId { get; set; }
-        public string NewsLevelId { get; set; }
-        public string NewsTitle { get; set; }
-        public string NewsDesc { get; set; }
-        public string NewsText { get; set; }
-        public string NewsDate { get; set; }
-        public string NewsPicture { get; set; }
-        public string NewsVideo { get; set; }
-        public int ActiveFlagId { get; set; }
-        public int ShowFlagId { get; set; }
-        public int PortalID { get; set; }
-        public string CreatedById { get; set; }
-        public string ModifiedById { get; set; }
-        public string NewsOtherVideoPath { get; set; }
-        public int VideoType { get; set; }
-            
+        public int PictureId { get; set;} 
+        public string PictureLevelId { get; set;} 
+        public string PictureTitle { get; set;} 
+        public string PictureDesc { get; set;} 
+        public string PictureDate { get; set;} 
+        public string PictureFile { get; set;} 
+        public int ActiveFlagId { get; set;} 
+        public int ShowFlagId { get; set;} 
+        public int PortalID { get; set;} 
+        public string CreatedById { get; set;} 
+        public string ModifiedById { get; set;} 
+
         public int SportsId { get; set; }
         public int CountryId { get; set; }
         public int EventId { get; set; }
@@ -48,12 +44,12 @@ namespace ThSportServer
         public int SponsorId { get; set; }
     }
 
-    public class clsNewsController
+    public class clsPicturesController
     {
         private readonly DataProvider dataProvider = DataProvider.Instance();
         private readonly UserInfo currentUser = DotNetNuke.Entities.Users.UserController.GetCurrentUserInfo();
 
-        public clsNewsController()
+        public clsPicturesController()
         {
 
         }
@@ -86,11 +82,11 @@ namespace ThSportServer
 
         #region Insert,Update,Delete Methods
 
-        public int InsertNews(clsNews cs)
+        public int InsertPicture(clsPictures cs)
         {
             try
             {
-                dataProvider.ExecuteNonQuery("usp_InsertNews", cs.NewsLevelId, cs.NewsTitle, cs.NewsDesc, cs.NewsText, Convert.ToDateTime(cs.NewsDate), cs.NewsPicture, cs.NewsVideo, cs.ActiveFlagId, cs.ShowFlagId, cs.PortalID, cs.CreatedById, cs.ModifiedById, cs.NewsOtherVideoPath, cs.VideoType);
+                dataProvider.ExecuteNonQuery("usp_InsertPicture", cs.PictureLevelId, cs.PictureTitle, cs.PictureDesc, Convert.ToDateTime(cs.PictureDate), cs.PictureFile, cs.ActiveFlagId, cs.ShowFlagId, cs.PortalID, cs.CreatedById, cs.ModifiedById);
             }
             catch (Exception ex)
             {
@@ -99,11 +95,11 @@ namespace ThSportServer
             return 0;
         }
 
-        public int InsertNewsLinks(clsNews cs)
+        public int InsertPictureLinks(clsPictures cs)
         {
             try
             {
-                dataProvider.ExecuteNonQuery("usp_InsertNewsLinks", cs.NewsId, cs.SportsId, cs.CountryId, cs.SeasonId, cs.CompetitionId, cs.ClubId, cs.ClubOwnersId, cs.ClubMemberId, cs.TeamId, cs.TeamMemberId, cs.SponsorId, cs.EventId, cs.PlayerId);
+                dataProvider.ExecuteNonQuery("usp_InsertPictureLinks", cs.PictureId,cs.SportsId,cs.CountryId,cs.SeasonId,cs.CompetitionId,cs.ClubId,cs.ClubOwnersId,cs.ClubMemberId,cs.TeamId,cs.TeamMemberId,cs.SponsorId,cs.EventId,cs.PlayerId);
             }
             catch (Exception ex)
             {
@@ -117,7 +113,7 @@ namespace ThSportServer
             int i = 0;
             try
             {
-                dataProvider.ExecuteNonQuery("usp_UpdateNews", cs.NewsId,cs.NewsLevelId,cs.NewsTitle,cs.NewsDesc,cs.NewsText,Convert.ToDateTime(cs.NewsDate),cs.NewsPicture,cs.NewsVideo,cs.ActiveFlagId,cs.ShowFlagId,cs.PortalID,cs.ModifiedById,cs.NewsOtherVideoPath,cs.VideoType);
+                dataProvider.ExecuteNonQuery("usp_UpdateNews", cs.NewsId, cs.NewsLevelId, cs.NewsTitle, cs.NewsDesc, cs.NewsText, Convert.ToDateTime(cs.NewsDate), cs.NewsPicture, cs.NewsVideo, cs.ActiveFlagId, cs.ShowFlagId, cs.PortalID, cs.ModifiedById, cs.NewsOtherVideoPath, cs.VideoType);
             }
             catch (Exception ex)
             {
@@ -131,7 +127,7 @@ namespace ThSportServer
             int i = 0;
             try
             {
-                dataProvider.ExecuteNonQuery("usp_UpdateNewsLinks", cs.NewsId,cs.SportsId,cs.CountryId,cs.SeasonId,cs.CompetitionId,cs.ClubId,cs.ClubOwnersId,cs.ClubMemberId,cs.TeamId,cs.TeamMemberId,cs.SponsorId,cs.EventId,cs.PlayerId);
+                dataProvider.ExecuteNonQuery("usp_UpdateNewsLinks", cs.NewsId, cs.SportsId, cs.CountryId, cs.SeasonId, cs.CompetitionId, cs.ClubId, cs.ClubOwnersId, cs.ClubMemberId, cs.TeamId, cs.TeamMemberId, cs.SponsorId, cs.EventId, cs.PlayerId);
             }
             catch (Exception ex)
             {
@@ -382,13 +378,13 @@ namespace ThSportServer
             }
         }
 
-        public DataTable GetLatestNewsID()
+        public DataTable GetLatestPictureID()
         {
             using (DataTable dt = new DataTable())
             {
                 try
                 {
-                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetLatestNewsID"))
+                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetLatestPictureID"))
                     {
                         dt.Load(reader);
                         return dt;

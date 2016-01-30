@@ -31,7 +31,7 @@
 
     <script type="text/javascript">
         function previewFile() {
-            var file = document.querySelector('#<%=CompetitionVideoLogoFile.ClientID %>').files[0];
+            var file = document.querySelector('#<%=NewsVideoLogoFile.ClientID %>').files[0];
             var reader = new FileReader();
 
             reader.onloadend = function () {
@@ -46,7 +46,7 @@
             }
         }
     </script>
-</head>
+
 
 
 <script type="text/javascript">
@@ -305,13 +305,13 @@
 </style>
 
 <div id="divsavemassage" runat="server" clientidmode="static" style="display: none;position:inherit !important;">
-    <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/AllImage/Ok.png")%>" />
+    <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/OtherImages/Ok.png")%>" />
      <asp:Label CssClass="lobibox-body-text" ID="Label1" ClientIDMode="Static" runat="server" Text=" News detail are save successfully. ">
      </asp:Label>
 </div>
 
 <div id="divupdatemassage" runat="server" clientidmode="static" style="display: none;position:inherit !important;">
-    <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/AllImage/Ok.png")%>" />
+    <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/OtherImages/Ok.png")%>" />
      <asp:Label CssClass="lobibox-body-text" ID="Label2" ClientIDMode="Static" runat="server" Text=" News detail are update successfully. ">
      </asp:Label>
 </div>
@@ -385,10 +385,9 @@
                 </ItemTemplate>
          </asp:TemplateField>
 
-            <asp:TemplateField HeaderText="News Title" ItemStyle-VerticalAlign="Middle" ItemStyle-HorizontalAlign="Center" 
-                                     HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column">
+            <asp:TemplateField HeaderText="News Title" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column">
                 <ItemTemplate>
-                    <div class="grid-cell-inner" style="width:130px; display: inline-block;">
+                    <div class="grid-cell-inner" style="width:500%; display: inline-block;">
                         <asp:Label ID="lblNewsTitle" runat="server" Text='<%#Eval("NewsTitle") %>'></asp:Label>
                     </div> 
                 </ItemTemplate>
@@ -397,21 +396,20 @@
          <asp:TemplateField HeaderText="News Date" ItemStyle-VerticalAlign="Middle" ItemStyle-HorizontalAlign="Center" 
                                     HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column">
                 <ItemTemplate>
-                    <div class="grid-cell-inner" style="width:130px; display: inline-block;">
+                    <div class="grid-cell-inner">
                         <asp:Label ID="lblNewsDate" runat="server" Text='<%#Eval("NewsDate") %>'></asp:Label>
                     </div> 
                 </ItemTemplate>
          </asp:TemplateField>
 
-            <asp:TemplateField HeaderText="News Level" ItemStyle-VerticalAlign="Middle" ItemStyle-HorizontalAlign="Center" 
+        <asp:TemplateField HeaderText="News Level" ItemStyle-VerticalAlign="Middle" ItemStyle-HorizontalAlign="Center" 
                                      HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column">
                 <ItemTemplate>
-                    <div class="grid-cell-inner" style="width:130px; display: inline-block;">
+                    <div class="grid-cell-inner">
                         <asp:Label ID="lblNewsLevel" runat="server" Text='<%#Eval("NewsLevelId") %>'></asp:Label>
                     </div> 
                 </ItemTemplate>
          </asp:TemplateField>
-
             <asp:TemplateField HeaderText="Action"  HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" 
                                ItemStyle-HorizontalAlign="Center" ItemStyle-Width="15%">
                 <ItemTemplate>
@@ -470,9 +468,15 @@
 		         <label class="control-label">
                        <asp:Label ID="lblSport" runat="server" Text=" Sport :" ></asp:Label>
                  </label>
+                <div class="startsetallfrom">
+                  <span class="help-inline"><font Color="red"><b>*</b></font></span>
+                    </div>
                  <div class="controls" style="position:relative;">
                       <asp:DropDownList ID="ddlSports" runat="server" CssClass="medium m-wrap" AutoPostBack="true"
                           OnSelectedIndexChanged="ddlSports_SelectedIndexChanged"/>
+                     <asp:RequiredFieldValidator ID="rfvddlSport" ClientIDMode="Static" runat="server" InitialValue="0" 
+                    ErrorMessage="Sport Required !" CssClass="errorfordnn" SetFocusOnError="true" ControlToValidate="ddlSports"
+                    ValidationGroup="Sports" Text="Sport Required !"></asp:RequiredFieldValidator>
                  </div>
             </div>
 
@@ -634,13 +638,13 @@
              <div class="controls" style="position:relative;">
                   <asp:TextBox ID="txtNewText" runat="server" CssClass="m-wrap mediumSmallDesc" TextMode="MultiLine" Width="319px" Height="100px"/>
                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1"
-                                                    Display="Static" ControlToValidate="txtNewsText"  
+                                                    Display="Static" ControlToValidate="txtNewText"  
                                                     ValidationGroup="Sports" CssClass="errorfordnn"
                                                     ValidationExpression = "^[\s\S]{0,200}$" 
                                                     runat="server" ErrorMessage="Maximum 200 characters allowed.">
                    </asp:RegularExpressionValidator>  
                    <asp:CustomValidator ID="CustomValidator3" ValidationGroup="Sports" runat="server" ErrorMessage="" SetFocusOnError="true" 
-                                                 ControlToValidate="txtNewsText" EnableClientScript="true" ClientValidationFunction="validateTextBox" 
+                                                 ControlToValidate="txtNewText" EnableClientScript="true" ClientValidationFunction="validateTextBox" 
                                                  CssClass="errorfordnn" Text="First Character Should Not Be Special Character">
                    </asp:CustomValidator>
              </div>
@@ -672,23 +676,7 @@
             </div>
         </div>
 
-        <div class="control-group">
-		    <label class="control-label"> 
-                <asp:Label ID="lblNewsLogo" runat="server" Text=" Photo : "></asp:Label>
-             </label>
-            <div class="controls" style="position:relative;">  
-                <input ID="NewsLogoFile" type="file" name="file" runat="server" onchange="previewFilelogo()"/>
-                <asp:RegularExpressionValidator ID="RegularExpressionValidator6" 
-                                                ValidationExpression="([a-zA-Z0-9\s_\\.\-:])+(.png|.jpg|.gif)$"
-                                                ControlToValidate="NewsLogoFile" ValidationGroup="Sports" 
-                                                runat="server" ForeColor="Red" 
-                                                ErrorMessage="Please choose only .jpg, .png and .gif images!"
-                                                CssClass ="errorfordnn" />
-                <div style="padding-top:10px;border:none; Width:200px;">
-                    <asp:Image ID="NewsLogoImage" runat="server" onError="imgError(this);"/>
-                </div>
-            </div>
-        </div>
+     
 
         <div class="control-group">
 		     <label class="control-label">
@@ -711,6 +699,24 @@
              </div>
         </div>
 
+        <div class="control-group">
+		    <label class="control-label"> 
+                <asp:Label ID="lblNewsLogo" runat="server" Text=" Photo : "></asp:Label>
+             </label>
+            <div class="controls" style="position:relative;">  
+                <input ID="NewsLogoFile" type="file" name="file" runat="server" onchange="previewFilelogo()"/>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator6" 
+                                                ValidationExpression="([a-zA-Z0-9\s_\\.\-:])+(.png|.jpg|.gif)$"
+                                                ControlToValidate="NewsLogoFile" ValidationGroup="Sports" 
+                                                runat="server" ForeColor="Red" 
+                                                ErrorMessage="Please choose only .jpg, .png and .gif images!"
+                                                CssClass ="errorfordnn" />
+                <div style="padding-top:10px;border:none; Width:200px;">
+                    <asp:Image ID="NewsLogoImage" runat="server" onError="imgError(this);"/>
+                </div>
+            </div>
+        </div>
+
       <div class="control-group">
 		    <label class="control-label"> 
                 <asp:Label ID="lblVideoType" runat="server" Text="Video Type :" ></asp:Label>
@@ -729,16 +735,8 @@
 		    <label class="control-label">
                 <asp:Label ID="lblVideoPath" runat="server" Text="Video Path :" ></asp:Label>
 		    </label>
-            <div class="startsetallfrom">
-                        <span class="help-inline"><font Color="red"><b>*</b></font></span>
-                  </div>
             <div class="controls" style="position:relative;">
                 <asp:TextBox ID="txtVideoPath" runat="server" CssClass="m-wrap large"></asp:TextBox>  
-                <asp:RequiredFieldValidator ID="RFVVideoPath" runat="server" ErrorMessage="Video Path"
-                                            ControlToValidate="txtVideoPath" SetFocusOnError="true"  
-                                            ValidationGroup="Sports" Text="Video Path Required !" ClientIDMode="Static" 
-                                            CssClass="errorfordnn">
-                </asp:RequiredFieldValidator>
                 <asp:RegularExpressionValidator ID="RegularExpressionValidator3"
                                               Display="Static" ControlToValidate="txtVideoPath"  
                                               ValidationGroup="Sports" CssClass="errorfordnn"
@@ -760,8 +758,14 @@
 
     <div id="divOtherVideoPath" runat="server">
         <div class="control-group">
-		    <div class="controls">
+		    <div class="controls" style="position:relative;">
                 <input ID="NewsVideoLogoFile" type="file" name="file" runat="server" onchange="previewFile()"/>
+                  <asp:RegularExpressionValidator ID="RegularExpressionValidator4" 
+                                                ValidationExpression="([a-zA-Z0-9\s_\\.\-:])+(.flv|.webm|.mkv|.vob|.ogv|.ogg|.avi|.mov|.wmv|.rm|.mp4|.m4p|.m4v|.mpg|.mp2|.mpeg|.mpe|.mpv|.m2v|.m4v|.svi|.3gp|.3g2|.nsv|.asf|.asx|.srt|.swf)$"
+                                                ControlToValidate="NewsVideoLogoFile" ValidationGroup="Sports" 
+                                                runat="server" ForeColor="Red" 
+                                                ErrorMessage="This is not video file!"
+                                                CssClass ="errorfordnn" />
             </div>
             <div class="controls">
                <asp:Label ID="lblErrorVideo" runat="server" Text="Video Must be Less Than 10 MB." ForeColor="Red"></asp:Label>
@@ -861,7 +865,7 @@
 <script type="text/javascript">
     function imgError(image) {
         image.onerror = "";
-        image.src = "\\DesktopModules\\ThSport\\Images\\AllImage\\1_pix.png";
+        image.src = "\\DesktopModules\\ThSport\\Images\\OtherImages\\1_pix.png";
         return true;
     }
 </script>

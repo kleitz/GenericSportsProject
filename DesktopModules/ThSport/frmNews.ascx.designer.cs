@@ -157,6 +157,15 @@ namespace DotNetNuke.Modules.ThSport {
         protected global::System.Web.UI.WebControls.DropDownList ddlSports;
         
         /// <summary>
+        /// rfvddlSport control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvddlSport;
+        
+        /// <summary>
         /// lblCountryId control.
         /// </summary>
         /// <remarks>
@@ -544,6 +553,33 @@ namespace DotNetNuke.Modules.ThSport {
         protected global::System.Web.UI.WebControls.CustomValidator CustomValidator6;
         
         /// <summary>
+        /// lblNewsPriority control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNewsPriority;
+        
+        /// <summary>
+        /// ddlNewsPriority control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlNewsPriority;
+        
+        /// <summary>
+        /// RFVNewsPriority control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFVNewsPriority;
+        
+        /// <summary>
         /// lblNewsLogo control.
         /// </summary>
         /// <remarks>
@@ -578,33 +614,6 @@ namespace DotNetNuke.Modules.ThSport {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image NewsLogoImage;
-        
-        /// <summary>
-        /// lblNewsPriority control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNewsPriority;
-        
-        /// <summary>
-        /// ddlNewsPriority control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlNewsPriority;
-        
-        /// <summary>
-        /// RFVNewsPriority control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFVNewsPriority;
         
         /// <summary>
         /// lblVideoType control.
@@ -652,15 +661,6 @@ namespace DotNetNuke.Modules.ThSport {
         protected global::System.Web.UI.WebControls.TextBox txtVideoPath;
         
         /// <summary>
-        /// RFVVideoPath control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFVVideoPath;
-        
-        /// <summary>
         /// RegularExpressionValidator3 control.
         /// </summary>
         /// <remarks>
@@ -704,6 +704,15 @@ namespace DotNetNuke.Modules.ThSport {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputFile NewsVideoLogoFile;
+        
+        /// <summary>
+        /// RegularExpressionValidator4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator4;
         
         /// <summary>
         /// lblErrorVideo control.

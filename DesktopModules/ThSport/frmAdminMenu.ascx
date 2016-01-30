@@ -43,9 +43,24 @@
 	        <asp:HyperLink id="hlSponsor" runat="server" ToolTip=" Sponsor Form"> Sponsor </asp:HyperLink>
 		</li>
 
-        <li id="li_News" runat="server">
-	        <asp:HyperLink id="hlNews" runat="server" ToolTip=" News Form"> News </asp:HyperLink>
-		</li>
+        
+        <li id="li_Media" runat="server">
+            <asp:HyperLink id="hlMedia" runat="server" ToolTip=" Media Form " NavigateUrl="javascript:;"> Media Form <span class="arrow selected"></span></asp:HyperLink>
+            <ul class="sub-menu">
+                <li id="li_News" runat="server">
+	                <asp:HyperLink id="hlNews" runat="server" ToolTip=" News Form"> News </asp:HyperLink>
+		        </li>
+                <li id="li_Pictures" runat="server">
+	                <asp:HyperLink id="hlPictures" runat="server" ToolTip=" Pictures Form"> Pictures </asp:HyperLink>
+		        </li>
+                <li id="li_Videos" runat="server">
+	                <asp:HyperLink id="hlVideos" runat="server" ToolTip=" Videos Form"> Videos </asp:HyperLink>
+		        </li>
+                <li id="li_Albam" runat="server">
+	                <asp:HyperLink id="hlAlbam" runat="server" ToolTip=" Albam Form"> Albam </asp:HyperLink>
+		        </li>
+           </ul>
+	    </li>
 
         <li id="li_Masters" runat="server">
             <asp:HyperLink id="hlMaster" runat="server" ToolTip=" Master Form " NavigateUrl="javascript:;"> Masters Form <span class="arrow selected"></span></asp:HyperLink>

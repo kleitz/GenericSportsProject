@@ -27,8 +27,8 @@ namespace DotNetNuke.Modules.ThSport
         string VName;
         int SeasonID = 0;
         string physicalpath = HttpContext.Current.Request.PhysicalApplicationPath;
-        public string ImageUploadFolder = "DesktopModules\\ThSport\\Images\\AllImage\\";
-        public string imhpathDB = "Images\\AllImage\\";
+        public string ImageUploadFolder = "DesktopModules\\ThSport\\Images\\ClubImages\\";
+        public string imhpathDB = "Images\\ClubImages\\";
 
         Boolean FileOK = false;
         Boolean FileSaved = false;
