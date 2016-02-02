@@ -300,6 +300,13 @@
     <Compile Include="frmNews.ascx.designer.cs">
       <DependentUpon>frmNews.ascx</DependentUpon>
     </Compile>
+    <Compile Include="frmPictures.ascx.cs">
+      <DependentUpon>frmPictures.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmPictures.ascx.designer.cs">
+      <DependentUpon>frmPictures.ascx</DependentUpon>
+    </Compile>
     <Compile Include="frmPlayerType.ascx.cs">
       <DependentUpon>frmPlayerType.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -398,6 +405,13 @@
     <Compile Include="frmUserType.ascx.designer.cs">
       <DependentUpon>frmUserType.ascx</DependentUpon>
     </Compile>
+    <Compile Include="frmVideos.ascx.cs">
+      <DependentUpon>frmVideos.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmVideos.ascx.designer.cs">
+      <DependentUpon>frmVideos.ascx</DependentUpon>
+    </Compile>
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
@@ -448,6 +462,7 @@
     <Content Include="frmDivision.ascx" />
     <Content Include="frmEvent.ascx" />
     <Content Include="frmNews.ascx" />
+    <Content Include="frmPictures.ascx" />
     <Content Include="frmPlayerType.ascx" />
     <Content Include="frmRegistration.ascx" />
     <Content Include="frmRegistrationParentOrRelatives.ascx" />
@@ -462,6 +477,7 @@
     <Content Include="frmTeamPlayer.ascx" />
     <Content Include="frmUserRole.ascx" />
     <Content Include="frmUserType.ascx" />
+    <Content Include="frmVideos.ascx" />
     <Content Include="Images\CountryFlag\ad.png" />
     <Content Include="Images\CountryFlag\ae.png" />
     <Content Include="Images\CountryFlag\af.png" />
@@ -777,6 +793,7 @@
     <Content Include="Images\OtherImages\stadium.jpg" />
     <Content Include="Images\OtherImages\transfer-centre-wednesday-football-gossip_3402663.jpg" />
     <Content Include="Images\OtherImages\up.png" />
+    <Content Include="Images\Pictures\transfer-centre-wednesday-football-gossip_3402663.jpg" />
     <Content Include="JS\addthis_widget.js" />
     <Content Include="JS\buttons.js" />
     <Content Include="JS\jquery-1.10.2.js" />
@@ -811,6 +828,7 @@
     <Content Include="screen\3.png" />
     <Content Include="ThSport.xml" />
     <Content Include="Videos\NewsVideo\AmazingFootballGoals.3gp" />
+    <Content Include="Videos\Video\AmazingFootballGoals.3gp" />
     <Content Include="_UpgradeReport_Files\UpgradeReport.css" />
     <Content Include="_UpgradeReport_Files\UpgradeReport.xslt" />
     <Content Include="_UpgradeReport_Files\UpgradeReport_Error.png" />

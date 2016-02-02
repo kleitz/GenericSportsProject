@@ -56,9 +56,9 @@
                 <li id="li_Videos" runat="server">
 	                <asp:HyperLink id="hlVideos" runat="server" ToolTip=" Videos Form"> Videos </asp:HyperLink>
 		        </li>
-                <li id="li_Albam" runat="server">
+                <%--<li id="li_Albam" runat="server">
 	                <asp:HyperLink id="hlAlbam" runat="server" ToolTip=" Albam Form"> Albam </asp:HyperLink>
-		        </li>
+		        </li>--%>
            </ul>
 	    </li>
 
@@ -137,7 +137,7 @@
        <li class="home"><asp:HyperLink id="titela" runat="server"></asp:HyperLink> </li>
        <li><asp:Label ID="titel" runat="server" ></asp:Label></li>
        <li><asp:Label ID="Subtitle" runat="server" ></asp:Label></li>
-           <asp:HiddenField ID="hdcompetitionid" runat="server"/>
+             <asp:HiddenField ID="hdcompetitionid" runat="server"/>
     </ul>
 </div>
         

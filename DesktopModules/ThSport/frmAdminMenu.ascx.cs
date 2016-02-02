@@ -12,7 +12,6 @@ using DotNetNuke.Entities.Modules;
 using ThSportServer;
 using DotNetNuke.Entities.Users;
 
-
 namespace DotNetNuke.Modules.ThSport
 {
     public partial class frmAdminMenu : PortalModuleBase
@@ -57,7 +56,8 @@ namespace DotNetNuke.Modules.ThSport
                 li_News.Visible = false;
                 li_Pictures.Visible = false;
                 li_Videos.Visible = false;
-                li_Albam.Visible = false;
+                //li_Albam.Visible = false;
+
                 //li_UserRole.Visible = false;
                 
                 //li_TournamentLink.Visible = false;
@@ -113,7 +113,9 @@ namespace DotNetNuke.Modules.ThSport
                 hlPlayerType.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmPlayerType");
                 hlTeamMemberType.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmTeamMemberType");
                 hlSponsor.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmSponsor");
-                hlNews.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmNews"); 
+                hlNews.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmNews");
+                hlPictures.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmPictures");
+                hlVideos.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmVideos");
                 //hlUserRole.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmUserRole");
 
                 hlCompetitionType.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmCompetitionType");
@@ -295,6 +297,23 @@ namespace DotNetNuke.Modules.ThSport
                     titela.Text = " News &raquo;";
                     titela.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmNews");
                     break;
+
+                case "frmPictures.ascx":
+                    HtmlGenericControl li_Pictures = this.li_Pictures as HtmlGenericControl;
+                    if (li_Pictures != null)
+                        this.li_Pictures.Attributes.Add("class", "active");
+                    titela.Text = " Pictures &raquo;";
+                    titela.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmPictures");
+                    break;
+
+                case "frmVideos.ascx":
+                    HtmlGenericControl li_Videos = this.li_Videos as HtmlGenericControl;
+                    if (li_Videos != null)
+                        this.li_Videos.Attributes.Add("class", "active");
+                    titela.Text = " Videos &raquo;";
+                    titela.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmVideos");
+                    break;
+
 
                 //case "frmUserRole.ascx":
                 //    HtmlGenericControl li_UserRole = this.li_UserRole as HtmlGenericControl;

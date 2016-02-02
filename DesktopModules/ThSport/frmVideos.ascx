@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="frmPictures.ascx.cs" Inherits="DotNetNuke.Modules.ThSport.frmPictures" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="frmVideos.ascx.cs" Inherits="DotNetNuke.Modules.ThSport.frmVideos" %>
 
 <%@ Register TagPrefix="dnn" Namespace="DotNetNuke.Web.Client.ClientResourceManagement" Assembly="DotNetNuke.Web.Client" %>
 <dnn:DnnCssInclude FilePath="~/DesktopModules/ThSport/CSS/jquery.datetimepicker.css" runat="server"/>
@@ -29,37 +29,30 @@
     }
 </script>
 
-<script type="text/javascript">
-    function previewFilelogo()
-    {
-        var preview = document.querySelector('#<%=PictureLogoImage.ClientID %>');
-        var file = document.querySelector('#<%=PictureLogoFile.ClientID %>').files[0];
-        var reader = new FileReader();
+    <script type="text/javascript">
+        function previewFile() {
+            var file = document.querySelector('#<%=VideoLogoFile.ClientID %>').files[0];
+            var reader = new FileReader();
 
-        reader.onloadend = function () {
-            preview.src = reader.result;
-        }
+            reader.onloadend = function () {
+                preview.src = reader.result;
+            }
 
-        if (file) {
-            if (file.size > 10485760) {
-                document.getElementById('dvMsg').style.display = "block";
+            if (file) {
+                reader.readAsDataURL(file);
+            }
+            else {
                 preview.src = "";
             }
-            reader.readAsDataURL(file);
         }
-        else {
-            preview.src = "";
-        }
-    }
-</script>
-
+    </script>
 
 <script type="text/javascript">
     $(document).ready(function () {
         $('.ddlActionSelect').change(function (evt) {
             evt.preventDefault();
             if ($(this).val() == "Delete") {
-                if (confirm('Are you sure to delete this Picture ?')) {
+                if (confirm('Are you sure to delete this Video ?')) {
                     setTimeout("__doPostBack('" + this.id + "','')", 0);
                 }
                 else {
@@ -79,8 +72,8 @@
 <script type="text/javascript">
     function textBoxOnBlur(elementRef, id) {
         var checkValue = new String(elementRef.value);
-        var save_btn = document.getElementById("<%=btnSavePicture.ClientID %>");
-        var update_btn = document.getElementById("<%=btnUpdatePicture.ClientID %>");
+        var save_btn = document.getElementById("<%=btnSaveVideo.ClientID %>");
+        var update_btn = document.getElementById("<%=btnUpdateVideo.ClientID %>");
         var chars = ['<', '>', '*', '$', '@', ',', '_', '%'];
         var realted_span = document.getElementById("nameError");
         if (checkValue.length > 0) {
@@ -112,8 +105,8 @@
     function validateAndConfirmClose(OnlyClose) {
         var validated = Page_ClientValidate('CloseSports');
 
-        if (OnlyClose == "btnClosePicture") {
-            document.getElementById("msgConfirm").innerHTML = "Are You Sure, You Want to Close Picture Form ?";
+        if (OnlyClose == "btnCloseVideo") {
+            document.getElementById("msgConfirm").innerHTML = "Are You Sure, You Want to Close Video Form ?";
         }
 
         if (validated) {
@@ -128,8 +121,8 @@
                 buttons: {
                     Ok: function () {
 
-                        if (OnlyClose == "btnClosePicture") {
-                            <%=this.Page.ClientScript.GetPostBackEventReference(new PostBackOptions(this.btnClosePicture))%>;
+                        if (OnlyClose == "btnCloseVideo") {
+                            <%=this.Page.ClientScript.GetPostBackEventReference(new PostBackOptions(this.btnCloseVideo))%>;
                         }
                     },
                     Cancel: function () {
@@ -142,11 +135,13 @@
         return false;
     }
 
-    function validateAndConfirm(btn_clientid) {
+    function validateAndConfirm(btn_clientid)
+    {
         var validated = Page_ClientValidate('Sports');
 
-        if (btn_clientid == "btnUpdatePicture") {
-            document.getElementById("msgConfirm").innerHTML = "Are You Sure, You Want to Update Picture Details ?";
+        if (btn_clientid == "btnUpdateVideo")
+        {
+            document.getElementById("msgConfirm").innerHTML = "Are You Sure, You Want to Update Video Details ?";
         }
 
         if (validated) {
@@ -163,12 +158,14 @@
 
                         btn_clientid.disabled = true;
 
-                        if (btn_clientid == "btnSavePicture") {
-                            <%=this.Page.ClientScript.GetPostBackEventReference(new PostBackOptions(this.btnSavePicture))%>;
+                        if (btn_clientid == "btnSaveVideo")
+                        {
+                            <%=this.Page.ClientScript.GetPostBackEventReference(new PostBackOptions(this.btnSaveVideo))%>;
                         }
 
-                        if (btn_clientid == "btnUpdatePicture") {
-                            <%=this.Page.ClientScript.GetPostBackEventReference(new PostBackOptions(this.btnUpdatePicture))%>;
+                        if (btn_clientid == "btnUpdateVideo")
+                        {
+                            <%=this.Page.ClientScript.GetPostBackEventReference(new PostBackOptions(this.btnUpdateVideo))%>;
                         }
 
                     },
@@ -275,35 +272,35 @@
 
 <div id="divsavemassage" runat="server" clientidmode="static" style="display: none;position:inherit !important;">
     <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/OtherImages/Ok.png")%>" />
-     <asp:Label CssClass="lobibox-body-text" ID="Label1" ClientIDMode="Static" runat="server" Text=" Picture detail are save successfully. ">
+     <asp:Label CssClass="lobibox-body-text" ID="Label1" ClientIDMode="Static" runat="server" Text=" Video detail are save successfully. ">
      </asp:Label>
 </div>
 
 <div id="divupdatemassage" runat="server" clientidmode="static" style="display: none;position:inherit !important;">
     <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/OtherImages/Ok.png")%>" />
-     <asp:Label CssClass="lobibox-body-text" ID="Label2" ClientIDMode="Static" runat="server" Text=" Picture detail are update successfully. ">
+     <asp:Label CssClass="lobibox-body-text" ID="Label2" ClientIDMode="Static" runat="server" Text=" Video detail are update successfully. ">
      </asp:Label>
 </div>
 
 <div id="dialogBox" runat="server" clientidmode="static"  style="display:none;">
      <div class="lobibox-body-text-wrapper">
-        <asp:Label CssClass="lobibox-body-text" ID="msgConfirm" ClientIDMode="Static" runat="server" Text="Are You Sure, You Want to Save Picture Details ?"></asp:Label>
+        <asp:Label CssClass="lobibox-body-text" ID="msgConfirm" ClientIDMode="Static" runat="server" Text="Are You Sure, You Want to Save Video Details ?"></asp:Label>
     </div>
 </div>
 
 <div class="row-fluid">
 	<div class="span12">
 
-<asp:Panel ID="PnlGridPicture" runat="server">
+<asp:Panel ID="PnlGridVideo" runat="server">
    <asp:Panel ID="addPanel" runat="server">
         <div id="submenu" style="float:left;">
             <ul>
                 <li class="active">
-                    <asp:LinkButton ID="btnAddPicture" 
+                    <asp:LinkButton ID="btnAddVideo" 
                                     runat="server" 
                                     Height="35px" 
-                                    Text=" Add Picture " 
-                                    onclick="btnAddPicture_Click" 
+                                    Text=" Add Video " 
+                                    onclick="btnAddVideo_Click" 
                                     ForeColor="White">
                     </asp:LinkButton>
                 </li>
@@ -323,7 +320,7 @@
 			<div class="portlet-title">
 				<div class="caption">
 					<i class="icon-reorder"></i>
-					<span class="hidden-480">Picture List</span>
+					<span class="hidden-480">Video List</span>
 				</div>
                 <div class="tools">
 					<a href="javascript:;" class="collapse"></a>
@@ -332,49 +329,49 @@
       
     <div class="portlet-body flip-scroll">
 
-    <asp:GridView ID="gvPicture" runat="server" 
+    <asp:GridView ID="gvVideo" runat="server" 
                   CssClass="table-bordered table-striped table-condensed flip-content" 
                   AutoGenerateColumns="false" width="100%"
                   ShowHeaderWhenEmpty="true" 
                   AllowPaging="true" PageSize="10"
                   EmptyDataText="No Records Found" 
                   EmptyDataRowStyle-ForeColor="Red" 
-                  onpageindexchanging="gvPicture_PageIndexChanging"
-                  DataKeyNames ="PictureId">
+                  onpageindexchanging="gvVideo_PageIndexChanging"
+                  DataKeyNames ="VideoId">
         <RowStyle CssClass="grid-row" />
         <AlternatingRowStyle CssClass="grid-row grid-row-alternet" />
         <Columns>
 
-         <asp:TemplateField HeaderText="PictureId" ItemStyle-VerticalAlign="Middle" ItemStyle-HorizontalAlign="Center" 
+         <asp:TemplateField HeaderText="VideoId" ItemStyle-VerticalAlign="Middle" ItemStyle-HorizontalAlign="Center" 
                                     Visible="false" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column">
                 <ItemTemplate>
                     <div class="grid-cell-inner" style="width:130px; display: inline-block;">
-                        <asp:Label ID="lblPictureId" runat="server" Text='<%#Eval("PictureId") %>'></asp:Label>
+                        <asp:Label ID="lblVideoId" runat="server" Text='<%#Eval("VideoId") %>'></asp:Label>
                     </div> 
                 </ItemTemplate>
          </asp:TemplateField>
 
-            <asp:TemplateField HeaderText="Picture Title" HeaderStyle-CssClass="grid-header-column" 
+            <asp:TemplateField HeaderText="Video Title" HeaderStyle-CssClass="grid-header-column" 
                                       ItemStyle-CssClass="grid-column" ItemStyle-Width="65%" ItemStyle-HorizontalAlign="Left">
                 <ItemTemplate>
-                        <asp:Literal ID="lblPictureTitle" runat="server" Text='<%#Eval("PictureTitle") %>'></asp:Literal>
+                        <asp:Literal ID="lblVideoTitle" runat="server" Text='<%#Eval("VideoTitle") %>'></asp:Literal>
                 </ItemTemplate>
          </asp:TemplateField>
 
-         <asp:TemplateField HeaderText="Picture Date" ItemStyle-VerticalAlign="Middle" ItemStyle-HorizontalAlign="Center" 
+         <asp:TemplateField HeaderText="Video Date" ItemStyle-VerticalAlign="Middle" ItemStyle-HorizontalAlign="Center" 
                                     HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column">
                 <ItemTemplate>
                     <div class="grid-cell-inner">
-                        <asp:Label ID="lblPictureDate" runat="server" Text='<%#Eval("PictureDate") %>'></asp:Label>
+                        <asp:Label ID="lblVideoDate" runat="server" Text='<%#Eval("VideoDate") %>'></asp:Label>
                     </div> 
                 </ItemTemplate>
          </asp:TemplateField>
 
-        <asp:TemplateField HeaderText="Picture Level" ItemStyle-VerticalAlign="Middle" ItemStyle-HorizontalAlign="Center" 
+        <asp:TemplateField HeaderText="Video Level" ItemStyle-VerticalAlign="Middle" ItemStyle-HorizontalAlign="Center" 
                                      HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column">
                 <ItemTemplate>
                     <div class="grid-cell-inner">
-                        <asp:Label ID="lblPictureLevel" runat="server" Text='<%#Eval("PictureLevelId") %>'></asp:Label>
+                        <asp:Label ID="lblVideoLevel" runat="server" Text='<%#Eval("VideoLevelId") %>'></asp:Label>
                     </div> 
                 </ItemTemplate>
          </asp:TemplateField>
@@ -388,7 +385,7 @@
                             <asp:ListItem Value="Edit">Edit</asp:ListItem>
                             <%--<asp:ListItem Value="Delete">Delete</asp:ListItem>--%>
                     </asp:DropDownList>
-                    <asp:Label ID="lblddlActionPictureID" runat="server" Text='<%#Eval("PictureId") %>' Visible="false">
+                    <asp:Label ID="lblddlActionVideoID" runat="server" Text='<%#Eval("VideoId") %>' Visible="false">
                     </asp:Label>
                 </ItemTemplate>
             </asp:TemplateField>
@@ -402,7 +399,7 @@
    </div>
 </asp:Panel>
 
-<asp:Panel ID="pnlEntryPicture" runat="server" Visible="false">
+<asp:Panel ID="pnlEntryVideo" runat="server" Visible="false">
 
    <div style="padding:10px 0px;">
         * Note: All Fields marked with an asterisk (*) are required.
@@ -413,7 +410,7 @@
 		<div class="portlet-title">
 			<div class="caption">
 				<i class="icon-reorder"></i>
-				<span class="hidden-480"> Picture Detail</span>
+				<span class="hidden-480"> Video Detail</span>
 			</div>
 		</div>
 
@@ -558,24 +555,24 @@
 
         <div class="control-group">
 		     <label class="control-label">          
-                   <asp:Label ID="lblPictureTitle" runat="server" Text=" Picture Title :" ></asp:Label>
+                   <asp:Label ID="lblVideoTitle" runat="server" Text=" Video Title :" ></asp:Label>
              </label>
              <div class="startsetallfrom">
                  <span class="help-inline"><font Color="red"><b>*</b></font></span>
              </div>
              <div class="controls" style="position:relative;">
-                  <asp:TextBox ID="txtPictureTitle" runat="server" CssClass="m-wrap large"/>
-                   <asp:RequiredFieldValidator ID="rfvtxtPictureTitle" runat="server" ErrorMessage="PictureTitle"  
-                                                ControlToValidate="txtPictureTitle" SetFocusOnError="true" 
-                                                ValidationGroup="Sports" Text=" Picture Title Required !" CssClass="errorfordnn" ClientIDMode="Static"/>
-                   <asp:RegularExpressionValidator ID="rgvtxtPictureTitle"
-                                                    Display="Static" ControlToValidate="txtPictureTitle"  
+                  <asp:TextBox ID="txtVideoTitle" runat="server" CssClass="m-wrap large"/>
+                   <asp:RequiredFieldValidator ID="rfvtxtVideoTitle" runat="server" ErrorMessage="VideoTitle"  
+                                                ControlToValidate="txtVideoTitle" SetFocusOnError="true" 
+                                                ValidationGroup="Sports" Text=" Video Title Required !" CssClass="errorfordnn" ClientIDMode="Static"/>
+                   <asp:RegularExpressionValidator ID="rgvtxtVideoTitle"
+                                                    Display="Static" ControlToValidate="txtVideoTitle"  
                                                     ValidationGroup="Sports" CssClass="errorfordnn"
                                                     ValidationExpression = "^[\s\S]{0,100}$" 
                                                     runat="server" ErrorMessage="Maximum 100 characters allowed.">
                    </asp:RegularExpressionValidator>  
-                   <asp:CustomValidator ID="cvtxtPictureTitle" ValidationGroup="Sports" runat="server" ErrorMessage="" SetFocusOnError="true" 
-                                                 ControlToValidate="txtPictureTitle" EnableClientScript="true" ClientValidationFunction="validateTextBox" 
+                   <asp:CustomValidator ID="cvtxtVideoTitle" ValidationGroup="Sports" runat="server" ErrorMessage="" SetFocusOnError="true" 
+                                                 ControlToValidate="txtVideoTitle" EnableClientScript="true" ClientValidationFunction="validateTextBox" 
                                                  CssClass="errorfordnn" Text="First Character Should Not Be Special Character">
                    </asp:CustomValidator>
              </div>
@@ -583,18 +580,18 @@
 
         <div class="control-group">
 		    <label class="control-label">
-                <asp:Label ID="lblPictureDesc" runat="server" Text=" Description :" ></asp:Label>
+                <asp:Label ID="lblVideoDesc" runat="server" Text=" Description :" ></asp:Label>
             </label>
             <div class="controls" style="position:relative;">
-                <asp:TextBox ID="txtPictureDesc" runat="server" CssClass="m-wrap mediumSmallDesc" TextMode="MultiLine" Width="319px" Height="150px"/>
+                <asp:TextBox ID="txtVideoDesc" runat="server" CssClass="m-wrap mediumSmallDesc" TextMode="MultiLine" Width="319px" Height="150px"/>
                     <asp:RegularExpressionValidator ID="RegularExpressionValidator2"
-                                                    Display="Static" ControlToValidate="txtPictureDesc"  
+                                                    Display="Static" ControlToValidate="txtVideoDesc"  
                                                     ValidationGroup="Sports" CssClass="errorfordnn"
                                                     ValidationExpression = "^[\s\S]{0,300}$" 
                                                     runat="server" ErrorMessage="Maximum 300 characters allowed.">
                     </asp:RegularExpressionValidator>  
-                 <asp:CustomValidator ID="cvtxtPictureDesc" ValidationGroup="Sports" runat="server" ErrorMessage="" SetFocusOnError="true" 
-                                                 ControlToValidate="txtPictureDesc" EnableClientScript="true" ClientValidationFunction="validateTextBox" 
+                 <asp:CustomValidator ID="cvtxtVideoDesc" ValidationGroup="Sports" runat="server" ErrorMessage="" SetFocusOnError="true" 
+                                                 ControlToValidate="txtVideoDesc" EnableClientScript="true" ClientValidationFunction="validateTextBox" 
                                                  CssClass="errorfordnn" Text="First Character Should Not Be Special Character">
                    </asp:CustomValidator>
            </div>
@@ -602,25 +599,25 @@
 
         <div class="control-group">
 		    <label class="control-label"> 
-                <asp:Label ID="lblPictureDate" runat="server" Text="Picture Date :" ></asp:Label>
+                <asp:Label ID="lblVideoDate" runat="server" Text="Video Date :" ></asp:Label>
             </label>
             <div class="startsetallfrom">
                   <span class="help-inline"><font Color="red"><b>*</b></font></span>
             </div>
             <div class="controls" style="position:relative;">  
-                <asp:TextBox ID="txtPictureDate" runat="server" CssClass="datetimepicker m-wrap medium onlynumeric"/>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Enter Picture Date"
-                                                 ControlToValidate="txtPictureDate" SetFocusOnError="true" 
-                                                 ValidationGroup="Sports" Text="Picture Date Required !" CssClass="errorfordnn" 
+                <asp:TextBox ID="txtVideoDate" runat="server" CssClass="datetimepicker m-wrap medium onlynumeric"/>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Enter Video Date"
+                                                 ControlToValidate="txtVideoDate" SetFocusOnError="true" 
+                                                 ValidationGroup="Sports" Text="Video Date Required !" CssClass="errorfordnn" 
                                                  ClientIDMode="Static"/>
                  <asp:RegularExpressionValidator ID="RegularExpressionValidator8"
-                                                 Display="Static" ControlToValidate="txtPictureDate"  
+                                                 Display="Static" ControlToValidate="txtVideoDate"  
                                                  ValidationGroup="Sports" CssClass="errorfordnn"
                                                  ValidationExpression = "^[\s\S]{0,25}$" 
                                                  runat="server" ErrorMessage="Maximum 25 characters allowed.">
                  </asp:RegularExpressionValidator>  
                 <asp:CustomValidator ID="CustomValidator6" ValidationGroup="Sports" runat="server" ErrorMessage="" SetFocusOnError="true" 
-                                                 ControlToValidate="txtPictureDate" EnableClientScript="true" ClientValidationFunction="validateTextBox" 
+                                                 ControlToValidate="txtVideoDate" EnableClientScript="true" ClientValidationFunction="validateTextBox" 
                                                  CssClass="errorfordnn" Text="First Character Should Not Be Special Character">
                    </asp:CustomValidator>
             </div>
@@ -628,42 +625,83 @@
 
         <div class="control-group">
 		     <label class="control-label">
-                   <asp:Label ID="lblPicturePriority" runat="server" Text=" Priority :" ></asp:Label>
+                   <asp:Label ID="lblVideoPriority" runat="server" Text=" Priority :" ></asp:Label>
              </label>
               <div class="startsetallfrom">
                  <span class="help-inline"><font Color="red"><b>*</b></font></span>
              </div>
              <div class="controls" style="position:relative;">
-                  <asp:DropDownList ID="ddlPicturePriority" runat="server" CssClass="medium m-wrap">
+                  <asp:DropDownList ID="ddlVideoPriority" runat="server" CssClass="medium m-wrap">
                         <asp:ListItem Text=" -- Select Priority -- " Value="0" Selected="True"></asp:ListItem>
                         <asp:ListItem Text="High" Value="High" ></asp:ListItem>
                         <asp:ListItem Text="Low" Value="Low"></asp:ListItem>
                   </asp:DropDownList>
-                  <asp:RequiredFieldValidator ID="RFVPicturePriority" runat="server" ErrorMessage="Picture Priority,"
-                                                ControlToValidate="ddlPicturePriority" SetFocusOnError="true"  
+                  <asp:RequiredFieldValidator ID="RFVVideoPriority" runat="server" ErrorMessage="Video Priority,"
+                                                ControlToValidate="ddlVideoPriority" SetFocusOnError="true"  
                                                 ValidationGroup="Sports" 
-                                                InitialValue="0" Text="Select Picture Priority Required !" CssClass="errorfordnn" 
+                                                InitialValue="0" Text="Select Video Priority Required !" CssClass="errorfordnn" 
                                                 ClientIDMode="Static"/>
              </div>
         </div>
 
-        <div class="control-group">
+     <div class="control-group">
 		    <label class="control-label"> 
-                <asp:Label ID="lblPictureLogo" runat="server" Text=" Photo : "></asp:Label>
+                <asp:Label ID="lblVideoType" runat="server" Text="Video Type :" ></asp:Label>
              </label>
-            <div class="controls" style="position:relative;">  
-                <input ID="PictureLogoFile" type="file" name="file" runat="server" onchange="previewFilelogo()"/>
-                <asp:RegularExpressionValidator ID="RegularExpressionValidator6" 
-                                                ValidationExpression="([a-zA-Z0-9\s_\\.\-:])+(.png|.jpg|.gif)$"
-                                                ControlToValidate="PictureLogoFile" ValidationGroup="Sports" 
-                                                runat="server" ForeColor="Red" 
-                                                ErrorMessage="Please choose only .jpg, .png and .gif images!"
-                                                CssClass ="errorfordnn" />
-                <div style="padding-top:10px;border:none; Width:200px;">
-                    <asp:Image ID="PictureLogoImage" runat="server" onError="imgError(this);"/>
-                </div>
-            </div>
+            <div class="controls" style="position:relative;">
+                    <asp:DropDownList ID="ddlvideotype" runat="server" Width="320px" Height="34px" 
+                                      OnSelectedIndexChanged="ddlvideotype_SelectedIndexChanged" AutoPostBack="true">
+                            <asp:ListItem Value="YouTube">YouTube</asp:ListItem>
+                            <asp:ListItem Value="Other">Other</asp:ListItem>
+                    </asp:DropDownList>
+             </div>
+     </div>
+
+    <div ID="divvideopath" runat="server">
+        <div class="control-group">
+		    <label class="control-label">
+                <asp:Label ID="lblVideoPath" runat="server" Text="Video Path :" ></asp:Label>
+		    </label>
+            <div class="controls" style="position:relative;">
+                <asp:TextBox ID="txtVideoPath" runat="server" CssClass="m-wrap large"></asp:TextBox>  
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator3"
+                                              Display="Static" ControlToValidate="txtVideoPath"  
+                                              ValidationGroup="Sports" CssClass="errorfordnn"
+                                              ValidationExpression = "^[\s\S]{0,30}$" 
+                                              runat="server" ErrorMessage="Maximum 30 characters allowed.">
+                </asp:RegularExpressionValidator>
+           </div>
         </div>
+         
+        <div class="control-group">
+		    <label class="control-label">
+                <asp:Label ID="lblVideoPathExample" runat="server" Text=""></asp:Label>
+            </label>
+            <div class="controls">
+                <asp:Label ID="lblVideoPathExample1" runat="server" Text="http://www.youtube.com/watch?v=_____________________" ></asp:Label>
+		    </div>
+        </div>  
+    </div>
+
+    <div id="divOtherVideoPath" runat="server">
+        <div class="control-group">
+		    <div class="controls" style="position:relative;">
+                <input ID="VideoLogoFile" type="file" name="file" runat="server" onchange="previewFile()"/>
+                  <asp:RegularExpressionValidator ID="RegularExpressionValidator4" 
+                                                ValidationExpression="([a-zA-Z0-9\s_\\.\-:])+(.flv|.webm|.mkv|.vob|.ogv|.ogg|.avi|.mov|.wmv|.rm|.mp4|.m4p|.m4v|.mpg|.mp2|.mpeg|.mpe|.mpv|.m2v|.m4v|.svi|.3gp|.3g2|.nsv|.asf|.asx|.srt|.swf)$"
+                                                ControlToValidate="VideoLogoFile" ValidationGroup="Sports" 
+                                                runat="server" ForeColor="Red" 
+                                                ErrorMessage="This is not video file!"
+                                                CssClass ="errorfordnn" />
+            </div>
+            <div class="controls">
+               <asp:Label ID="lblErrorVideo" runat="server" Text="Video Must be Less Than 10 MB." ForeColor="Red"></asp:Label>
+            </div> 
+            <div class="controls">
+                <iframe id="ifmOtherVideoPath" runat="server" width="200" height="150" src='<%#Eval("VideoOtherFile") %>'></iframe>
+            </div> 
+         </div>
+    </div>
 
        <div class="control-group">
 		    <label class="control-label">
@@ -697,18 +735,18 @@
                     
         <div class="right_div_css">
 
-               <asp:Button id="btnSavePicture" runat="server" Width="100px" Text="Save" ClientIDMode="Static"
-                         onclick="btnSavePicture_Click" ValidationGroup="Sports" 
+               <asp:Button id="btnSaveVideo" runat="server" Width="100px" Text="Save" ClientIDMode="Static"
+                         onclick="btnSaveVideo_Click" ValidationGroup="Sports" 
                          OnClientClick="return validateAndConfirm(this.id);"
                          CssClass="btn blue"/>
 
-             <asp:Button id="btnUpdatePicture" runat="server" Width="100px" Text="Update"  ClientIDMode="Static"
-                         onclick="btnUpdatePicture_Click" Visible="false" 
+             <asp:Button id="btnUpdateVideo" runat="server" Width="100px" Text="Update"  ClientIDMode="Static"
+                         onclick="btnUpdateVideo_Click" Visible="false" 
                          OnClientClick="return validateAndConfirm(this.id);"
                          CssClass="btn red"  ValidationGroup="Sports"/>        
 
-             <asp:Button id="btnClosePicture" runat="server" Width="100px"  Text="Cancel" 
-                         onclick="btnClosePicture_Click" CssClass="btn" ClientIDMode="Static" ValidationGroup="CloseSports"
+             <asp:Button id="btnCloseVideo" runat="server" Width="100px"  Text="Cancel" 
+                         onclick="btnCloseVideo_Click" CssClass="btn" ClientIDMode="Static" ValidationGroup="CloseSports"
                          OnClientClick="return validateAndConfirmClose(this.id);"/>        
 
           </div>

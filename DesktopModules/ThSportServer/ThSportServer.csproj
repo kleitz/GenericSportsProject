@@ -100,6 +100,7 @@
     <Compile Include="clsAddDocumentsType.cs" />
     <Compile Include="clsEvent.cs" />
     <Compile Include="clsNews.cs" />
+    <Compile Include="clsPictures.cs" />
     <Compile Include="clsPlayerType.cs" />
     <Compile Include="clsSponsor.cs" />
     <Compile Include="clsSponsorLevel.cs" />
@@ -122,6 +123,7 @@
     <Compile Include="clsTeamMemberType.cs" />
     <Compile Include="clsTeamPlayer.cs" />
     <Compile Include="clsUserRole.cs" />
+    <Compile Include="clsVideos.cs" />
     <Compile Include="Data\DataProvider.cs" />
     <Compile Include="DTOs\DTOAssign.cs" />
     <Compile Include="clsClubMemberType.cs" />

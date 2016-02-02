@@ -16,21 +16,24 @@ using System.Collections;
 
 namespace ThSportServer
 {
-    public class clsPictures
+    public class clsVideos
     {
-        public int PictureId { get; set;} 
-        public string PictureLevelId { get; set;} 
-        public string PictureTitle { get; set;} 
-        public string PictureDesc { get; set;} 
-        public string PictureDate { get; set;} 
-        public string PictureFile { get; set;} 
-        public int ActiveFlagId { get; set;} 
-        public int ShowFlagId { get; set;} 
-        public int PortalID { get; set;} 
-        public string CreatedById { get; set;} 
-        public string ModifiedById { get; set;} 
+        public int VideoId { get; set; }
+        public string VideoLevelId { get; set; }
+        public string VideoTitle { get; set; }
+        public string VideoDesc { get; set; }
+        public string VideoDate { get; set; }
+        public int VideoType { get; set; }
+        public string VideoYouTubeFile { get; set; }
+        public string VideoOtherFile { get; set; }
+        public string PictureFile { get; set; }
+        public int ActiveFlagId { get; set; }
+        public int ShowFlagId { get; set; }
+        public int PortalID { get; set; }
+        public string CreatedById { get; set; }
+        public string ModifiedById { get; set; }
 
-        public int SportsId { get; set; }
+        public int SportId { get; set; }
         public int CountryId { get; set; }
         public int EventId { get; set; }
         public int SeasonId { get; set; }
@@ -44,25 +47,25 @@ namespace ThSportServer
         public int SponsorId { get; set; }
     }
 
-    public class clsPicturesController
+    public class clsVideosController
     {
         private readonly DataProvider dataProvider = DataProvider.Instance();
         private readonly UserInfo currentUser = DotNetNuke.Entities.Users.UserController.GetCurrentUserInfo();
 
-        public clsPicturesController()
+        public clsVideosController()
         {
 
         }
 
         #region Getdata Methods
 
-        public DataTable GetDataPicture()
+        public DataTable GetDataVideo()
         {
             using (DataTable dt = new DataTable())
             {
                 try
                 {
-                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetDataPicture"))
+                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetDataVideo"))
                     {
                         dt.Load(reader);
                         return dt;
@@ -82,11 +85,11 @@ namespace ThSportServer
 
         #region Insert,Update,Delete Methods
 
-        public int InsertPicture(clsPictures cs)
+        public int InsertVideo(clsVideos cs)
         {
             try
             {
-                dataProvider.ExecuteNonQuery("usp_InsertPicture", cs.PictureLevelId, cs.PictureTitle, cs.PictureDesc, Convert.ToDateTime(cs.PictureDate), cs.PictureFile, cs.ActiveFlagId, cs.ShowFlagId, cs.PortalID, cs.CreatedById, cs.ModifiedById);
+                dataProvider.ExecuteNonQuery("usp_InsertVideo", cs.VideoLevelId,cs.VideoTitle,cs.VideoDesc,Convert.ToDateTime(cs.VideoDate),cs.VideoType,cs.VideoYouTubeFile,cs.VideoOtherFile,cs.ActiveFlagId,cs.ShowFlagId,cs.PortalID,cs.CreatedById,cs.ModifiedById);
             }
             catch (Exception ex)
             {
@@ -95,11 +98,11 @@ namespace ThSportServer
             return 0;
         }
 
-        public int InsertPictureLinks(clsPictures cs)
+        public int InsertVideoLinks(clsVideos cs)
         {
             try
             {
-                dataProvider.ExecuteNonQuery("usp_InsertPictureLinks", cs.PictureId, cs.SportsId, cs.CountryId, cs.SeasonId, cs.CompetitionId, cs.ClubId, cs.ClubOwnersId, cs.ClubMemberId, cs.TeamId, cs.TeamMemberId, cs.SponsorId, cs.EventId, cs.PlayerId);
+                dataProvider.ExecuteNonQuery("usp_InsertVideoLinks", cs.VideoId,cs.SportId,cs.CountryId,cs.SeasonId,cs.CompetitionId,cs.ClubId,cs.ClubOwnersId,cs.ClubMemberId,cs.TeamId,cs.TeamMemberId,cs.SponsorId,cs.EventId,cs.PlayerId);
             }
             catch (Exception ex)
             {
@@ -108,12 +111,12 @@ namespace ThSportServer
             return 0;
         }
 
-        public int UpdatePicture(clsPictures cs)
+        public int UpdateVideo(clsVideos cs)
         {
             int i = 0;
             try
             {
-                dataProvider.ExecuteNonQuery("usp_UpdatePicture", cs.PictureId,cs.PictureLevelId,cs.PictureTitle,cs.PictureDesc,Convert.ToDateTime(cs.PictureDate),cs.PictureFile,cs.ActiveFlagId,cs.ShowFlagId,cs.PortalID,cs.ModifiedById);
+                dataProvider.ExecuteNonQuery("usp_UpdateVideo", cs.VideoId,cs.VideoLevelId,cs.VideoTitle,cs.VideoDesc,Convert.ToDateTime(cs.VideoDate),cs.VideoType,cs.VideoYouTubeFile,cs.VideoOtherFile,cs.ActiveFlagId,cs.ShowFlagId,cs.PortalID,cs.ModifiedById);
             }
             catch (Exception ex)
             {
@@ -122,12 +125,12 @@ namespace ThSportServer
             return i;
         }
 
-        public int UpdatePictureLinks(clsPictures cs)
+        public int UpdateVideoLinks(clsVideos cs)
         {
             int i = 0;
             try
             {
-                dataProvider.ExecuteNonQuery("usp_UpdatePictureLinks", cs.PictureId, cs.SportsId,cs.CountryId,cs.SeasonId,cs.CompetitionId,cs.ClubId,cs.ClubOwnersId,cs.ClubMemberId,cs.TeamId,cs.TeamMemberId,cs.SponsorId,cs.EventId,cs.PlayerId);
+                dataProvider.ExecuteNonQuery("usp_UpdateVideoLinks", cs.VideoId,cs.SportId,cs.CountryId,cs.SeasonId,cs.CompetitionId,cs.ClubId,cs.ClubOwnersId,cs.ClubMemberId,cs.TeamId,cs.TeamMemberId,cs.SponsorId,cs.EventId,cs.PlayerId);
             }
             catch (Exception ex)
             {
@@ -138,13 +141,13 @@ namespace ThSportServer
 
         #endregion Insert,Update,Delete Methods
 
-        public DataTable GetPictureDataByPictureID(int PictureID)
+        public DataTable GetVideoDataByVideoID(int VideoID)
         {
             using (DataTable dt = new DataTable())
             {
                 try
                 {
-                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetPictureDataByPictureID", PictureID))
+                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetVideoDataByVideoID", VideoID))
                     {
                         dt.Load(reader);
                         return dt;
@@ -378,13 +381,13 @@ namespace ThSportServer
             }
         }
 
-        public DataTable GetLatestPictureID()
+        public DataTable GetLatestVideoID()
         {
             using (DataTable dt = new DataTable())
             {
                 try
                 {
-                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetLatestPictureID"))
+                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetLatestVideoID"))
                     {
                         dt.Load(reader);
                         return dt;
@@ -579,6 +582,25 @@ namespace ThSportServer
             }
         }
 
+        public DataTable GetOtherVideoPathByVideoID(clsVideos cs)
+        {
+            using (DataTable dt = new DataTable())
+            {
+                try
+                {
+                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetOtherVideoPathByVideoID", cs.VideoId))
+                    {
+                        dt.Load(reader);
+                        return dt;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Exceptions.LogException(ex);
+                }
+                return dt;
+            }
+        }
    
     }
 }

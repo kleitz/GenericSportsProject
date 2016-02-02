@@ -15,17 +15,14 @@ using System.Web.UI.HtmlControls;
 
 namespace DotNetNuke.Modules.ThSport
 {
-    public partial class frmNews : PortalModuleBase
+    public partial class frmVideos : PortalModuleBase
     {
         private readonly UserInfo currentUser = DotNetNuke.Entities.Users.UserController.GetCurrentUserInfo();
-        public string ImageUploadFolder = "DesktopModules\\ThSport\\Images\\NewsImage\\";
-        public string imhpathDB = "Images\\NewsImage\\";
+        public string VideoUploadFolder = "DesktopModules\\ThSport\\Videos\\Video\\";
+        public string videohpathDB = "Videos\\Video\\";
 
-        public string VideoUploadFolder = "DesktopModules\\ThSport\\Videos\\NewsVideo\\";
-        public string videohpathDB = "Videos\\NewsVideo\\";
-
-        clsNews cs = new clsNews();
-        clsNewsController csc = new clsNewsController();
+        clsVideos cs = new clsVideos();
+        clsVideosController csc = new clsVideosController();
 
         string m_controlToLoad;
         string VName;
@@ -61,13 +58,13 @@ namespace DotNetNuke.Modules.ThSport
 
             if (currentUser.IsSuperUser || currentUser.IsInRole("Club Admin"))
             {
-                dt = csc.GetDataNews();
+                dt = csc.GetDataVideo();
             }
 
             if (dt.Rows.Count > 0)
             {
-                gvNews.DataSource = dt;
-                gvNews.DataBind();
+                gvVideo.DataSource = dt;
+                gvVideo.DataBind();
             }
         }
 
@@ -78,16 +75,15 @@ namespace DotNetNuke.Modules.ThSport
 
         private void funClearData()
         {
-            txtNewsTitle.Text = "";
-            txtNewsDesc.Text = "";
-            txtNewText.Text = "";
-            txtNewsDate.Text = "";
+            txtVideoTitle.Text = "";
+            txtVideoDesc.Text = "";
+            txtVideoDate.Text = "";
             txtVideoPath.Text = "";
             ChkIsActive.Checked = false;
             ChkIsShow.Checked = false;
         }
 
-        protected void btnSaveNews_Click(object sender, EventArgs e)
+        protected void btnSaveVideo_Click(object sender, EventArgs e)
         {
             Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "SaveSuccessfully();", true);
 
@@ -95,14 +91,14 @@ namespace DotNetNuke.Modules.ThSport
             Boolean FileSaved = false;
             Boolean FileOKVidoe = false;
             Boolean FileSavedVideo = false;
-            
+
             if (ddlSports.SelectedValue == "")
             {
-                cs.SportsId = 0;
+                cs.SportId = 0;
             }
             else
             {
-                cs.SportsId = Convert.ToInt32(ddlSports.SelectedValue);
+                cs.SportId = Convert.ToInt32(ddlSports.SelectedValue);
             }
 
             if (ddlCountry.SelectedValue == "")
@@ -204,68 +200,19 @@ namespace DotNetNuke.Modules.ThSport
                 cs.SponsorId = Convert.ToInt32(ddlSponsor.SelectedValue);
             }
 
-            cs.NewsTitle = txtNewsTitle.Text.Trim();
-            cs.NewsDesc = txtNewsDesc.Text.Trim();
-            cs.NewsText = txtNewText.Text.Trim();
-            cs.NewsDate = txtNewsDate.Text.Trim();           
-
-            cs.NewsPicture = imhpathDB + NewsLogoFile.PostedFile.FileName.Replace(" ", "");
-
-            if (NewsLogoFile.PostedFile != null)
-            {
-                String FileExtension = Path.GetExtension(NewsLogoFile.PostedFile.FileName.Replace(" ", "")).ToLower();
-                String[] allowedExtensions = { ".png", ".jpg", ".gif", ".jpeg" };
-                for (int i = 0; i < allowedExtensions.Length; i++)
-                {
-                    if (FileExtension == allowedExtensions[i])
-                    {
-                        FileOK = true;
-                        break;
-                    }
-                }
-            }
-
-            if (!string.IsNullOrEmpty(NewsLogoFile.PostedFile.FileName))
-            {
-                if (!FileOK)
-                {
-                    //Page.ClientScript.RegisterClientScriptBlock(typeof(Page), "Alert", "alert('Please choose only .jpg, .png and .gif images For Competition !')", true);
-                    return;
-                }
-            }
-
-            if (FileOK)
-            {
-                if (NewsLogoFile.PostedFile.ContentLength > 10485760)
-                {
-                    //dvMsg.Attributes.Add("style", "display:block;");
-                    //return;
-                }
-                else
-                {
-                    //dvMsg.Attributes.Add("style", "display:none;");
-                }
-
-                try
-                {
-                    NewsLogoFile.PostedFile.SaveAs(physicalpath + ImageUploadFolder + NewsLogoFile.PostedFile.FileName.Replace(" ", ""));
-                    FileSaved = true;
-                }
-                catch (Exception ex)
-                {
-                    FileSaved = false;
-                }
-            }
+            cs.VideoTitle = txtVideoTitle.Text.Trim();
+            cs.VideoDesc = txtVideoDesc.Text.Trim();
+            cs.VideoDate = txtVideoDate.Text.Trim();
 
             // string youtubelink = "http://www.youtube.com/embed/";
             string videopath = txtVideoPath.Text;
             //youtubelink +
-             cs.NewsVideo = videopath;
-            
-            if (NewsVideoLogoFile.PostedFile != null)
+            cs.VideoYouTubeFile = videopath;
+
+            if (VideoLogoFile.PostedFile != null)
             {
-                cs.NewsOtherVideoPath = videohpathDB + NewsVideoLogoFile.PostedFile.FileName.Replace(" ", "");
-                String FileExtension = Path.GetExtension(NewsVideoLogoFile.PostedFile.FileName.Replace(" ", "")).ToLower();
+                cs.VideoOtherFile = videohpathDB + VideoLogoFile.PostedFile.FileName.Replace(" ", "");
+                String FileExtension = Path.GetExtension(VideoLogoFile.PostedFile.FileName.Replace(" ", "")).ToLower();
                 String[] allowedExtensions = { ".flv", ".webm", ".mkv", ".vob", ".ogv", ".ogg", ".avi", ".mov", ".wmv", ".rm", ".mp4", ".m4p", ".m4v", ".mpg", ".mp2", ".mpeg", ".mpe", ".mpv", ".m2v", ".m4v", ".svi", ".3gp", ".3g2", ".nsv", ".asf", ".asx", ".srt", ".swf" };
                 for (int i = 0; i < allowedExtensions.Length; i++)
                 {
@@ -281,7 +228,7 @@ namespace DotNetNuke.Modules.ThSport
             {
                 try
                 {
-                    NewsVideoLogoFile.PostedFile.SaveAs(physicalpath + VideoUploadFolder + NewsVideoLogoFile.PostedFile.FileName.Replace(" ", ""));
+                    VideoLogoFile.PostedFile.SaveAs(physicalpath + VideoUploadFolder + VideoLogoFile.PostedFile.FileName.Replace(" ", ""));
                     FileSavedVideo = true;
                 }
                 catch (Exception ex)
@@ -299,8 +246,6 @@ namespace DotNetNuke.Modules.ThSport
                 cs.VideoType = 2;
             }
 
-            // Call Save Method
-            
             if (ChkIsActive.Checked == true)
             {
                 cs.ActiveFlagId = 1;
@@ -319,35 +264,35 @@ namespace DotNetNuke.Modules.ThSport
                 cs.ShowFlagId = 0;
             }
 
-            cs.NewsLevelId = ddlNewsPriority.SelectedValue;
+            cs.VideoLevelId = ddlVideoPriority.SelectedValue;
 
             cs.PortalID = PortalId;
             cs.CreatedById = currentUser.Username;
             cs.ModifiedById = currentUser.Username;
 
-            int spid = csc.InsertNews(cs);
+            int spid = csc.InsertVideo(cs);
 
             DataTable dt = new DataTable();
-            dt = csc.GetLatestNewsID();
+            dt = csc.GetLatestVideoID();
             if (dt.Rows.Count > 0)
             {
-                cs.NewsId = Convert.ToInt32(dt.Rows[0]["NewsId"].ToString());
-                csc.InsertNewsLinks(cs);
+                cs.VideoId = Convert.ToInt32(dt.Rows[0]["VideoId"].ToString());
+                csc.InsertVideoLinks(cs);
             }
 
-            pnlEntryNews.Visible = false;
-            PnlGridNews.Visible = true;
+            pnlEntryVideo.Visible = false;
+            PnlGridVideo.Visible = true;
             FillGridView();
             funClearData();
         }
 
-        protected void btnAddNews_Click(object sender, EventArgs e)
+        protected void btnAddVideo_Click(object sender, EventArgs e)
         {
             funClearData();
-            pnlEntryNews.Visible = true;
-            PnlGridNews.Visible = false;
-            btnSaveNews.Visible = true;
-            btnUpdateNews.Visible = false;
+            pnlEntryVideo.Visible = true;
+            PnlGridVideo.Visible = false;
+            btnSaveVideo.Visible = true;
+            btnUpdateVideo.Visible = false;
             FillSport();
             FillCountry();
             FillEvent();
@@ -360,8 +305,8 @@ namespace DotNetNuke.Modules.ThSport
 
         private void FillSponsor()
         {
-            clsNews e = new clsNews();
-            clsNewsController ec = new clsNewsController();
+            clsVideos e = new clsVideos();
+            clsVideosController ec = new clsVideosController();
             DataTable dt = new DataTable();
 
             dt = ec.GetSponsorIDAndSponsorName();
@@ -375,29 +320,29 @@ namespace DotNetNuke.Modules.ThSport
             }
         }
 
-        protected void btnCloseNews_Click(object sender, EventArgs e)
+        protected void btnCloseVideo_Click(object sender, EventArgs e)
         {
-            pnlEntryNews.Visible = false;
-            PnlGridNews.Visible = true;
+            pnlEntryVideo.Visible = false;
+            PnlGridVideo.Visible = true;
             FillGridView();
         }
 
-        protected void btnUpdateNews_Click(object sender, EventArgs e)
+        protected void btnUpdateVideo_Click(object sender, EventArgs e)
         {
             Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "UpdateSuccessfully()", true);
 
             Boolean FileOK = false;
             Boolean FileSaved = false;
 
-            cs.NewsId = Convert.ToInt32(hidRegID.Value);
+            cs.VideoId = Convert.ToInt32(hidRegID.Value);
 
             if (ddlSports.SelectedValue == "")
             {
-                cs.SportsId = 0;
+                cs.SportId = 0;
             }
             else
             {
-                cs.SportsId = Convert.ToInt32(ddlSports.SelectedValue);
+                cs.SportId = Convert.ToInt32(ddlSports.SelectedValue);
             }
 
             if (ddlCountry.SelectedValue == "")
@@ -499,72 +444,9 @@ namespace DotNetNuke.Modules.ThSport
                 cs.SponsorId = Convert.ToInt32(ddlSponsor.SelectedValue);
             }
 
-            cs.NewsTitle = txtNewsTitle.Text.Trim();
-            cs.NewsDesc = txtNewsDesc.Text.Trim();
-            cs.NewsText = txtNewText.Text.Trim();
-            cs.NewsDate = txtNewsDate.Text.Trim();
-
-            if (NewsLogoFile.PostedFile.FileName == "")
-            {
-                DataTable dt1 = new DataTable();
-                cs.NewsId = Convert.ToInt32(hidRegID.Value);
-                dt1 = csc.GetNewsLogoByNewsID(cs);
-                NewsLogoImage.ImageUrl = dt1.Rows[0]["NewsPicture"].ToString();
-                string ufname = dt1.Rows[0]["NewsPicture"].ToString().Replace(" ", "");
-                NewsLogoFile.ResolveUrl("ufname");
-                cs.NewsPicture = ufname.Replace(" ", "");
-                FileOKForUpdate = true;
-            }
-            else
-            {
-                cs.NewsPicture = imhpathDB + NewsLogoFile.PostedFile.FileName.Replace(" ", "");
-
-                if (NewsLogoFile.PostedFile != null)
-                {
-                    String FileExtension = Path.GetExtension(NewsLogoFile.PostedFile.FileName.Replace(" ", "")).ToLower();
-                    String[] allowedExtensions = { ".png", ".jpg", ".gif", ".jpeg" };
-                    for (int i = 0; i < allowedExtensions.Length; i++)
-                    {
-                        if (FileExtension == allowedExtensions[i])
-                        {
-                            FileOK = true;
-                            break;
-                        }
-                    }
-                }
-
-                if (!string.IsNullOrEmpty(NewsLogoFile.PostedFile.FileName))
-                {
-                    if (!FileOK)
-                    {
-                        //Page.ClientScript.RegisterClientScriptBlock(typeof(Page), "Alert", "alert('Please choose only .jpg, .png and .gif images For Competition !')", true);
-                        return;
-                    }
-                }
-
-                if (FileOK)
-                {
-                    if (NewsLogoFile.PostedFile.ContentLength > 10485760)
-                    {
-                        //dvMsg.Attributes.Add("style", "display:block;");
-                        //return;
-                    }
-                    else
-                    {
-                        //dvMsg.Attributes.Add("style", "display:none;");
-                    }
-
-                    try
-                    {
-                        NewsLogoFile.PostedFile.SaveAs(physicalpath + ImageUploadFolder + NewsLogoFile.PostedFile.FileName.Replace(" ", ""));
-                        FileSaved = true;
-                    }
-                    catch (Exception ex)
-                    {
-                        FileSaved = false;
-                    }
-                }
-            }
+            cs.VideoTitle = txtVideoTitle.Text.Trim();
+            cs.VideoDesc = txtVideoDesc.Text.Trim();
+            cs.VideoDate = txtVideoDate.Text.Trim();
 
             if (ddlvideotype.SelectedValue == "YouTube")
             {
@@ -572,29 +454,29 @@ namespace DotNetNuke.Modules.ThSport
                 // string youtubelink = "http://www.youtube.com/embed/";
                 string videopath = txtVideoPath.Text;
                 //youtubelink 
-                cs.NewsVideo = videopath;
+                cs.VideoYouTubeFile = videopath;
 
             }
             else
             {
                 cs.VideoType = 2;
 
-                if (NewsVideoLogoFile.PostedFile.FileName == "")
+                if (VideoLogoFile.PostedFile.FileName == "")
                 {
                     DataTable dt = new DataTable();
-                    cs.NewsId = Convert.ToInt32(hidRegID.Value);
+                    cs.VideoId = Convert.ToInt32(hidRegID.Value);
 
-                    dt = csc.GetOtherVideoPathByNewsID(cs);
-                    string ufname = dt.Rows[0]["NewsOtherVideoPath"].ToString().Replace(" ", "");
-                    cs.NewsOtherVideoPath = ufname;
+                    dt = csc.GetOtherVideoPathByVideoID(cs);
+                    string ufname = dt.Rows[0]["VideoOtherFile"].ToString().Replace(" ", "");
+                    cs.VideoOtherFile = ufname;
                 }
                 else
                 {
 
-                    if (NewsVideoLogoFile.PostedFile != null)
+                    if (VideoLogoFile.PostedFile != null)
                     {
-                        cs.NewsOtherVideoPath = videohpathDB + NewsVideoLogoFile.PostedFile.FileName.Replace(" ", "");
-                        String FileExtension = Path.GetExtension(NewsVideoLogoFile.PostedFile.FileName.Replace(" ", "")).ToLower();
+                        cs.VideoOtherFile = videohpathDB + VideoLogoFile.PostedFile.FileName.Replace(" ", "");
+                        String FileExtension = Path.GetExtension(VideoLogoFile.PostedFile.FileName.Replace(" ", "")).ToLower();
                         String[] allowedExtensions = { ".flv", ".webm", ".mkv", ".vob", ".ogv", ".ogg", ".avi", ".mov", ".wmv", ".rm", ".mp4", ".m4p", ".m4v", ".mpg", ".mp2", ".mpeg", ".mpe", ".mpv", ".m2v", ".m4v", ".svi", ".3gp", ".3g2", ".nsv", ".asf", ".asx", ".srt", ".swf" };
                         for (int i = 0; i < allowedExtensions.Length; i++)
                         {
@@ -610,7 +492,7 @@ namespace DotNetNuke.Modules.ThSport
                     {
                         try
                         {
-                            NewsVideoLogoFile.PostedFile.SaveAs(physicalpath + VideoUploadFolder + NewsVideoLogoFile.PostedFile.FileName.Replace(" ", ""));
+                            VideoLogoFile.PostedFile.SaveAs(physicalpath + VideoUploadFolder + VideoLogoFile.PostedFile.FileName.Replace(" ", ""));
                             FileSaved = true;
                         }
                         catch (Exception ex)
@@ -641,31 +523,30 @@ namespace DotNetNuke.Modules.ThSport
                 cs.ShowFlagId = 0;
             }
 
-            cs.NewsLevelId = ddlNewsPriority.SelectedValue;
+            cs.VideoLevelId = ddlVideoPriority.SelectedValue;
 
             cs.PortalID = PortalId;
-            cs.CreatedById = currentUser.Username;
             cs.ModifiedById = currentUser.Username;
 
-            int eventid = csc.UpdateNews(cs);
+            int eventid = csc.UpdateVideo(cs);
 
-            int evid = csc.UpdateNewsLinks(cs);
+            int evid = csc.UpdateVideoLinks(cs);
 
-            pnlEntryNews.Visible = false;
-            PnlGridNews.Visible = true;
+            pnlEntryVideo.Visible = false;
+            PnlGridVideo.Visible = true;
             FillGridView();
             funClearData();
         }
 
-        protected void gvNews_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        protected void gvVideo_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-            gvNews.PageIndex = e.NewPageIndex;
+            gvVideo.PageIndex = e.NewPageIndex;
             FillGridView();
         }
 
         protected void ddlAction_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string str = ((Label)((DropDownList)sender).Parent.FindControl("lblddlActionNewsID")).Text;
+            string str = ((Label)((DropDownList)sender).Parent.FindControl("lblddlActionVideoID")).Text;
 
             string ddlSelectedValue = ((DropDownList)sender).SelectedValue;
 
@@ -684,22 +565,22 @@ namespace DotNetNuke.Modules.ThSport
                 FillTeamMember();
                 FillPlayer();
                 FillSponsor();
-                
-                int NewsID = 0;
-                int.TryParse(str, out NewsID);
+
+                int VideoID = 0;
+                int.TryParse(str, out VideoID);
 
                 LinkButton btn = sender as LinkButton;
 
-                clsNews cs = new clsNews();
-                clsNewsController csc = new clsNewsController();
+                clsVideos cs = new clsVideos();
+                clsVideosController csc = new clsVideosController();
 
                 DataTable dt = new DataTable();
 
-                dt = csc.GetNewsDataByNewsID(NewsID);
+                dt = csc.GetVideoDataByVideoID(VideoID);
 
                 if (dt.Rows.Count > 0)
                 {
-                    hidRegID.Value = dt.Rows[0]["NewsId"].ToString();
+                    hidRegID.Value = dt.Rows[0]["VideoId"].ToString();
 
                     ddlSports.SelectedValue = dt.Rows[0]["SportId"].ToString();
                     ddlSeason.SelectedValue = dt.Rows[0]["SeasonId"].ToString();
@@ -714,21 +595,20 @@ namespace DotNetNuke.Modules.ThSport
                     ddlSponsor.SelectedValue = dt.Rows[0]["SponsorId"].ToString();
                     ddlCountry.SelectedValue = dt.Rows[0]["CountryID"].ToString();
 
-                    ddlNewsPriority.SelectedValue = dt.Rows[0]["NewsLevelId"].ToString();
+                    ddlVideoPriority.SelectedValue = dt.Rows[0]["VideoLevelId"].ToString();
 
-                    txtNewsTitle.Text = dt.Rows[0]["NewsTitle"].ToString();
-                    txtNewsDesc.Text = dt.Rows[0]["NewsDesc"].ToString();
-                    txtNewText.Text = dt.Rows[0]["NewsText"].ToString();
-                    txtNewsDate.Text = dt.Rows[0]["NewsDate"].ToString();
+                    txtVideoTitle.Text = dt.Rows[0]["VideoTitle"].ToString();
+                    txtVideoDesc.Text = dt.Rows[0]["VideoDesc"].ToString();
+                    txtVideoDate.Text = dt.Rows[0]["VideoDate"].ToString();
 
-                    NewsLogoImage.ImageUrl = dt.Rows[0]["NewsPicture"].ToString();
-                    string ufname = dt.Rows[0]["NewsPicture"].ToString().Replace(" ", "");
-                    NewsLogoFile.ResolveUrl("ufname");
+                    txtVideoPath.Text = dt.Rows[0]["VideoYouTubeFile"].ToString();
 
-                    txtVideoPath.Text = dt.Rows[0]["NewsVideo"].ToString();
-                    
-                    HtmlGenericControl contentPanel1 = (HtmlGenericControl)this.FindControl("ifmOtherVideoPath");
-                    contentPanel1.Attributes["src"] = "DesktopModules\\ThSportSite\\" + dt.Rows[0]["NewsOtherVideoPath"].ToString();
+                    //HtmlGenericControl contentPanel1 = (HtmlGenericControl)this.FindControl("ifmOtherVideoPath");
+
+                    //contentPanel1.Attributes.Add("src", "/DesktopModules/ThSportSite/" + dt.Rows[0]["VideoOtherFile"].ToString());
+
+                    //ifmOtherVideoPath.Attributes.Add("src", "/DesktopModules/ThSportSite/" + dt.Rows[0]["VideoOtherFile"].ToString());
+                    ifmOtherVideoPath.InnerHtml =  "\\DesktopModules\\ThSportSite\\" + dt.Rows[0]["VideoOtherFile"].ToString();
 
                     if (dt.Rows[0]["VideoType"].ToString() == "1")
                     {
@@ -763,10 +643,10 @@ namespace DotNetNuke.Modules.ThSport
                         ChkIsShow.Checked = false;
                     }
 
-                    pnlEntryNews.Visible = true;
-                    PnlGridNews.Visible = false;
-                    btnUpdateNews.Visible = true;
-                    btnSaveNews.Visible = false;
+                    pnlEntryVideo.Visible = true;
+                    PnlGridVideo.Visible = false;
+                    btnUpdateVideo.Visible = true;
+                    btnSaveVideo.Visible = false;
                 }
             }
             else if (ddlSelectedValue == "Delete")
@@ -782,8 +662,8 @@ namespace DotNetNuke.Modules.ThSport
 
         private void FillSport()
         {
-            clsNews e = new clsNews();
-            clsNewsController ec = new clsNewsController();
+            clsVideos e = new clsVideos();
+            clsVideosController ec = new clsVideosController();
 
             DataTable dt = new DataTable();
 
@@ -800,8 +680,8 @@ namespace DotNetNuke.Modules.ThSport
 
         private void FillEvent()
         {
-            clsNews e = new clsNews();
-            clsNewsController ec = new clsNewsController();
+            clsVideos e = new clsVideos();
+            clsVideosController ec = new clsVideosController();
 
             DataTable dt = new DataTable();
 
@@ -818,8 +698,8 @@ namespace DotNetNuke.Modules.ThSport
 
         private void FillSeason()
         {
-            clsNews e = new clsNews();
-            clsNewsController ec = new clsNewsController();
+            clsVideos e = new clsVideos();
+            clsVideosController ec = new clsVideosController();
 
             DataTable dt = new DataTable();
 
@@ -836,8 +716,8 @@ namespace DotNetNuke.Modules.ThSport
 
         private void FillPlayer()
         {
-            clsNews e = new clsNews();
-            clsNewsController ec = new clsNewsController();
+            clsVideos e = new clsVideos();
+            clsVideosController ec = new clsVideosController();
             DataTable dt = new DataTable();
 
             dt = ec.GetPlayerIDAndPlayerName();
@@ -853,8 +733,8 @@ namespace DotNetNuke.Modules.ThSport
 
         private void FillPlayer(int TeamID)
         {
-            clsNews e = new clsNews();
-            clsNewsController ec = new clsNewsController();
+            clsVideos e = new clsVideos();
+            clsVideosController ec = new clsVideosController();
             DataTable dt = new DataTable();
 
             dt = ec.GetPlayerIDAndPlayerNameByTeamID(TeamID);
@@ -870,8 +750,8 @@ namespace DotNetNuke.Modules.ThSport
 
         private void FillCompetition(int SportID)
         {
-            clsNews e = new clsNews();
-            clsNewsController ec = new clsNewsController();
+            clsVideos e = new clsVideos();
+            clsVideosController ec = new clsVideosController();
             DataTable dt = new DataTable();
 
             dt = ec.GetCompetitionIDAndCompetitionName(SportID);
@@ -887,8 +767,8 @@ namespace DotNetNuke.Modules.ThSport
 
         private void FillClub(int SportID)
         {
-            clsNews e = new clsNews();
-            clsNewsController ec = new clsNewsController();
+            clsVideos e = new clsVideos();
+            clsVideosController ec = new clsVideosController();
             DataTable dt = new DataTable();
 
             dt = ec.GetClubIDAndClubName(SportID);
@@ -904,8 +784,8 @@ namespace DotNetNuke.Modules.ThSport
 
         private void FillTeam(int SportID, int ClubID)
         {
-            clsNews e = new clsNews();
-            clsNewsController ec = new clsNewsController();
+            clsVideos e = new clsVideos();
+            clsVideosController ec = new clsVideosController();
             DataTable dt = new DataTable();
 
             dt = ec.GetTeamIDAndTeamName(SportID, ClubID);
@@ -946,8 +826,8 @@ namespace DotNetNuke.Modules.ThSport
 
         private void FillClubOwner(int ClubID)
         {
-            clsNews e = new clsNews();
-            clsNewsController ec = new clsNewsController();
+            clsVideos e = new clsVideos();
+            clsVideosController ec = new clsVideosController();
             DataTable dt = new DataTable();
 
             dt = ec.GetClubOwnerIDAndClubOwnerName(ClubID);
@@ -963,8 +843,8 @@ namespace DotNetNuke.Modules.ThSport
 
         private void FillClubMember(int ClubID)
         {
-            clsNews e = new clsNews();
-            clsNewsController ec = new clsNewsController();
+            clsVideos e = new clsVideos();
+            clsVideosController ec = new clsVideosController();
             DataTable dt = new DataTable();
 
             dt = ec.GetClubMemberIDAndClubMemberName(ClubID);
@@ -980,8 +860,8 @@ namespace DotNetNuke.Modules.ThSport
 
         private void FillTeamMember(int TeamID)
         {
-            clsNews e = new clsNews();
-            clsNewsController ec = new clsNewsController();
+            clsVideos e = new clsVideos();
+            clsVideosController ec = new clsVideosController();
             DataTable dt = new DataTable();
 
             dt = ec.GetTeamMemberIDAndTeamMemberName(TeamID);
@@ -1034,8 +914,8 @@ namespace DotNetNuke.Modules.ThSport
 
         private void FillCompetition()
         {
-            clsNews e = new clsNews();
-            clsNewsController ec = new clsNewsController();
+            clsVideos e = new clsVideos();
+            clsVideosController ec = new clsVideosController();
             DataTable dt = new DataTable();
 
             dt = ec.FillComptitionIDAndCompetitionName();
@@ -1051,8 +931,8 @@ namespace DotNetNuke.Modules.ThSport
 
         private void FillClub()
         {
-            clsNews e = new clsNews();
-            clsNewsController ec = new clsNewsController();
+            clsVideos e = new clsVideos();
+            clsVideosController ec = new clsVideosController();
             DataTable dt = new DataTable();
 
             dt = ec.FillClubIDAndClubName();
@@ -1068,8 +948,8 @@ namespace DotNetNuke.Modules.ThSport
 
         private void FillClubOwner()
         {
-            clsNews e = new clsNews();
-            clsNewsController ec = new clsNewsController();
+            clsVideos e = new clsVideos();
+            clsVideosController ec = new clsVideosController();
             DataTable dt = new DataTable();
 
             dt = ec.FillClubOwnerIDAndClubOwnerName();
@@ -1085,8 +965,8 @@ namespace DotNetNuke.Modules.ThSport
 
         private void FillClubMember()
         {
-            clsNews e = new clsNews();
-            clsNewsController ec = new clsNewsController();
+            clsVideos e = new clsVideos();
+            clsVideosController ec = new clsVideosController();
             DataTable dt = new DataTable();
 
             dt = ec.FillClubMemberIDAndClubMemberName();
@@ -1102,8 +982,8 @@ namespace DotNetNuke.Modules.ThSport
 
         private void FillTeam()
         {
-            clsNews e = new clsNews();
-            clsNewsController ec = new clsNewsController();
+            clsVideos e = new clsVideos();
+            clsVideosController ec = new clsVideosController();
             DataTable dt = new DataTable();
 
             dt = ec.FillTeamIDAndTeamName();
@@ -1119,8 +999,8 @@ namespace DotNetNuke.Modules.ThSport
 
         private void FillTeamMember()
         {
-            clsNews e = new clsNews();
-            clsNewsController ec = new clsNewsController();
+            clsVideos e = new clsVideos();
+            clsVideosController ec = new clsVideosController();
             DataTable dt = new DataTable();
 
             dt = ec.FillTeamMemberIDAndTeamMemberName();
@@ -1136,8 +1016,8 @@ namespace DotNetNuke.Modules.ThSport
 
         private void FillCountry()
         {
-            clsNews e = new clsNews();
-            clsNewsController ec = new clsNewsController();
+            clsVideos e = new clsVideos();
+            clsVideosController ec = new clsVideosController();
             DataTable dt = new DataTable();
 
             dt = ec.FillCountryIDAndCountryName();

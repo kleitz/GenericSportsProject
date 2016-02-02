@@ -385,11 +385,10 @@
                 </ItemTemplate>
          </asp:TemplateField>
 
-            <asp:TemplateField HeaderText="News Title" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column">
+            <asp:TemplateField HeaderText="News Title" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" 
+                                       ItemStyle-Width="65%" ItemStyle-HorizontalAlign="Left">
                 <ItemTemplate>
-                    <div class="grid-cell-inner" style="width:500%; display: inline-block;">
                         <asp:Label ID="lblNewsTitle" runat="server" Text='<%#Eval("NewsTitle") %>'></asp:Label>
-                    </div> 
                 </ItemTemplate>
          </asp:TemplateField>
 
