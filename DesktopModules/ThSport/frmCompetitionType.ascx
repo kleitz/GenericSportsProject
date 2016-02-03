@@ -6,7 +6,7 @@
 
         var txtcheckValue = args.Value;
 
-        var chars = ['<', '>', '*', '$', '@', ',', '_', '%', '.'];
+        var chars = ['<', '>', '*', '$', '@', ',', '_', '%', '.', '!', '#', '^', '&', '(', ')', '-', '=', '+', '\\', '|', '?', '/', '[', ']', '{', '}'];
         args.IsValid = true;
 
         if (txtcheckValue.length > 0) {
@@ -21,9 +21,7 @@
                 args.IsValid = true;
             }
         }
-    }
-
-    
+    }    
 
     function SaveSuccessfully() {
         $(document).ready(function () {
@@ -231,19 +229,19 @@
 </script>
 
 <div id="divsavemassage" runat="server" clientidmode="static" style="display: none;position:inherit !important;">
-    <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/AllImage/Ok.png")%>" />
+    <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/OtherImages/Ok.png")%>" />
      <asp:Label CssClass="lobibox-body-text" ID="Label1" ClientIDMode="Static" runat="server" Text=" CompetitionType detail are save successfully. ">
      </asp:Label>
 </div>
 
 <div id="divupdatemassage" runat="server" clientidmode="static" style="display: none;position:inherit !important;">
-    <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/AllImage/Ok.png")%>" />
+    <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/OtherImages/Ok.png")%>" />
      <asp:Label CssClass="lobibox-body-text" ID="Label2" ClientIDMode="Static" runat="server" Text=" CompetitionType detail are update successfully. ">
      </asp:Label>
 </div>
 
 <div id="divcancelmassage" runat="server" clientidmode="static" style="display: none;position:inherit !important;">
-    <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/AllImage/Cancel.png")%>" />
+    <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/OtherImages/Cancel.png")%>" />
      <asp:Label CssClass="lobibox-body-text" ID="Label3" ClientIDMode="Static" runat="server" Text=" CompetitionType detail are delete successfully. ">
      </asp:Label>
 </div>
@@ -399,8 +397,8 @@
                     <asp:RegularExpressionValidator ID="rgvtxtCompetitionTypeDesc"
                                                     Display="Static" ControlToValidate="txtCompetitionTypeDesc"  
                                                     ValidationGroup="Sports" CssClass="errorfordnn"
-                                                    ValidationExpression = "^[\s\S]{0,200}$" 
-                                                    runat="server" ErrorMessage="Maximum 200 characters allowed.">
+                                                    ValidationExpression = "^[\s\S]{0,300}$" 
+                                                    runat="server" ErrorMessage="Maximum 300 characters allowed.">
                     </asp:RegularExpressionValidator>  
                 <asp:CustomValidator ID="cvtxtCompetitionTypeDesc" ValidationGroup="Sports" runat="server" ErrorMessage="" SetFocusOnError="true" ControlToValidate="txtCompetitionTypeDesc"
                                     EnableClientScript="true" ClientValidationFunction="validateTextBox" CssClass="errorfordnn" Text="First Character Should Not Be Special Character"></asp:CustomValidator>

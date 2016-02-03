@@ -95,6 +95,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class1.cs" />
+    <Compile Include="clsAddDocuments.cs" />
+    <Compile Include="clsAddDocumentsType.cs" />
+    <Compile Include="clsEvent.cs" />
+    <Compile Include="clsNews.cs" />
+    <Compile Include="clsPictures.cs" />
+    <Compile Include="clsPlayerType.cs" />
+    <Compile Include="clsSponsor.cs" />
+    <Compile Include="clsSponsorLevel.cs" />
+    <Compile Include="clsSponsorType.cs" />
     <Compile Include="clsTeam.cs" />
     <Compile Include="clsCompetitionFormat.cs" />
     <Compile Include="clsClub.cs" />
@@ -106,8 +116,14 @@
     <Compile Include="clsCompetitionType.cs" />
     <Compile Include="clsDivision.cs" />
     <Compile Include="clsRegistration.cs" />
+    <Compile Include="clsRegistrationParentsOrRelatives.cs" />
     <Compile Include="clsSeason.cs" />
     <Compile Include="clsSport.cs" />
+    <Compile Include="clsTeamMember.cs" />
+    <Compile Include="clsTeamMemberType.cs" />
+    <Compile Include="clsTeamPlayer.cs" />
+    <Compile Include="clsUserRole.cs" />
+    <Compile Include="clsVideos.cs" />
     <Compile Include="Data\DataProvider.cs" />
     <Compile Include="DTOs\DTOAssign.cs" />
     <Compile Include="clsClubMemberType.cs" />

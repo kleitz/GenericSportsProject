@@ -220,6 +220,50 @@
                     <viewOrder>0</viewOrder>
                   </moduleControl>
 
+                  <moduleControl>
+                    <controlKey>frmSponsorType</controlKey>
+                    <controlSrc>DesktopModules/ThSport/frmSponsorType.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle>ThSport frmSponsorType</controlTitle>
+                    <controlType>Edit</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+
+                  <moduleControl>
+                    <controlKey>frmSponsorLevel</controlKey>
+                    <controlSrc>DesktopModules/ThSport/frmSponsorLevel.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle>ThSport frmSponsorLevel</controlTitle>
+                    <controlType>Edit</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+
+                  <moduleControl>
+                    <controlKey>frmPlayerType</controlKey>
+                    <controlSrc>DesktopModules/ThSport/frmPlayerType.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle>ThSport frmPlayerType</controlTitle>
+                    <controlType>Edit</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+
+                  <moduleControl>
+                    <controlKey>frmTeamMemberType</controlKey>
+                    <controlSrc>DesktopModules/ThSport/frmTeamMemberType.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle>ThSport frmTeamMemberType</controlTitle>
+                    <controlType>Edit</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+
                 </moduleControls>
               </moduleDefinition>
             </moduleDefinitions>

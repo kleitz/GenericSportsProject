@@ -33,6 +33,16 @@ namespace DotNetNuke.Modules.ThSport
             }
         }
 
+        string regid
+        {
+            get
+            {
+                if (ViewState["regid"] != null)
+                    return ViewState["regid"].ToString();
+                return null;
+            }
+        }
+
         #region variables
 
         int ClubID
@@ -91,10 +101,11 @@ namespace DotNetNuke.Modules.ThSport
             clsClubOwner cco = new clsClubOwner();
             clsClubOwnerController ccoc = new clsClubOwnerController();
 
-            cco.ClubOwnersId = Convert.ToInt16(currentId);
+            cco.ClubOwnersId = Convert.ToInt32(currentId);
             cco.ClubId = ClubID;
-            cco.OwnerName = txtClubOwnerName.Text.Trim();
+            cco.RegistrationId = Convert.ToInt32(regid);
             cco.OwnerDescription = txtClubOwnerDescription.Text.Trim();
+
             if (txtClubOwnerPercentage.Text == "")
             {
                 txtClubOwnerPercentage.Text = "0";
@@ -150,7 +161,7 @@ namespace DotNetNuke.Modules.ThSport
             clsClubOwnerController ccoc = new clsClubOwnerController();
 
             cco.ClubId = ClubID;
-            cco.OwnerName = txtClubOwnerName.Text.Trim();
+            cco.RegistrationId = Convert.ToInt32(ddlClubOwner.SelectedValue);
             cco.OwnerDescription = txtClubOwnerDescription.Text.Trim();
 
             if (txtClubOwnerPercentage.Text == "")
@@ -201,7 +212,25 @@ namespace DotNetNuke.Modules.ThSport
             pnlClubOwnerEntry.Visible = true;
             btnSaveClubOwner.Visible = true;
             btnUpdateClubOwner.Visible = false;
+            FillClubOwner();
             ClearData();
+        }
+
+        public void FillClubOwner()
+        {
+            DataTable dt = new DataTable();
+            clsClubOwnerController ccoc = new clsClubOwnerController();
+
+            dt = ccoc.GetClubOwnerbyUserForm();
+
+            if (dt.Rows.Count > 0)
+            {
+                ddlClubOwner.DataSource = dt;
+                ddlClubOwner.DataTextField = "OwnerName";
+                ddlClubOwner.DataValueField = "RegistrationId";
+                ddlClubOwner.DataBind();
+                ddlClubOwner.Items.Insert(0, new ListItem("-- Select --", "0"));
+            }
         }
 
         protected void ddlAction_SelectedIndexChanged(object sender, EventArgs e)
@@ -213,6 +242,7 @@ namespace DotNetNuke.Modules.ThSport
             if (ddlSelectedValue == "Edit")
             {
                 ClearData();
+                FillClubOwner();
                 int editid = 0;
                 int.TryParse(str, out editid);
                 ViewState["currentId"] = Convert.ToInt16(str);
@@ -231,7 +261,8 @@ namespace DotNetNuke.Modules.ThSport
 
                 if (dt1.Rows.Count > 0)
                 {
-                    txtClubOwnerName.Text = dt1.Rows[0]["OwnerName"].ToString();
+                    ddlClubOwner.SelectedValue = dt1.Rows[0]["RegistrationId"].ToString();
+                    ViewState["regid"] = dt1.Rows[0]["RegistrationId"].ToString();
                     txtClubOwnerDescription.Text = dt1.Rows[0]["OwnerDescription"].ToString();
                     txtClubOwnerPercentage.Text = dt1.Rows[0]["OwnerPercentage"].ToString();
                 }
@@ -259,7 +290,6 @@ namespace DotNetNuke.Modules.ThSport
 
         public void ClearData()
         {
-            txtClubOwnerName.Text = "";
             txtClubOwnerDescription.Text = "";
             txtClubOwnerPercentage.Text = "";
         }

@@ -49,6 +49,20 @@ namespace DotNetNuke.Modules.ThSport
             
         }
 
+        private void FillSport()
+        {
+            DataTable dt = new DataTable();
+            dt = ccmc.GetSport();
+            if (dt.Rows.Count > 0)
+            {
+                ddlSport.DataSource = dt;
+                ddlSport.DataTextField = "SportName";
+                ddlSport.DataValueField = "SportID";
+                ddlSport.DataBind();
+                ddlSport.Items.Insert(0, new ListItem("-- Select --", "0"));
+            }
+        }
+
         protected void btnUpdateClubMemberType_Click(object sender, EventArgs e)
         {
             Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "UpdateSuccessfully();", true);
@@ -57,6 +71,7 @@ namespace DotNetNuke.Modules.ThSport
             clsClubMemberTypeController ccmc = new clsClubMemberTypeController();
 
             ccm.ClubMemberTypeId = Convert.ToInt16(currentId);
+            ccm.SportID = Convert.ToInt32(ddlSport.SelectedValue);
             ccm.ClubMemberTypeValue = txtClubMemberTypeValue.Text.Trim();
             ccm.ClubMemberTypeDesc = txtClubMemberTypeDesc.Text.Trim();
 
@@ -121,6 +136,7 @@ namespace DotNetNuke.Modules.ThSport
             clsClubMemberType ccm = new clsClubMemberType();
             clsClubMemberTypeController ccmc = new clsClubMemberTypeController();
 
+            ccm.SportID = Convert.ToInt32(ddlSport.SelectedValue);
             ccm.ClubMemberTypeValue = txtClubMemberTypeValue.Text.Trim();
             ccm.ClubMemberTypeDesc = txtClubMemberTypeDesc.Text.Trim();
 
@@ -181,6 +197,7 @@ namespace DotNetNuke.Modules.ThSport
             btnSaveClubMemberType.Visible = true;
             btnUpdateClubMemberType.Visible = false;
             ClearData();
+            FillSport();
         }
 
         protected void ddlAction_SelectedIndexChanged(object sender, EventArgs e)
@@ -199,6 +216,7 @@ namespace DotNetNuke.Modules.ThSport
                 clsClubMemberTypeController ccmc = new clsClubMemberTypeController();
 
                 ClearData();
+                FillSport();
                 DataTable dt1 = new clsClubMemberTypeController().GetClubMemberTypeDetailByClubMemberTypeID(editid);
 
                 if (dt1.Rows.Count > 0)
@@ -223,7 +241,11 @@ namespace DotNetNuke.Modules.ThSport
                     {
                         ChkIsShow.Checked = false;
                     }
+
+                    ddlSport.SelectedValue = dt1.Rows[0]["SportID"].ToString();
                 }
+
+                
 
                 btnUpdateClubMemberType.Visible = true;
                 btnSaveClubMemberType.Visible = false;

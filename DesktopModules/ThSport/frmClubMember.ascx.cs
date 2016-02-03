@@ -33,12 +33,12 @@ namespace DotNetNuke.Modules.ThSport
             }
         }
 
-        string clubsportid
+        string regid
         {
             get
             {
-                if (ViewState["clubsportid"] != null)
-                    return ViewState["clubsportid"].ToString();
+                if (ViewState["regid"] != null)
+                    return ViewState["regid"].ToString();
                 return null;
             }
         }
@@ -66,7 +66,6 @@ namespace DotNetNuke.Modules.ThSport
         protected void Page_Load(object sender, EventArgs e)
         {
             if (ClubID == null || ClubID == 0) return;
-            FillMemberType();
             FillClubName();
             btnUpdateClubMember.Visible = false;
             btnSaveClubMember.Visible = false;
@@ -75,7 +74,6 @@ namespace DotNetNuke.Modules.ThSport
             if (ClubID != 0)
             {
                 LoadDocumentsGrid(ClubID);
-                FillMemberType();
                 FillClubName();
             }
         }
@@ -101,29 +99,13 @@ namespace DotNetNuke.Modules.ThSport
             clsClubMember ccm = new clsClubMember();
             clsClubMemberController ccmc = new clsClubMemberController();
 
-            ccm.ClubMemberId = Convert.ToInt16(currentId);
-            ccm.ClubSportsId = Convert.ToInt16(clubsportid);
+            ccm.ClubMemberId = Convert.ToInt32(currentId);
+            ccm.RegistrationId = Convert.ToInt32(regid);
+            ccm.ClubId = Convert.ToInt32(ClubID);
             ccm.ClubMemberTypeId = Convert.ToInt32(ddlMemberType.SelectedValue);
-            ccm.ClubMemberTitle = txtClubMemberTitle.Text.Trim();
+            ccm.ClubId = Convert.ToInt32(ClubID);
             ccm.ClubMemberDesc = txtClubMemberDesc.Text.Trim();
 
-            if (ChkIsActive.Checked == true)
-            {
-                ccm.ActiveFlagId = 1;
-            }
-            else
-            {
-                ccm.ActiveFlagId = 0;
-            }
-
-            if (ChkIsShow.Checked == true)
-            {
-                ccm.ShowFlagId = 1;
-            }
-            else
-            {
-                ccm.ShowFlagId = 0;
-            }
             ccm.PortalID = PortalId;
             ccm.ModifiedById = currentUser.Username;
 
@@ -169,35 +151,10 @@ namespace DotNetNuke.Modules.ThSport
             clsClubMember ccm = new clsClubMember();
             clsClubMemberController ccmc = new clsClubMemberController();
 
-            DataTable dt = new DataTable();
-            dt = ccmc.GetClubSportIDByClubID(ClubID);
-            
-            if (dt.Rows.Count > 0)
-            {
-                ccm.ClubSportsId = Convert.ToInt32(dt.Rows[0]["ClubSportsId"].ToString());
-            }
-
+            ccm.RegistrationId = Convert.ToInt32(ddlSelectMember.SelectedValue);
+            ccm.ClubId = Convert.ToInt32(ClubID);
             ccm.ClubMemberTypeId = Convert.ToInt32(ddlMemberType.SelectedValue);
-            ccm.ClubMemberTitle = txtClubMemberTitle.Text.Trim();
             ccm.ClubMemberDesc = txtClubMemberDesc.Text.Trim();
-
-            if (ChkIsActive.Checked == true)
-            {
-                ccm.ActiveFlagId = 1;
-            }
-            else
-            {
-                ccm.ActiveFlagId = 0;
-            }
-
-            if (ChkIsShow.Checked == true)
-            {
-                ccm.ShowFlagId = 1;
-            }
-            else
-            {
-                ccm.ShowFlagId = 0;
-            }
 
             ccm.PortalID = PortalId;
             ccm.CreatedById = currentUser.Username;
@@ -239,6 +196,8 @@ namespace DotNetNuke.Modules.ThSport
             btnSaveClubMember.Visible = true;
             btnUpdateClubMember.Visible = false;
             ClearData();
+            FillMemberType();
+            FillClubMember();
         }
 
         protected void ddlAction_SelectedIndexChanged(object sender, EventArgs e)
@@ -264,33 +223,16 @@ namespace DotNetNuke.Modules.ThSport
                 }
 
                 FillMemberType();
+                FillClubMember();
                 ClearData();
                 DataTable dt1 = new clsClubMemberController().GetClubMemberDetailByClubMemberID(editid);
 
                 if (dt1.Rows.Count > 0)
                 {
-                    ViewState["clubsportid"] = Convert.ToInt32(dt1.Rows[0]["ClubSportsId"].ToString());
+                    ViewState["regid"] = dt1.Rows[0]["RegistrationId"].ToString();
+                    ddlSelectMember.SelectedValue = dt1.Rows[0]["RegistrationId"].ToString(); 
                     ddlMemberType.SelectedValue = dt1.Rows[0]["ClubMemberTypeId"].ToString();
-                    txtClubMemberTitle.Text = dt1.Rows[0]["ClubMemberTitle"].ToString();
                     txtClubMemberDesc.Text = dt1.Rows[0]["ClubMemberDesc"].ToString();
-
-                    if (dt1.Rows[0]["ActiveFlagId"].ToString() == "1")
-                    {
-                        ChkIsActive.Checked = true;
-                    }
-                    else
-                    {
-                        ChkIsActive.Checked = false;
-                    }
-
-                    if (dt1.Rows[0]["ShowFlagId"].ToString() == "1")
-                    {
-                        ChkIsShow.Checked = true;
-                    }
-                    else
-                    {
-                        ChkIsShow.Checked = false;
-                    }
                 }
 
                 btnUpdateClubMember.Visible = true;
@@ -315,11 +257,7 @@ namespace DotNetNuke.Modules.ThSport
 
         public void ClearData()
         {
-            ddlMemberType.SelectedValue = "0";
-            txtClubMemberTitle.Text = "";
             txtClubMemberDesc.Text = "";
-            ChkIsActive.Checked = false;
-            ChkIsShow.Checked = false;
         }
 
         public void FillMemberType()
@@ -335,7 +273,24 @@ namespace DotNetNuke.Modules.ThSport
                 ddlMemberType.DataTextField = "ClubMemberTypeValue";
                 ddlMemberType.DataValueField = "ClubMemberTypeId";
                 ddlMemberType.DataBind();
-                ddlMemberType.Items.Insert(0, new ListItem("-- Select Member Type --", "0"));
+                ddlMemberType.Items.Insert(0, new ListItem("-- Select --", "0"));
+            }
+        }
+
+        private void FillClubMember()
+        {
+            clsClubMember ccm = new clsClubMember();
+            clsClubMemberController ccmc = new clsClubMemberController();
+            DataTable dt = new DataTable();
+
+            dt = ccmc.GetClubMember();
+            if (dt.Rows.Count > 0)
+            {
+                ddlSelectMember.DataSource = dt;
+                ddlSelectMember.DataTextField = "ClubMemberName";
+                ddlSelectMember.DataValueField = "RegistrationId";
+                ddlSelectMember.DataBind();
+                ddlSelectMember.Items.Insert(0, new ListItem("-- Select --", "0"));
             }
         }
 

@@ -606,6 +606,10 @@ namespace DotNetNuke.Modules.ThSport
                 pnlTeamEntry.Visible = true;
                 pnlTeamGrid.Visible = false;
             }
+            else if (ddlSelectedValue == "Player")
+            {
+                Response.Redirect(DotNetNuke.Common.Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmTeamPlayer", "TeamID=" + TeamID));
+            }
             else if (ddlSelectedValue == "Member")
             {
                 Response.Redirect(DotNetNuke.Common.Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmTeamMember", "TeamID=" + TeamID));

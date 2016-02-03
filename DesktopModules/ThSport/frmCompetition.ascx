@@ -1,10 +1,9 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="frmCompetition.ascx.cs" Inherits="DotNetNuke.Modules.ThSport.frmCompetition" %>
 
-
-
 <script type="text/javascript">
 
-    function CompareDates(source, args) {
+    function CompareDates(source, args)
+    {
         var str1 = document.getElementById("txtStartDate").value;
         var str2 = document.getElementById("txtEndDate").value;
 
@@ -17,23 +16,23 @@
         var date1 = new Date(yr1, mon1, dt1);
         var date2 = new Date(yr2, mon2, dt2);
 
-
-
-        if (date2 < date1) {
+        if (date2 < date1)
+        {
             //alert("To date cannot be greater than from date");
             args.IsValid = false;
         }
-        else {
+        else
+        {
             //alert("Submitting ...");
             args.IsValid = true;
         }
     }
 
-    function validateTextBox(sender, args) {
-
+    function validateTextBox(sender, args)
+    {
         var txtcheckValue = args.Value;
 
-        var chars = ['<', '>', '*', '$', '@', ',', '_', '%', '.'];
+        var chars = ['<', '>', '*', '$', '@', ',', '_', '%', '.', '!', '#', '^', '&', '(', ')', '-', '=', '+', '\\', '|', '?', '/', '[', ']', '{', '}'];
         args.IsValid = true;
 
         if (txtcheckValue.length > 0) {
@@ -279,19 +278,19 @@
 
 
 <div id="divsavemassage" runat="server" clientidmode="static" style="display: none;position:inherit !important;">
-    <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/AllImage/Ok.png")%>" />
+    <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/OtherImages/Ok.png")%>" />
      <asp:Label CssClass="lobibox-body-text" ID="Label1" ClientIDMode="Static" runat="server" Text=" Competition detail are save successfully. ">
      </asp:Label>
 </div>
 
 <div id="divupdatemassage" runat="server" clientidmode="static" style="display: none;position:inherit !important;">
-    <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/AllImage/Ok.png")%>" />
+    <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/OtherImages/Ok.png")%>" />
      <asp:Label CssClass="lobibox-body-text" ID="Label2" ClientIDMode="Static" runat="server" Text=" Competition detail are update successfully. ">
      </asp:Label>
 </div>
 
 <div id="divcancelmassage" runat="server" clientidmode="static" style="display: none;position:inherit !important;">
-    <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/AllImage/Cancel.png")%>" />
+    <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/OtherImages/Cancel.png")%>" />
      <asp:Label CssClass="lobibox-body-text" ID="Label3" ClientIDMode="Static" runat="server" Text=" Competition detail are delete successfully. ">
      </asp:Label>
 </div>

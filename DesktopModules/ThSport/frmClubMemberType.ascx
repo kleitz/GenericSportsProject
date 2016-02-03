@@ -1,6 +1,27 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="frmClubMemberType.ascx.cs" Inherits="DotNetNuke.Modules.ThSport.frmClubMemberType" %>
 
 <script type="text/javascript">
+    function validateTextBox(sender, args) {
+        var txtcheckValue = args.Value;
+
+        var chars = ['<', '>', '*', '$', '@', ',', '_', '%', '.', '!', '#', '^', '&', '(', ')', '-', '=', '+', '\\', '|', '?', '/', '[', ']', '{', '}'];
+        args.IsValid = true;
+
+        if (txtcheckValue.length > 0) {
+            var currentChar = txtcheckValue.charAt(0);
+
+            if (chars.indexOf(currentChar) >= 0) {
+                args.IsValid = false;
+                txtcheckValue.value = "";
+            }
+            else {
+                args.IsValid = true;
+            }
+        }
+    }
+</script>
+
+<script type="text/javascript">
     function SaveSuccessfully() {
         $(document).ready(function () {
             $.blockUI();
@@ -211,19 +232,19 @@
 </script>
 
 <div id="divsavemassage" runat="server" clientidmode="static" style="display: none;position:inherit !important;">
-    <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/AllImage/Ok.png")%>" />
+    <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/OtherImages/Ok.png")%>" />
      <asp:Label CssClass="lobibox-body-text" ID="Label1" ClientIDMode="Static" runat="server" Text=" ClubMemberType detail are save successfully. ">
      </asp:Label>
 </div>
 
 <div id="divupdatemassage" runat="server" clientidmode="static" style="display: none;position:inherit !important;">
-    <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/AllImage/Ok.png")%>" />
+    <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/OtherImages/Ok.png")%>" />
      <asp:Label CssClass="lobibox-body-text" ID="Label2" ClientIDMode="Static" runat="server" Text=" ClubMemberType detail are update successfully. ">
      </asp:Label>
 </div>
 
 <div id="divcancelmassage" runat="server" clientidmode="static" style="display: none;position:inherit !important;">
-    <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/AllImage/Cancel.png")%>" />
+    <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/OtherImages/Cancel.png")%>" />
      <asp:Label CssClass="lobibox-body-text" ID="Label3" ClientIDMode="Static" runat="server" Text=" ClubMemberType detail are delete successfully. ">
      </asp:Label>
 </div>
@@ -244,8 +265,8 @@
             <ul>
                 <li class="active">
                     <asp:LinkButton ID="btnAddClubMemberType" runat="server" 
-                                    Height="35px" Text=" Add Member Type" 
-                                    onclick="btnAddClubMemberType_Click" ForeColor="White"/>
+                                            Height="35px" Text=" Add Member Type" 
+                                            onclick="btnAddClubMemberType_Click" ForeColor="White"/>
                 </li>
             </ul>
         </div>
@@ -288,7 +309,15 @@
                 </ItemTemplate>
          </asp:TemplateField>
 
-            <asp:TemplateField HeaderText="Member Type" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center">
+               <asp:TemplateField HeaderText="Sport Name" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center">
+				<ItemTemplate>
+                    <div class="grid-cell-inner" style="text-align:center;">
+					    <asp:Label ID="lblSportName" runat="server" Text='<%#Eval("SportName") %>' ToolTip=" Sport Name"></asp:Label>
+                    </div> 
+				</ItemTemplate>
+			</asp:TemplateField>
+
+            <asp:TemplateField HeaderText="Member Position" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center">
 				<ItemTemplate>
                     <div class="grid-cell-inner" style="text-align:center;">
 					    <asp:Label ID="lblClubMemberTypeValue" runat="server" Text='<%#Eval("ClubMemberTypeValue") %>' ToolTip=" Club Member Type "></asp:Label>
@@ -357,6 +386,25 @@
                 
         </div>
 
+       <div ID="divSport" runat="server">
+            <div class="control-group">
+		         <label class="control-label">
+                       <asp:Label ID="lblSport" runat="server" Text=" Sport :" ></asp:Label>
+                 </label>
+                <div class="startsetallfrom">
+                        <span class="help-inline"><font Color="red"><b>*</b></font></span>
+                 </div>
+                 <div class="controls" style="position:relative;">
+                      <asp:DropDownList ID="ddlSport" runat="server" CssClass="medium m-wrap"/>
+                     <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage=" Sport,"
+                                                ControlToValidate="ddlSport" SetFocusOnError="true"  
+                                                ValidationGroup="Sports" 
+                                                InitialValue="0" Text="Select Sport Required !" CssClass="errorfordnn" 
+                                                ClientIDMode="Static"/>
+                 </div>
+            </div>
+        </div>          
+
        <div class="control-group">
 		     <label class="control-label">          
                    <asp:Label ID="lblClubMemberTypeValue" runat="server" Text=" Member Type :" ></asp:Label>
@@ -365,9 +413,7 @@
                  <span class="help-inline"><font Color="red"><b>*</b></font></span>
              </div>
              <div class="controls" style="position:relative;">
-                  <asp:TextBox ID="txtClubMemberTypeValue" runat="server" 
-                                     CssClass="m-wrap large" onchange="textBoxOnBlur(this,this.id)" 
-                                     ClientIDMode="Static"/>
+                  <asp:TextBox ID="txtClubMemberTypeValue" runat="server" CssClass="m-wrap large"/>
                   <asp:RequiredFieldValidator ID="rfvClubMemberTypeValue" runat="server" ErrorMessage="Club Member Type,"
                                               ControlToValidate="txtClubMemberTypeValue" SetFocusOnError="true" 
                                               ValidationGroup="Sports" Text="Member Type Required !" 
@@ -378,9 +424,10 @@
                                                     ValidationExpression = "^[\s\S]{0,100}$" 
                                                     runat="server" ErrorMessage="Maximum 100 characters allowed.">
                    </asp:RegularExpressionValidator>  
-                   <span id="nameError" clientidmode="static" runat="server" class="help-inline charError" style="display:none;">
-                        <font Color="red">First Character Should Not Special Character</font>
-                   </span>
+                 <asp:CustomValidator ID="cvtxtClubMemberTypeValue" ValidationGroup="Sports" runat="server" ErrorMessage="" SetFocusOnError="true" 
+                                                 ControlToValidate="txtClubMemberTypeValue" EnableClientScript="true" ClientValidationFunction="validateTextBox" 
+                                                 CssClass="errorfordnn" Text="First Character Should Not Be Special Character">
+                   </asp:CustomValidator>
              </div>
         </div>
 
@@ -394,9 +441,13 @@
                     <asp:RegularExpressionValidator ID="RegularExpressionValidator2"
                                                     Display="Static" ControlToValidate="txtClubMemberTypeDesc"  
                                                     ValidationGroup="Sports" CssClass="errorfordnn"
-                                                    ValidationExpression = "^[\s\S]{0,500}$" 
-                                                    runat="server" ErrorMessage="Maximum 500 characters allowed.">
+                                                    ValidationExpression = "^[\s\S]{0,300}$" 
+                                                    runat="server" ErrorMessage="Maximum 300 characters allowed.">
                     </asp:RegularExpressionValidator>  
+                 <asp:CustomValidator ID="CustomValidator1" ValidationGroup="Sports" runat="server" ErrorMessage="" SetFocusOnError="true" 
+                                                 ControlToValidate="txtClubMemberTypeDesc" EnableClientScript="true" ClientValidationFunction="validateTextBox" 
+                                                 CssClass="errorfordnn" Text="First Character Should Not Be Special Character">
+                   </asp:CustomValidator>
            </div>
         </div>
 

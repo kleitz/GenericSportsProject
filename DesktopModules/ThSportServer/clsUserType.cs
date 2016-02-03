@@ -14,7 +14,6 @@ using DotNetNuke.Entities.Users;
 using DotNetNuke.Services.Exceptions;
 using System.Collections;
 
-
 namespace ThSportServer
 {
     public class clsUserType

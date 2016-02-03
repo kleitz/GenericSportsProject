@@ -5,6 +5,31 @@
 <dnn:DnnJsInclude FilePath="~/DesktopModules/ThSport/JS/jquery.datetimepicker.js" runat="server"/>
 
 <script type="text/javascript">
+    function validateTextBox(sender, args)
+    {
+        var txtcheckValue = args.Value;
+
+        var chars = ['<', '>', '*', '$', '@', ',', '_', '%', '.', '!', '#', '^', '&', '(', ')', '-', '=', '+', '\\', '|', '?', '/', '[', ']', '{', '}'];
+        args.IsValid = true;
+
+        if (txtcheckValue.length > 0)
+        {
+            var currentChar = txtcheckValue.charAt(0);
+
+            if (chars.indexOf(currentChar) >= 0)
+            {
+                args.IsValid = false;
+                txtcheckValue.value = "";
+            }
+            else
+            {
+                args.IsValid = true;
+            }
+        }
+    }
+</script>
+
+<script type="text/javascript">
     $(document).ready(function () {
         $('.ddlActionSelect').change(function (evt) {
             evt.preventDefault();
@@ -263,13 +288,13 @@
 </style>
 
 <div id="divsavemassage" runat="server" clientidmode="static" style="display: none;position:inherit !important;">
-    <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/AllImage/Ok.png")%>" />
+    <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/OtherImages/Ok.png")%>" />
      <asp:Label CssClass="lobibox-body-text" ID="Label1" ClientIDMode="Static" runat="server" Text=" Registration detail are save successfully. ">
      </asp:Label>
 </div>
 
 <div id="divupdatemassage" runat="server" clientidmode="static" style="display: none;position:inherit !important;">
-    <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/AllImage/Ok.png")%>" />
+    <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/OtherImages/Ok.png")%>" />
      <asp:Label CssClass="lobibox-body-text" ID="Label2" ClientIDMode="Static" runat="server" Text=" Registration detail are update successfully. ">
      </asp:Label>
 </div>
@@ -346,7 +371,7 @@
                 </ItemTemplate>
          </asp:TemplateField>
 
-            <asp:BoundField DataField="UserName" HeaderText="User Name" HeaderStyle-CssClass="grid-header-column" ItemStyle-Width="30%" ItemStyle-CssClass="grid-column" HeaderStyle-Width="30%" />
+            <asp:BoundField DataField="UserName" HeaderText=" Name " HeaderStyle-CssClass="grid-header-column" ItemStyle-Width="30%" ItemStyle-CssClass="grid-column" HeaderStyle-Width="30%" />
 
               <asp:TemplateField HeaderText="Email ID" ItemStyle-VerticalAlign="Middle" HeaderStyle-CssClass="grid-header-column" 
                                ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center" HeaderStyle-Width="22px" 
@@ -389,19 +414,19 @@
                             <asp:ListItem Value="0"> -- Action -- </asp:ListItem>
                             <asp:ListItem Value="Edit">Edit</asp:ListItem>
                             <asp:ListItem Value="AddDocuments">Add Document's</asp:ListItem>
-                            <asp:ListItem Value="CreateAdmin"> Create Admin </asp:ListItem>
+                            <asp:ListItem Value="AddParentORRelatives"> Add Parent / Relatives  </asp:ListItem>
                             <%--<asp:ListItem Value="Delete">Delete</asp:ListItem>--%>
                     </asp:DropDownList>
                     <asp:Label ID="lblddlActionUserID" runat="server" Text='<%#Eval("UserId") %>' Visible="false">
                     </asp:Label>
                 </ItemTemplate>
-
-     </asp:TemplateField>
+            </asp:TemplateField>
 
         </Columns>
         <PagerSettings Mode="NumericFirstLast" PageButtonCount="8" /> 
         <PagerStyle  CssClass="paging" HorizontalAlign="Center"/>
     </asp:GridView>
+
    </div>
     <input type="hidden" runat="server" id="hidRegID" />
    </div>
@@ -447,7 +472,7 @@
              </div>
              <div class="controls" style="position:relative;">
                   <asp:DropDownList ID="ddlSuffix" runat="server" CssClass="medium m-wrap">
-                            <asp:ListItem Text="Select Suffix" Value="0"></asp:ListItem>
+                            <asp:ListItem Text="-- Select --" Value="0"></asp:ListItem>
                             <asp:ListItem Text="Mr" Value="1"></asp:ListItem>
                             <asp:ListItem Text="Mrs" Value="2"></asp:ListItem>
                             <asp:ListItem Text="Ms" Value="3"></asp:ListItem>
@@ -460,24 +485,9 @@
                                                 ClientIDMode="Static"/>
              </div>
         </div>
-                        
-        <div class="control-group">
-		     <label class="control-label">
-                   <asp:Label ID="lblUserType" runat="server" Text=" User Type :" ></asp:Label>
-             </label>
-              <div class="startsetallfrom">
-                 <span class="help-inline"><font Color="red"><b>*</b></font></span>
-             </div>
-             <div class="controls" style="position:relative;">
-                  <asp:DropDownList ID="ddlUserType" runat="server" CssClass="medium m-wrap"/>
-                  <asp:RequiredFieldValidator ID="RFVUserType" runat="server" ErrorMessage=" User Type,"
-                                                ControlToValidate="ddlUserType" SetFocusOnError="true"  
-                                                ValidationGroup="Sports" 
-                                                InitialValue="0" Text="Select UserType Required !" CssClass="errorfordnn" 
-                                                ClientIDMode="Static"/>
-             </div>
-        </div>
-            
+                      
+        
+
         <div class="control-group">
 		     <label class="control-label">          
                    <asp:Label ID="lblFitstName" runat="server" Text=" First Name :" ></asp:Label>
@@ -486,9 +496,7 @@
                  <span class="help-inline"><font Color="red"><b>*</b></font></span>
              </div>
              <div class="controls" style="position:relative;">
-                  <asp:TextBox ID="txtFirstName" runat="server" 
-                                     CssClass="m-wrap large" onchange="textBoxOnBlur(this,this.id)" 
-                                     ClientIDMode="Static"/>
+                  <asp:TextBox ID="txtFirstName" runat="server" CssClass="m-wrap large"/>
                   <asp:RequiredFieldValidator ID="rfvFirstName" runat="server" ErrorMessage="First Name,"
                                               ControlToValidate="txtFirstName" SetFocusOnError="true" 
                                               ValidationGroup="Sports" Text="First Name Required !" 
@@ -499,9 +507,10 @@
                                                     ValidationExpression = "^[\s\S]{0,100}$" 
                                                     runat="server" ErrorMessage="Maximum 100 characters allowed.">
                    </asp:RegularExpressionValidator>  
-                   <span id="nameError" clientidmode="static" runat="server" class="help-inline charError" style="display:none;">
-                        <font Color="red">First Character Should Not Special Character</font>
-                   </span>
+                      <asp:CustomValidator ID="cvtxtFirstName" ValidationGroup="Sports" runat="server" ErrorMessage="" SetFocusOnError="true" 
+                                                 ControlToValidate="txtFirstName" EnableClientScript="true" ClientValidationFunction="validateTextBox" 
+                                                 CssClass="errorfordnn" Text="First Character Should Not Be Special Character">
+                   </asp:CustomValidator>
              </div>
         </div>
 
@@ -510,18 +519,17 @@
                    <asp:Label ID="lblMiddleName" runat="server" Text=" Middle Name :" ></asp:Label>
              </label>
              <div class="controls" style="position:relative;">
-                  <asp:TextBox ID="txtMiddleName" runat="server" 
-                                     CssClass="m-wrap large" onchange="textBoxOnBlur(this,this.id)" 
-                                     ClientIDMode="Static"/>
+                  <asp:TextBox ID="txtMiddleName" runat="server" CssClass="m-wrap large"/>
                    <asp:RegularExpressionValidator ID="RegularExpressionValidator7"
                                                     Display="Static" ControlToValidate="txtMiddleName"  
                                                     ValidationGroup="Sports" CssClass="errorfordnn"
                                                     ValidationExpression = "^[\s\S]{0,100}$" 
                                                     runat="server" ErrorMessage="Maximum 100 characters allowed.">
                    </asp:RegularExpressionValidator>  
-                   <span id="Span1" clientidmode="static" runat="server" class="help-inline charError" style="display:none;">
-                        <font Color="red">First Character Should Not Special Character</font>
-                   </span>
+                     <asp:CustomValidator ID="CustomValidator1" ValidationGroup="Sports" runat="server" ErrorMessage="" SetFocusOnError="true" 
+                                                 ControlToValidate="txtMiddleName" EnableClientScript="true" ClientValidationFunction="validateTextBox" 
+                                                 CssClass="errorfordnn" Text="First Character Should Not Be Special Character">
+                   </asp:CustomValidator>
              </div>
         </div>
 
@@ -533,9 +541,7 @@
                  <span class="help-inline"><font Color="red"><b>*</b></font></span>
              </div>
              <div class="controls" style="position:relative;">
-                  <asp:TextBox ID="txtLastName" runat="server" 
-                                     CssClass="m-wrap large" onchange="textBoxOnBlur(this,this.id)" 
-                                     ClientIDMode="Static"/>
+                  <asp:TextBox ID="txtLastName" runat="server" CssClass="m-wrap large"/>
                   <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Last Name,"
                                               ControlToValidate="txtLastName" SetFocusOnError="true" 
                                               ValidationGroup="Sports" Text="Last Name Required !" 
@@ -546,9 +552,10 @@
                                                     ValidationExpression = "^[\s\S]{0,100}$" 
                                                     runat="server" ErrorMessage="Maximum 100 characters allowed.">
                    </asp:RegularExpressionValidator>  
-                   <span id="Span2" clientidmode="static" runat="server" class="help-inline charError" style="display:none;">
-                        <font Color="red">First Character Should Not Special Character</font>
-                   </span>
+                 <asp:CustomValidator ID="CustomValidator2" ValidationGroup="Sports" runat="server" ErrorMessage="" SetFocusOnError="true" 
+                                                 ControlToValidate="txtLastName" EnableClientScript="true" ClientValidationFunction="validateTextBox" 
+                                                 CssClass="errorfordnn" Text="First Character Should Not Be Special Character">
+                   </asp:CustomValidator>
              </div>
         </div>
 
@@ -583,9 +590,13 @@
                     <asp:RegularExpressionValidator ID="RegularExpressionValidator6"
                                                     Display="Static" ControlToValidate="txtAddress1"  
                                                     ValidationGroup="Sports" CssClass="errorfordnn"
-                                                    ValidationExpression = "^[\s\S]{0,500}$" 
-                                                    runat="server" ErrorMessage="Maximum 500 characters allowed.">
+                                                    ValidationExpression = "^[\s\S]{0,200}$" 
+                                                    runat="server" ErrorMessage="Maximum 200 characters allowed.">
                     </asp:RegularExpressionValidator>  
+                <asp:CustomValidator ID="CustomValidator3" ValidationGroup="Sports" runat="server" ErrorMessage="" SetFocusOnError="true" 
+                                                 ControlToValidate="txtAddress1" EnableClientScript="true" ClientValidationFunction="validateTextBox" 
+                                                 CssClass="errorfordnn" Text="First Character Should Not Be Special Character">
+                   </asp:CustomValidator>
            </div>
         </div>
 
@@ -599,9 +610,13 @@
                     <asp:RegularExpressionValidator ID="RegularExpressionValidator9"
                                                     Display="Static" ControlToValidate="txtAddress2"  
                                                     ValidationGroup="Sports" CssClass="errorfordnn"
-                                                    ValidationExpression = "^[\s\S]{0,500}$" 
-                                                    runat="server" ErrorMessage="Maximum 500 characters allowed.">
+                                                    ValidationExpression = "^[\s\S]{0,200}$" 
+                                                    runat="server" ErrorMessage="Maximum 200 characters allowed.">
                     </asp:RegularExpressionValidator>  
+                  <asp:CustomValidator ID="CustomValidator4" ValidationGroup="Sports" runat="server" ErrorMessage="" SetFocusOnError="true" 
+                                                 ControlToValidate="txtAddress2" EnableClientScript="true" ClientValidationFunction="validateTextBox" 
+                                                 CssClass="errorfordnn" Text="First Character Should Not Be Special Character">
+                   </asp:CustomValidator>
            </div>
         </div>
 
@@ -610,9 +625,17 @@
                    <asp:Label ID="lblCity" runat="server" Text=" City :" ></asp:Label>
              </label>
              <div class="controls" style="position:relative;">
-                  <asp:TextBox ID="txtCity" runat="server" 
-                                     CssClass="m-wrap large" onchange="textBoxOnBlur(this,this.id)" 
-                                     ClientIDMode="Static"/>
+                  <asp:TextBox ID="txtCity" runat="server" CssClass="m-wrap large"/>
+                   <asp:RegularExpressionValidator ID="RegularExpressionValidator3"
+                                                    Display="Static" ControlToValidate="txtCity"  
+                                                    ValidationGroup="Sports" CssClass="errorfordnn"
+                                                    ValidationExpression = "^[\s\S]{0,15}$" 
+                                                    runat="server" ErrorMessage="Maximum 15 characters allowed.">
+                    </asp:RegularExpressionValidator> 
+                 <asp:CustomValidator ID="CustomValidator5" ValidationGroup="Sports" runat="server" ErrorMessage="" SetFocusOnError="true" 
+                                                 ControlToValidate="txtCity" EnableClientScript="true" ClientValidationFunction="validateTextBox" 
+                                                 CssClass="errorfordnn" Text="First Character Should Not Be Special Character">
+                   </asp:CustomValidator>
              </div>
         </div>
 
@@ -621,9 +644,17 @@
                    <asp:Label ID="lblState" runat="server" Text=" State :" ></asp:Label>
              </label>
              <div class="controls" style="position:relative;">
-                  <asp:TextBox ID="txtState" runat="server" 
-                                     CssClass="m-wrap large" onchange="textBoxOnBlur(this,this.id)" 
-                                     ClientIDMode="Static"/>
+                  <asp:TextBox ID="txtState" runat="server" CssClass="m-wrap large"/>
+                   <asp:RegularExpressionValidator ID="RegularExpressionValidator4"
+                                                    Display="Static" ControlToValidate="txtState"  
+                                                    ValidationGroup="Sports" CssClass="errorfordnn"
+                                                    ValidationExpression = "^[\s\S]{0,15}$" 
+                                                    runat="server" ErrorMessage="Maximum 15 characters allowed.">
+                    </asp:RegularExpressionValidator> 
+                 <asp:CustomValidator ID="CustomValidator6" ValidationGroup="Sports" runat="server" ErrorMessage="" SetFocusOnError="true" 
+                                                 ControlToValidate="txtState" EnableClientScript="true" ClientValidationFunction="validateTextBox" 
+                                                 CssClass="errorfordnn" Text="First Character Should Not Be Special Character">
+                   </asp:CustomValidator>
              </div>
         </div>
 
@@ -632,9 +663,17 @@
                    <asp:Label ID="lblZipPostalCode" runat="server" Text=" Postal Code :" ></asp:Label>
              </label>
              <div class="controls" style="position:relative;">
-                  <asp:TextBox ID="txtZipPostalCode" runat="server" 
-                                     CssClass="m-wrap large" onchange="textBoxOnBlur(this,this.id)" 
-                                     ClientIDMode="Static"/>
+                  <asp:TextBox ID="txtZipPostalCode" runat="server" CssClass="m-wrap large" />
+                  <asp:RegularExpressionValidator ID="RegularExpressionValidator10"
+                                                    Display="Static" ControlToValidate="txtZipPostalCode"  
+                                                    ValidationGroup="Sports" CssClass="errorfordnn"
+                                                    ValidationExpression = "^[\s\S]{0,15}$" 
+                                                    runat="server" ErrorMessage="Maximum 15 characters allowed.">
+                    </asp:RegularExpressionValidator> 
+                  <asp:CustomValidator ID="CustomValidator7" ValidationGroup="Sports" runat="server" ErrorMessage="" SetFocusOnError="true" 
+                                                 ControlToValidate="txtZipPostalCode" EnableClientScript="true" ClientValidationFunction="validateTextBox" 
+                                                 CssClass="errorfordnn" Text="First Character Should Not Be Special Character">
+                   </asp:CustomValidator>
              </div>
         </div>
 
@@ -660,14 +699,26 @@
 		    <label class="control-label"> 
                 <asp:Label ID="lblDateOfBirth" runat="server" Text=" Date Of Birth :"></asp:Label>
              </label>
+               <div class="startsetallfrom">
+                 <span class="help-inline"><font Color="red"><b>*</b></font></span>
+             </div>
              <div class="controls" style="position:relative;">   
                   <asp:TextBox ID="txtDateOfBirth" runat="server" CssClass="enddatetimepicker m-wrap medium"/>
+                   <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="Date Of Birth,"
+                                                ControlToValidate="txtDateOfBirth" SetFocusOnError="true"  
+                                                ValidationGroup="Sports" 
+                                                InitialValue="0" Text="Select Date Of Birth Required !" CssClass="errorfordnn" 
+                                                ClientIDMode="Static"/>
                   <asp:RegularExpressionValidator ID="RegularExpressionValidator2"
                                                  Display="Static" ControlToValidate="txtDateOfBirth"  
                                                  ValidationGroup="Sports" CssClass="errorfordnn"
                                                  ValidationExpression = "^[\s\S]{0,25}$" 
                                                  runat="server" ErrorMessage="Maximum 25 characters allowed.">
-                 </asp:RegularExpressionValidator>   
+                 </asp:RegularExpressionValidator> 
+                  <asp:CustomValidator ID="CustomValidator8" ValidationGroup="Sports" runat="server" ErrorMessage="" SetFocusOnError="true" 
+                                                 ControlToValidate="txtDateOfBirth" EnableClientScript="true" ClientValidationFunction="validateTextBox" 
+                                                 CssClass="errorfordnn" Text="First Character Should Not Be Special Character">
+                   </asp:CustomValidator>  
              </div> 
         </div>
 
@@ -676,9 +727,17 @@
                    <asp:Label ID="lblPlaceOfBirth" runat="server" Text=" Place Of Birth :" ></asp:Label>
              </label>
              <div class="controls" style="position:relative;">
-                  <asp:TextBox ID="txtPlaceOfBirth" runat="server" 
-                                     CssClass="m-wrap large" onchange="textBoxOnBlur(this,this.id)" 
-                                     ClientIDMode="Static"/>
+                  <asp:TextBox ID="txtPlaceOfBirth" runat="server" CssClass="m-wrap large"/>
+                   <asp:RegularExpressionValidator ID="RegularExpressionValidator11"
+                                                    Display="Static" ControlToValidate="txtPlaceOfBirth"  
+                                                    ValidationGroup="Sports" CssClass="errorfordnn"
+                                                    ValidationExpression = "^[\s\S]{0,15}$" 
+                                                    runat="server" ErrorMessage="Maximum 15 characters allowed.">
+                    </asp:RegularExpressionValidator> 
+                  <asp:CustomValidator ID="CustomValidator9" ValidationGroup="Sports" runat="server" ErrorMessage="" SetFocusOnError="true" 
+                                                 ControlToValidate="txtPlaceOfBirth" EnableClientScript="true" ClientValidationFunction="validateTextBox" 
+                                                 CssClass="errorfordnn" Text="First Character Should Not Be Special Character">
+                   </asp:CustomValidator>  
              </div>
         </div>
 
@@ -687,9 +746,17 @@
                    <asp:Label ID="lblHeight" runat="server" Text=" Height :" ></asp:Label>
              </label>
              <div class="controls" style="position:relative;">
-                  <asp:TextBox ID="txtHeight" runat="server" 
-                                     CssClass="m-wrap large" onchange="textBoxOnBlur(this,this.id)" 
-                                     ClientIDMode="Static"/>
+                  <asp:TextBox ID="txtHeight" runat="server" CssClass="m-wrap small"/>
+                  <asp:RegularExpressionValidator ID="RegularExpressionValidator13"
+                                                    Display="Static" ControlToValidate="txtHeight"  
+                                                    ValidationGroup="Sports" CssClass="errorfordnn"
+                                                    ValidationExpression = "^[\s\S]{0,5}$" 
+                                                    runat="server" ErrorMessage="Maximum 5 characters allowed.">
+                    </asp:RegularExpressionValidator> 
+                 <asp:CustomValidator ID="CustomValidator10" ValidationGroup="Sports" runat="server" ErrorMessage="" SetFocusOnError="true" 
+                                                 ControlToValidate="txtHeight" EnableClientScript="true" ClientValidationFunction="validateTextBox" 
+                                                 CssClass="errorfordnn" Text="First Character Should Not Be Special Character">
+                   </asp:CustomValidator>
              </div>
         </div>
 
@@ -698,9 +765,17 @@
                    <asp:Label ID="lblWeight" runat="server" Text=" Weight :" ></asp:Label>
              </label>
              <div class="controls" style="position:relative;">
-                  <asp:TextBox ID="txtWeight" runat="server" 
-                                     CssClass="m-wrap large" onchange="textBoxOnBlur(this,this.id)" 
-                                     ClientIDMode="Static"/>
+                  <asp:TextBox ID="txtWeight" runat="server" CssClass="m-wrap small"/>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator14"
+                                                    Display="Static" ControlToValidate="txtWeight"  
+                                                    ValidationGroup="Sports" CssClass="errorfordnn"
+                                                    ValidationExpression = "^[\s\S]{0,5}$" 
+                                                    runat="server" ErrorMessage="Maximum 5 characters allowed.">
+                    </asp:RegularExpressionValidator> 
+                 <asp:CustomValidator ID="CustomValidator11" ValidationGroup="Sports" runat="server" ErrorMessage="" SetFocusOnError="true" 
+                                                 ControlToValidate="txtWeight" EnableClientScript="true" ClientValidationFunction="validateTextBox" 
+                                                 CssClass="errorfordnn" Text="First Character Should Not Be Special Character">
+                   </asp:CustomValidator>
              </div>
         </div>
 
@@ -721,6 +796,10 @@
                                              ValidationExpression = "^[\s\S]{0,50}$" 
                                              runat="server" ErrorMessage="Maximum 50 characters allowed.">
                  </asp:RegularExpressionValidator>
+                <asp:CustomValidator ID="CustomValidator12" ValidationGroup="Sports" runat="server" ErrorMessage="" SetFocusOnError="true" 
+                                                 ControlToValidate="txtEmailAddress" EnableClientScript="true" ClientValidationFunction="validateTextBox" 
+                                                 CssClass="errorfordnn" Text="First Character Should Not Be Special Character">
+                   </asp:CustomValidator>
             </div>
         </div>
 
@@ -736,6 +815,10 @@
                                              ValidationExpression = "^[\s\S]{0,20}$" 
                                              runat="server" ErrorMessage="Maximum 20 characters allowed.">
                 </asp:RegularExpressionValidator>
+                <asp:CustomValidator ID="CustomValidator13" ValidationGroup="Sports" runat="server" ErrorMessage="" SetFocusOnError="true" 
+                                                 ControlToValidate="txtTelephone" EnableClientScript="true" ClientValidationFunction="validateTextBox" 
+                                                 CssClass="errorfordnn" Text="First Character Should Not Be Special Character">
+                   </asp:CustomValidator>
            </div>
      </div>    
 
@@ -744,9 +827,17 @@
                    <asp:Label ID="lblUserLogoName" runat="server" Text=" Photo Name :" ></asp:Label>
              </label>
              <div class="controls" style="position:relative;">
-                  <asp:TextBox ID="txtUserLogoName" runat="server" 
-                                     CssClass="m-wrap large" onchange="textBoxOnBlur(this,this.id)" 
-                                     ClientIDMode="Static"/>
+                  <asp:TextBox ID="txtUserLogoName" runat="server" CssClass="m-wrap large" />
+                  <asp:RegularExpressionValidator ID="RegularExpressionValidator15"
+                                                    Display="Static" ControlToValidate="txtUserLogoName"  
+                                                    ValidationGroup="Sports" CssClass="errorfordnn"
+                                                    ValidationExpression = "^[\s\S]{0,100}$" 
+                                                    runat="server" ErrorMessage="Maximum 100 characters allowed.">
+                    </asp:RegularExpressionValidator> 
+                  <asp:CustomValidator ID="CustomValidator14" ValidationGroup="Sports" runat="server" ErrorMessage="" SetFocusOnError="true" 
+                                                 ControlToValidate="txtUserLogoName" EnableClientScript="true" ClientValidationFunction="validateTextBox" 
+                                                 CssClass="errorfordnn" Text="First Character Should Not Be Special Character">
+                   </asp:CustomValidator>
              </div>
         </div>
 
@@ -768,7 +859,419 @@
             </div>
         </div>
 
+       <div ID="divUserRole" runat="server">
+        <div class="control-group">
+		     <label class="control-label">
+                   <asp:Label ID="lblUserRole" runat="server" Text=" User Role :" ></asp:Label>
+             </label>
+             <div class="startsetallfrom">
+                   <span class="help-inline"><font Color="red"><b>*</b></font></span>
+             </div>
+             <div class="controls" style="position:relative;">
+                  <asp:DropDownList ID="ddlUserRole" runat="server" CssClass="medium m-wrap" 
+                                            AutoPostBack="true" OnSelectedIndexChanged="ddlUserRole_SelectedIndexChanged"/>
+                  <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage=" User Role,"
+                                                ControlToValidate="ddlUserRole" SetFocusOnError="true"  
+                                                ValidationGroup="Sports" 
+                                                InitialValue="0" Text="Select User Role Required !" CssClass="errorfordnn" 
+                                                ClientIDMode="Static"/>
+             </div>
+        </div>
+        </div>
+
+        <div ID="divUserType" runat="server" visible="false">
+            <div class="control-group">
+		         <label class="control-label">
+                       <asp:Label ID="lblUserType" runat="server" Text=" User Type :" ></asp:Label>
+                 </label>
+                  <div class="startsetallfrom">
+                        <span class="help-inline"><font Color="red"><b>*</b></font></span>
+                 </div>
+                 <div class="controls" style="position:relative;">
+                      <asp:DropDownList ID="ddlUserType" runat="server" CssClass="medium m-wrap"/>
+                      <asp:RequiredFieldValidator ID="RFVUserType" runat="server" ErrorMessage=" User Type,"
+                                                    ControlToValidate="ddlUserType" SetFocusOnError="true"  
+                                                    ValidationGroup="Sports" 
+                                                    InitialValue="0" Text="Select UserType Required !" CssClass="errorfordnn" 
+                                                    ClientIDMode="Static"/>
+                 </div>
+            </div>
+        </div>       
+
+     <div ID="divAssignToTeam" runat="server" visible="false">
+       <div class="control-group">
+         <label class="control-label"> 
+               <asp:Label ID="lblSelect" runat="server" Text="Assign To :" ></asp:Label>
+         </label>
+         <div class="controls" style="position:relative;">
+                   <asp:DropDownList ID="drpSelectionEntry" runat="server"  AutoPostBack="true" CssClass="medium m-wrap"  
+                                             OnSelectedIndexChanged="drpSelectionEntry_SelectedIndexChanged">
+                        <asp:ListItem Text="Enter As" Value="0"></asp:ListItem>
+                        <asp:ListItem Text="Direct in Team" Value="1"></asp:ListItem>
+                    </asp:DropDownList>
+          </div>
+        </div>
+       </div>
+
+    <div ID="divAssignToClub" runat="server" visible="false">
+       <div class="control-group">
+         <label class="control-label"> 
+               <asp:Label ID="lblSelectAssignToClub" runat="server" Text="Assign To :" ></asp:Label>
+         </label>
+         <div class="controls" style="position:relative;">
+                <asp:DropDownList ID="ddlAssignToClub" runat="server"  AutoPostBack="true" CssClass="medium m-wrap"  
+                                          OnSelectedIndexChanged="ddlAssignToClub_SelectedIndexChanged">
+                     <asp:ListItem Text="Enter As" Value="0"></asp:ListItem>
+                     <asp:ListItem Text="Direct in Club" Value="1"></asp:ListItem>
+                </asp:DropDownList>
+          </div>
+        </div>
+       </div>
+
+     
+            
+      <div ID="divSport" runat="server" visible="false">
+            <div class="control-group">
+		         <label class="control-label">
+                       <asp:Label ID="lblSport" runat="server" Text=" Sport :" ></asp:Label>
+                 </label>
+                <div class="startsetallfrom">
+                        <span class="help-inline"><font Color="red"><b>*</b></font></span>
+                 </div>
+                 <div class="controls" style="position:relative;">
+                      <asp:DropDownList ID="ddlSport" runat="server" CssClass="medium m-wrap" AutoPostBack="true"
+                          OnSelectedIndexChanged="ddlSport_SelectedIndexChanged"/>
+                     <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage=" Sport,"
+                                                ControlToValidate="ddlSport" SetFocusOnError="true"  
+                                                ValidationGroup="Sports" 
+                                                InitialValue="0" Text="Select Sport Required !" CssClass="errorfordnn" 
+                                                ClientIDMode="Static"/>
+                 </div>
+            </div>
+        </div>          
+
+      
+
+      <div ID="divCompetition" runat="server" visible="false">
+            <div class="control-group">
+		         <label class="control-label">
+                       <asp:Label ID="lblCompetition" runat="server" Text=" Competition :" ></asp:Label>
+                 </label>
+                 <div class="controls" style="position:relative;">
+                      <asp:DropDownList ID="ddlCompetition" runat="server" CssClass="medium m-wrap"/>
+                 </div>
+            </div>
+        </div>          
+
+      <div ID="divTeam" runat="server" visible="false">
+
+            <div class="control-group">
+		         <label class="control-label">
+                       <asp:Label ID="lblTeam" runat="server" Text=" Team :" ></asp:Label>
+                 </label>
+                <div class="startsetallfrom">
+                        <span class="help-inline"><font Color="red"><b>*</b></font></span>
+                 </div>
+                 <div class="controls" style="position:relative;">
+                      <asp:DropDownList ID="ddlTeam" runat="server" CssClass="medium m-wrap"/>
+                     <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage=" Team,"
+                                                ControlToValidate="ddlTeam" SetFocusOnError="true"  
+                                                ValidationGroup="Sports" 
+                                                InitialValue="0" Text="Select Team Required !" CssClass="errorfordnn" 
+                                                ClientIDMode="Static"/>
+                 </div>
+            </div>
+
+        </div>          
+
+        <div ID="divPlayerType" runat="server" visible="false">
+            <div class="control-group">
+		         <label class="control-label">
+                       <asp:Label ID="lblPlayerType" runat="server" Text=" Player Position :" ></asp:Label>
+                 </label>
+                  <div class="startsetallfrom">
+                        <span class="help-inline"><font Color="red"><b>*</b></font></span>
+                 </div>
+                 <div class="controls" style="position:relative;">
+                      <asp:DropDownList ID="ddlPlayerType" runat="server" CssClass="medium m-wrap"/>
+                      <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ErrorMessage=" Player Type,"
+                                                    ControlToValidate="ddlPlayerType" SetFocusOnError="true"  
+                                                    ValidationGroup="Sports" 
+                                                    InitialValue="0" Text="Select Player Type Required !" CssClass="errorfordnn" 
+                                                    ClientIDMode="Static"/>
+                 </div>
+            </div>
+
+        </div>       
+
+      <div ID="divPlayerJerseyNo" runat="server" visible="false">
+                   <div class="control-group">
+		     <label class="control-label">          
+                   <asp:Label ID="lblPlayerJerseyNo" runat="server" Text=" Player Jersey No :" ></asp:Label>
+             </label>
+             <div class="startsetallfrom">
+                    <span class="help-inline"><font Color="red"><b>*</b></font></span>
+             </div>
+             <div class="controls" style="position:relative;">
+                  <asp:TextBox ID="txtPlayerJerseyNo" runat="server" CssClass="m-wrap small" />
+                  <asp:RegularExpressionValidator ID="RegularExpressionValidator16"
+                                                    Display="Static" ControlToValidate="txtPlayerJerseyNo"  
+                                                    ValidationGroup="Sports" CssClass="errorfordnn"
+                                                    ValidationExpression = "^[\s\S]{0,5}$" 
+                                                    runat="server" ErrorMessage="Maximum 5 characters allowed.">
+                    </asp:RegularExpressionValidator> 
+                 <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ErrorMessage=" Player Jersey No,"
+                                                ControlToValidate="txtPlayerJerseyNo" SetFocusOnError="true"  
+                                                ValidationGroup="Sports" 
+                                                InitialValue="0" Text=" Player Jersey No Required !" CssClass="errorfordnn" 
+                                                ClientIDMode="Static"/>
+                  <asp:CustomValidator ID="CustomValidator15" ValidationGroup="Sports" runat="server" ErrorMessage="" SetFocusOnError="true" 
+                                                 ControlToValidate="txtPlayerJerseyNo" EnableClientScript="true" ClientValidationFunction="validateTextBox" 
+                                                 CssClass="errorfordnn" Text="First Character Should Not Be Special Character">
+                   </asp:CustomValidator>
+             </div>
+        </div>
+              </div>
+            
+      <div ID="divPlayerJerseyName" runat="server" visible="false">
+                   <div class="control-group">
+		     <label class="control-label">          
+                   <asp:Label ID="lblPlayerJerseyName" runat="server" Text=" Player Jersey Name :" ></asp:Label>
+             </label>
+             <div class="controls" style="position:relative;">
+                  <asp:TextBox ID="txtPlayerJerseyName" runat="server" CssClass="m-wrap large" />
+                  <asp:RegularExpressionValidator ID="RegularExpressionValidator17"
+                                                    Display="Static" ControlToValidate="txtPlayerJerseyName"  
+                                                    ValidationGroup="Sports" CssClass="errorfordnn"
+                                                    ValidationExpression = "^[\s\S]{0,100}$" 
+                                                    runat="server" ErrorMessage="Maximum 100 characters allowed.">
+                    </asp:RegularExpressionValidator> 
+                  <asp:CustomValidator ID="CustomValidator16" ValidationGroup="Sports" runat="server" ErrorMessage="" SetFocusOnError="true" 
+                                                 ControlToValidate="txtPlayerJerseyName" EnableClientScript="true" ClientValidationFunction="validateTextBox" 
+                                                 CssClass="errorfordnn" Text="First Character Should Not Be Special Character">
+                   </asp:CustomValidator>
+             </div>
+        </div>
+              </div>
+
+      <div ID="divPlayerFamousName" runat="server" visible="false">
+                   <div class="control-group">
+		     <label class="control-label">          
+                   <asp:Label ID="lblPlayerFamousName" runat="server" Text=" Player Famous Name :" ></asp:Label>
+             </label>
+             <div class="controls" style="position:relative;">
+                  <asp:TextBox ID="txtPlayerFamousName" runat="server" CssClass="m-wrap large" />
+                  <asp:RegularExpressionValidator ID="RegularExpressionValidator19"
+                                                    Display="Static" ControlToValidate="txtPlayerFamousName"  
+                                                    ValidationGroup="Sports" CssClass="errorfordnn"
+                                                    ValidationExpression = "^[\s\S]{0,100}$" 
+                                                    runat="server" ErrorMessage="Maximum 100 characters allowed.">
+                    </asp:RegularExpressionValidator> 
+                  <asp:CustomValidator ID="CustomValidator17" ValidationGroup="Sports" runat="server" ErrorMessage="" SetFocusOnError="true" 
+                                                 ControlToValidate="txtPlayerFamousName" EnableClientScript="true" ClientValidationFunction="validateTextBox" 
+                                                 CssClass="errorfordnn" Text="First Character Should Not Be Special Character">
+                   </asp:CustomValidator>
+             </div>
+        </div>
+              </div>
+
+      <div ID="divTeamMemberType" runat="server" visible="false">
+            <div class="control-group">
+		         <label class="control-label">
+                       <asp:Label ID="lblTeamMemberType" runat="server" Text=" Member Position :" ></asp:Label>
+                 </label>
+                  <div class="startsetallfrom">
+                        <span class="help-inline"><font Color="red"><b>*</b></font></span>
+                 </div>
+                 <div class="controls" style="position:relative;">
+                      <asp:DropDownList ID="ddlTeamMemberType" runat="server" CssClass="medium m-wrap"/>
+                      <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ErrorMessage=" Team Member Type,"
+                                                    ControlToValidate="ddlTeamMemberType" SetFocusOnError="true"  
+                                                    ValidationGroup="Sports" 
+                                                    InitialValue="0" Text="Select Team Member Type Required !" CssClass="errorfordnn" 
+                                                    ClientIDMode="Static"/>
+                 </div>
+            </div>
+
+        </div>       
+            
+      <div ID="divteammemberjerseyno" runat="server" visible="false">
+                   <div class="control-group">
+		     <label class="control-label">          
+                   <asp:Label ID="lblTeamMemberJerseyNo" runat="server" Text=" Member Jersey No :" ></asp:Label>
+             </label>
+             <div class="startsetallfrom">
+                    <span class="help-inline"><font Color="red"><b>*</b></font></span>
+             </div>
+             <div class="controls" style="position:relative;">
+                  <asp:TextBox ID="txtTeamMemberJerseyNo" runat="server" CssClass="m-wrap small" />
+                  <asp:RegularExpressionValidator ID="RegularExpressionValidator20"
+                                                    Display="Static" ControlToValidate="txtTeamMemberJerseyNo"  
+                                                    ValidationGroup="Sports" CssClass="errorfordnn"
+                                                    ValidationExpression = "^[\s\S]{0,5}$" 
+                                                    runat="server" ErrorMessage="Maximum 5 characters allowed.">
+                    </asp:RegularExpressionValidator> 
+                 <asp:RequiredFieldValidator ID="RequiredFieldValidator15" runat="server" ErrorMessage=" Team Member Jersey No,"
+                                                ControlToValidate="txtTeamMemberJerseyNo" SetFocusOnError="true"  
+                                                ValidationGroup="Sports" 
+                                                InitialValue="0" Text=" Team Member Jersey No Required !" CssClass="errorfordnn" 
+                                                ClientIDMode="Static"/>
+                  <asp:CustomValidator ID="CustomValidator18" ValidationGroup="Sports" runat="server" ErrorMessage="" SetFocusOnError="true" 
+                                                 ControlToValidate="txtTeamMemberJerseyNo" EnableClientScript="true" ClientValidationFunction="validateTextBox" 
+                                                 CssClass="errorfordnn" Text="First Character Should Not Be Special Character">
+                   </asp:CustomValidator>
+             </div>
+        </div>
+              </div>
+            
+      <div ID="divTeamMemberJerseyName" runat="server" visible="false">
+          <div class="control-group">
+		     <label class="control-label">          
+                   <asp:Label ID="lblTeamMemberJerseName" runat="server" Text=" Member Jersey Name :" ></asp:Label>
+             </label>
+             <div class="controls" style="position:relative;">
+                  <asp:TextBox ID="txtTeamMemberJerseyName" runat="server" CssClass="m-wrap large" />
+                  <asp:RegularExpressionValidator ID="RegularExpressionValidator21"
+                                                    Display="Static" ControlToValidate="txtTeamMemberJerseyName"  
+                                                    ValidationGroup="Sports" CssClass="errorfordnn"
+                                                    ValidationExpression = "^[\s\S]{0,100}$" 
+                                                    runat="server" ErrorMessage="Maximum 100 characters allowed.">
+                    </asp:RegularExpressionValidator> 
+                  <asp:CustomValidator ID="CustomValidator19" ValidationGroup="Sports" runat="server" ErrorMessage="" SetFocusOnError="true" 
+                                                 ControlToValidate="txtTeamMemberJerseyName" EnableClientScript="true" 
+                                                 ClientValidationFunction="validateTextBox" 
+                                                 CssClass="errorfordnn" Text="First Character Should Not Be Special Character">
+                   </asp:CustomValidator>
+             </div>
+        </div>
+     </div>
+
+      <div ID="divTeamMemberFamousName" runat="server" visible="false">
+                   <div class="control-group">
+		     <label class="control-label">          
+                   <asp:Label ID="lblTeamMemberFamousName" runat="server" Text=" Member Famous Name :" ></asp:Label>
+             </label>
+             <div class="controls" style="position:relative;">
+                  <asp:TextBox ID="txtTeamMemberFamousName" runat="server" CssClass="m-wrap large" />
+                  <asp:RegularExpressionValidator ID="RegularExpressionValidator22"
+                                                    Display="Static" ControlToValidate="txtTeamMemberFamousName"  
+                                                    ValidationGroup="Sports" CssClass="errorfordnn"
+                                                    ValidationExpression = "^[\s\S]{0,100}$" 
+                                                    runat="server" ErrorMessage="Maximum 100 characters allowed.">
+                    </asp:RegularExpressionValidator> 
+                  <asp:CustomValidator ID="CustomValidator20" ValidationGroup="Sports" runat="server" ErrorMessage="" SetFocusOnError="true" 
+                                                 ControlToValidate="txtTeamMemberFamousName" EnableClientScript="true" 
+                                                 ClientValidationFunction="validateTextBox" 
+                                                 CssClass="errorfordnn" Text="First Character Should Not Be Special Character">
+                   </asp:CustomValidator>
+             </div>
+        </div>
+              </div>
+
+      <div ID="divClub" runat="server" visible="false">
+            <div class="control-group">
+		         <label class="control-label">
+                       <asp:Label ID="lblClub" runat="server" Text=" Club :" ></asp:Label>
+                 </label>
+                <div class="startsetallfrom">
+                        <span class="help-inline"><font Color="red"><b>*</b></font></span>
+                 </div>
+                 <div class="controls" style="position:relative;">
+                      <asp:DropDownList ID="ddlClub" runat="server" CssClass="medium m-wrap"/>
+                     <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ErrorMessage=" Club,"
+                                                            ControlToValidate="ddlClub" SetFocusOnError="true"  
+                                                            ValidationGroup="Sports" 
+                                                            InitialValue="0" Text="Select Club Required !" CssClass="errorfordnn" 
+                                                            ClientIDMode="Static"/>
+                 </div>
+            </div>
+        </div>          
+       
+      <div ID="divClubOwnerDescription" runat="server" visible="false">       
+       <div class="control-group">
+		    <label class="control-label">
+                <asp:Label ID="lblClubOwnerDescription" runat="server" Text="Description :" ></asp:Label>
+            </label>
+            <div class="controls" style="position:relative;">
+                <asp:TextBox ID="txtClubOwnerDescription" runat="server"  
+                             CssClass="m-wrap mediumSmallDesc" TextMode="MultiLine" Width="319px" Height="150px"/>
+                   <asp:RegularExpressionValidator ID="RegularExpressionValidator23"
+                                                    Display="Static" ControlToValidate="txtClubOwnerDescription"  
+                                                    ValidationGroup="Sports" CssClass="errorfordnn"
+                                                    ValidationExpression = "^[\s\S]{0,300}$" 
+                                                    runat="server" ErrorMessage="Maximum 300 characters allowed.">
+                    </asp:RegularExpressionValidator>  
+                  <asp:CustomValidator ID="cvtxtClubOwnerDescription" ValidationGroup="Sports" runat="server" ErrorMessage="" SetFocusOnError="true" 
+                                                 ControlToValidate="txtClubOwnerDescription" EnableClientScript="true" ClientValidationFunction="validateTextBox" 
+                                                 CssClass="errorfordnn" Text="First Character Should Not Be Special Character">
+                   </asp:CustomValidator>
+           </div>
+        </div>
+       </div>
+
+      <div ID="divClubOwnerPercentage" runat="server" visible="false">
          <div class="control-group">
+		    <label class="control-label">
+                <asp:Label ID="lblClubOwnerPercentage" runat="server" Text="Percentage :"></asp:Label>
+            </label>
+		    <div class="controls" style="position:relative;">
+                   <asp:TextBox ID="txtClubOwnerPercentage" runat="server" CssClass="m-wrap small"></asp:TextBox>%
+                  <asp:RegularExpressionValidator ID="RegularExpressionValidator24"
+                                                    Display="Static" ControlToValidate="txtClubOwnerPercentage"  
+                                                    ValidationGroup="Sports" CssClass="errorfordnn"
+                                                    ValidationExpression = "^[\s\S]{0,5}$" 
+                                                    runat="server" ErrorMessage="Maximum 5 characters allowed.">
+                    </asp:RegularExpressionValidator>  
+                  <asp:CustomValidator ID="cvtxtClubOwnerPercentage" ValidationGroup="Sports" runat="server" ErrorMessage="" SetFocusOnError="true" 
+                                                 ControlToValidate="txtClubOwnerPercentage" EnableClientScript="true" ClientValidationFunction="validateTextBox" 
+                                                 CssClass="errorfordnn" Text="First Character Should Not Be Special Character">
+                   </asp:CustomValidator>
+            </div> 
+        </div>
+     </div>
+
+            <div ID="divClubMemberType" runat="server" visible="false">       
+    <div class="control-group">
+		     <label class="control-label">
+                   <asp:Label ID="lblClubMemberType" runat="server" Text=" Member Position :" ></asp:Label>
+             </label>
+              <div class="startsetallfrom">
+                 <span class="help-inline"><font Color="red"><b>*</b></font></span>
+             </div>
+             <div class="controls" style="position:relative;">
+                  <asp:DropDownList ID="ddlMemberType" runat="server" CssClass="medium m-wrap"/>
+                  <asp:RequiredFieldValidator ID="RFVMemberType" runat="server" ErrorMessage="Member Type,"
+                                                ControlToValidate="ddlMemberType" SetFocusOnError="true"  
+                                                ValidationGroup="Sports" 
+                                                InitialValue="0" Text="Select Member Type Required !" CssClass="errorfordnn" 
+                                                ClientIDMode="Static"/>
+             </div>
+        </div>
+                </div>
+
+        <div ID="divClubMemberDesc" runat="server" visible="false">       
+              <div class="control-group">
+		    <label class="control-label">
+                <asp:Label ID="lblClubMemberDesc" runat="server" Text="Description :" ></asp:Label>
+            </label>
+            <div class="controls" style="position:relative;">
+                <asp:TextBox ID="txtClubMemberDesc" runat="server"  
+                             CssClass="m-wrap mediumSmallDesc" TextMode="MultiLine" Width="319px" Height="150px"/>
+                       <asp:RegularExpressionValidator ID="RegularExpressionValidator25"
+                                                    Display="Static" ControlToValidate="txtClubMemberDesc"  
+                                                    ValidationGroup="Sports" CssClass="errorfordnn"
+                                                    ValidationExpression = "^[\s\S]{0,300}$" 
+                                                    runat="server" ErrorMessage="Maximum 300 characters allowed.">
+                    </asp:RegularExpressionValidator>  
+                  <asp:CustomValidator ID="cvtxtClubMemberDesc" ValidationGroup="Sports" runat="server" ErrorMessage="" SetFocusOnError="true" 
+                                                 ControlToValidate="txtClubMemberDesc" EnableClientScript="true" ClientValidationFunction="validateTextBox" 
+                                                 CssClass="errorfordnn" Text="First Character Should Not Be Special Character">
+                   </asp:CustomValidator>
+           </div>
+        </div>
+            </div>
+
+      <div class="control-group">
 		    <label class="control-label">
             <asp:Label ID="lblActive" runat="server" Text=" IsActive :"></asp:Label>
         </label>
@@ -781,7 +1284,7 @@
              </div>
         </div>
 
-       <div class="control-group">
+      <div class="control-group">
 		    <label class="control-label">
             <asp:Label ID="lblShow" runat="server" Text=" IsShow :"></asp:Label>
         </label>
@@ -856,7 +1359,7 @@
 <script type="text/javascript">
     function imgError(image) {
         image.onerror = "";
-        image.src = "\\DesktopModules\\ThSport\\Images\\AllImage\\1_pix.png";
+        image.src = "\\DesktopModules\\ThSport\\Images\\OtherImages\\1_pix.png";
         return true;
     }
 </script>

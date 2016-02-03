@@ -130,6 +130,24 @@ namespace DotNetNuke.Modules.ThSport {
         protected global::System.Web.UI.WebControls.Panel pnlTeamEntry;
         
         /// <summary>
+        /// error_div control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl error_div;
+        
+        /// <summary>
+        /// error_msg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label error_msg;
+        
+        /// <summary>
         /// hdnTeamID control.
         /// </summary>
         /// <remarks>
@@ -137,6 +155,15 @@ namespace DotNetNuke.Modules.ThSport {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hdnTeamID;
+        
+        /// <summary>
+        /// lblClub control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblClub;
         
         /// <summary>
         /// ddlClub control.
@@ -155,6 +182,15 @@ namespace DotNetNuke.Modules.ThSport {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvddlClub;
+        
+        /// <summary>
+        /// lblSport control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSport;
         
         /// <summary>
         /// ddlSport control.
@@ -292,6 +328,15 @@ namespace DotNetNuke.Modules.ThSport {
         protected global::System.Web.UI.WebControls.CustomValidator cvtxtTeamDesc;
         
         /// <summary>
+        /// lblFamousName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFamousName;
+        
+        /// <summary>
         /// txtFamousName control.
         /// </summary>
         /// <remarks>
@@ -326,6 +371,15 @@ namespace DotNetNuke.Modules.ThSport {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CustomValidator cvtxtFamousName;
+        
+        /// <summary>
+        /// lblTeamLogoName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTeamLogoName;
         
         /// <summary>
         /// txtTeamLogoName control.
@@ -400,6 +454,15 @@ namespace DotNetNuke.Modules.ThSport {
         protected global::System.Web.UI.WebControls.Image TeamLogoImage;
         
         /// <summary>
+        /// lblUploadPhoto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblUploadPhoto;
+        
+        /// <summary>
         /// TeamPhotoFile control.
         /// </summary>
         /// <remarks>
@@ -427,6 +490,15 @@ namespace DotNetNuke.Modules.ThSport {
         protected global::System.Web.UI.WebControls.Image TeamPhotoImage;
         
         /// <summary>
+        /// lblEstablishedYear control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblEstablishedYear;
+        
+        /// <summary>
         /// txtEstablishedYear control.
         /// </summary>
         /// <remarks>
@@ -443,6 +515,15 @@ namespace DotNetNuke.Modules.ThSport {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvtxtEstablishedYear;
+        
+        /// <summary>
+        /// lblUploadAnthemAudioFile control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblUploadAnthemAudioFile;
         
         /// <summary>
         /// TeamAnthemAudioFile control.

@@ -18,12 +18,10 @@ namespace ThSportServer
     public class clsClubMember
     {
         public int ClubMemberId { get; set; }
-        public int ClubSportsId { get; set; }
+        public int RegistrationId { get; set; }
         public int ClubMemberTypeId { get; set; }
-        public string ClubMemberTitle { get; set;}
+        public int ClubId { get; set;}
         public string ClubMemberDesc { get; set; }
-        public int ActiveFlagId { get; set; }
-        public int ShowFlagId { get; set; }
         public int PortalID { get; set; }
         public string CreatedById { get; set; }
         public string ModifiedById { get; set; }
@@ -41,11 +39,11 @@ namespace ThSportServer
 
         #region Insert,Update Method
 
-        public int InsertClubMember(clsClubMember ccm)
+        public int InsertClubMember(clsClubMember cc)
         {
             try
             {
-                dataProvider.ExecuteNonQuery("usp_InsertClubMember", ccm.ClubSportsId, ccm.ClubMemberTypeId, ccm.ClubMemberTitle, ccm.ClubMemberDesc, ccm.ActiveFlagId, ccm.ShowFlagId, ccm.PortalID, ccm.CreatedById, ccm.ModifiedById);
+                dataProvider.ExecuteNonQuery("usp_InsertClubMember", cc.RegistrationId, cc.ClubMemberTypeId, cc.ClubId, cc.ClubMemberDesc, cc.PortalID, cc.CreatedById, cc.ModifiedById);
             }
             catch (Exception ex)
             {
@@ -60,7 +58,7 @@ namespace ThSportServer
 
             try
             {
-                dataProvider.ExecuteNonQuery("usp_UpdateClubMember", ccm.ClubMemberId,ccm.ClubSportsId,ccm.ClubMemberTypeId,ccm.ClubMemberTitle,ccm.ClubMemberDesc,ccm.ActiveFlagId,ccm.ShowFlagId,ccm.PortalID,ccm.ModifiedById);
+                dataProvider.ExecuteNonQuery("usp_UpdateClubMember", ccm.ClubMemberId,ccm.RegistrationId,ccm.ClubMemberTypeId,ccm.ClubId,ccm.ClubMemberDesc,ccm.PortalID,ccm.ModifiedById);
                 return i;
             }
             catch (Exception ex)
@@ -151,6 +149,26 @@ namespace ThSportServer
                 return null;
             }
         }
+
+        public DataTable GetClubMember()
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                using (IDataReader rdr = dataProvider.ExecuteReader("usp_GetClubMember"))
+                {
+                    dt.Load(rdr);
+                }
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+
+        
 
         public DataTable GetClubSportIDByClubID(int ClubID)
         {

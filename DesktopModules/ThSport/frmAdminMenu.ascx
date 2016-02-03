@@ -23,27 +23,50 @@
 	        <asp:HyperLink id="hlSeason" runat="server" ToolTip=" Season Form"> Season </asp:HyperLink>
 		</li>
 
-        <li id="li_Registration" runat="server">
-	        <asp:HyperLink id="hlRegistration" runat="server" ToolTip=" Registration Form"> Registration </asp:HyperLink>
-		</li>
-
-        <li id="li_Event" runat="server">
-	        <asp:HyperLink id="hlEvent" runat="server" ToolTip=" Event Form"> Event </asp:HyperLink>
-		</li>
-        
         <li id="li_Competition" runat="server">
 	        <asp:HyperLink id="hlCompetition" runat="server" ToolTip="Competition Form">Competition </asp:HyperLink>
+		</li>
+        
+        <li id="li_Registration" runat="server">
+	        <asp:HyperLink id="hlRegistration" runat="server" ToolTip=" Registration Form "> Registration </asp:HyperLink>
 		</li>
 
         <li id="li_Team" runat="server">
 	        <asp:HyperLink id="hlTeam" runat="server" ToolTip="Team Form">Team </asp:HyperLink>
 		</li>
 
+        <li id="li_Event" runat="server">
+	        <asp:HyperLink id="hlEvent" runat="server" ToolTip=" Event Form"> Event </asp:HyperLink>
+		</li>
+
+        <li id="li_Sponsor" runat="server">
+	        <asp:HyperLink id="hlSponsor" runat="server" ToolTip=" Sponsor Form"> Sponsor </asp:HyperLink>
+		</li>
+
+        
+        <li id="li_Media" runat="server">
+            <asp:HyperLink id="hlMedia" runat="server" ToolTip=" Media Form " NavigateUrl="javascript:;"> Media Form <span class="arrow selected"></span></asp:HyperLink>
+            <ul class="sub-menu">
+                <li id="li_News" runat="server">
+	                <asp:HyperLink id="hlNews" runat="server" ToolTip=" News Form"> News </asp:HyperLink>
+		        </li>
+                <li id="li_Pictures" runat="server">
+	                <asp:HyperLink id="hlPictures" runat="server" ToolTip=" Pictures Form"> Pictures </asp:HyperLink>
+		        </li>
+                <li id="li_Videos" runat="server">
+	                <asp:HyperLink id="hlVideos" runat="server" ToolTip=" Videos Form"> Videos </asp:HyperLink>
+		        </li>
+                <%--<li id="li_Albam" runat="server">
+	                <asp:HyperLink id="hlAlbam" runat="server" ToolTip=" Albam Form"> Albam </asp:HyperLink>
+		        </li>--%>
+           </ul>
+	    </li>
+
         <li id="li_Masters" runat="server">
             <asp:HyperLink id="hlMaster" runat="server" ToolTip=" Master Form " NavigateUrl="javascript:;"> Masters Form <span class="arrow selected"></span></asp:HyperLink>
             <ul class="sub-menu">
               <li id="li_ClubMemberType" runat="server">
-                  <asp:HyperLink id="hlClubMemberType" runat="server" ToolTip=" Club Member Type Form"> Club Member Type </asp:HyperLink>
+                  <asp:HyperLink id="hlClubMemberType" runat="server" ToolTip=" Club Member Type Form"> Club Member Position </asp:HyperLink>
               </li>
               <li id="li_UserType" runat="server">
                   <asp:HyperLink id="hlUserType" runat="server" ToolTip=" User Type Form"> User Type </asp:HyperLink>
@@ -61,8 +84,23 @@
                   <asp:HyperLink id="hlCompetitionFormat" runat="server" ToolTip="Competition Format Form"> Competition Format </asp:HyperLink>
               </li>
               <li id="li_Division" runat="server">
-                  <asp:HyperLink id="hlDivision" runat="server" ToolTip="Division Form"> Division</asp:HyperLink>
+                  <asp:HyperLink id="hlDivision" runat="server" ToolTip="Division Form"> Division </asp:HyperLink>
               </li>
+              <li id="li_SponsorType" runat="server">
+                  <asp:HyperLink id="hlSponsorType" runat="server" ToolTip=" Sponsor Type Form "> Sponsor Type </asp:HyperLink>
+              </li>
+              <li id="li_SponsorLevel" runat="server">
+                  <asp:HyperLink id="hlSponsorLevel" runat="server" ToolTip=" Sponsor Level Form "> Sponsor Level </asp:HyperLink>
+              </li>
+              <li id="li_PlayerType" runat="server">
+                  <asp:HyperLink id="hlPlayerType" runat="server" ToolTip=" Player Position Form "> Player Position </asp:HyperLink>
+              </li>
+              <li id="li_TeamMemberType" runat="server">
+                  <asp:HyperLink id="hlTeamMemberType" runat="server" ToolTip=" Team Member Position Form "> Team Member Position </asp:HyperLink>
+              </li>  
+              <%--<li id="li_UserRole" runat="server">
+                  <asp:HyperLink id="hlUserRole" runat="server" ToolTip=" User Role Form "> User Role </asp:HyperLink>
+              </li>  --%>
            </ul>
 	    </li>
         
@@ -99,7 +137,7 @@
        <li class="home"><asp:HyperLink id="titela" runat="server"></asp:HyperLink> </li>
        <li><asp:Label ID="titel" runat="server" ></asp:Label></li>
        <li><asp:Label ID="Subtitle" runat="server" ></asp:Label></li>
-           <asp:HiddenField ID="hdcompetitionid" runat="server"/>
+             <asp:HiddenField ID="hdcompetitionid" runat="server"/>
     </ul>
 </div>
         
