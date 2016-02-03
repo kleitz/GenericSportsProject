@@ -471,9 +471,12 @@
 
         <div class="control-group">
 		    <label class="control-label">Sport : </label>
+             <div class="startsetallfrom">
+              <span class="help-inline"><font Color="red"><b>*</b></font></span>
+            </div>
             <div class="controls" style="position:relative;">  
                 <asp:DropDownList ID="ddlSport" runat="server"  CssClass="large m-wrap"/>
-                <span class="help-inline"><font Color="red"><b>*</b></font></span>
+               
                 <asp:RequiredFieldValidator ID="rfvddlSport" ClientIDMode="Static" runat="server" InitialValue="0" 
                     ErrorMessage="Sport Required !" CssClass="errorfordnn" SetFocusOnError="true" ControlToValidate="ddlSport"
                     ValidationGroup="Sports" Text="Sport Required !"></asp:RequiredFieldValidator>
@@ -482,9 +485,12 @@
 
         <div class="control-group">
 		    <label class="control-label">Season : </label>
+             <div class="startsetallfrom">
+              <span class="help-inline"><font Color="red"><b>*</b></font></span>
+            </div>
             <div class="controls" style="position:relative;">  
                 <asp:DropDownList ID="ddlSeason" runat="server"  CssClass="large m-wrap"/>
-                <span class="help-inline"><font Color="red"><b>*</b></font></span>
+               
                 <asp:RequiredFieldValidator ID="rfvddlSeason" ClientIDMode="Static" runat="server" InitialValue="0" 
                     ErrorMessage="Season Required !" CssClass="errorfordnn" SetFocusOnError="true" ControlToValidate="ddlSeason"
                     ValidationGroup="Sports" Text="Season Required !"></asp:RequiredFieldValidator>
@@ -493,9 +499,12 @@
 
         <div class="control-group">
 		    <label class="control-label">Competition League : </label>
+             <div class="startsetallfrom">
+              <span class="help-inline"><font Color="red"><b>*</b></font></span>
+            </div>
             <div class="controls" style="position:relative;">  
                 <asp:DropDownList ID="ddlCompetitionLeague" runat="server"  CssClass="large m-wrap"/>
-                <span class="help-inline"><font Color="red"><b>*</b></font></span>
+               
                 <asp:RequiredFieldValidator ID="rfvddlCompetitionLeague" ClientIDMode="Static" runat="server" InitialValue="0" 
                     ErrorMessage="Competition League Required !" CssClass="errorfordnn" SetFocusOnError="true" ControlToValidate="ddlCompetitionLeague"
                     ValidationGroup="Sports" Text="Competition League Required !"></asp:RequiredFieldValidator>
@@ -512,9 +521,12 @@
 
         <div class="control-group">
 		    <label class="control-label">Competition Type : </label>
+             <div class="startsetallfrom">
+              <span class="help-inline"><font Color="red"><b>*</b></font></span>
+            </div>
             <div class="controls" style="position:relative;">  
                 <asp:DropDownList ID="ddlCompetitionType" runat="server"  CssClass="large m-wrap"/>
-                <span class="help-inline"><font Color="red"><b>*</b></font></span>
+               
                 <asp:RequiredFieldValidator ID="rfvddlCompetitionType" ClientIDMode="Static" runat="server" InitialValue="0" 
                     ErrorMessage="Competition Type Required !" CssClass="errorfordnn" SetFocusOnError="true" ControlToValidate="ddlCompetitionType"
                     ValidationGroup="Sports" Text="Competition Type Required !"></asp:RequiredFieldValidator>
@@ -523,9 +535,12 @@
 
         <div class="control-group">
 		    <label class="control-label">Competition Format : </label>
+             <div class="startsetallfrom">
+              <span class="help-inline"><font Color="red"><b>*</b></font></span>
+            </div>
             <div class="controls" style="position:relative;">  
                 <asp:DropDownList ID="ddlCompetitionFormat" runat="server"  CssClass="large m-wrap"/>
-                <span class="help-inline"><font Color="red"><b>*</b></font></span>
+               
                 <asp:RequiredFieldValidator ID="rfvddlCompetitionFormat" ClientIDMode="Static" runat="server" InitialValue="0" 
                     ErrorMessage="Competition Format Required !" CssClass="errorfordnn" SetFocusOnError="true" ControlToValidate="ddlCompetitionFormat"
                     ValidationGroup="Sports" Text="Competition Format Required !"></asp:RequiredFieldValidator>
@@ -536,9 +551,12 @@
 		     <label class="control-label">          
                    <asp:Label ID="lblCompetition" runat="server" Text=" Competition  :" ></asp:Label>
              </label>
+            <div class="startsetallfrom">
+              <span class="help-inline"><font Color="red"><b>*</b></font></span>
+            </div>
              <div class="controls" style="position:relative;">
                   <asp:TextBox ID="txtCompetition" runat="server"  CssClass="m-wrap large" />
-                 <span class="help-inline"><font Color="red"><b>*</b></font></span>
+               
                   <asp:RequiredFieldValidator ID="rfvCompetition" runat="server" ErrorMessage="Competition"  ControlToValidate="txtCompetition" SetFocusOnError="true" 
                                               ValidationGroup="Sports" Text="Competition  Required !" CssClass="errorfordnn" ClientIDMode="Static"/>
                    <asp:RegularExpressionValidator ID="rgvtxtCompetition"
@@ -556,9 +574,12 @@
 		    <label class="control-label">
                 <asp:Label ID="lblCompetitionAbbr" runat="server" Text="Abbreviation :" ></asp:Label>
             </label>
+             <div class="startsetallfrom">
+              <span class="help-inline"><font Color="red"><b>*</b></font></span>
+            </div>
             <div class="controls" style="position:relative;">
                 <asp:TextBox ID="txtCompetitionAbbr" runat="server"  CssClass="m-wrap small" />
-                <span class="help-inline"><font Color="red"><b>*</b></font></span>
+              
                     <asp:RegularExpressionValidator ID="rgvtxtCompetitionAbbr"
                                                     Display="Static" ControlToValidate="txtCompetitionAbbr"  
                                                     ValidationGroup="Sports" CssClass="errorfordnn"
@@ -608,9 +629,12 @@
 		    <label class="control-label"> 
                 <asp:Label ID="lblUploadLogo" runat="server" Text="Upload Logo : "></asp:Label>
              </label>
+             <div class="startsetallfrom">
+              <span class="help-inline"><font Color="red"><b>*</b></font></span>
+            </div>
             <div class="controls" style="position:relative;">  
                 <input ID="CompetitionLogoFile" type="file" name="file" runat="server" onchange="previewFileLogo()"/>
-                <span class="help-inline"><font Color="red"><b>*</b></font></span>
+            
                 <asp:RegularExpressionValidator ID="rgvCompetitionLogoFile" 
                                                 ValidationExpression="/^(([a-zA-Z]:)|(\\{2}\w+)\$?)(\\(\w[\w].*))+(.jpeg|.JPEG|.gif|.GIF| .png|.PNG)$/"
                                                 ControlToValidate="CompetitionLogoFile" ValidationGroup="Sports" 
@@ -628,9 +652,12 @@
 		    <label class="control-label"> 
                 <asp:Label ID="lblStartDate" runat="server" Text="Start Date :" ></asp:Label>
             </label>
+              <div class="startsetallfrom">
+              <span class="help-inline"><font Color="red"><b>*</b></font></span>
+            </div>
             <div class="controls" style="position:relative;">  
                 <asp:TextBox ID="txtStartDate" runat="server" ClientIDMode="Static"  CssClass="datetimepicker m-wrap medium"/>
-                <span class="help-inline"><font Color="red"><b>*</b></font></span>
+               
                 <asp:RequiredFieldValidator ID="rfvtxtStartDate" runat="server" ErrorMessage="Enter Start Date"
                                                  ControlToValidate="txtStartDate" SetFocusOnError="true" 
                                                  ValidationGroup="Sports" Text="Start Date Required !" CssClass="errorfordnn" 
@@ -642,9 +669,12 @@
 		    <label class="control-label"> 
                 <asp:Label ID="lblEndDate" runat="server" Text="End Date :" ></asp:Label>
              </label>
+             <div class="startsetallfrom">
+              <span class="help-inline"><font Color="red"><b>*</b></font></span>
+            </div>
             <div class="controls" style="position:relative;">   
                  <asp:TextBox ID="txtEndDate" runat="server" ClientIDMode="Static"  CssClass="enddatetimepicker m-wrap medium onlynumeric"/>
-                <span class="help-inline"><font Color="red"><b>*</b></font></span>
+               
                  <asp:RequiredFieldValidator ID="rfvtxtEndDate" runat="server" ErrorMessage="Enter End Date"
                                                  ControlToValidate="txtEndDate" SetFocusOnError="true" 
                                                  ValidationGroup="Sports" Text="End Date Required !" CssClass="errorfordnn" 
