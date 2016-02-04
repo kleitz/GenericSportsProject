@@ -435,9 +435,13 @@
 
             <div class="control-group">
 		        <label class="control-label">Season : </label>
+                <div class="startsetallfrom">
+             <span class="help-inline"><font Color="red"><b>*</b></font></span>
+            </div>
+            
                 <div class="controls" style="position:relative;">  
                     <asp:DropDownList ID="ddlSeason" runat="server"  CssClass="large m-wrap"/>
-                    <span class="help-inline"><font Color="red"><b>*</b></font></span>
+                 
                     <asp:RequiredFieldValidator ID="rfvddlSeason" ClientIDMode="Static" runat="server" InitialValue="0" 
                         ErrorMessage="Season Required !" CssClass="errorfordnn" SetFocusOnError="true" ControlToValidate="ddlSeason"
                         ValidationGroup="Sports" Text="Season Required !"></asp:RequiredFieldValidator>
@@ -448,10 +452,13 @@
 		         <label class="control-label">          
                        <asp:Label ID="lblDivision" runat="server" Text="Division :" ></asp:Label>
                  </label>
+            <div class="startsetallfrom">
+             <span class="help-inline"><font Color="red"><b>*</b></font></span>
+            </div>
              
              <div class="controls" style="position:relative;">
                   <asp:TextBox ID="txtDivision" runat="server"  CssClass="m-wrap large" />
-                 <span class="help-inline"><font Color="red"><b>*</b></font></span>
+            
                   <asp:RequiredFieldValidator ID="rfvDivision" runat="server" ErrorMessage="Division"
                                               ControlToValidate="txtDivision" SetFocusOnError="true" 
                                               ValidationGroup="Sports" Text="Division Name Required !" 
@@ -471,9 +478,13 @@
 		    <label class="control-label">
                 <asp:Label ID="lblDivisionAbbr" runat="server" Text="Abbreviation :" ></asp:Label>
             </label>
+            <div class="startsetallfrom">
+             <span class="help-inline"><font Color="red"><b>*</b></font></span>
+            </div>
+            
             <div class="controls" style="position:relative;">
                 <asp:TextBox ID="txtDivisionAbbr" runat="server"  CssClass="m-wrap small" />
-                <span class="help-inline"><font Color="red"><b>*</b></font></span>
+            
                     <asp:RegularExpressionValidator ID="rgvtxtDivisionAbbr"
                                                     Display="Static" ControlToValidate="txtDivisionAbbr"  
                                                     ValidationGroup="Sports" CssClass="errorfordnn"

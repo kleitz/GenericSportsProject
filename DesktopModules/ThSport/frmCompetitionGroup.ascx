@@ -375,11 +375,14 @@
         <asp:HiddenField ID="hdnCompetitionGroupID" runat="server" />
 
            <div class="control-group">
-		        <label class="control-label">Group Name :" </label>
-             
+		        <label class="control-label">Group Name :</label>
+                <div class="startsetallfrom">
+                      <span class="help-inline"><font Color="red"><b>*</b></font></span>
+                </div>
                  <div class="controls" style="position:relative;">
+                   
                       <asp:TextBox ID="txtCompetitionGroup" runat="server"  CssClass="m-wrap large" />
-                     <span class="help-inline"><font Color="red"><b>*</b></font></span>
+                    
                       <asp:RequiredFieldValidator ID="rfvCompetitionGroup" runat="server" ErrorMessage="CompetitionGroup"
                                                   ControlToValidate="txtCompetitionGroup" SetFocusOnError="true" 
                                                   ValidationGroup="Sports" Text="Group Name Required !" 
@@ -399,9 +402,13 @@
 		    <label class="control-label">
                 <asp:Label ID="lblCompetitionGroupAbbr" runat="server" Text="Abbreviation :" ></asp:Label>
             </label>
+            <div class="startsetallfrom">
+                      <span class="help-inline"><font Color="red"><b>*</b></font></span>
+            </div>
             <div class="controls" style="position:relative;">
+
                 <asp:TextBox ID="txtCompetitionGroupAbbr" runat="server"  CssClass="m-wrap small" />
-                <span class="help-inline"><font Color="red"><b>*</b></font></span>
+              
                     <asp:RegularExpressionValidator ID="rgvtxtCompetitionGroupAbbr"
                                                     Display="Static" ControlToValidate="txtCompetitionGroupAbbr"  
                                                     ValidationGroup="Sports" CssClass="errorfordnn"
@@ -423,7 +430,10 @@
         <div class="control-group">
 		    <label class="control-label">Is Confirm : </label>
             <div class="controls">
+                <label class="checkbox"> 
                     <asp:CheckBox ID="ChkIsConfirm" runat="server" />
+                </label>
+                  
              </div>
         </div>
 
