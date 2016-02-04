@@ -127,6 +127,25 @@ namespace ThSportServer
             }
         }
 
+        public DataTable GetMasterTeamsNotInCompetitionTeam(int competition_id)
+        {
+            using (DataTable dt = new DataTable())
+            {
+                try
+                {
+                    using (IDataReader rdr = dataProvider.ExecuteReader("usp_GetMasterTeamsNotInCompetitionTeam",competition_id))
+                    {
+                        dt.Load(rdr);
+                    }
+                    return dt;
+                }
+                catch (Exception ex)
+                {
+                    return null;
+                }
+            }
+        }
+
         #endregion Getdata Methods
 
     }
