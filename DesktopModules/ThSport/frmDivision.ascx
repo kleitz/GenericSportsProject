@@ -391,6 +391,8 @@
                                       OnSelectedIndexChanged="ddlAction_SelectedIndexChanged" AutoPostBack="true">
                             <asp:ListItem Value="0"> -- Action -- </asp:ListItem>
                             <asp:ListItem Value="Edit">Edit</asp:ListItem>
+                            <%--<asp:ListItem Value="Team">Team</asp:ListItem>--%>
+                            <%--<asp:ListItem Value="Delete">Edit</asp:ListItem>--%>
                     </asp:DropDownList>
                 </ItemTemplate>
             </asp:TemplateField>

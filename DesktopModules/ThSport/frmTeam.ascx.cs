@@ -22,6 +22,9 @@ namespace DotNetNuke.Modules.ThSport
         clsTeamController tmController = new clsTeamController();
         clsClubController cbController = new clsClubController();
         clsSportController spController = new clsSportController();
+        clsDivisionController dvController = new clsDivisionController();
+        clsDivisionTeams dtClass = new clsDivisionTeams();
+        clsDivisionTeamController dtController = new clsDivisionTeamController();
         
         private readonly UserInfo currentUser = DotNetNuke.Entities.Users.UserController.GetCurrentUserInfo();
 
@@ -96,6 +99,17 @@ namespace DotNetNuke.Modules.ThSport
                 }
                 ddlSport.Items.Insert(0, new ListItem("--Select--", "0"));
             }
+            using (DataTable Division_dt = dvController.GetDivisionList())
+            {
+                if (Division_dt.Rows.Count > 0)
+                {
+                    ddlDivision.DataSource = Division_dt;
+                    ddlDivision.DataTextField = "DivisionName";
+                    ddlDivision.DataValueField = "DivisionID";
+                    ddlDivision.DataBind();
+                }
+                ddlDivision.Items.Insert(0, new ListItem("--Select--", "0"));
+            }
         }
 
         public void LoadTeamGrid()
@@ -122,7 +136,7 @@ namespace DotNetNuke.Modules.ThSport
             tmClass.TeamFamousName = txtFamousName.Text;
             int.TryParse(ddlSport.SelectedValue, out tmClass.SportId);
             int.TryParse(ddlClub.SelectedValue, out tmClass.ClubId);
-
+            
             tmClass.TeamEstablishedYear = (txtEstablishedYear.Text != "" ? Convert.ToDateTime(txtEstablishedYear.Text, new System.Globalization.CultureInfo("en-GB")) : DateTime.MinValue);
 
             #region Team Logo Upload
@@ -288,7 +302,17 @@ namespace DotNetNuke.Modules.ThSport
             tmClass.ModifiedById = currentUser.Username;
 
             // Call Save Method
-            tmController.InsertTeam(tmClass);
+            int inserted_newteam_id = tmController.InsertTeam(tmClass);
+
+            //Save Team Division 
+
+            int.TryParse(ddlDivision.SelectedValue,out dtClass.DivisionId);
+            dtClass.TeamId = inserted_newteam_id;
+            dtClass.ConfirmFlag = 1;
+            dtClass.CreatedById = currentUser.Username;
+            dtClass.ModifiedById = currentUser.Username;
+
+            dtController.InsertDivisionTeam(dtClass);
 
             btnAddTeam.Visible = true;
             pnlTeamGrid.Visible = true;
@@ -542,6 +566,8 @@ namespace DotNetNuke.Modules.ThSport
             pnlTeamEntry.Visible = true;
             btnSaveTeam.Visible = true;
             btnUpdateTeam.Visible = false;
+            ddlDivision.Enabled = true;
+
             ClearData();
         }
 
@@ -563,6 +589,7 @@ namespace DotNetNuke.Modules.ThSport
 
             if (ddlSelectedValue == "Edit")
             {
+                ddlDivision.Enabled = false;
                 ClearData();
                 DataTable dt1 = tmController.GetTeamDetailByTeamID(TeamID);
 
@@ -574,6 +601,7 @@ namespace DotNetNuke.Modules.ThSport
                     txtFamousName.Text = dt1.Rows[0]["TeamFamousName"].ToString();
                     ddlClub.SelectedValue = dt1.Rows[0]["ClubId"].ToString();
                     ddlSport.SelectedValue = dt1.Rows[0]["SportId"].ToString();
+                    ddlDivision.SelectedValue = dt1.Rows[0]["DivisionId"].ToString();
 
                     DateTime establisedDate = new DateTime();
                     DateTime.TryParse(dt1.Rows[0]["TeamEstablishedYear"].ToString(), out establisedDate);

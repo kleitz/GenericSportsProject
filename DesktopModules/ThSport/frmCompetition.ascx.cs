@@ -507,6 +507,10 @@ namespace DotNetNuke.Modules.ThSport
                 }
               
             }
+            else if (ddlSelectedValue == "Team")
+            {
+                Response.Redirect(DotNetNuke.Common.Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmCompetitionTeam", "CompetitionID=" + competitionID));
+            }
         }
 
         #endregion

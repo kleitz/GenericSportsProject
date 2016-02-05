@@ -49,7 +49,7 @@ namespace ThSportServer
         {
             try
             {
-                dataProvider.ExecuteNonQuery("usp_InsertTeam", tm.ClubId, tm.SportId, tm.TeamName, tm.TeamAbbr,tm.TeamDesc, tm.TeamFamousName, tm.TeamLogoName, tm.TeamLogoFile, tm.TeamPhotoFile, tm.TeamEstablishedYear, tm.TeamAnthemAudioFile, tm.ActiveFlagId, tm.ShowFlagId, tm.PortalID, tm.CreatedById, tm.ModifiedById);
+                return Convert.ToInt32(dataProvider.ExecuteScalar("usp_InsertTeam", tm.ClubId, tm.SportId, tm.TeamName, tm.TeamAbbr,tm.TeamDesc, tm.TeamFamousName, tm.TeamLogoName, tm.TeamLogoFile, tm.TeamPhotoFile, tm.TeamEstablishedYear, tm.TeamAnthemAudioFile, tm.ActiveFlagId, tm.ShowFlagId, tm.PortalID, tm.CreatedById, tm.ModifiedById));
             }
             catch (Exception ex)
             {
@@ -124,6 +124,44 @@ namespace ThSportServer
             catch (Exception ex)
             {
                 return null;
+            }
+        }
+
+        public DataTable GetMasterTeamsNotInCompetitionTeam(int competition_id)
+        {
+            using (DataTable dt = new DataTable())
+            {
+                try
+                {
+                    using (IDataReader rdr = dataProvider.ExecuteReader("usp_GetMasterTeamsNotInCompetitionTeam",competition_id))
+                    {
+                        dt.Load(rdr);
+                    }
+                    return dt;
+                }
+                catch (Exception ex)
+                {
+                    return null;
+                }
+            }
+        }
+
+        public DataTable GetMasterTeamsNotInDivisionTeam(int division_id)
+        {
+            using (DataTable dt = new DataTable())
+            {
+                try
+                {
+                    using (IDataReader rdr = dataProvider.ExecuteReader("usp_GetMasterTeamsNotInDivisionTeam", division_id))
+                    {
+                        dt.Load(rdr);
+                    }
+                    return dt;
+                }
+                catch (Exception ex)
+                {
+                    return null;
+                }
             }
         }
 

@@ -125,6 +125,8 @@ namespace DotNetNuke.Modules.ThSport
                 hlDivision.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmDivision");
 
                 hlTeam.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmTeam");
+                hlLocation.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmLocation");
+                hlMatchStatus.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmMatchStatus");
             }
 
         }
@@ -315,24 +317,22 @@ namespace DotNetNuke.Modules.ThSport
                     break;
 
 
-                //case "frmUserRole.ascx":
-                //    HtmlGenericControl li_UserRole = this.li_UserRole as HtmlGenericControl;
-                //    if (li_UserRole != null)
-                //        this.li_UserRole.Attributes.Add("class", "active");
-                //    titela.Text = " User Role &raquo;";
-                //    titela.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmUserRole");
-                //    break;
-        
-                    
-                //case "frmDivision.ascx":
-                //    HtmlGenericControl li_Division = this.li_Division as HtmlGenericControl;
-                //    if (li_Division != null)
-                //        this.li_Division.Attributes.Add("class", "active");
-                //    titela.Text = "Division";
-                //    titela.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmDivision");
-                //    break;
+                case "frmLocation.ascx":
+                    HtmlGenericControl li_Location = this.li_Location as HtmlGenericControl;
+                    if (li_Location != null)
+                        this.li_Location.Attributes.Add("class", "active");
+                    titela.Text = " Match Location &raquo;";
+                    titela.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmLocation");
+                    break;
 
-                //    break;
+
+                case "frmMatchStatus.ascx":
+                    HtmlGenericControl li_MatchStatus = this.li_MatchStatus as HtmlGenericControl;
+                    if (li_MatchStatus != null)
+                        this.li_MatchStatus.Attributes.Add("class", "active");
+                    titela.Text = "Match Status &raquo;";
+                    titela.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmMatchStatus");
+                    break;
 
                 case "frmTeam.ascx":
                     HtmlGenericControl li_Team = this.li_Team as HtmlGenericControl;

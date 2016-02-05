@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ThSportServer
 {
-    public class Class1
+    class Class1
     {
     }
 }
