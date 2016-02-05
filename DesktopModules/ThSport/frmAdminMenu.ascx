@@ -30,6 +30,10 @@
 	        <asp:HyperLink id="hlRegistration" runat="server" ToolTip=" Registration Form "> Registration </asp:HyperLink>
 		</li>
 
+        <li id="li_Division" runat="server">
+            <asp:HyperLink id="hlDivision" runat="server" ToolTip="Division Form"> Division </asp:HyperLink>
+        </li>
+
         <li id="li_Team" runat="server">
 	        <asp:HyperLink id="hlTeam" runat="server" ToolTip="Team Form">Team </asp:HyperLink>
 		</li>
@@ -82,9 +86,6 @@
               <li id="li_CompetitionFormat" runat="server">
                   <asp:HyperLink id="hlCompetitionFormat" runat="server" ToolTip="Competition Format Form"> Competition Format </asp:HyperLink>
               </li>
-              <li id="li_Division" runat="server">
-                  <asp:HyperLink id="hlDivision" runat="server" ToolTip="Division Form"> Division </asp:HyperLink>
-              </li>
               <li id="li_SponsorType" runat="server">
                   <asp:HyperLink id="hlSponsorType" runat="server" ToolTip=" Sponsor Type Form "> Sponsor Type </asp:HyperLink>
               </li>
@@ -96,6 +97,12 @@
               </li>
               <li id="li_TeamMemberType" runat="server">
                   <asp:HyperLink id="hlTeamMemberType" runat="server" ToolTip=" Team Member Position Form "> Team Member Position </asp:HyperLink>
+              </li>  
+              <li id="li_Location" runat="server">
+                  <asp:HyperLink id="hlLocation" runat="server" ToolTip=" Match Location Form "> Location </asp:HyperLink>
+              </li>
+              <li id="li_MatchStatus" runat="server">
+                  <asp:HyperLink id="hlMatchStatus" runat="server" ToolTip=" Match Status Form "> Match Status </asp:HyperLink>
               </li>  
               <%--<li id="li_UserRole" runat="server">
                   <asp:HyperLink id="hlUserRole" runat="server" ToolTip=" User Role Form "> User Role </asp:HyperLink>

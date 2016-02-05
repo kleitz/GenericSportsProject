@@ -88,6 +88,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.Web.DynamicData" />
@@ -293,12 +294,33 @@
     <Compile Include="frmDivision.ascx.designer.cs">
       <DependentUpon>frmDivision.ascx</DependentUpon>
     </Compile>
+    <Compile Include="frmDivisionTeams.ascx.cs">
+      <DependentUpon>frmDivisionTeams.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmDivisionTeams.ascx.designer.cs">
+      <DependentUpon>frmDivisionTeams.ascx</DependentUpon>
+    </Compile>
     <Compile Include="frmEvent.ascx.cs">
       <DependentUpon>frmEvent.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="frmEvent.ascx.designer.cs">
       <DependentUpon>frmEvent.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="frmLocation.ascx.cs">
+      <DependentUpon>frmLocation.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmLocation.ascx.designer.cs">
+      <DependentUpon>frmLocation.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="frmMatchStatus.ascx.cs">
+      <DependentUpon>frmMatchStatus.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmMatchStatus.ascx.designer.cs">
+      <DependentUpon>frmMatchStatus.ascx</DependentUpon>
     </Compile>
     <Compile Include="frmNews.ascx.cs">
       <DependentUpon>frmNews.ascx</DependentUpon>
@@ -468,7 +490,10 @@
     <Content Include="frmCompetitionTeam.ascx" />
     <Content Include="frmCompetitionType.ascx" />
     <Content Include="frmDivision.ascx" />
+    <Content Include="frmDivisionTeams.ascx" />
     <Content Include="frmEvent.ascx" />
+    <Content Include="frmLocation.ascx" />
+    <Content Include="frmMatchStatus.ascx" />
     <Content Include="frmNews.ascx" />
     <Content Include="frmPictures.ascx" />
     <Content Include="frmPlayerType.ascx" />

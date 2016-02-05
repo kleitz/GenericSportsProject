@@ -355,6 +355,15 @@
 				</ItemTemplate>
 			</asp:TemplateField>
 
+            <asp:TemplateField HeaderText="Division" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center">
+				<ItemTemplate>
+                    <div class="grid-cell-inner" style="text-align:center;">
+					    <asp:Label ID="lblDivisionName" runat="server" Text='<%#Eval("DivisionName") %>' ToolTip="Division "></asp:Label>
+                    </div> 
+                    <asp:HiddenField ID="hdn_Division_Id" runat="server" Value='<%#Eval("DivisionId") %>'></asp:HiddenField>
+				</ItemTemplate>
+			</asp:TemplateField>
+
             <asp:TemplateField HeaderText="Abbreviation" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center">
 				<ItemTemplate>
                     <div class="grid-cell-inner" style="text-align:center;">
@@ -490,6 +499,20 @@
                     ErrorMessage="Sport Required !" CssClass="errorfordnn" SetFocusOnError="true" ControlToValidate="ddlSport"
                     ValidationGroup="Sports" Text="Sport Required !"></asp:RequiredFieldValidator>
             </div>
+        </div>
+
+        <div class="control-group">
+		   <label class="control-label">Division : </label>
+            <div class="startsetallfrom">
+             <span class="help-inline"><font Color="red"><b>*</b></font></span>
+            </div>
+                <div class="controls" style="position:relative;">  
+                <asp:DropDownList ID="ddlDivision" runat="server"  CssClass="large m-wrap"/>
+               
+                <asp:RequiredFieldValidator ID="rfvddlDivision" ClientIDMode="Static" runat="server" InitialValue="0" 
+                    ErrorMessage="Division Required !" CssClass="errorfordnn" SetFocusOnError="true" ControlToValidate="ddlDivision"
+                    ValidationGroup="Sports" Text="Division Required !"></asp:RequiredFieldValidator>
+                </div>
         </div>
        
        <div class="control-group">

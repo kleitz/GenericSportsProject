@@ -343,7 +343,6 @@ namespace DotNetNuke.Modules.ThSport
                     
                     string ufname = dt1.Rows[0]["DivisionLogoFile"].ToString().Replace(" ", "");
                     DivisionLogoImage.ResolveUrl("ufname");
-
                 }
 
                 btnUpdateDivision.Visible = true;
@@ -351,6 +350,10 @@ namespace DotNetNuke.Modules.ThSport
                 pnlDivisionEntry.Visible = true;
                 pnlDivisionGrid.Visible = false;
             }
+            //else if (ddlSelectedValue == "Team")
+            //{
+            //    Response.Redirect(DotNetNuke.Common.Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmDivisionTeams", "DivisinID=" + DivisionID));
+            //}
             else if (ddlSelectedValue == "Delete")
             {
                 //Page.dvClassientScript.RegisterStartupScript(this.GetLeague(), "alert", "DeleteSuccessfully();", true);
