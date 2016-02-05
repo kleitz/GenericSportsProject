@@ -499,6 +499,24 @@ namespace DotNetNuke.Modules.ThSport {
         protected global::System.Web.UI.WebControls.HyperLink hlMatchStatus;
         
         /// <summary>
+        /// li_MatchType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl li_MatchType;
+        
+        /// <summary>
+        /// hlMatchType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink hlMatchType;
+        
+        /// <summary>
         /// titela control.
         /// </summary>
         /// <remarks>

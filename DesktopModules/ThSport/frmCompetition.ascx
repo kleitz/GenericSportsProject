@@ -477,6 +477,7 @@
                             <asp:ListItem Value="Edit">Edit</asp:ListItem>
                             <asp:ListItem Value="Team">Team</asp:ListItem>
                             <asp:ListItem Value="Group">Group</asp:ListItem>
+                            <asp:ListItem Value="Match">Match</asp:ListItem>
                             <asp:ListItem Value="Delete">Delete</asp:ListItem>
                     </asp:DropDownList>
                 </ItemTemplate>
