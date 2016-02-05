@@ -64,13 +64,13 @@
         $('.ddlActionSelect').change(function (evt) {
             evt.preventDefault();
             if ($(this).val() == "Delete") {
-                if (confirm('Are you sure to delete this Sponsor ?')) {
-                    setTimeout("__doPostBack('" + this.id + "','')", 0);
-                }
-                else {
-                    //do nothing, prevent postback
-                    $(this).prop('selectedIndex', 0);
-                }
+                //if (confirm('Are you sure to delete this Sponsor ?')) {
+                //    setTimeout("__doPostBack('" + this.id + "','')", 0);
+                //}
+                //else {
+                //    //do nothing, prevent postback
+                //    $(this).prop('selectedIndex', 0);
+                //}
             }
             else {
                 setTimeout("__doPostBack('" + this.id + "','')", 0);
@@ -266,6 +266,99 @@
     }
 </script>
 
+<script type="text/javascript">
+    function DeleteSuccessfully() {
+        $(document).ready(function () {
+            $.blockUI();
+            setTimeout(function () {
+                $.unblockUI({
+                    onUnblock: function () { cancelvalidateAndConfirmClose(); }
+                });
+            }, 2000);
+        });
+    }
+</script>
+
+
+
+<script type="text/javascript">
+    function cancelvalidateAndConfirmClose() {
+        $(document).ready(function () {
+            $("#divcancelmassage").dialog({
+                modal: true,
+                resizable: true,
+                draggable: true,
+                closeOnEscape: true,
+                position: ['center', 80],
+                dialogClass: "dnnFormPopup",
+            });
+        });
+        setTimeout(function () {
+            $("#divcancelmassage").delay(2000).fadeOut(0);
+            $(".dnnFormPopup").delay(2000).fadeOut(0);
+            $(".ui-widget-overlay").delay(2000).fadeOut(0);
+            return false;
+        }, 2000);
+    }
+</script>
+
+
+<script type="text/javascript">
+
+    function DeleteConfirm(btn_clientid) {
+       
+
+        if (btn_clientid == "Delete") {
+            document.getElementById("msgConfirm").innerHTML = "This Sponsor Haveing Other Data like News, Video, Picture Etc. </br> Are You Sure, You Want to Delete This Sponsor?";
+        }
+
+
+        //if (validated) {
+            $("#dialogBox").dialog({
+
+                modal: true,
+                resizable: true,
+                draggable: true,
+                closeOnEscape: true,
+                position: ['center', 80],
+                dialogClass: "dnnFormPopup",
+
+                buttons: {
+                    Ok: function () {
+                         if (btn_clientid == "Delete") {
+                            $('.hndDeleteConfirm').val("true") ;
+                            console.log("hello" + $('.hndDeleteConfirm').val());
+                            $('.lnkDelete').trigger("click");
+                           
+                         }
+
+                     },
+                     Cancel: function () {
+                         $(this).dialog('close');
+                         $('.hndDeleteConfirm').val("false");
+                         $('.lnkDelete').trigger("click");
+                         //$(".ddlActionSelect > option:first").attr("selected", "selected");
+                         return false;
+                     }
+                 }
+
+             });
+
+         //}
+         return false;
+     }
+
+
+     $(document).ready(function () {
+         //Reset drop down list
+         $(".ddlActionSelect > option:first").attr("selected", "selected");
+     });
+
+</script>
+
+<%--<asp:HiddenField ID="hndDeleteConfirm" runat="server"></asp:HiddenField>--%>
+
+
 <style type="text/css">
     .disabled
     {
@@ -288,6 +381,11 @@
     }
 </style>
 
+
+<input type="hidden" class="hndDeleteConfirm" runat="server" id="hndDeleteConfirm" />
+ <asp:Button ID="lnkDelete" runat="server" Text="Cancel" OnClick="btnDelete_Click" CssClass="lnkDelete" 
+                                ClientIDMode="Static" style="display: none;"/>
+ <asp:HiddenField ID="hdnSponsorID" runat="server" />
 <div id="divsavemassage" runat="server" clientidmode="static" style="display: none;position:inherit !important;">
     <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/OtherImages/Ok.png")%>" />
      <asp:Label CssClass="lobibox-body-text" ID="Label1" ClientIDMode="Static" runat="server" Text=" Sponsor detail are save successfully. ">
@@ -437,7 +535,7 @@
                                       OnSelectedIndexChanged="ddlAction_SelectedIndexChanged">
                             <asp:ListItem Value="0"> -- Action -- </asp:ListItem>
                             <asp:ListItem Value="Edit">Edit</asp:ListItem>
-                            <%--<asp:ListItem Value="Delete">Delete</asp:ListItem>--%>
+                            <asp:ListItem Value="Delete">Delete</asp:ListItem>
                     </asp:DropDownList>
                     <asp:Label ID="lblddlActionSponsorID" runat="server" Text='<%#Eval("SponsorId") %>' Visible="false">
                     </asp:Label>

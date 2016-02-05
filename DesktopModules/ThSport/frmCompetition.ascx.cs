@@ -60,17 +60,18 @@ namespace DotNetNuke.Modules.ThSport
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            if (IsPostBack)
+           
+            if (!IsPostBack)
             {
                 FillDropDownForMaster();
+                LoadCompetitionGrid();
             }
-
+            
             btnUpdateCompetition.Visible = false;
             btnSaveCompetition.Visible = false;
             pnlCompetitionEntry.Visible = false;
-
-            LoadCompetitionGrid();
+          
+           
 
         }
 
@@ -156,6 +157,14 @@ namespace DotNetNuke.Modules.ThSport
 
             gvCompetition.DataSource = dt;
             gvCompetition.DataBind();
+        }
+
+        public void DeleteCompetition()
+        {
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "DeleteSuccessfully();", true);
+                clc.DeleteCompetition(competitionID);
+                LoadCompetitionGrid();
+            
         }
 
         #endregion Methods
@@ -407,6 +416,14 @@ namespace DotNetNuke.Modules.ThSport
             ClearData();
         }
 
+        protected void btnDeleteCompetition_Click(object sender, EventArgs e)
+        {
+            if (hndDeleteConfirm.Value == "true")
+            {
+                DeleteCompetition();
+            }
+        }
+
         #endregion Button Click Events
 
         #region Gridview Events
@@ -479,9 +496,16 @@ namespace DotNetNuke.Modules.ThSport
             }
             else if (ddlSelectedValue == "Delete")
             {
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "DeleteSuccessfully();", true);
-                clc.DeleteCompetition(competitionID);
-                LoadCompetitionGrid();
+                if (clc.IsCompetitionHasOtherData(competitionID).Rows[0]["RefData"].ToString() != "")
+                {
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "validateAndConfirm1('" + "Delete" + "');;", true);
+
+                }
+                else
+                {
+                    DeleteCompetition();
+                }
+              
             }
         }
 

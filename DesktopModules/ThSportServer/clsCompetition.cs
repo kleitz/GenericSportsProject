@@ -109,6 +109,30 @@ namespace DotNetNuke.Modules.ThSport
             return 0;
         }
 
+        public DataTable IsCompetitionHasOtherData(int competitionID)
+        {
+            string returnvalue = "";
+            DataTable dt = new DataTable();
+            try
+            {
+
+                using (IDataReader reader = dataProvider.ExecuteReader("[usp_IsCompetitionHasOtherData]", competitionID,""))
+                {
+                    dt.Load(reader);
+                    return dt;
+                }
+
+                //returnvalue = dataProvider.ExecuteReader("[usp_IsCompetitionHasOtherData]", cmp.CompetitionId);
+            }
+            catch (Exception ex)
+            {
+                Exceptions.LogException(ex);
+            }
+            //return 0;
+            return dt;
+        }
+
+
         #endregion Insert,Update Method
 
         #region Getdata Method
