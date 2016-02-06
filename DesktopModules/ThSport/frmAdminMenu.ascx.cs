@@ -56,6 +56,7 @@ namespace DotNetNuke.Modules.ThSport
                 li_News.Visible = false;
                 li_Pictures.Visible = false;
                 li_Videos.Visible = false;
+                li_MatchType.Visible = false;
                 //li_Albam.Visible = false;
 
                 //li_UserRole.Visible = false;
@@ -127,6 +128,7 @@ namespace DotNetNuke.Modules.ThSport
                 hlTeam.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmTeam");
                 hlLocation.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmLocation");
                 hlMatchStatus.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmMatchStatus");
+                hlMatchType.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmMatchType");
             }
 
         }
@@ -340,6 +342,14 @@ namespace DotNetNuke.Modules.ThSport
                         this.li_Team.Attributes.Add("class", "active");
                     titela.Text = "Team &raquo;";
                     titela.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmTeam");
+                    break;
+
+                case "frmMatchType.ascx":
+                    HtmlGenericControl li_MatchType = this.li_MatchType as HtmlGenericControl;
+                    if (li_MatchType != null)
+                        this.li_MatchType.Attributes.Add("class", "active");
+                    titela.Text = "Match Type &raquo;";
+                    titela.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmMatchType");
                     break;
 
                 //case "CompetitionVideo.ascx":

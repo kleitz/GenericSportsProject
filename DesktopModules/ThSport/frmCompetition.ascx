@@ -150,6 +150,8 @@
     }
 </script>
 
+
+
 <script type="text/javascript">
     function cancelvalidateAndConfirmClose() {
         $(document).ready(function () {
@@ -234,6 +236,7 @@
              document.getElementById("msgConfirm").innerHTML = "Are You Sure, You Want to Update Competition Details ?";
          }
 
+
          if (validated) {
              $("#dialogBox").dialog({
 
@@ -268,6 +271,49 @@
          return false;
      }
 
+    function validateAndConfirm1(btn_clientid) {
+       
+
+        if (btn_clientid == "Delete") {
+            document.getElementById("msgConfirm").innerHTML = "This Competition Haveing Other Data like News, Video, Picture Etc. </br> Are You Sure, You Want to Delete This Competition?";
+        }
+
+
+        //if (validated) {
+            $("#dialogBox").dialog({
+
+                modal: true,
+                resizable: true,
+                draggable: true,
+                closeOnEscape: true,
+                position: ['center', 80],
+                dialogClass: "dnnFormPopup",
+
+                buttons: {
+                    Ok: function () {
+                         if (btn_clientid == "Delete") {
+                            $('.hndDeleteConfirm').val("true") ;
+                            console.log("hello" + $('.hndDeleteConfirm').val());
+                            $('.lnkDeleteCompetition').trigger("click");
+                           
+                         }
+
+                     },
+                     Cancel: function () {
+                         $(this).dialog('close');
+                         $('.hndDeleteConfirm').val("false");
+                         $('.lnkDeleteCompetition').trigger("click");
+                         return false;
+                     }
+                 }
+
+             });
+
+         //}
+         return false;
+     }
+
+
      $(document).ready(function () {
          //Reset drop down list
          $(".ddlActionSelect > option:first").attr("selected", "selected");
@@ -275,7 +321,10 @@
 
 </script>
 
-
+<%--<asp:HiddenField ID="hndDeleteConfirm" runat="server"></asp:HiddenField>--%>
+<input type="hidden" class="hndDeleteConfirm" runat="server" id="hndDeleteConfirm" />
+ <asp:Button ID="lnkDeleteCompetition" runat="server" Text="Cancel" OnClick="btnDeleteCompetition_Click" CssClass="lnkDeleteCompetition" 
+                                ClientIDMode="Static" style="display: none;"/>
 
 <div id="divsavemassage" runat="server" clientidmode="static" style="display: none;position:inherit !important;">
     <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/OtherImages/Ok.png")%>" />
@@ -294,6 +343,7 @@
      <asp:Label CssClass="lobibox-body-text" ID="Label3" ClientIDMode="Static" runat="server" Text=" Competition detail are delete successfully. ">
      </asp:Label>
 </div>
+
 
 <div id="dialogBox" runat="server" clientidmode="static"  style="display:none;">
     <div class="lobibox-body-text-wrapper">
@@ -427,6 +477,7 @@
                             <asp:ListItem Value="Edit">Edit</asp:ListItem>
                             <asp:ListItem Value="Team">Team</asp:ListItem>
                             <asp:ListItem Value="Group">Group</asp:ListItem>
+                            <asp:ListItem Value="Match">Match</asp:ListItem>
                             <asp:ListItem Value="Delete">Delete</asp:ListItem>
                     </asp:DropDownList>
                 </ItemTemplate>

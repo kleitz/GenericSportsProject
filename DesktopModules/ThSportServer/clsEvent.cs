@@ -134,7 +134,20 @@ namespace ThSportServer
             return i;
         }
 
-        
+        public int DeleteEvent(int EventID)
+        {
+            try
+            {
+
+                dataProvider.ExecuteNonQuery("[usp_DeleteEvent]", EventID);
+            }
+            catch (Exception ex)
+            {
+                Exceptions.LogException(ex);
+            }
+            return 0;
+        }
+
 
         #endregion Insert,Update,Delete Methods
 
@@ -479,7 +492,28 @@ namespace ThSportServer
             }
         }
 
-        
+        public DataTable IsEventHasOtherData(int eventID)
+        {
+
+            DataTable dt = new DataTable();
+            try
+            {
+
+                using (IDataReader reader = dataProvider.ExecuteReader("[usp_IsEventHasOtherData]", eventID, ""))
+                {
+                    dt.Load(reader);
+                    return dt;
+                }
+
+                //returnvalue = dataProvider.ExecuteReader("[usp_IsCompetitionHasOtherData]", cmp.CompetitionId);
+            }
+            catch (Exception ex)
+            {
+                Exceptions.LogException(ex);
+            }
+            //return 0;
+            return dt;
+        }
         
 
     }

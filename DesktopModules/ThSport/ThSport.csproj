@@ -322,6 +322,13 @@
     <Compile Include="frmMatchStatus.ascx.designer.cs">
       <DependentUpon>frmMatchStatus.ascx</DependentUpon>
     </Compile>
+    <Compile Include="frmMatchType.ascx.cs">
+      <DependentUpon>frmMatchType.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmMatchType.ascx.designer.cs">
+      <DependentUpon>frmMatchType.ascx</DependentUpon>
+    </Compile>
     <Compile Include="frmNews.ascx.cs">
       <DependentUpon>frmNews.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -494,6 +501,7 @@
     <Content Include="frmEvent.ascx" />
     <Content Include="frmLocation.ascx" />
     <Content Include="frmMatchStatus.ascx" />
+    <Content Include="frmMatchType.ascx" />
     <Content Include="frmNews.ascx" />
     <Content Include="frmPictures.ascx" />
     <Content Include="frmPlayerType.ascx" />

@@ -104,6 +104,9 @@
               <li id="li_MatchStatus" runat="server">
                   <asp:HyperLink id="hlMatchStatus" runat="server" ToolTip=" Match Status Form "> Match Status </asp:HyperLink>
               </li>  
+               <li id="li_MatchType" runat="server">
+                  <asp:HyperLink id="hlMatchType" runat="server" ToolTip=" Match Type Form "> Match Type </asp:HyperLink>
+              </li>  
               <%--<li id="li_UserRole" runat="server">
                   <asp:HyperLink id="hlUserRole" runat="server" ToolTip=" User Role Form "> User Role </asp:HyperLink>
               </li>  --%>
