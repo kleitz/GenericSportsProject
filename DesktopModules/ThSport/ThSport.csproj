@@ -273,6 +273,13 @@
     <Compile Include="frmCompetitionLeague.ascx.designer.cs">
       <DependentUpon>frmCompetitionLeague.ascx</DependentUpon>
     </Compile>
+    <Compile Include="frmCompetitionMatch.ascx.cs">
+      <DependentUpon>frmCompetitionMatch.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmCompetitionMatch.ascx.designer.cs">
+      <DependentUpon>frmCompetitionMatch.ascx</DependentUpon>
+    </Compile>
     <Compile Include="frmCompetitionTeam.ascx.cs">
       <DependentUpon>frmCompetitionTeam.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -494,6 +501,7 @@
     <Content Include="frmCompetitionFormat.ascx" />
     <Content Include="frmCompetitionGroup.ascx" />
     <Content Include="frmCompetitionLeague.ascx" />
+    <Content Include="frmCompetitionMatch.ascx" />
     <Content Include="frmCompetitionTeam.ascx" />
     <Content Include="frmCompetitionType.ascx" />
     <Content Include="frmDivision.ascx" />

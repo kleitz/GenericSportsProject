@@ -494,6 +494,10 @@ namespace DotNetNuke.Modules.ThSport
             {
                 Response.Redirect(DotNetNuke.Common.Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmCompetitionGroup", "CompetitionID=" + competitionID));
             }
+            else if (ddlSelectedValue == "Match")
+            {
+                Response.Redirect(DotNetNuke.Common.Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmCompetitionMatch", "CompetitionID=" + competitionID));
+            }
             else if (ddlSelectedValue == "Delete")
             {
                 if (clc.IsCompetitionHasOtherData(competitionID).Rows[0]["RefData"].ToString() != "")
