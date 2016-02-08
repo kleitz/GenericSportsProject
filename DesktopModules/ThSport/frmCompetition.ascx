@@ -688,7 +688,7 @@
                 <input ID="CompetitionLogoFile" type="file" name="file" runat="server" onchange="previewFileLogo()"/>
             
                 <asp:RegularExpressionValidator ID="rgvCompetitionLogoFile" 
-                                                ValidationExpression="/^(([a-zA-Z]:)|(\\{2}\w+)\$?)(\\(\w[\w].*))+(.jpeg|.JPEG|.gif|.GIF| .png|.PNG)$/"
+                                                ValidationExpression="([a-zA-Z\\].*(.jpg|.png|.bmp|.jpeg|.gif|.tif)$)"
                                                 ControlToValidate="CompetitionLogoFile" ValidationGroup="Sports" 
                                                 runat="server"  
                                                 ErrorMessage="Please choose only .jpg, .jpeg, .png and .gif images!"
