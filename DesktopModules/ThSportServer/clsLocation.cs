@@ -104,7 +104,7 @@ namespace ThSportServer
             {
                 try
                 {
-                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetAllLocation", current_user,search_country,search_LocationName))
+                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetAllLocation", current_user,search_LocationName,search_country))
                     {
                         dt.Load(reader);
                         return dt;

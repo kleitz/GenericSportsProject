@@ -10,555 +10,429 @@
 namespace DotNetNuke.Modules.ThSport {
     
     
-    public partial class frmAdminMenu {
+    public partial class frmCompetitionMatch {
         
         /// <summary>
-        /// li_HomeLink control.
+        /// divsavemassage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl li_HomeLink;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divsavemassage;
         
         /// <summary>
-        /// HomeLink control.
+        /// Label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HomeLink;
+        protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// li_SportsRegistration control.
+        /// divupdatemassage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl li_SportsRegistration;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divupdatemassage;
         
         /// <summary>
-        /// hlSports control.
+        /// Label2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlSports;
+        protected global::System.Web.UI.WebControls.Label Label2;
         
         /// <summary>
-        /// li_ClubeRegistrationLink control.
+        /// divcancelmassage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl li_ClubeRegistrationLink;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divcancelmassage;
         
         /// <summary>
-        /// hlClub control.
+        /// Label3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlClub;
+        protected global::System.Web.UI.WebControls.Label Label3;
         
         /// <summary>
-        /// li_SeasonLink control.
+        /// dialogBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl li_SeasonLink;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl dialogBox;
         
         /// <summary>
-        /// hlSeason control.
+        /// msgConfirm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlSeason;
+        protected global::System.Web.UI.WebControls.Label msgConfirm;
         
         /// <summary>
-        /// li_Competition control.
+        /// pnlCompetitionMatchGrid control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl li_Competition;
+        protected global::System.Web.UI.WebControls.Panel pnlCompetitionMatchGrid;
         
         /// <summary>
-        /// hlCompetition control.
+        /// addPanel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlCompetition;
+        protected global::System.Web.UI.WebControls.Panel addPanel;
         
         /// <summary>
-        /// li_Registration control.
+        /// btnAddCompetitionMatch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl li_Registration;
+        protected global::System.Web.UI.WebControls.LinkButton btnAddCompetitionMatch;
         
         /// <summary>
-        /// hlRegistration control.
+        /// gvCompetitionMatch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlRegistration;
+        protected global::System.Web.UI.WebControls.GridView gvCompetitionMatch;
         
         /// <summary>
-        /// li_Division control.
+        /// pnlCompetitionMatchEntry control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl li_Division;
+        protected global::System.Web.UI.WebControls.Panel pnlCompetitionMatchEntry;
         
         /// <summary>
-        /// hlDivision control.
+        /// hdnCompetitionMatchID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlDivision;
+        protected global::System.Web.UI.WebControls.HiddenField hdnCompetitionMatchID;
         
         /// <summary>
-        /// li_Team control.
+        /// hdnTeamList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl li_Team;
+        protected global::System.Web.UI.WebControls.HiddenField hdnTeamList;
         
         /// <summary>
-        /// hlTeam control.
+        /// lblLocation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlTeam;
+        protected global::System.Web.UI.WebControls.Label lblLocation;
         
         /// <summary>
-        /// li_Event control.
+        /// ddlLocation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl li_Event;
+        protected global::System.Web.UI.WebControls.DropDownList ddlLocation;
         
         /// <summary>
-        /// hlEvent control.
+        /// RequiredFieldValidator2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlEvent;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
         
         /// <summary>
-        /// li_Sponsor control.
+        /// lblSponsorStartDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl li_Sponsor;
+        protected global::System.Web.UI.WebControls.Label lblSponsorStartDate;
         
         /// <summary>
-        /// hlSponsor control.
+        /// txtMatchStartDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlSponsor;
+        protected global::System.Web.UI.WebControls.TextBox txtMatchStartDate;
         
         /// <summary>
-        /// li_Media control.
+        /// rfvtxtMatchStartDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl li_Media;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvtxtMatchStartDate;
         
         /// <summary>
-        /// hlMedia control.
+        /// RegularExpressionValidator3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlMedia;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator3;
         
         /// <summary>
-        /// li_News control.
+        /// CustomValidator1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl li_News;
+        protected global::System.Web.UI.WebControls.CustomValidator CustomValidator1;
         
         /// <summary>
-        /// hlNews control.
+        /// lblMatchEndDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlNews;
+        protected global::System.Web.UI.WebControls.Label lblMatchEndDate;
         
         /// <summary>
-        /// li_Pictures control.
+        /// txtMatchEndDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl li_Pictures;
+        protected global::System.Web.UI.WebControls.TextBox txtMatchEndDate;
         
         /// <summary>
-        /// hlPictures control.
+        /// RequiredFieldValidator1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlPictures;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
         
         /// <summary>
-        /// li_Videos control.
+        /// RegularExpressionValidator4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl li_Videos;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator4;
         
         /// <summary>
-        /// hlVideos control.
+        /// CustomValidator2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlVideos;
+        protected global::System.Web.UI.WebControls.CustomValidator CustomValidator2;
         
         /// <summary>
-        /// li_Masters control.
+        /// lblTeamA control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl li_Masters;
+        protected global::System.Web.UI.WebControls.Label lblTeamA;
         
         /// <summary>
-        /// hlMaster control.
+        /// ddlTeamA control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlMaster;
+        protected global::System.Web.UI.WebControls.DropDownList ddlTeamA;
         
         /// <summary>
-        /// li_ClubMemberType control.
+        /// RequiredFieldValidator4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl li_ClubMemberType;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator4;
         
         /// <summary>
-        /// hlClubMemberType control.
+        /// lblTeamB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlClubMemberType;
+        protected global::System.Web.UI.WebControls.Label lblTeamB;
         
         /// <summary>
-        /// li_UserType control.
+        /// ddlTeamB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl li_UserType;
+        protected global::System.Web.UI.WebControls.DropDownList ddlTeamB;
         
         /// <summary>
-        /// hlUserType control.
+        /// RequiredFieldValidator5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlUserType;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator5;
         
         /// <summary>
-        /// li_AddDocumentsType control.
+        /// lblMatchStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl li_AddDocumentsType;
+        protected global::System.Web.UI.WebControls.Label lblMatchStatus;
         
         /// <summary>
-        /// hlAddDocumentsType control.
+        /// ddlMatchStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlAddDocumentsType;
+        protected global::System.Web.UI.WebControls.DropDownList ddlMatchStatus;
         
         /// <summary>
-        /// li_CompetitionType control.
+        /// RequiredFieldValidator6 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl li_CompetitionType;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator6;
         
         /// <summary>
-        /// hlCompetitionType control.
+        /// lblMatchType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlCompetitionType;
+        protected global::System.Web.UI.WebControls.Label lblMatchType;
         
         /// <summary>
-        /// li_CompetitionLeague control.
+        /// ddlMatchType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl li_CompetitionLeague;
+        protected global::System.Web.UI.WebControls.DropDownList ddlMatchType;
         
         /// <summary>
-        /// hlCompetitionLeague control.
+        /// RequiredFieldValidator7 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlCompetitionLeague;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator7;
         
         /// <summary>
-        /// li_CompetitionFormat control.
+        /// lblIsFinalized control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl li_CompetitionFormat;
+        protected global::System.Web.UI.WebControls.Label lblIsFinalized;
         
         /// <summary>
-        /// hlCompetitionFormat control.
+        /// checdivshow control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlCompetitionFormat;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl checdivshow;
         
         /// <summary>
-        /// li_SponsorType control.
+        /// ChkIsFinalized control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl li_SponsorType;
+        protected global::System.Web.UI.WebControls.CheckBox ChkIsFinalized;
         
         /// <summary>
-        /// hlSponsorType control.
+        /// lblChkIsFinalized control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlSponsorType;
+        protected global::System.Web.UI.WebControls.Label lblChkIsFinalized;
         
         /// <summary>
-        /// li_SponsorLevel control.
+        /// btnSaveCompetitionMatch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl li_SponsorLevel;
+        protected global::System.Web.UI.WebControls.Button btnSaveCompetitionMatch;
         
         /// <summary>
-        /// hlSponsorLevel control.
+        /// btnUpdateCompetitionMatch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlSponsorLevel;
+        protected global::System.Web.UI.WebControls.Button btnUpdateCompetitionMatch;
         
         /// <summary>
-        /// li_PlayerType control.
+        /// btnCancelCompetitionMatch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl li_PlayerType;
-        
-        /// <summary>
-        /// hlPlayerType control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlPlayerType;
-        
-        /// <summary>
-        /// li_TeamMemberType control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl li_TeamMemberType;
-        
-        /// <summary>
-        /// hlTeamMemberType control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlTeamMemberType;
-        
-        /// <summary>
-        /// li_Location control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl li_Location;
-        
-        /// <summary>
-        /// hlLocation control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlLocation;
-        
-        /// <summary>
-        /// li_MatchStatus control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl li_MatchStatus;
-        
-        /// <summary>
-        /// hlMatchStatus control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlMatchStatus;
-        
-        /// <summary>
-        /// li_MatchType control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl li_MatchType;
-        
-        /// <summary>
-        /// hlMatchType control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlMatchType;
-        
-        /// <summary>
-        /// titela control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink titela;
-        
-        /// <summary>
-        /// titel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label titel;
-        
-        /// <summary>
-        /// Subtitle control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Subtitle;
-        
-        /// <summary>
-        /// hdcompetitionid control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hdcompetitionid;
-        
-        /// <summary>
-        /// loadSelectedControl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder loadSelectedControl;
+        protected global::System.Web.UI.WebControls.Button btnCancelCompetitionMatch;
     }
 }

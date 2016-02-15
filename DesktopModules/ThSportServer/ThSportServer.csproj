@@ -128,6 +128,8 @@
     <Compile Include="clsTeamPlayer.cs" />
     <Compile Include="clsUserRole.cs" />
     <Compile Include="clsVideos.cs" />
+    <Compile Include="clsMatchType.cs" />
+    <Compile Include="clsCompetitionMatch.cs" />
     <Compile Include="Data\DataProvider.cs" />
     <Compile Include="DTOs\DTOAssign.cs" />
     <Compile Include="clsClubMemberType.cs" />

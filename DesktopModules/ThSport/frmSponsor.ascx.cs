@@ -30,6 +30,20 @@ namespace DotNetNuke.Modules.ThSport
         Boolean FileOKForUpdate = false;
         Boolean FileSavedForUpdate = false;
 
+
+        int sponsorID
+        {
+            get
+            {
+                int id = 0;
+                if (!string.IsNullOrEmpty(hdnSponsorID.Value))
+                {
+                    int.TryParse(hdnSponsorID.Value, out id);
+                }
+                return id;
+            }
+        }
+
         #region Page events
 
         protected void Page_Load(object sender, EventArgs e)
@@ -67,9 +81,10 @@ namespace DotNetNuke.Modules.ThSport
             if (dv.ToTable().Rows.Count > 0)
             {
                 ViewState["dt"] = dv.ToTable();
-                gvSponsor.DataSource = dv.ToTable();
-                gvSponsor.DataBind();
+                
             }
+            gvSponsor.DataSource = dv.ToTable();
+            gvSponsor.DataBind();
         }
 
         protected void btnClear_Click(object sender, EventArgs e)
@@ -77,6 +92,21 @@ namespace DotNetNuke.Modules.ThSport
             funClearData();
         }
 
+        protected void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (hndDeleteConfirm.Value == "true")
+            {
+                DeleteSponsor();
+            }
+        }
+
+        public void DeleteSponsor()
+        {
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "DeleteSuccessfully();", true);
+            csc.DeleteSponsor(sponsorID);
+            BindGrid();
+
+        }
         private void funClearData()
         {
             txtSponsorName.Text = "";
@@ -260,6 +290,7 @@ namespace DotNetNuke.Modules.ThSport
 
             cs.SponsorStartDate = txtSponsorStartDate.Text.Trim();
             cs.SponsorEndDate = txtSponsorEndDate.Text.Trim();
+            if(txtSponsorAmount.Text!= "")
             cs.SponsorAmt = Convert.ToInt32(txtSponsorAmount.Text.Trim());
 
             if (ChkIsActive.Checked == true)
@@ -587,7 +618,7 @@ namespace DotNetNuke.Modules.ThSport
 
         protected void ddlAction_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string str = ((Label)((DropDownList)sender).Parent.FindControl("lblddlActionSponsorID")).Text;
+            hdnSponsorID.Value= ((Label)((DropDownList)sender).Parent.FindControl("lblddlActionSponsorID")).Text;
 
             string ddlSelectedValue = ((DropDownList)sender).SelectedValue;
 
@@ -607,9 +638,7 @@ namespace DotNetNuke.Modules.ThSport
                 FillSponsorLevel();
                 FillSponsorType();
 
-                int SponsorID = 0;
-                int.TryParse(str, out SponsorID);
-
+                
                 LinkButton btn = sender as LinkButton;
 
                 clsSponsor cs = new clsSponsor();
@@ -617,7 +646,7 @@ namespace DotNetNuke.Modules.ThSport
 
                 DataTable dt = new DataTable();
 
-                dt = csc.GetSponsorDataBySponsorID(SponsorID);
+                dt = csc.GetSponsorDataBySponsorID(sponsorID);
 
                 if (dt.Rows.Count > 0)
                 {
@@ -677,9 +706,17 @@ namespace DotNetNuke.Modules.ThSport
             }
             else if (ddlSelectedValue == "Delete")
             {
-                //Page.ClientScript.RegisterStartupScript(this.GetType(), "", "javascript:confirm('Are You Sure? Want To Delete.');", true);
 
-                //Page.ClientScript.RegisterStartupScript(this.GetType(), "confirm", "javascript:Confirmation();", true);
+                if (csc.IsSponsorHasOtherData(sponsorID).Rows[0]["RefData"].ToString() != "")
+                {
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "DeleteConfirm('" + "Delete" + "');;", true);
+
+                }
+                else
+                {
+                    DeleteSponsor();
+                }
+              
 
                 //int competition_Id = 0;
 

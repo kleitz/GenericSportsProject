@@ -165,6 +165,24 @@ namespace ThSportServer
             }
         }
 
+        public DataTable GetTeamDetailByNotInTeamID(int TeamID)
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                using (IDataReader rdr = dataProvider.ExecuteReader("[usp_GetTeamDetailByNotInTeamID]", TeamID))
+                {
+                    dt.Load(rdr);
+                }
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+
         #endregion Getdata Methods
 
     }

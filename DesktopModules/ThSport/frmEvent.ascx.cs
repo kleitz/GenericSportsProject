@@ -25,7 +25,20 @@ namespace DotNetNuke.Modules.ThSport
         string VName;
         int SeasonID = 0;
         string physicalpath = HttpContext.Current.Request.PhysicalApplicationPath;
-        
+
+        int eventID
+        {
+            get
+            {
+                int id = 0;
+                if (!string.IsNullOrEmpty(hdnEventID.Value))
+                {
+                    int.TryParse(hdnEventID.Value, out id);
+                }
+                return id;
+            }
+        }
+
         #region Page events
 
         protected void Page_Load(object sender, EventArgs e)
@@ -63,9 +76,10 @@ namespace DotNetNuke.Modules.ThSport
             if (dv.ToTable().Rows.Count > 0)
             {
                 ViewState["dt"] = dv.ToTable();
-                gvEvent.DataSource = dv.ToTable();
-                gvEvent.DataBind();
+               
             }
+            gvEvent.DataSource = dv.ToTable();
+            gvEvent.DataBind();
         }
 
         protected void btnClear_Click(object sender, EventArgs e)
@@ -344,6 +358,14 @@ namespace DotNetNuke.Modules.ThSport
             funClearData();
         }
 
+        protected void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (hndDeleteConfirm.Value == "true")
+            {
+                DeleteEvent();
+            }
+        }
+
         protected void gvEvent_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             gvEvent.PageIndex = e.NewPageIndex;
@@ -357,7 +379,7 @@ namespace DotNetNuke.Modules.ThSport
 
         protected void ddlAction_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string str = ((Label)((DropDownList)sender).Parent.FindControl("lblddlActionEventID")).Text;
+            hdnEventID.Value = ((Label)((DropDownList)sender).Parent.FindControl("lblddlActionEventID")).Text;
 
             string ddlSelectedValue = ((DropDownList)sender).SelectedValue;
 
@@ -374,8 +396,7 @@ namespace DotNetNuke.Modules.ThSport
                 FillTeamMember();
                 FillSponsor();
 
-                int EventID = 0;
-                int.TryParse(str, out EventID);
+
 
                 LinkButton btn = sender as LinkButton;
 
@@ -384,7 +405,7 @@ namespace DotNetNuke.Modules.ThSport
 
                 DataTable dt = new DataTable();
 
-                dt = csc.GetEventDataByEventID(EventID);
+                dt = csc.GetEventDataByEventID(eventID);
 
                 if (dt.Rows.Count > 0)
                 {
@@ -436,6 +457,16 @@ namespace DotNetNuke.Modules.ThSport
                 //CompRegInfo.DeleteCompetitionReg(competition_Id);
 
                 //FillGridView();
+
+                if (csc.IsEventHasOtherData(eventID).Rows[0]["RefData"].ToString() != "")
+                {
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "DeleteConfirm('" + "Delete" + "');;", true);
+
+                }
+                else
+                {
+                    DeleteEvent();
+                }
             }
         }
 
@@ -753,6 +784,14 @@ namespace DotNetNuke.Modules.ThSport
                 ddlTeamMember.DataBind();
                 ddlTeamMember.Items.Insert(0, new ListItem("-- Select --", "0"));
             }       
+        }
+
+        public void DeleteEvent()
+        {
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "DeleteSuccessfully();", true);
+            csc.DeleteEvent(eventID);
+            BindGrid();
+
         }
             
    }

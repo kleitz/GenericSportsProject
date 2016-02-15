@@ -27,6 +27,9 @@ namespace DotNetNuke.Modules.ThSport
         clsSeasonController sController = new clsSeasonController();
         clsSportController spController = new clsSportController();
         clsDivisionController dvController = new clsDivisionController();
+        clsCompetitionTeam ctClass = new clsCompetitionTeam();
+        clsCompetitionTeamController cteamController = new clsCompetitionTeamController();
+        clsDivisionTeamController dtController = new clsDivisionTeamController();
        
 
         private readonly UserInfo currentUser = DotNetNuke.Entities.Users.UserController.GetCurrentUserInfo();
@@ -60,17 +63,18 @@ namespace DotNetNuke.Modules.ThSport
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            if (IsPostBack)
+           
+            if (!IsPostBack)
             {
                 FillDropDownForMaster();
+                LoadCompetitionGrid();
             }
-
+            
             btnUpdateCompetition.Visible = false;
             btnSaveCompetition.Visible = false;
             pnlCompetitionEntry.Visible = false;
-
-            LoadCompetitionGrid();
+          
+           
 
         }
 
@@ -158,6 +162,14 @@ namespace DotNetNuke.Modules.ThSport
             gvCompetition.DataBind();
         }
 
+        public void DeleteCompetition()
+        {
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "DeleteSuccessfully();", true);
+                clc.DeleteCompetition(competitionID);
+                LoadCompetitionGrid();
+            
+        }
+
         #endregion Methods
 
         #region Button Click Events
@@ -177,12 +189,6 @@ namespace DotNetNuke.Modules.ThSport
             int.TryParse(ddlCompetitionFormat.SelectedValue, out cl.CompetitionFormatId);
             int.TryParse(ddlSport.SelectedValue, out cl.SportId);
             int.TryParse(ddlDivision.SelectedValue, out cl.DivisionId);
-
-            if (cl.DivisionId > 0)
-            {
-                // Insert Selected Division Teams into Competition Teams
-
-            }
 
             int.TryParse(txtNoOfGroup.Text, out cl.NumberofGroups);
             int.TryParse(txtNoOfTeam.Text, out cl.NumberofTeams);
@@ -247,7 +253,25 @@ namespace DotNetNuke.Modules.ThSport
             cl.ModifiedById = currentUser.Username;
 
             // Call Save Method
-            clc.InsertCompetition(cl);
+            int Inserted_Competition_Id = clc.InsertCompetition(cl);
+
+            if (ddlDivision.SelectedIndex > 0)
+            {
+                // Insert Selected Division Teams into Competition Teams
+                using (DataTable division_teams = dtController.GetDivisionTeamsByUser(currentUser.Username, cl.DivisionId, 0))
+                {
+                    for (int i = 0; i < division_teams.Rows.Count; i++)
+                    {
+                        int.TryParse(division_teams.Rows[i]["TeamId"].ToString(), out ctClass.TeamId);
+                        
+                        ctClass.CompetitionGroupId = 0;
+                        ctClass.CompetitionId = Inserted_Competition_Id;
+                        ctClass.CreatedById = currentUser.Username;
+                        ctClass.ModifiedById = currentUser.Username;
+                        cteamController.InsertCompetitionTeam(ctClass);
+                    }
+                }
+            }
 
             btnAddCompetition.Visible = true;
             pnlCompetitionGrid.Visible = true;
@@ -273,13 +297,13 @@ namespace DotNetNuke.Modules.ThSport
             int.TryParse(ddlSport.SelectedValue, out cl.SportId);
             int.TryParse(ddlDivision.SelectedValue, out cl.DivisionId);
 
-            if (cl.DivisionId > 0)
-            {
+            //if (cl.DivisionId > 0)
+            //{
                 //Check if this Division Teams are in Competition team table or not
                 //if no entry then
                 // Insert Selected Division Teams into Competition Teams
 
-            }
+            //}
 
             int.TryParse(txtNoOfGroup.Text, out cl.NumberofGroups);
             int.TryParse(txtNoOfTeam.Text, out cl.NumberofTeams);
@@ -400,11 +424,20 @@ namespace DotNetNuke.Modules.ThSport
 
         protected void btnAddCompetition_Click(object sender, EventArgs e)
         {
+            ddlDivision.Enabled = true;
             pnlCompetitionGrid.Visible = false;
             pnlCompetitionEntry.Visible = true;
             btnSaveCompetition.Visible = true;
             btnUpdateCompetition.Visible = false;
             ClearData();
+        }
+
+        protected void btnDeleteCompetition_Click(object sender, EventArgs e)
+        {
+            if (hndDeleteConfirm.Value == "true")
+            {
+                DeleteCompetition();
+            }
         }
 
         #endregion Button Click Events
@@ -468,6 +501,7 @@ namespace DotNetNuke.Modules.ThSport
                     }
                 }
 
+                ddlDivision.Enabled = false;
                 btnUpdateCompetition.Visible = true;
                 btnSaveCompetition.Visible = false;
                 pnlCompetitionEntry.Visible = true;
@@ -477,11 +511,22 @@ namespace DotNetNuke.Modules.ThSport
             {
                 Response.Redirect(DotNetNuke.Common.Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmCompetitionGroup", "CompetitionID=" + competitionID));
             }
+            else if (ddlSelectedValue == "Match")
+            {
+                Response.Redirect(DotNetNuke.Common.Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmCompetitionMatch", "CompetitionID=" + competitionID));
+            }
             else if (ddlSelectedValue == "Delete")
             {
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "DeleteSuccessfully();", true);
-                clc.DeleteCompetition(competitionID);
-                LoadCompetitionGrid();
+                if (clc.IsCompetitionHasOtherData(competitionID).Rows[0]["RefData"].ToString() != "")
+                {
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "validateAndConfirm1('" + "Delete" + "');;", true);
+
+                }
+                else
+                {
+                    DeleteCompetition();
+                }
+              
             }
             else if (ddlSelectedValue == "Team")
             {

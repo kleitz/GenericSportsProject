@@ -34,19 +34,19 @@
         $('.ddlActionSelect').change(function (evt) {
             evt.preventDefault();
             if ($(this).val() == "Delete") {
-                if (confirm('Are you sure to delete this Event?'))
-                {
-                    setTimeout("__doPostBack('" + this.id + "','')", 0);
-                }
-                else
-                {
-                    //do nothing, prevent postback
-                    $(this).prop('selectedIndex', 0);
-                }
-            }
-            else
-            {
-                setTimeout("__doPostBack('" + this.id + "','')", 0);
+            //    if (confirm('Are you sure to delete this Event?'))
+            //    {
+            //        setTimeout("__doPostBack('" + this.id + "','')", 0);
+            //    }
+            //    else
+            //    {
+            //        //do nothing, prevent postback
+            //        $(this).prop('selectedIndex', 0);
+            //    }
+            //}
+            //else
+            //{
+            //    setTimeout("__doPostBack('" + this.id + "','')", 0);
             }
         });
         //Reset drop down list
@@ -165,6 +165,9 @@
         }
         return false;
     }
+
+
+
 </script>
 
 <script type="text/javascript">
@@ -235,6 +238,95 @@
     }
 </script>
 
+<script type="text/javascript">
+
+    function DeleteConfirm(btn_clientid) {
+
+
+        if (btn_clientid == "Delete") {
+            document.getElementById("msgConfirm").innerHTML = "This Sponsor Haveing Other Data like News, Video, Picture Etc. </br> Are You Sure, You Want to Delete This Sponsor?";
+        }
+
+
+        //if (validated) {
+        $("#dialogBox").dialog({
+
+            modal: true,
+            resizable: true,
+            draggable: true,
+            closeOnEscape: true,
+            position: ['center', 80],
+            dialogClass: "dnnFormPopup",
+
+            buttons: {
+                Ok: function () {
+                    if (btn_clientid == "Delete") {
+                        $('.hndDeleteConfirm').val("true");
+                        console.log("hello" + $('.hndDeleteConfirm').val());
+                        $('.lnkDelete').trigger("click");
+
+                    }
+
+                },
+                Cancel: function () {
+                    $(this).dialog('close');
+                    $('.hndDeleteConfirm').val("false");
+                    $('.lnkDelete').trigger("click");
+                    //$(".ddlActionSelect > option:first").attr("selected", "selected");
+                    return false;
+                }
+            }
+
+        });
+
+        //}
+        return false;
+    }
+
+
+    $(document).ready(function () {
+        //Reset drop down list
+        $(".ddlActionSelect > option:first").attr("selected", "selected");
+    });
+
+</script>
+
+<script type="text/javascript">
+    function DeleteSuccessfully() {
+        $(document).ready(function () {
+            $.blockUI();
+            setTimeout(function () {
+                $.unblockUI({
+                    onUnblock: function () { cancelvalidateAndConfirmClose(); }
+                });
+            }, 2000);
+        });
+    }
+</script>
+
+
+
+<script type="text/javascript">
+    function cancelvalidateAndConfirmClose() {
+        $(document).ready(function () {
+            $("#divcancelmassage").dialog({
+                modal: true,
+                resizable: true,
+                draggable: true,
+                closeOnEscape: true,
+                position: ['center', 80],
+                dialogClass: "dnnFormPopup",
+            });
+        });
+        setTimeout(function () {
+            $("#divcancelmassage").delay(2000).fadeOut(0);
+            $(".dnnFormPopup").delay(2000).fadeOut(0);
+            $(".ui-widget-overlay").delay(2000).fadeOut(0);
+            return false;
+        }, 2000);
+    }
+</script>
+
 <style type="text/css">
     .disabled
     {
@@ -256,6 +348,11 @@
        height:17% !important;
     }
 </style>
+
+<input type="hidden" class="hndDeleteConfirm" runat="server" id="hndDeleteConfirm" />
+ <asp:Button ID="lnkDelete" runat="server" Text="Cancel" OnClick="btnDelete_Click" CssClass="lnkDelete" 
+                                ClientIDMode="Static" style="display: none;"/>
+ <asp:HiddenField ID="hdnEventID" runat="server" />
 
 <div id="divsavemassage" runat="server" clientidmode="static" style="display: none;position:inherit !important;">
     <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/OtherImages/Ok.png")%>" />
@@ -381,7 +478,7 @@
                                       OnSelectedIndexChanged="ddlAction_SelectedIndexChanged">
                             <asp:ListItem Value="0"> -- Action -- </asp:ListItem>
                             <asp:ListItem Value="Edit">Edit</asp:ListItem>
-                            <%--<asp:ListItem Value="Delete">Delete</asp:ListItem>--%>
+                            <asp:ListItem Value="Delete">Delete</asp:ListItem>
                     </asp:DropDownList>
                     <asp:Label ID="lblddlActionEventID" runat="server" Text='<%#Eval("EventID") %>' Visible="false">
                     </asp:Label>

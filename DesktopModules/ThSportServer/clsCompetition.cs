@@ -62,7 +62,7 @@ namespace DotNetNuke.Modules.ThSport
                     cmp.EndDate = DateTime.ParseExact("01/01/1900", "dd/mm/yyyy", null);
                 }
 
-                dataProvider.ExecuteNonQuery("usp_InsertCompetition", cmp.SeasonId, cmp.CompeitionLeagueId, cmp.SportId, cmp.CompetitionTypeId, cmp.DivisionId, cmp.CompetitionFormatId, cmp.CompetitionName, cmp.CompetitionAbbr, cmp.CompetitionDesc, cmp.CompetitionLogoName, cmp.CompetitionLogoFile, cmp.StartDate, cmp.EndDate, cmp.NumberofGroups, cmp.NumberofTeams, cmp.ActiveFlagId, cmp.ShowFlagId, cmp.PortalID, cmp.CreatedById, cmp.ModifiedById);
+                return Convert.ToInt32(dataProvider.ExecuteScalar("usp_InsertCompetition", cmp.SeasonId, cmp.CompeitionLeagueId, cmp.SportId, cmp.CompetitionTypeId, cmp.DivisionId, cmp.CompetitionFormatId, cmp.CompetitionName, cmp.CompetitionAbbr, cmp.CompetitionDesc, cmp.CompetitionLogoName, cmp.CompetitionLogoFile, cmp.StartDate, cmp.EndDate, cmp.NumberofGroups, cmp.NumberofTeams, cmp.ActiveFlagId, cmp.ShowFlagId, cmp.PortalID, cmp.CreatedById, cmp.ModifiedById));
             }
             catch (Exception ex)
             {
@@ -108,6 +108,30 @@ namespace DotNetNuke.Modules.ThSport
             }
             return 0;
         }
+
+        public DataTable IsCompetitionHasOtherData(int competitionID)
+        {
+            string returnvalue = "";
+            DataTable dt = new DataTable();
+            try
+            {
+
+                using (IDataReader reader = dataProvider.ExecuteReader("[usp_IsCompetitionHasOtherData]", competitionID,""))
+                {
+                    dt.Load(reader);
+                    return dt;
+                }
+
+                //returnvalue = dataProvider.ExecuteReader("[usp_IsCompetitionHasOtherData]", cmp.CompetitionId);
+            }
+            catch (Exception ex)
+            {
+                Exceptions.LogException(ex);
+            }
+            //return 0;
+            return dt;
+        }
+
 
         #endregion Insert,Update Method
 
