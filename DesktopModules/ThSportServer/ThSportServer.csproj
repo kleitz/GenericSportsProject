@@ -99,7 +99,10 @@
     <Compile Include="clsAddDocuments.cs" />
     <Compile Include="clsAddDocumentsType.cs" />
     <Compile Include="clsCompetitionTeam.cs" />
+    <Compile Include="clsDivisionTeams.cs" />
     <Compile Include="clsEvent.cs" />
+    <Compile Include="clsLocation.cs" />
+    <Compile Include="clsMatchStatus.cs" />
     <Compile Include="clsNews.cs" />
     <Compile Include="clsPictures.cs" />
     <Compile Include="clsPlayerType.cs" />
