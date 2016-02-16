@@ -124,6 +124,28 @@ namespace ThSportServer
             }
         }
 
+        public DataTable MatchWisePlayerPerformancePlayerEntry(int TeamID)
+        {
+            using (DataTable dt = new DataTable())
+            {
+                try
+                {
+                    using (IDataReader reader = dataProvider.ExecuteReader("usp_MatchWisePlayerPerformancePlayerEntry", TeamID))
+                    {
+                        dt.Load(reader);
+                        return dt;
+                    }
+                }
+
+                catch (Exception ex)
+                {
+                    Exceptions.LogException(ex);
+                }
+
+                return dt;
+            }
+        }
+
         #endregion Getdata Methods
 
     }

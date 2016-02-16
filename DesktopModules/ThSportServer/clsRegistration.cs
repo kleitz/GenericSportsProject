@@ -484,6 +484,26 @@ namespace ThSportServer
             }
         }
 
+        public DataTable GetLatestPlayerID()
+        {
+            using (DataTable dt = new DataTable())
+            {
+                try
+                {
+                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetLatestPlayerID"))
+                    {
+                        dt.Load(reader);
+                        return dt;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Exceptions.LogException(ex);
+                }
+                return dt;
+            }
+        }
+
         public DataTable GetUserPhotoByUserID(clsRegistration cc)
         {
             using (DataTable dt = new DataTable())
