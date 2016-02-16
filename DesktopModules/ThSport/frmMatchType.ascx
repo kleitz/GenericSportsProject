@@ -337,17 +337,17 @@
                         <AlternatingRowStyle CssClass="grid-row grid-row-alternet" />
                         <Columns>
 
-                            <asp:BoundField DataField="MatchTypeName" HeaderText="Match Type Name" HeaderStyle-CssClass="grid-header-column" ItemStyle-Width="25%" HeaderStyle-Width="25%" ItemStyle-CssClass="grid-column" />
+                            <asp:BoundField DataField="MatchTypeName" HeaderText="Match Type Name" HeaderStyle-CssClass="grid-header-column" ItemStyle-Width="20%" HeaderStyle-Width="25%" ItemStyle-CssClass="grid-column" />
 
                             <asp:TemplateField HeaderText="Description" HeaderStyle-CssClass="grid-header-column" HeaderStyle-VerticalAlign="Middle"
-                                ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Left" ItemStyle-Width="35%" HeaderStyle-Width="150px">
+                                ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Left" ItemStyle-Width="50%" HeaderStyle-Width="150px">
                                 <ItemTemplate>
                                     <asp:Label ID="lblTitle" runat="server" Text='<%#Eval("MatchDesc") %>'></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
 
                             <asp:TemplateField HeaderText="Action" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column"
-                                ItemStyle-HorizontalAlign="Center" ItemStyle-Width="15%">
+                                ItemStyle-HorizontalAlign="Center" ItemStyle-Width="20%" >
                                 <ItemTemplate>
 
                                     <asp:DropDownList ID="ddlAction" runat="server" CssClass="small m-wrap ddlActionSelect" AutoPostBack="true"

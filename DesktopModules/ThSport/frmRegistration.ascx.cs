@@ -403,6 +403,86 @@ namespace DotNetNuke.Modules.ThSport
                         cc.PlayerTypeId = Convert.ToInt32(ddlPlayerType.SelectedValue);
 
                         ccc.InsertPlayer(cc);
+
+                    }
+
+                    clsMatchPlayerPerfomance mpp = new clsMatchPlayerPerfomance();
+                                        clsMatchPlayerPerfomanceController mppc = new clsMatchPlayerPerfomanceController();
+                       DataTable dt4 = ccc.GetLatestPlayerID();
+                    if (dt4.Rows.Count > 0)
+                    {
+                        mpp.PlayerID = Convert.ToInt32(dt4.Rows[0]["PlayerId"].ToString());
+
+                    }
+                    //player assign in match
+
+                      // if select competition
+                    if (ddlCompetition.SelectedValue == "0")
+                    {
+
+                        DataTable dt2 = new DataTable();
+
+                        dt1 = mppc.MatchWisePlayerPerformancePlayerEntry(cc.TeamId);
+                        if (dt1.Rows.Count != 0)
+                        {
+                            for (int K = 0; K < dt1.Rows.Count; K++)
+                            {
+                                int matchid = 0;
+                                int.TryParse(dt1.Rows[K]["MatchID"].ToString(), out matchid);
+
+                                int competitionid = 0;
+                                int.TryParse(dt1.Rows[K]["CompetitionID"].ToString(), out competitionid);
+
+                                mpp.CompetitionID = competitionid;
+                                mpp.MatchId = matchid;
+                                mpp.PlayerID = mpp.PlayerID;
+                                mpp.PortalID = PortalId;
+                                mpp.CreatedById = currentUser.Username;
+                                mpp.ModifiedById = currentUser.Username;
+                                mpp.Goal = 0;
+                                mpp.Assist = 0;
+                                mpp.IsPlayed = 1;
+                                mpp.Yellow = 0;
+                                mpp.Red = 0;
+                                mpp.TeamID = cc.TeamId;
+                                mppc.InsertMatchPlayerPerfomance(mpp);
+                            }
+                        }
+
+                    }
+                    else
+                    {
+                        DataTable dt2 = new DataTable();
+                        int selectCompetitionId = 0;
+                        int.TryParse(ddlCompetition.SelectedValue, out selectCompetitionId);
+
+                        dt1 = mppc.MatchWisePlayerPerformancePlayerEntryByCompetitionIdAndTeamID(cc.TeamId,selectCompetitionId);
+                        if (dt1.Rows.Count != 0)
+                        {
+                            for (int K = 0; K < dt1.Rows.Count; K++)
+                            {
+                                int matchid = 0;
+                                int.TryParse(dt1.Rows[K]["MatchID"].ToString(), out matchid);
+
+                                int competitionid = 0;
+                                int.TryParse(dt1.Rows[K]["CompetitionID"].ToString(), out competitionid);
+
+                                mpp.CompetitionID = competitionid;
+                                mpp.MatchId = matchid;
+                                mpp.PlayerID = mpp.PlayerID;
+                                mpp.PortalID = PortalId;
+                                mpp.CreatedById = currentUser.Username;
+                                mpp.ModifiedById = currentUser.Username;
+                                mpp.Goal = 0;
+                                mpp.Assist = 0;
+                                mpp.IsPlayed = 1;
+                                mpp.Yellow = 0;
+                                mpp.Red = 0;
+                                mpp.TeamID = cc.TeamId;
+                                mppc.InsertMatchPlayerPerfomance(mpp);
+                            }
+                        }
+ 
                     }
 
                     Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "SaveSuccessfully();", true);

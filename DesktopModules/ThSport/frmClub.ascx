@@ -401,7 +401,7 @@
 
             <asp:TemplateField HeaderText="Established Year" ItemStyle-VerticalAlign="Middle" HeaderStyle-CssClass="grid-header-column" 
                                ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center" HeaderStyle-Width="22px" 
-                               ItemStyle-Width="20px">
+                               ItemStyle-Width="20%">
                 <ItemTemplate>
                     <div class="grid-cell-inner" style="text-align:center;">                    
                         <asp:Label ID="lblClubEstablishedYear" runat="server" Text='<%#Eval("ClubEstablishedYear") %>' ToolTip="Season Start Date">
@@ -411,7 +411,7 @@
             </asp:TemplateField>
 
             <asp:TemplateField HeaderText="Action"  HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" 
-                               ItemStyle-HorizontalAlign="Center" ItemStyle-Width="15%">
+                               ItemStyle-HorizontalAlign="Center" ItemStyle-Width="20%">
                 <ItemTemplate>
                     <asp:DropDownList ID="ddlAction" runat="server" CssClass="small m-wrap ddlActionSelect" AutoPostBack="true" 
                                       OnSelectedIndexChanged="ddlAction_SelectedIndexChanged">

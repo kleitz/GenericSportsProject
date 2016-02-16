@@ -287,9 +287,9 @@
         <AlternatingRowStyle CssClass="grid-row grid-row-alternet" />
 		<Columns>
 
-            <asp:BoundField DataField="Loc_LocationName" HeaderText="Location Name" HeaderStyle-CssClass="grid-header-column" ItemStyle-Width="25%" HeaderStyle-Width="25%" ItemStyle-CssClass="grid-column" />
+            <asp:BoundField DataField="Loc_LocationName" HeaderText="Location Name" HeaderStyle-CssClass="grid-header-column" ItemStyle-Width="40%" HeaderStyle-Width="25%" ItemStyle-CssClass="grid-column" />
             
-			<asp:TemplateField HeaderText="Address" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" HeaderStyle-Width="200px" >
+			<asp:TemplateField HeaderText="Address" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" HeaderStyle-Width="200px" Visible="false">
 				<ItemTemplate>
                 <div class="grid-cell-inner" style="width:200px;">
 					<asp:Label ID="lblLocationAddress" runat="server" Text='<%#Eval("Loc_LocationAddress") %>' ToolTip='<%#Eval("Loc_LocationAddress") %>'></asp:Label>
@@ -298,7 +298,7 @@
 				</ItemTemplate>
 			</asp:TemplateField>
 
-            <asp:TemplateField HeaderText="City" ItemStyle-VerticalAlign="Middle" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center" HeaderStyle-Width="80px">  
+            <asp:TemplateField HeaderText="City" ItemStyle-VerticalAlign="Middle" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="10%">  
                 <ItemTemplate>
                 <div class="grid-cell-inner" style="width:80px; display: inline-block;">
                     <asp:Label ID="lblCity" runat="server" Text='<%#Eval("Loc_City") %>'></asp:Label>
@@ -306,7 +306,7 @@
                 </ItemTemplate>
             </asp:TemplateField>
 
-            <asp:TemplateField HeaderText="State" ItemStyle-VerticalAlign="Middle" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center"  HeaderStyle-Width="80px">
+            <asp:TemplateField HeaderText="State" ItemStyle-VerticalAlign="Middle" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center"  ItemStyle-Width="10%">
                 <ItemTemplate>
                 <div class="grid-cell-inner" style="width:80px; display: inline-block;">
                     <asp:Label ID="lblState" runat="server" Text='<%#Eval("Loc_State") %>'></asp:Label>
@@ -314,7 +314,7 @@
                 </ItemTemplate>
             </asp:TemplateField>
 
-            <asp:TemplateField HeaderText="ZipCode" ItemStyle-VerticalAlign="Middle" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center"  HeaderStyle-Width="70px">
+            <asp:TemplateField HeaderText="ZipCode" ItemStyle-VerticalAlign="Middle" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center"  ItemStyle-Width="10%">
                 <ItemTemplate>
                 <div class="grid-cell-inner" style="width:70px; display: inline-block;">
                     <asp:Label ID="lblZipCode" runat="server" Text='<%#Eval("Loc_ZipCode") %>'></asp:Label>
@@ -322,7 +322,7 @@
                 </ItemTemplate>
             </asp:TemplateField>
 
-            <asp:TemplateField HeaderText="Country" ItemStyle-VerticalAlign="Middle" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center"  HeaderStyle-Width="90px">
+            <asp:TemplateField HeaderText="Country" ItemStyle-VerticalAlign="Middle" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center"  ItemStyle-Width="10%">
                 <ItemTemplate>
                     <asp:HiddenField ID="hdnloc_CountryID" runat="server" Value='<%#Eval("Loc_Country") %>' />
                 <div class="grid-cell-inner" style="width:90px; display: inline-block;">
@@ -332,7 +332,7 @@
             </asp:TemplateField>
 
               <asp:TemplateField HeaderText="Action"  HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" 
-                               ItemStyle-HorizontalAlign="Center" HeaderStyle-Width="96px">
+                               ItemStyle-HorizontalAlign="Center" ItemStyle-Width="20%">
                 <ItemTemplate>
                     
                     <asp:DropDownList ID="ddlAction" runat="server" CssClass="small m-wrap ddlActionSelect" AutoPostBack="true"

@@ -427,10 +427,10 @@
                 </ItemTemplate>
             </asp:TemplateField>
 
-         <asp:BoundField DataField="SportName" HeaderText="Sport Name" HeaderStyle-CssClass="grid-header-column" ItemStyle-Width="30%" ItemStyle-CssClass="grid-column" HeaderStyle-Width="30%" />
+         <asp:BoundField DataField="SportName" HeaderText="Sport Name" HeaderStyle-CssClass="grid-header-column" ItemStyle-Width="35%" ItemStyle-CssClass="grid-column" HeaderStyle-Width="30%" />
 
          <asp:TemplateField HeaderText="Description" HeaderStyle-CssClass="grid-header-column" HeaderStyle-VerticalAlign="Middle" 
-                          ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Left" ItemStyle-Width="35%" HeaderStyle-Width="100px">
+                          ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Left" ItemStyle-Width="55%" HeaderStyle-Width="100px">
                 <ItemTemplate>
                         <asp:Label ID="lblTitle" runat="server" Text='<%#Eval("SportDesc") %>'></asp:Label>
                         <asp:LinkButton ID="lbSportName" CommandName="sportedit" runat="server" CommandArgument='<%#Eval("SportID")%>' Text='<%#Eval("SportName")%>' ToolTip='<%#Eval("SportName")%>' Visible="false"></asp:LinkButton>
@@ -438,7 +438,7 @@
          </asp:TemplateField>
 
          <asp:TemplateField HeaderText="Action"  HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" 
-                               ItemStyle-HorizontalAlign="Center" ItemStyle-Width="15%">
+                               ItemStyle-HorizontalAlign="Center" ItemStyle-Width="20%">
                 <ItemTemplate>
                     <asp:DropDownList ID="ddlAction" runat="server" CssClass="small m-wrap ddlActionSelect" AutoPostBack="true" 
                                       OnSelectedIndexChanged="ddlAction_SelectedIndexChanged">

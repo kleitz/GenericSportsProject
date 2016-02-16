@@ -355,14 +355,14 @@
          </asp:TemplateField>
 
             <asp:TemplateField HeaderText="Picture Title" HeaderStyle-CssClass="grid-header-column" 
-                                      ItemStyle-CssClass="grid-column" ItemStyle-Width="65%" ItemStyle-HorizontalAlign="Left">
+                                      ItemStyle-CssClass="grid-column" ItemStyle-Width="55%" ItemStyle-HorizontalAlign="Left">
                 <ItemTemplate>
                         <asp:Literal ID="lblPictureTitle" runat="server" Text='<%#Eval("PictureTitle") %>'></asp:Literal>
                 </ItemTemplate>
          </asp:TemplateField>
 
          <asp:TemplateField HeaderText="Picture Date" ItemStyle-VerticalAlign="Middle" ItemStyle-HorizontalAlign="Center" 
-                                    HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column">
+                                    HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-Width="10%">
                 <ItemTemplate>
                     <div class="grid-cell-inner">
                         <asp:Label ID="lblPictureDate" runat="server" Text='<%#Eval("PictureDate") %>'></asp:Label>
@@ -371,7 +371,7 @@
          </asp:TemplateField>
 
         <asp:TemplateField HeaderText="Picture Level" ItemStyle-VerticalAlign="Middle" ItemStyle-HorizontalAlign="Center" 
-                                     HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column">
+                                     HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-Width="15%">
                 <ItemTemplate>
                     <div class="grid-cell-inner">
                         <asp:Label ID="lblPictureLevel" runat="server" Text='<%#Eval("PictureLevelId") %>'></asp:Label>
@@ -380,7 +380,7 @@
          </asp:TemplateField>
 
             <asp:TemplateField HeaderText="Action"  HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" 
-                               ItemStyle-HorizontalAlign="Center" ItemStyle-Width="15%">
+                               ItemStyle-HorizontalAlign="Center" ItemStyle-Width="20%">
                 <ItemTemplate>
                     <asp:DropDownList ID="ddlAction" runat="server" CssClass="small m-wrap ddlActionSelect" AutoPostBack="true" 
                                       OnSelectedIndexChanged="ddlAction_SelectedIndexChanged">

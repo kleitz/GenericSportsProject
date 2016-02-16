@@ -438,11 +438,11 @@
                 </ItemTemplate>
          </asp:TemplateField>
 
-         <asp:BoundField DataField="EventName" HeaderText="Event Name" HeaderStyle-CssClass="grid-header-column" ItemStyle-Width="30%" ItemStyle-CssClass="grid-column" HeaderStyle-Width="30%" />
+         <asp:BoundField DataField="EventName" HeaderText="Event Name" HeaderStyle-CssClass="grid-header-column" ItemStyle-Width="50%" ItemStyle-CssClass="grid-column" HeaderStyle-Width="30%" />
 
             <asp:TemplateField HeaderText="Start Date" ItemStyle-VerticalAlign="Middle" HeaderStyle-CssClass="grid-header-column" 
                                ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center" HeaderStyle-Width="22px" 
-                               ItemStyle-Width="20px">
+                               ItemStyle-Width="10%">
                 <ItemTemplate>
                     <div class="grid-cell-inner" style="text-align:center;">                    
                         <asp:Label ID="lblEventStartDateTime" runat="server" Text='<%#Eval("EventStartDateTime") %>' ToolTip="Event Start Date">
@@ -452,8 +452,8 @@
             </asp:TemplateField>
 
             <asp:TemplateField HeaderText="End Date" ItemStyle-VerticalAlign="Middle" HeaderStyle-CssClass="grid-header-column" 
-                               ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center" HeaderStyle-Width="22px" 
-                               ItemStyle-Width="20px">
+                               ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center" 
+                               ItemStyle-Width="10%">
                 <ItemTemplate>
                     <div class="grid-cell-inner" style="text-align:center;">
                          <asp:Label ID="lblEventEndDateTime" runat="server" Text='<%#Eval("EventEndDateTime") %>' ToolTip="Event End Date">
@@ -463,7 +463,7 @@
             </asp:TemplateField>
 
             <asp:TemplateField HeaderText="Priority" ItemStyle-VerticalAlign="Middle" HeaderStyle-CssClass="grid-header-column" 
-                               ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center">
+                               ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="10%">
                 <ItemTemplate>
                     <div class="grid-cell-inner" style="text-align:center;">
                         <asp:Label ID="lblEventPriority" runat="server" Text='<%#Eval("EventPriority") %>'></asp:Label>
@@ -472,7 +472,7 @@
             </asp:TemplateField>
 
             <asp:TemplateField HeaderText="Action"  HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" 
-                               ItemStyle-HorizontalAlign="Center" ItemStyle-Width="15%">
+                               ItemStyle-HorizontalAlign="Center" ItemStyle-Width="20%">
                 <ItemTemplate>
                     <asp:DropDownList ID="ddlAction" runat="server" CssClass="small m-wrap ddlActionSelect" AutoPostBack="true" 
                                       OnSelectedIndexChanged="ddlAction_SelectedIndexChanged">

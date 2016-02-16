@@ -375,7 +375,7 @@
 
               <asp:TemplateField HeaderText="Email ID" ItemStyle-VerticalAlign="Middle" HeaderStyle-CssClass="grid-header-column" 
                                ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center" HeaderStyle-Width="22px" 
-                               ItemStyle-Width="20px">
+                               ItemStyle-Width="30%">
                 <ItemTemplate>
                     <div class="grid-cell-inner" style="text-align:center;">                    
                         <asp:Label ID="lblEmailId" runat="server" Text='<%#Eval("EmailId") %>' ToolTip="Email Address">
@@ -386,7 +386,7 @@
 
               <asp:TemplateField HeaderText="Telephone No" ItemStyle-VerticalAlign="Middle" HeaderStyle-CssClass="grid-header-column" 
                                ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center" HeaderStyle-Width="22px" 
-                               ItemStyle-Width="20px">
+                               ItemStyle-Width="10%">
                 <ItemTemplate>
                     <div class="grid-cell-inner" style="text-align:center;">                    
                         <asp:Label ID="lblTelephoneNumber" runat="server" Text='<%#Eval("TelephoneNumber") %>' ToolTip=" Telephone No">
@@ -397,7 +397,7 @@
             
             <asp:TemplateField HeaderText="Date Of Birth" ItemStyle-VerticalAlign="Middle" HeaderStyle-CssClass="grid-header-column" 
                                ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center" HeaderStyle-Width="22px" 
-                               ItemStyle-Width="20px">
+                               ItemStyle-Width="10%">
                 <ItemTemplate>
                     <div class="grid-cell-inner" style="text-align:center;">                    
                         <asp:Label ID="lblDateOfBirth" runat="server" Text='<%#Eval("DateOfBirth") %>' ToolTip="Date Of Birth">
@@ -407,7 +407,7 @@
             </asp:TemplateField>
 
             <asp:TemplateField HeaderText="Action"  HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" 
-                               ItemStyle-HorizontalAlign="Center" ItemStyle-Width="15%">
+                               ItemStyle-HorizontalAlign="Center" ItemStyle-Width="20%">
                 <ItemTemplate>
                     <asp:DropDownList ID="ddlAction" runat="server" CssClass="small m-wrap ddlActionSelect" AutoPostBack="true" 
                                       OnSelectedIndexChanged="ddlAction_SelectedIndexChanged">
