@@ -188,6 +188,59 @@ namespace ThSportServer
             }
         }
 
+        public DataTable GetTeamPlayerDetailByTeamID(int teamId)
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                using (IDataReader rdr = dataProvider.ExecuteReader("[usp_GetTeamPlayerDetailByTeamID]", teamId))
+                {
+                    dt.Load(rdr);
+                }
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+
+        public DataTable GetTeamAPlayerByMatchID(int MatchID,int TeamID)
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                using (IDataReader rdr = dataProvider.ExecuteReader("[usp_GetTeamAPlayerByMatchID]", MatchID,TeamID))
+                {
+                    dt.Load(rdr);
+                }
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+
+        public DataTable GetTeamA1PlayerByMatchID(int MatchID,int TeamID)
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                using (IDataReader rdr = dataProvider.ExecuteReader("[usp_GetTeamA1PlayerByMatchID]", MatchID,TeamID))
+                {
+                    dt.Load(rdr);
+                }
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
      
     }
 }

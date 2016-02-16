@@ -130,6 +130,10 @@
     <Compile Include="clsVideos.cs" />
     <Compile Include="clsMatchType.cs" />
     <Compile Include="clsCompetitionMatch.cs" />
+    <Compile Include="clsMatchRating.cs" />
+    <Compile Include="clsMatchPlayerPerfomance.cs" />
+    <Compile Include="clsMatchResult.cs" />
+    <Compile Include="clsCompetitionPlayerPerfomance.cs" />
     <Compile Include="Data\DataProvider.cs" />
     <Compile Include="DTOs\DTOAssign.cs" />
     <Compile Include="clsClubMemberType.cs" />

@@ -37,6 +37,10 @@ namespace DotNetNuke.Modules.ThSport
         public int ActiveFlagId;
         public int ShowFlagId;
         public int PortalID;
+        public int WinPoint;
+        public int LossPoint;
+        public int DrawPoint;
+        public int NoShowGoalPoint;
         public string CreatedById;
         public string ModifiedById;
     }
@@ -62,7 +66,7 @@ namespace DotNetNuke.Modules.ThSport
                     cmp.EndDate = DateTime.ParseExact("01/01/1900", "dd/mm/yyyy", null);
                 }
 
-                return Convert.ToInt32(dataProvider.ExecuteScalar("usp_InsertCompetition", cmp.SeasonId, cmp.CompeitionLeagueId, cmp.SportId, cmp.CompetitionTypeId, cmp.DivisionId, cmp.CompetitionFormatId, cmp.CompetitionName, cmp.CompetitionAbbr, cmp.CompetitionDesc, cmp.CompetitionLogoName, cmp.CompetitionLogoFile, cmp.StartDate, cmp.EndDate, cmp.NumberofGroups, cmp.NumberofTeams, cmp.ActiveFlagId, cmp.ShowFlagId, cmp.PortalID, cmp.CreatedById, cmp.ModifiedById));
+                return Convert.ToInt32(dataProvider.ExecuteScalar("usp_InsertCompetition", cmp.SeasonId, cmp.CompeitionLeagueId, cmp.SportId, cmp.CompetitionTypeId, cmp.DivisionId, cmp.CompetitionFormatId, cmp.CompetitionName, cmp.CompetitionAbbr, cmp.CompetitionDesc, cmp.CompetitionLogoName, cmp.CompetitionLogoFile, cmp.StartDate, cmp.EndDate, cmp.NumberofGroups, cmp.NumberofTeams, cmp.ActiveFlagId, cmp.ShowFlagId, cmp.PortalID, cmp.CreatedById, cmp.ModifiedById,cmp.WinPoint,cmp.LossPoint,cmp.DrawPoint,cmp.NoShowGoalPoint));
             }
             catch (Exception ex)
             {
@@ -86,7 +90,7 @@ namespace DotNetNuke.Modules.ThSport
                     cmp.EndDate = DateTime.ParseExact("01/01/1900", "dd/mm/yyyy", null);
                 }
 
-                dataProvider.ExecuteNonQuery("usp_UpdateCompetition", cmp.CompetitionId,cmp.SeasonId, cmp.CompeitionLeagueId, cmp.SportId, cmp.CompetitionTypeId, cmp.DivisionId, cmp.CompetitionFormatId, cmp.CompetitionName, cmp.CompetitionAbbr, cmp.CompetitionDesc, cmp.CompetitionLogoName, cmp.CompetitionLogoFile, cmp.StartDate, cmp.EndDate, cmp.NumberofGroups, cmp.NumberofTeams, cmp.ActiveFlagId, cmp.ShowFlagId, cmp.PortalID, cmp.ModifiedById);
+                dataProvider.ExecuteNonQuery("usp_UpdateCompetition", cmp.CompetitionId,cmp.SeasonId, cmp.CompeitionLeagueId, cmp.SportId, cmp.CompetitionTypeId, cmp.DivisionId, cmp.CompetitionFormatId, cmp.CompetitionName, cmp.CompetitionAbbr, cmp.CompetitionDesc, cmp.CompetitionLogoName, cmp.CompetitionLogoFile, cmp.StartDate, cmp.EndDate, cmp.NumberofGroups, cmp.NumberofTeams, cmp.ActiveFlagId, cmp.ShowFlagId, cmp.PortalID, cmp.ModifiedById,cmp.WinPoint,cmp.LossPoint,cmp.DrawPoint,cmp.NoShowGoalPoint);
             }
             catch (Exception ex)
             {

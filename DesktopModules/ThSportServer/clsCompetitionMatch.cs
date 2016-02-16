@@ -29,6 +29,7 @@ namespace ThSportServer
         public int MatchTypeId;
         public int IsFinalized;
         public int PortalId;
+        public int IsPlayed;
         public int CreatedById { get; set; }
         public int ModifiedById { get; set; }
     }
@@ -83,13 +84,13 @@ namespace ThSportServer
 
         #region Getdata Method
 
-        public DataTable GetCompetitionMatchList()
+        public DataTable GetCompetitionMatchList(int CompetionId)
         {
             using (DataTable dt = new DataTable())
             {
                 try
                 {
-                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetCompetitionMatchList"))
+                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetCompetitionMatchList",CompetionId))
                     {
                         dt.Load(reader);
                         return dt;
@@ -120,6 +121,91 @@ namespace ThSportServer
                 return null;
             }
         }
+
+        public DataTable GetCompetitionMatchByCompetitionIDAndTeamID(int competionID, int teamID)
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                using (IDataReader rdr = dataProvider.ExecuteReader("[usp_GetCompetitionMatchByCompetitionIDAndTeamID]", competionID, teamID))
+                {
+                    dt.Load(rdr);
+                }
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+
+        public DataTable GetCompetitionAndTeamDetaibyMatchID(int matchID)
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                using (IDataReader rdr = dataProvider.ExecuteReader("[usp_GetCompetitionAndTeamDetaibyMatchID]", matchID))
+                {
+                    dt.Load(rdr);
+                }
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+
+        public DataTable GetTeamByCompetitionIdAndMatchID(int matchID,int competitionId)
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                using (IDataReader rdr = dataProvider.ExecuteReader("[usp_GetTeamByCompetitionIdAndMatchID]",competitionId, matchID))
+                {
+                    dt.Load(rdr);
+                }
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+
+        public int UpdateIsPlayedForMatch(int matchID, int IsPlayed)
+        {
+            try
+            {
+                dataProvider.ExecuteNonQuery("[usp_UpdateIsPlayedForMatch]", matchID, IsPlayed);
+            }
+            catch (Exception ex)
+            {
+                Exceptions.LogException(ex);
+            }
+            return 0;
+        }
+
+        //public DataTable UpdateMatchStatus(int matchID, int competitionId)
+        //{
+        //    DataTable dt = new DataTable();
+
+        //    try
+        //    {
+        //        using (IDataReader rdr = dataProvider.ExecuteReader("[usp_UpdateMatchStatus]", competitionId, matchID))
+        //        {
+        //            dt.Load(rdr);
+        //        }
+        //        return dt;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return null;
+        //    }
+        //}
 
         #endregion Getdata Methods
 

@@ -78,7 +78,7 @@ namespace DotNetNuke.Modules.ThSport
         public void LoadCompetitionMatchGrid()
         {
             DataTable dt = new DataTable();
-            dt = cmController.GetCompetitionMatchList();
+            dt = cmController.GetCompetitionMatchList(CompetitionID);
 
             gvCompetitionMatch.DataSource = dt;
             gvCompetitionMatch.DataBind();
@@ -154,7 +154,7 @@ namespace DotNetNuke.Modules.ThSport
             btnAddCompetitionMatch.Visible = true;
             pnlCompetitionMatchGrid.Visible = true;
             pnlCompetitionMatchEntry.Visible = false;
-           // LoadCompetitionMatchGrid();
+           LoadCompetitionMatchGrid();
             ClearData();
 
         }
@@ -333,12 +333,24 @@ namespace DotNetNuke.Modules.ThSport
                 pnlCompetitionMatchEntry.Visible = true;
                 pnlCompetitionMatchGrid.Visible = false;
             }
-            //else if (ddlSelectedValue == "Delete")
-            //{
-            //    Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "DeleteSuccessfully();", true);
-            //    cgController.DeleteCompetitionGroup(CompetitionGroupID);
-            //    LoadCompetitionmatchGrid();
-            //}
+            else if (ddlSelectedValue == "Result")
+            {
+                //Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "DeleteSuccessfully();", true);
+                //cgController.DeleteCompetitionGroup(CompetitionGroupID);
+                //LoadCompetitionmatchGrid();
+
+                pnlCompetitionMatchGrid.Visible = false;
+               pnlCompetitionMatchEntry.Visible= false;
+                //hidRegID.Value = str;
+                //int id = Convert.ToInt32(hidRegID.Value);
+                Response.Redirect(DotNetNuke.Common.Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmMatchResult", "MatchID=" + CompetitionMatchID ));
+            }
+            else if (ddlSelectedValue == "MatchRating")
+            {
+                pnlCompetitionMatchGrid.Visible = false;
+                pnlCompetitionMatchEntry.Visible = false;
+                Response.Redirect(DotNetNuke.Common.Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmMatchRating", "MatchID=" + CompetitionMatchID));
+            }
         }
         private void FillTeamB()
         {

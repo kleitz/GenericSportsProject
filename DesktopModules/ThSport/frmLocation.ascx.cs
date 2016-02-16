@@ -327,8 +327,8 @@ namespace DotNetNuke.Modules.ThSport
 
         protected void btnCloseLocation_Click(object sender, EventArgs e)
         {
-            pnlList.Visible = false;
-            pnlEntry.Visible = true;
+            pnlList.Visible = true;
+            pnlEntry.Visible = false;
             FillLocationGridView();
         }
 

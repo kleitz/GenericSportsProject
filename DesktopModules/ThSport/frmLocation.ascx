@@ -114,6 +114,92 @@
     }
 </script>
 
+<script type="text/javascript">
+    function validateAndConfirmClose(OnlyClose) {
+        var validated = Page_ClientValidate('CloseSports');
+
+        if (OnlyClose == "btnCloseLocation") {
+            document.getElementById("msgConfirm").innerHTML = "Are You Sure, You Want to Close Location Details Form ?";
+        }
+
+        if (validated) {
+            $("#dialogBox").dialog({
+
+                modal: true,
+                resizable: true,
+                draggable: true,
+                closeOnEscape: true,
+                position: ['center', 80],
+                dialogClass: "dnnFormPopup",
+
+                buttons: {
+                    Ok: function () {
+
+                        if (OnlyClose == "btnCloseLocation") {
+                            <%=this.Page.ClientScript.GetPostBackEventReference(new PostBackOptions(this.btnCloseLocation))%>;
+                         }
+
+                     },
+                     Cancel: function () {
+                         $(this).dialog('close');
+                         return false;
+                     }
+                 }
+
+             });
+
+         }
+         return false;
+     }
+
+     function validateAndConfirm(btn_clientid) {
+         var validated = Page_ClientValidate('Sports');
+
+         if (btn_clientid == "btnUpdateLocation") {
+             document.getElementById("msgConfirm").innerHTML = "Are You Sure, You Want to Updat Location Details ?";
+         }
+
+         if (validated) {
+             $("#dialogBox").dialog({
+
+                 modal: true,
+                 resizable: true,
+                 draggable: true,
+                 closeOnEscape: true,
+                 position: ['center', 80],
+                 dialogClass: "dnnFormPopup",
+
+                 buttons: {
+                     Ok: function () {
+
+                         if (btn_clientid == "btnSaveLocation") {
+                             <%=this.Page.ClientScript.GetPostBackEventReference(new PostBackOptions(this.btnSaveLocation))%>;
+                         }
+
+                         if (btn_clientid == "btnUpdateLocation") {
+                             <%=this.Page.ClientScript.GetPostBackEventReference(new PostBackOptions(this.btnUpdateLocation))%>;
+                         }
+
+                     },
+                     Cancel: function () {
+                         $(this).dialog('close');
+                         return false;
+                     }
+                 }
+
+             });
+
+         }
+         return false;
+     }
+
+     $(document).ready(function () {
+         //Reset drop down list
+         $(".ddlActionSelect > option:first").attr("selected", "selected");
+     });
+
+</script>
+
 <style type="text/css">
     .disabled
     {

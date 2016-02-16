@@ -45,7 +45,9 @@
         <li id="li_Sponsor" runat="server">
 	        <asp:HyperLink id="hlSponsor" runat="server" ToolTip=" Sponsor Form"> Sponsor </asp:HyperLink>
 		</li>
-
+        <li id="li1" runat="server">
+	        <asp:HyperLink id="hlAssignPlayerInTeam" runat="server" ToolTip=" Sponsor Form"> Assign Player In Team </asp:HyperLink>
+		</li>
         
         <li id="li_Media" runat="server">
             <asp:HyperLink id="hlMedia" runat="server" ToolTip=" Media Form " NavigateUrl="javascript:;"> Media Form <span class="arrow selected"></span></asp:HyperLink>

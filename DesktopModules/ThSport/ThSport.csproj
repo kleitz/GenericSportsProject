@@ -217,6 +217,13 @@
     <Compile Include="frmAdminMenu.ascx.designer.cs">
       <DependentUpon>frmAdminMenu.ascx</DependentUpon>
     </Compile>
+    <Compile Include="frmAssignPlayerInTeam.ascx.cs">
+      <DependentUpon>frmAssignPlayerInTeam.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmAssignPlayerInTeam.ascx.designer.cs">
+      <DependentUpon>frmAssignPlayerInTeam.ascx</DependentUpon>
+    </Compile>
     <Compile Include="frmClub.ascx.cs">
       <DependentUpon>frmClub.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -322,6 +329,13 @@
     <Compile Include="frmLocation.ascx.designer.cs">
       <DependentUpon>frmLocation.ascx</DependentUpon>
     </Compile>
+    <Compile Include="frmMatchRating.ascx.cs">
+      <DependentUpon>frmMatchRating.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmMatchRating.ascx.designer.cs">
+      <DependentUpon>frmMatchRating.ascx</DependentUpon>
+    </Compile>
     <Compile Include="frmMatchStatus.ascx.cs">
       <DependentUpon>frmMatchStatus.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -413,6 +427,13 @@
     <Compile Include="frmTeam.ascx.designer.cs">
       <DependentUpon>frmTeam.ascx</DependentUpon>
     </Compile>
+    <Compile Include="frmTeamMatchPlayerList.ascx.cs">
+      <DependentUpon>frmTeamMatchPlayerList.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmTeamMatchPlayerList.ascx.designer.cs">
+      <DependentUpon>frmTeamMatchPlayerList.ascx</DependentUpon>
+    </Compile>
     <Compile Include="frmTeamMember.ascx.cs">
       <DependentUpon>frmTeamMember.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -455,6 +476,13 @@
     <Compile Include="frmVideos.ascx.designer.cs">
       <DependentUpon>frmVideos.ascx</DependentUpon>
     </Compile>
+    <Compile Include="frmMatchResult.ascx.cs">
+      <DependentUpon>frmMatchResult.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmMatchResult.ascx.designer.cs">
+      <DependentUpon>frmMatchResult.ascx</DependentUpon>
+    </Compile>
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
@@ -493,6 +521,7 @@
     <Content Include="frmAddDocuments.ascx" />
     <Content Include="frmAddDocumentsType.ascx" />
     <Content Include="frmAdminMenu.ascx" />
+    <Content Include="frmAssignPlayerInTeam.ascx" />
     <Content Include="frmClub.ascx" />
     <Content Include="frmClubMember.ascx" />
     <Content Include="frmClubMemberType.ascx" />
@@ -508,6 +537,7 @@
     <Content Include="frmDivisionTeams.ascx" />
     <Content Include="frmEvent.ascx" />
     <Content Include="frmLocation.ascx" />
+    <Content Include="frmMatchRating.ascx" />
     <Content Include="frmMatchStatus.ascx" />
     <Content Include="frmMatchType.ascx" />
     <Content Include="frmNews.ascx" />
@@ -521,6 +551,7 @@
     <Content Include="frmSponsorType.ascx" />
     <Content Include="frmSports.ascx" />
     <Content Include="frmTeam.ascx" />
+    <Content Include="frmTeamMatchPlayerList.ascx" />
     <Content Include="frmTeamMember.ascx" />
     <Content Include="frmTeamMemberType.ascx" />
     <Content Include="frmTeamPlayer.ascx" />
@@ -866,6 +897,7 @@
     <Content Include="JS\vallenato.js" />
     <Content Include="JS\vallenatoForAdmin.js" />
     <Content Include="JS\vallenatoForFirstDefault.js" />
+    <Content Include="frmMatchResult.ascx" />
     <Content Include="obj\Debug\TempPE\rptReportTopScorer.cs.dll" />
     <Content Include="obj\Debug\ThSport.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\ThSport.dll" />

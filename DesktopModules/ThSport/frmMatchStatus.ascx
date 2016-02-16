@@ -115,6 +115,92 @@
     }
 </script>
 
+<script type="text/javascript">
+    function validateAndConfirmClose(OnlyClose) {
+        var validated = Page_ClientValidate('CloseSports');
+
+        if (OnlyClose == "btnCloseMatchStatus") {
+            document.getElementById("msgConfirm").innerHTML = "Are You Sure, You Want to Close Match Status Form ?";
+        }
+
+        if (validated) {
+            $("#dialogBox").dialog({
+
+                modal: true,
+                resizable: true,
+                draggable: true,
+                closeOnEscape: true,
+                position: ['center', 80],
+                dialogClass: "dnnFormPopup",
+
+                buttons: {
+                    Ok: function () {
+
+                        if (OnlyClose == "btnCloseMatchStatus") {
+                            <%=this.Page.ClientScript.GetPostBackEventReference(new PostBackOptions(this.btnCloseMatchStatus))%>;
+                         }
+
+                     },
+                     Cancel: function () {
+                         $(this).dialog('close');
+                         return false;
+                     }
+                 }
+
+             });
+
+         }
+         return false;
+     }
+
+     function validateAndConfirm(btn_clientid) {
+         var validated = Page_ClientValidate('Sports');
+
+         if (btn_clientid == "btnUpdateMatchStatus") {
+             document.getElementById("msgConfirm").innerHTML = "Are You Sure, You Want to Update Match Status Details ?";
+         }
+
+         if (validated) {
+             $("#dialogBox").dialog({
+
+                 modal: true,
+                 resizable: true,
+                 draggable: true,
+                 closeOnEscape: true,
+                 position: ['center', 80],
+                 dialogClass: "dnnFormPopup",
+
+                 buttons: {
+                     Ok: function () {
+
+                         if (btn_clientid == "btnSaveMatchStatus") {
+                             <%=this.Page.ClientScript.GetPostBackEventReference(new PostBackOptions(this.btnSaveMatchStatus))%>;
+                         }
+
+                         if (btn_clientid == "btnUpdateMatchStatus") {
+                             <%=this.Page.ClientScript.GetPostBackEventReference(new PostBackOptions(this.btnUpdateMatchStatus))%>;
+                         }
+
+                     },
+                     Cancel: function () {
+                         $(this).dialog('close');
+                         return false;
+                     }
+                 }
+
+             });
+
+         }
+         return false;
+     }
+
+     $(document).ready(function () {
+         //Reset drop down list
+         $(".ddlActionSelect > option:first").attr("selected", "selected");
+     });
+
+</script>
+
 <style type="text/css">
     .disabled
     {

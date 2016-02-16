@@ -173,7 +173,7 @@ namespace DotNetNuke.Modules.ThSport
         #endregion Methods
 
         #region Button Click Events
-
+        
         protected void btnSaveCompetition_Click(object sender, EventArgs e)
         {
             Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "SaveSuccessfully();", true);
@@ -252,6 +252,27 @@ namespace DotNetNuke.Modules.ThSport
             cl.CreatedById = currentUser.Username;
             cl.ModifiedById = currentUser.Username;
 
+            int resVal = 0;
+
+            if (!string.IsNullOrEmpty(txtWin.Text))
+                int.TryParse(txtWin.Text, out resVal);
+            cl.WinPoint = resVal;
+
+            resVal = 0;
+            if (!string.IsNullOrEmpty(txtLose.Text))
+                int.TryParse(txtLose.Text, out resVal);
+            cl.LossPoint = resVal;
+
+            if (!string.IsNullOrEmpty(txtDraw.Text))
+
+                resVal = 0;
+            int.TryParse(txtDraw.Text, out resVal);
+            cl.DrawPoint = resVal;
+
+            resVal = 0;
+            int.TryParse(txtNoShowGoal.Text, out resVal);
+            cl.NoShowGoalPoint = resVal;
+
             // Call Save Method
             int Inserted_Competition_Id = clc.InsertCompetition(cl);
 
@@ -272,6 +293,7 @@ namespace DotNetNuke.Modules.ThSport
                     }
                 }
             }
+
 
             btnAddCompetition.Visible = true;
             pnlCompetitionGrid.Visible = true;
@@ -381,6 +403,28 @@ namespace DotNetNuke.Modules.ThSport
             cl.PortalID = PortalId;
             cl.ModifiedById = currentUser.Username;
 
+            int resVal = 0;
+
+            if (!string.IsNullOrEmpty(txtWin.Text))
+                int.TryParse(txtWin.Text, out resVal);
+            cl.WinPoint = resVal;
+
+            resVal = 0;
+            if (!string.IsNullOrEmpty(txtLose.Text))
+                int.TryParse(txtLose.Text, out resVal);
+            cl.LossPoint = resVal;
+
+            if (!string.IsNullOrEmpty(txtDraw.Text))
+
+                resVal = 0;
+            int.TryParse(txtDraw.Text, out resVal);
+            cl.DrawPoint = resVal;
+
+            resVal = 0;
+            int.TryParse(txtNoShowGoal.Text, out resVal);
+            cl.NoShowGoalPoint = resVal;
+
+
             // Call Update Method
             clc.UpdateCompetition(cl);
 
@@ -417,7 +461,10 @@ namespace DotNetNuke.Modules.ThSport
             txtStartDate.Text = "";
             txtEndDate.Text = "";
             txtNoOfGroup.Text = "";
-            txtNoOfTeam.Text = "";
+            txtWin.Text = "0";
+            txtLose.Text = "0";
+            txtDraw.Text = "0";
+            txtNoShowGoal.Text = "0";
             ChkIsActive.Checked = false;
             ChkIsShow.Checked = false;
         }
@@ -430,6 +477,11 @@ namespace DotNetNuke.Modules.ThSport
             btnSaveCompetition.Visible = true;
             btnUpdateCompetition.Visible = false;
             ClearData();
+            txtWin.Text = "3";
+            txtLose.Text = "0";
+            txtDraw.Text = "1";
+            txtNoShowGoal.Text = "3";
+
         }
 
         protected void btnDeleteCompetition_Click(object sender, EventArgs e)
@@ -490,6 +542,11 @@ namespace DotNetNuke.Modules.ThSport
 
                     string ufname = dt1.Rows[0]["CompetitionLogoFile"].ToString().Replace(" ", "");
                     CompetitionLogoImage.ResolveUrl("ufname");
+
+                    txtWin.Text = dt1.Rows[0]["WinPoint"].ToString();
+                    txtLose.Text = dt1.Rows[0]["LossPoint"].ToString();
+                    txtDraw.Text = dt1.Rows[0]["DrawPoint"].ToString();
+                    txtNoShowGoal.Text = dt1.Rows[0]["NoShowGoalPoint"].ToString();
 
                     if (dt1.Rows[0]["ActiveFlagId"].ToString() == "1")
                     {

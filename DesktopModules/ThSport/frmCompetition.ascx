@@ -80,6 +80,15 @@
             }, 2000);
         });
     }
+
+    function imgError(image) {
+        image.onerror = "";
+        
+        image.src = "\\DesktopModules\\\ThSport\\Images\\OtherImages\\1_pix.png";
+        console.log(image);
+        return true;
+    }
+
 </script>
 
 <script type="text/javascript">
@@ -695,7 +704,7 @@
                                                 CssClass ="errorfordnn" />
                 <span id="span_logo_size_error" style="display:none;"><font style="color:red;">Can Not Upload Logo Larger Than 10 MB</font></span> 
                 <div style="padding-top:10px;border:none; Width:200px;">
-                    <asp:Image ID="CompetitionLogoImage" runat="server" />
+                    <asp:Image ID="CompetitionLogoImage" runat="server" onError="imgError(this);"/>
                 </div>
             </div>
         </div>
@@ -778,6 +787,76 @@
         </div>    
        
        </div>
+
+            <div class="portlet box blue tabbable">
+			<div class="portlet-title">
+				<div class="caption">
+					<i class="icon-reorder"></i>
+					<span class="hidden-480">Competition Points<span style="font-size: 15px;">&nbsp;&nbsp; (Maximum Length : 2)</span></span>
+				</div>
+			</div>
+        </div>
+      <div class="form-horizontal">
+        <div class="control-group">
+		    <label class="control-label"> 
+                <asp:Label ID="lblWin" runat="server" Text="Win :" ></asp:Label>
+              </label>
+            <div class="controls" style="position:relative;">
+                <asp:TextBox ID="txtWin" runat="server" CssClass="m-wrap medium onlynumeric"></asp:TextBox>
+                  <asp:RegularExpressionValidator ID="RegularExpressionValidator10"
+                                                Display="Static" ControlToValidate="txtWin"  
+                                                ValidationGroup="Sports" CssClass="errorfordnn"
+                                                ValidationExpression = "^[\s\S]{0,2}$" 
+                                                runat="server" ErrorMessage="Maximum 2 characters allowed.">
+                </asp:RegularExpressionValidator>
+             </div>
+         </div> 
+
+        <div class="control-group">
+		    <label class="control-label"> 
+                <asp:Label ID="lblLose" runat="server" Text="Lose :" ></asp:Label>
+            </label>
+            <div class="controls" style="position:relative;">
+                <asp:TextBox ID="txtLose" runat="server" CssClass="m-wrap medium onlynumeric"></asp:TextBox>
+                   <asp:RegularExpressionValidator ID="RegularExpressionValidator11"
+                                                Display="Static" ControlToValidate="txtLose"  
+                                                ValidationGroup="Sports" CssClass="errorfordnn"
+                                                ValidationExpression = "^[\s\S]{0,2}$" 
+                                                runat="server" ErrorMessage="Maximum 2 characters allowed.">
+                </asp:RegularExpressionValidator>
+            </div>
+        </div>
+
+        <div class="control-group">
+		    <label class="control-label"> 
+                <asp:Label ID="lblDraw" runat="server" Text="Draw :" ></asp:Label>
+            </label>
+            <div class="controls" style="position:relative;">
+                <asp:TextBox ID="txtDraw" runat="server" CssClass="m-wrap medium onlynumeric"></asp:TextBox>
+                  <asp:RegularExpressionValidator ID="RegularExpressionValidator12"
+                                                Display="Static" ControlToValidate="txtDraw"  
+                                                ValidationGroup="Sports" CssClass="errorfordnn"
+                                                ValidationExpression = "^[\s\S]{0,2}$" 
+                                                runat="server" ErrorMessage="Maximum 2 characters allowed.">
+                </asp:RegularExpressionValidator>
+            </div>
+        </div>
+                
+        <div class="control-group">
+		    <label class="control-label"> 
+                <asp:Label ID="lblNoShowGoal" runat="server" Text="No. Show Goal :" ></asp:Label>
+             </label>
+            <div class="controls" style="position:relative;">
+                <asp:TextBox ID="txtNoShowGoal" runat="server" CssClass="m-wrap medium onlynumeric"></asp:TextBox>
+                  <asp:RegularExpressionValidator ID="RegularExpressionValidator13"
+                                                Display="Static" ControlToValidate="txtNoShowGoal"  
+                                                ValidationGroup="Sports" CssClass="errorfordnn"
+                                                ValidationExpression = "^[\s\S]{0,2}$" 
+                                                runat="server" ErrorMessage="Maximum 2 characters allowed.">
+                </asp:RegularExpressionValidator>
+            </div>
+        </div>
+          </div>
 
         <div class="form-actions">
             <div class="right_div_css">
