@@ -411,7 +411,7 @@ namespace DotNetNuke.Modules.ThSport
                        DataTable dt4 = ccc.GetLatestPlayerID();
                     if (dt4.Rows.Count > 0)
                     {
-                        mpp.PlayerID = Convert.ToInt32(dt.Rows[0]["PlayerID"].ToString());
+                        mpp.PlayerID = Convert.ToInt32(dt4.Rows[0]["PlayerId"].ToString());
 
                     }
                     //player assign in match
