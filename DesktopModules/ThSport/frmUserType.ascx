@@ -311,7 +311,7 @@
                 </ItemTemplate>
          </asp:TemplateField>
 
-            <asp:TemplateField HeaderText="User Type" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center">
+            <asp:TemplateField HeaderText="User Type" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="40%">
 				<ItemTemplate>
                     <div class="grid-cell-inner" style="text-align:center;">
 					    <asp:Label ID="lblUserTypeName" runat="server" Text='<%#Eval("UserTypeName") %>' ToolTip=" User Type "></asp:Label>
@@ -319,7 +319,7 @@
 				</ItemTemplate>
 			</asp:TemplateField>
 
-              <asp:TemplateField HeaderText=" Abbreviation " HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center">
+              <asp:TemplateField HeaderText=" Abbreviation " HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="40%">
 				<ItemTemplate>
                     <div class="grid-cell-inner" style="text-align:center;">
 					    <asp:Label ID="lblUserTypeAbbr" runat="server" Text='<%#Eval("UserTypeAbbr") %>' ToolTip=" User Address "></asp:Label>
@@ -336,7 +336,7 @@
 			</asp:TemplateField>
 
              <asp:TemplateField HeaderText="Action"  HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" 
-                               ItemStyle-HorizontalAlign="Center" HeaderStyle-Width="135px">
+                               ItemStyle-HorizontalAlign="Center" ItemStyle-Width="20%">
                 <ItemTemplate>
                     <asp:DropDownList ID="ddlAction" runat="server" CssClass="small m-wrap ddlActionSelect" 
                                       OnSelectedIndexChanged="ddlAction_SelectedIndexChanged" AutoPostBack="true">

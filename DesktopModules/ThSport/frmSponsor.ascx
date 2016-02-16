@@ -471,7 +471,7 @@
          </asp:TemplateField>
 
             <asp:TemplateField HeaderText="Sponsor Name" ItemStyle-VerticalAlign="Middle" ItemStyle-HorizontalAlign="Center" 
-                                     HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column">
+                                     HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column"  ItemStyle-Width="20%">
                 <ItemTemplate>
                     <div class="grid-cell-inner" style="width:130px; display: inline-block;">
                         <asp:Label ID="lblSponsorName" runat="server" Text='<%#Eval("SponsorName") %>'></asp:Label>
@@ -480,7 +480,7 @@
          </asp:TemplateField>
 
          <asp:TemplateField HeaderText="Sponsor Type" ItemStyle-VerticalAlign="Middle" ItemStyle-HorizontalAlign="Center" 
-                                    HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column">
+                                    HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column"  ItemStyle-Width="20%">
                 <ItemTemplate>
                     <div class="grid-cell-inner" style="width:130px; display: inline-block;">
                         <asp:Label ID="lblSponsorType" runat="server" Text='<%#Eval("SponsorTypeValue") %>'></asp:Label>
@@ -489,7 +489,7 @@
          </asp:TemplateField>
 
             <asp:TemplateField HeaderText="Sponsor Level" ItemStyle-VerticalAlign="Middle" ItemStyle-HorizontalAlign="Center" 
-                                     HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column">
+                                     HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column"  ItemStyle-Width="10%">
                 <ItemTemplate>
                     <div class="grid-cell-inner" style="width:130px; display: inline-block;">
                         <asp:Label ID="lblSponsorLevel" runat="server" Text='<%#Eval("SponsorLevelValue") %>'></asp:Label>
@@ -499,7 +499,7 @@
 
             <asp:TemplateField HeaderText="Start Date" ItemStyle-VerticalAlign="Middle" HeaderStyle-CssClass="grid-header-column" 
                                ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center" HeaderStyle-Width="22px" 
-                               ItemStyle-Width="20px">
+                               ItemStyle-Width="10%">
                 <ItemTemplate>
                     <div class="grid-cell-inner" style="text-align:center;">                    
                         <asp:Label ID="lblSponsorStartDateTime" runat="server" Text='<%#Eval("SponsorStartDate") %>' ToolTip="Sponsor Start Date">
@@ -510,7 +510,7 @@
 
             <asp:TemplateField HeaderText="End Date" ItemStyle-VerticalAlign="Middle" HeaderStyle-CssClass="grid-header-column" 
                                ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center" HeaderStyle-Width="22px" 
-                               ItemStyle-Width="20px">
+                               ItemStyle-Width="10%">
                 <ItemTemplate>
                     <div class="grid-cell-inner" style="text-align:center;">
                          <asp:Label ID="lblSponsorEndDateTime" runat="server" Text='<%#Eval("SponsorEndDate") %>' ToolTip="Sponsor End Date">
@@ -520,7 +520,7 @@
             </asp:TemplateField>
 
             <asp:TemplateField HeaderText="Amount" ItemStyle-VerticalAlign="Middle" HeaderStyle-CssClass="grid-header-column" 
-                               ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center">
+                               ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="10%">
                 <ItemTemplate>
                     <div class="grid-cell-inner" style="text-align:center;">
                         <asp:Label ID="lblSponsorAmount" runat="server" Text='<%#Eval("SponsorAmt") %>'></asp:Label>
@@ -529,7 +529,7 @@
             </asp:TemplateField>
 
             <asp:TemplateField HeaderText="Action"  HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" 
-                               ItemStyle-HorizontalAlign="Center" ItemStyle-Width="15%">
+                               ItemStyle-HorizontalAlign="Center" ItemStyle-Width="20%">
                 <ItemTemplate>
                     <asp:DropDownList ID="ddlAction" runat="server" CssClass="small m-wrap ddlActionSelect" AutoPostBack="true" 
                                       OnSelectedIndexChanged="ddlAction_SelectedIndexChanged">

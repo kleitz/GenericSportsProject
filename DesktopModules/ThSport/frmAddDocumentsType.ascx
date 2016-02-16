@@ -305,7 +305,7 @@
                 </ItemTemplate>
          </asp:TemplateField>
 
-         <asp:TemplateField HeaderText="Document Type" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center">
+         <asp:TemplateField HeaderText="Document Type" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="80%">
 				<ItemTemplate>
                     <div class="grid-cell-inner" style="text-align:center;">
 					    <asp:Label ID="lblDocumentTypeName" runat="server" Text='<%#Eval("RegistrationDocName") %>' ToolTip=" Document Type "></asp:Label>
@@ -322,7 +322,7 @@
 			</asp:TemplateField>
 
              <asp:TemplateField HeaderText="Action"  HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" 
-                               ItemStyle-HorizontalAlign="Center" HeaderStyle-Width="135px">
+                               ItemStyle-HorizontalAlign="Center" ItemStyle-Width="20%">
                 <ItemTemplate>
                     <asp:DropDownList ID="ddlAction" runat="server" CssClass="small m-wrap ddlActionSelect" 
                                       OnSelectedIndexChanged="ddlAction_SelectedIndexChanged" AutoPostBack="true">

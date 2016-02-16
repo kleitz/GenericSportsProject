@@ -297,7 +297,7 @@
 
 		<Columns>
 
-            <asp:TemplateField HeaderText="Competition Type" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center">
+            <asp:TemplateField HeaderText="Competition Type" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="40%">
 				<ItemTemplate>
                     <div class="grid-cell-inner" style="text-align:center;">
 					    <asp:Label ID="lblCompetitionTypeName" runat="server" Text='<%#Eval("CompetitionTypeName") %>' ToolTip="Competition Type"></asp:Label>
@@ -306,7 +306,7 @@
 				</ItemTemplate>
 			</asp:TemplateField>
 
-            <asp:TemplateField HeaderText="Description" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center">
+            <asp:TemplateField HeaderText="Description" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="40%">
 				<ItemTemplate>
                     <div class="grid-cell-inner" style="text-align:center;">
 					    <asp:Label ID="lblCompetitionTypeDesc" runat="server" Text='<%#Eval("CompetitionTypeDesc") %>' ToolTip="Description"></asp:Label>
@@ -315,7 +315,7 @@
 			</asp:TemplateField>
 
              <asp:TemplateField HeaderText="Action"  HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" 
-                               ItemStyle-HorizontalAlign="Center" HeaderStyle-Width="135px">
+                               ItemStyle-HorizontalAlign="Center" ItemStyle-Width="20%">
                 <ItemTemplate>
                     <asp:DropDownList ID="ddlAction" runat="server" CssClass="small m-wrap ddlActionSelect" 
                                       OnSelectedIndexChanged="ddlAction_SelectedIndexChanged" AutoPostBack="true">

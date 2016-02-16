@@ -407,7 +407,7 @@
 
 		<Columns>
 
-            <asp:TemplateField HeaderText="Competition" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center">
+            <asp:TemplateField HeaderText="Competition" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="20%">
 				<ItemTemplate>
                     <div class="grid-cell-inner" style="text-align:center;">
 					    <asp:Label ID="lblCompetitionName" runat="server" Text='<%#Eval("CompetitionName") %>' ToolTip="Competition "></asp:Label>
@@ -416,7 +416,7 @@
 				</ItemTemplate>
 			</asp:TemplateField>
 
-            <asp:TemplateField HeaderText="Season" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center">
+            <asp:TemplateField HeaderText="Season" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center" Visible="false" ItemStyle-Width="20%">
 				<ItemTemplate>
                     <div class="grid-cell-inner" style="text-align:center;">
 					    <asp:Label ID="lblCompetitionSeason" runat="server" Text='<%#Eval("SeasonName") %>' ToolTip="Season"></asp:Label>
@@ -425,7 +425,7 @@
 				</ItemTemplate>
 			</asp:TemplateField>
 
-            <asp:TemplateField HeaderText="Competition League" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center">
+            <asp:TemplateField HeaderText="Competition League" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="10%">
 				<ItemTemplate>
                     <div class="grid-cell-inner" style="text-align:center;">
 					    <asp:Label ID="lblCompetitionLeague" runat="server" Text='<%#Eval("CompetitionLeagueName") %>' ToolTip="Competition League"></asp:Label>
@@ -434,7 +434,7 @@
 				</ItemTemplate>
 			</asp:TemplateField>
 
-            <asp:TemplateField HeaderText="Sport" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center">
+            <asp:TemplateField HeaderText="Sport" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="20%">
 				<ItemTemplate>
                     <div class="grid-cell-inner" style="text-align:center;">
 					    <asp:Label ID="lblSport" runat="server" Text='<%#Eval("SportName") %>' ToolTip="Sport"></asp:Label>
@@ -452,7 +452,7 @@
 				</ItemTemplate>
 			</asp:TemplateField>
 
-            <asp:TemplateField HeaderText="Division" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center">
+            <asp:TemplateField HeaderText="Division" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="10%">
 				<ItemTemplate>
                     <div class="grid-cell-inner" style="text-align:center;">
 					    <asp:Label ID="lblCompetitionDivision" runat="server" Text='<%#Eval("DivisionName") %>' ToolTip="Division"></asp:Label>
@@ -461,7 +461,7 @@
 				</ItemTemplate>
 			</asp:TemplateField>
 
-            <asp:TemplateField HeaderText="Abbreviation" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center">
+            <asp:TemplateField HeaderText="Abbreviation" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center" Visible="false">
 				<ItemTemplate>
                     <div class="grid-cell-inner" style="text-align:center;">
 					    <asp:Label ID="lblCompetitionAbbr" runat="server" Text='<%#Eval("CompetitionAbbr") %>' ToolTip="Abbreviation"></asp:Label>
@@ -469,7 +469,7 @@
 				</ItemTemplate>
 			</asp:TemplateField>
 
-            <asp:TemplateField HeaderText="Description" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center">
+            <asp:TemplateField HeaderText="Description" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center" Visible="false">
 				<ItemTemplate>
                     <div class="grid-cell-inner" style="text-align:center;">
 					    <asp:Label ID="lblCompetitionDesc" runat="server" Text='<%#Eval("CompetitionDesc") %>' ToolTip="Description"></asp:Label>
@@ -478,7 +478,7 @@
 			</asp:TemplateField>
 
              <asp:TemplateField HeaderText="Action"  HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" 
-                               ItemStyle-HorizontalAlign="Center" HeaderStyle-Width="135px">
+                               ItemStyle-HorizontalAlign="Center" ItemStyle-Width="20%">
                 <ItemTemplate>
                     <asp:DropDownList ID="ddlAction" runat="server" CssClass="small m-wrap ddlActionSelect" 
                                       OnSelectedIndexChanged="ddlAction_SelectedIndexChanged" AutoPostBack="true">

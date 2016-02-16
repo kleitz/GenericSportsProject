@@ -361,7 +361,7 @@
                 </ItemTemplate>
          </asp:TemplateField>
 
-         <asp:BoundField DataField="SeasonName" HeaderText="Season Name" HeaderStyle-CssClass="grid-header-column" ItemStyle-Width="30%" ItemStyle-CssClass="grid-column" HeaderStyle-Width="30%" />
+         <asp:BoundField DataField="SeasonName" HeaderText="Season Name" HeaderStyle-CssClass="grid-header-column" ItemStyle-Width="50%" ItemStyle-CssClass="grid-column" HeaderStyle-Width="30%" />
 
             <asp:TemplateField HeaderText="Description" HeaderStyle-CssClass="grid-header-column" HeaderStyle-VerticalAlign="Middle" 
                           ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Left" ItemStyle-Width="35%" HeaderStyle-Width="100px" Visible="false">
@@ -373,7 +373,7 @@
 
             <asp:TemplateField HeaderText="Start Date" ItemStyle-VerticalAlign="Middle" HeaderStyle-CssClass="grid-header-column" 
                                ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center" HeaderStyle-Width="22px" 
-                               ItemStyle-Width="20px">
+                               ItemStyle-Width="15%">
                 <ItemTemplate>
                     <div class="grid-cell-inner" style="text-align:center;">                    
                         <asp:Label ID="lblSeasonStartDate" runat="server" Text='<%#Eval("StartDate") %>' ToolTip="Season Start Date">
@@ -384,7 +384,7 @@
 
             <asp:TemplateField HeaderText="End Date" ItemStyle-VerticalAlign="Middle" HeaderStyle-CssClass="grid-header-column" 
                                ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center" HeaderStyle-Width="22px" 
-                               ItemStyle-Width="20px">
+                               ItemStyle-Width="15%">
                 <ItemTemplate>
                     <div class="grid-cell-inner" style="text-align:center;">
                          <asp:Label ID="lblSeasonEndDate" runat="server" Text='<%#Eval("EndDate") %>' ToolTip="Season End Date">
@@ -403,7 +403,7 @@
             </asp:TemplateField>
 
             <asp:TemplateField HeaderText="Action"  HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" 
-                               ItemStyle-HorizontalAlign="Center" ItemStyle-Width="15%">
+                               ItemStyle-HorizontalAlign="Center" ItemStyle-Width="20%">
                 <ItemTemplate>
                     <asp:DropDownList ID="ddlAction" runat="server" CssClass="small m-wrap ddlActionSelect" AutoPostBack="true" 
                                       OnSelectedIndexChanged="ddlAction_SelectedIndexChanged">

@@ -282,11 +282,11 @@
         <AlternatingRowStyle CssClass="grid-row grid-row-alternet" />
 		<Columns>
 
-            <asp:BoundField DataField="MatchStatusName" HeaderText="Match Status Name" HeaderStyle-CssClass="grid-header-column" ItemStyle-Width="25%" HeaderStyle-Width="25%" ItemStyle-CssClass="grid-column" />
+            <asp:BoundField DataField="MatchStatusName" HeaderText="Match Status Name" HeaderStyle-CssClass="grid-header-column" ItemStyle-Width="80%" HeaderStyle-Width="25%" ItemStyle-CssClass="grid-column" />
             
 			
               <asp:TemplateField HeaderText="Action"  HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" 
-                               ItemStyle-HorizontalAlign="Center" HeaderStyle-Width="96px">
+                               ItemStyle-HorizontalAlign="Center" ItemStyle-Width="20%">
                 <ItemTemplate>
                     
                     <asp:DropDownList ID="ddlAction" runat="server" CssClass="small m-wrap ddlActionSelect" AutoPostBack="true"
