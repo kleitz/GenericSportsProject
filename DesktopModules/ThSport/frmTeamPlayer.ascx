@@ -252,8 +252,8 @@
 </div>
 
 <div id="divcancelmassage" runat="server" clientidmode="static" style="display: none;position:inherit !important;">
-    <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/OtherImages/Cancel.png")%>" />
-     <asp:Label CssClass="lobibox-body-text" ID="Label3" ClientIDMode="Static" runat="server" Text=" TeamPlayer detail are delete successfully. ">
+       <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/OtherImages/Ok.png")%>" />
+     <asp:Label CssClass="lobibox-body-text" ID="Label3" ClientIDMode="Static" runat="server" Text=" This Player is Free Successfully. ">
      </asp:Label>
 </div>
 
@@ -367,7 +367,8 @@
                                       OnSelectedIndexChanged="ddlAction_SelectedIndexChanged" AutoPostBack="true">
                             <asp:ListItem Value="0"> -- Action -- </asp:ListItem>
                             <asp:ListItem Value="Edit">Edit</asp:ListItem>
-                            <%--<asp:ListItem Value="Delete">Delete</asp:ListItem>--%>
+                            <asp:ListItem Value="Transfer">Transfer</asp:ListItem>
+                            <asp:ListItem Value="Delete">Transfer To Free Player</asp:ListItem>
                     </asp:DropDownList>
                         <asp:Label ID="lblddlActionPlayerId" runat="server" Text='<%#Eval("PlayerId") %>' Visible="false">
                         </asp:Label>

@@ -416,7 +416,7 @@ namespace DotNetNuke.Modules.ThSport
 
             if (!string.IsNullOrEmpty(txtDraw.Text))
 
-                resVal = 0;
+            resVal = 0;
             int.TryParse(txtDraw.Text, out resVal);
             cl.DrawPoint = resVal;
 

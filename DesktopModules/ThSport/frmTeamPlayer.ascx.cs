@@ -268,11 +268,24 @@ namespace DotNetNuke.Modules.ThSport
             }
             else if (ddlSelectedValue == "Delete")
             {
-                //Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "DeleteSuccessfully();", true);
-                //int documentid = 0;
-                //int.TryParse(str, out documentid);
-                //new CompetitionSponsorController().DeleteCompeSpon(documentid);
-                //LoadDocumentsGrid(CompetitionID);
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "DeleteSuccessfully();", true);
+
+                hidRegID.Value = str;
+
+                clsTeamPlayer tp = new clsTeamPlayer();
+                clsTeamPlayerController tpc = new clsTeamPlayerController();
+
+                DataTable dt = new DataTable();
+
+                // Delete Player in Match Player Performance 
+                tpc.DeleteTransferPlayerToMatchPlayerPerformance(Convert.ToInt32(str));
+
+                // Delete Player in Team 
+                int PlayerID = 0;
+                int.TryParse(hidRegID.Value, out PlayerID);
+                new clsTeamPlayerController().DeleteTeamPlayer(PlayerID);
+
+                LoadDocumentsGrid(TeamID);
             }
         }
 

@@ -35,42 +35,50 @@
         var chars = ['<', '>', '*', '$', '@', ',', '_', '%', '.', '!', '#', '^', '&', '(', ')', '-', '=', '+', '\\', '|', '?', '/', '[', ']', '{', '}'];
         args.IsValid = true;
 
-        if (txtcheckValue.length > 0) {
+        if (txtcheckValue.length > 0)
+        {
             var currentChar = txtcheckValue.charAt(0);
 
-            if (chars.indexOf(currentChar) >= 0) {
+            if (chars.indexOf(currentChar) >= 0)
+            {
                 args.IsValid = false;
                 txtcheckValue.value = "";
-
             }
-            else {
+            else
+            {
                 args.IsValid = true;
             }
         }
     }
 
-    function previewFileLogo() {
+    function previewFileLogo()
+    {
         var preview = document.querySelector('#<%=CompetitionLogoImage.ClientID %>');
         var file = document.querySelector('#<%=CompetitionLogoFile.ClientID %>').files[0];
         var reader = new FileReader();
 
-        reader.onloadend = function () {
+        reader.onloadend = function ()
+        {
             preview.src = reader.result;
         }
 
-        if (file) {
-            if (file.size > 10485760) {
+        if (file)
+        {
+            if (file.size > 10485760)
+            {
                 document.getElementById('span_logo_size_error').style.display = "block";
                 preview.src = "";
             }
             reader.readAsDataURL(file);
         }
-        else {
+        else
+        {
             preview.src = "";
         }
     }
 
-    function SaveSuccessfully() {
+    function SaveSuccessfully()
+    {
         $(document).ready(function () {
             $.blockUI();
             setTimeout(function () {
@@ -81,7 +89,8 @@
         });
     }
 
-    function imgError(image) {
+    function imgError(image)
+    {
         image.onerror = "";
         
         image.src = "\\DesktopModules\\\ThSport\\Images\\OtherImages\\1_pix.png";
@@ -92,7 +101,8 @@
 </script>
 
 <script type="text/javascript">
-    function savevalidateAndConfirmClose() {
+    function savevalidateAndConfirmClose()
+    {
         $(document).ready(function () {
             $("#divsavemassage").dialog({
                 modal: true,
@@ -113,7 +123,8 @@
 </script>
 
 <script type="text/javascript">
-    function UpdateSuccessfully() {
+    function UpdateSuccessfully()
+    {
         $(document).ready(function () {
             $.blockUI();
             setTimeout(function () {
@@ -126,7 +137,8 @@
 </script>
 
 <script type="text/javascript">
-    function updatevalidateAndConfirmClose() {
+    function updatevalidateAndConfirmClose()
+    {
         $(document).ready(function () {
             $("#divupdatemassage").dialog({
                 modal: true,
@@ -147,7 +159,8 @@
 </script>
 
 <script type="text/javascript">
-    function DeleteSuccessfully() {
+    function DeleteSuccessfully()
+    {
         $(document).ready(function () {
             $.blockUI();
             setTimeout(function () {
@@ -159,10 +172,9 @@
     }
 </script>
 
-
-
 <script type="text/javascript">
-    function cancelvalidateAndConfirmClose() {
+    function cancelvalidateAndConfirmClose()
+    {
         $(document).ready(function () {
             $("#divcancelmassage").dialog({
                 modal: true,
@@ -201,14 +213,17 @@
 </style>
 
 <script type="text/javascript">
-     function validateAndConfirmClose(OnlyClose) {
+    function validateAndConfirmClose(OnlyClose)
+    {
          var validated = Page_ClientValidate('CloseSports');
 
-         if (OnlyClose == "btnCancelCompetition") {
+         if (OnlyClose == "btnCancelCompetition")
+         {
              document.getElementById("msgConfirm").innerHTML = "Are You Sure, You Want to Close Competition Form ?";
          }
 
-         if (validated) {
+         if (validated)
+         {
              $("#dialogBox").dialog({
 
                  modal: true,
@@ -221,7 +236,8 @@
                  buttons: {
                      Ok: function () {
 
-                         if (OnlyClose == "btnCancelCompetition") {
+                         if (OnlyClose == "btnCancelCompetition")
+                         {
                              <%=this.Page.ClientScript.GetPostBackEventReference(new PostBackOptions(this.btnCancelCompetition))%>;
                          }
 
@@ -238,15 +254,17 @@
          return false;
      }
 
-     function validateAndConfirm(btn_clientid) {
+    function validateAndConfirm(btn_clientid)
+    {
          var validated = Page_ClientValidate('Sports');
 
-         if (btn_clientid == "btnUpdateCompetition") {
+         if (btn_clientid == "btnUpdateCompetition")
+         {
              document.getElementById("msgConfirm").innerHTML = "Are You Sure, You Want to Update Competition Details ?";
          }
-
-
-         if (validated) {
+        
+         if (validated)
+         {
              $("#dialogBox").dialog({
 
                  modal: true,
@@ -259,11 +277,13 @@
                  buttons: {
                      Ok: function () {
 
-                         if (btn_clientid == "btnSaveCompetition") {
+                         if (btn_clientid == "btnSaveCompetition")
+                         {
                              <%=this.Page.ClientScript.GetPostBackEventReference(new PostBackOptions(this.btnSaveCompetition))%>;
                          }
 
-                         if (btn_clientid == "btnUpdateCompetition") {
+                         if (btn_clientid == "btnUpdateCompetition")
+                         {
                              <%=this.Page.ClientScript.GetPostBackEventReference(new PostBackOptions(this.btnUpdateCompetition))%>;
                          }
 
@@ -280,13 +300,12 @@
          return false;
      }
 
-    function validateAndConfirm1(btn_clientid) {
-       
-
-        if (btn_clientid == "Delete") {
+    function validateAndConfirm1(btn_clientid)
+    {
+        if (btn_clientid == "Delete")
+        {
             document.getElementById("msgConfirm").innerHTML = "This Competition Haveing Other Data like News, Video, Picture Etc. </br> Are You Sure, You Want to Delete This Competition?";
         }
-
 
         //if (validated) {
             $("#dialogBox").dialog({
@@ -306,7 +325,6 @@
                             $('.lnkDeleteCompetition').trigger("click");
                            
                          }
-
                      },
                      Cancel: function () {
                          $(this).dialog('close');
@@ -315,13 +333,10 @@
                          return false;
                      }
                  }
-
              });
-
          //}
          return false;
      }
-
 
      $(document).ready(function () {
          //Reset drop down list
@@ -332,25 +347,26 @@
 
 <%--<asp:HiddenField ID="hndDeleteConfirm" runat="server"></asp:HiddenField>--%>
 <input type="hidden" class="hndDeleteConfirm" runat="server" id="hndDeleteConfirm" />
- <asp:Button ID="lnkDeleteCompetition" runat="server" Text="Cancel" OnClick="btnDeleteCompetition_Click" CssClass="lnkDeleteCompetition" 
-                                ClientIDMode="Static" style="display: none;"/>
+        <asp:Button ID="lnkDeleteCompetition" runat="server" Text="Cancel" 
+                    OnClick="btnDeleteCompetition_Click" CssClass="lnkDeleteCompetition" 
+                    ClientIDMode="Static" style="display: none;"/>
 
 <div id="divsavemassage" runat="server" clientidmode="static" style="display: none;position:inherit !important;">
     <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/OtherImages/Ok.png")%>" />
-     <asp:Label CssClass="lobibox-body-text" ID="Label1" ClientIDMode="Static" runat="server" Text=" Competition detail are save successfully. ">
-     </asp:Label>
+    <asp:Label CssClass="lobibox-body-text" ID="Label1" ClientIDMode="Static" runat="server" Text=" Competition detail are save successfully. ">
+    </asp:Label>
 </div>
 
 <div id="divupdatemassage" runat="server" clientidmode="static" style="display: none;position:inherit !important;">
     <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/OtherImages/Ok.png")%>" />
-     <asp:Label CssClass="lobibox-body-text" ID="Label2" ClientIDMode="Static" runat="server" Text=" Competition detail are update successfully. ">
-     </asp:Label>
+    <asp:Label CssClass="lobibox-body-text" ID="Label2" ClientIDMode="Static" runat="server" Text=" Competition detail are update successfully. ">
+    </asp:Label>
 </div>
 
 <div id="divcancelmassage" runat="server" clientidmode="static" style="display: none;position:inherit !important;">
     <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/OtherImages/Cancel.png")%>" />
-     <asp:Label CssClass="lobibox-body-text" ID="Label3" ClientIDMode="Static" runat="server" Text=" Competition detail are delete successfully. ">
-     </asp:Label>
+    <asp:Label CssClass="lobibox-body-text" ID="Label3" ClientIDMode="Static" runat="server" Text=" Competition detail are delete successfully. ">
+    </asp:Label>
 </div>
 
 

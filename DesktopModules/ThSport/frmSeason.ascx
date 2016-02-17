@@ -402,13 +402,8 @@
                 </ItemTemplate>
             </asp:TemplateField>
 
-<<<<<<< HEAD
             <asp:TemplateField HeaderText="Action" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" 
                                ItemStyle-HorizontalAlign="Center" ItemStyle-Width="15%">
-=======
-            <asp:TemplateField HeaderText="Action"  HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" 
-                               ItemStyle-HorizontalAlign="Center" ItemStyle-Width="20%">
->>>>>>> e30811f3c2ffc00862a36ba4ea022b3a618a0e42
                 <ItemTemplate>
                     <asp:DropDownList ID="ddlAction" runat="server" CssClass="small m-wrap ddlActionSelect" AutoPostBack="true" 
                                       OnSelectedIndexChanged="ddlAction_SelectedIndexChanged">
@@ -420,7 +415,7 @@
                     </asp:Label>
                 </ItemTemplate>
 
-     </asp:TemplateField>
+            </asp:TemplateField>
 
         </Columns>
         <PagerSettings Mode="NumericFirstLast" PageButtonCount="8" /> 
@@ -668,7 +663,6 @@
 <script type="text/javascript">
     $('.datetimepicker').datetimepicker()
 	.datetimepicker({ value: '', step: 15 });
-
 
     $('.enddatetimepicker').datetimepicker()
 	.datetimepicker({ value: '', step: 15 });

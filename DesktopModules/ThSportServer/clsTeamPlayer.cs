@@ -71,8 +71,7 @@ namespace ThSportServer
         }
 
         #endregion Insert,Update Method
-
-
+        
         public DataTable GetTeamNameByTeamID(int TeamID)
         {
             DataTable dt = new DataTable();
@@ -240,6 +239,35 @@ namespace ThSportServer
             {
                 return null;
             }
+        }
+
+        public int DeleteTransferPlayerToMatchPlayerPerformance(int PlayerID)
+        {
+            try
+            {
+                dataProvider.ExecuteNonQuery("usp_DeleteTransferPlayerToMatchPlayerPerformance", PlayerID);
+            }
+            catch (Exception ex)
+            {
+                Exceptions.LogException(ex);
+            }
+            return 0;
+        }
+
+        public int DeleteTeamPlayer(int PlayerID)
+        {
+            int i = 0;
+
+            try
+            {
+                dataProvider.ExecuteNonQuery("usp_DeleteTeamPlayer", PlayerID);
+                return i;
+            }
+            catch (Exception ex)
+            {
+                Exceptions.LogException(ex);
+            }
+            return i;
         }
      
     }
