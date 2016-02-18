@@ -45,7 +45,12 @@
         <li id="li_Sponsor" runat="server">
 	        <asp:HyperLink id="hlSponsor" runat="server" ToolTip=" Sponsor Form"> Sponsor </asp:HyperLink>
 		</li>
-        <li id="li1" runat="server">
+
+        <li id="li_Merchandise" runat="server">
+	        <asp:HyperLink id="hlMerchandise" runat="server" ToolTip=" Merchandise Form"> Merchandise </asp:HyperLink>
+		</li>
+
+        <li id="li_AssignPlayerInTeam" runat="server">
 	        <asp:HyperLink id="hlAssignPlayerInTeam" runat="server" ToolTip=" Sponsor Form"> Assign Player In Match </asp:HyperLink>
 		</li>
         
@@ -108,6 +113,9 @@
               </li>  
                <li id="li_MatchType" runat="server">
                   <asp:HyperLink id="hlMatchType" runat="server" ToolTip=" Match Type Form "> Match Type </asp:HyperLink>
+              </li> 
+                 <li id="li_MerchandiseType" runat="server">
+                  <asp:HyperLink id="hlMerchandiseType" runat="server" ToolTip=" Merchandise Type Form "> Merchandise Type </asp:HyperLink>
               </li>  
               <%--<li id="li_UserRole" runat="server">
                   <asp:HyperLink id="hlUserRole" runat="server" ToolTip=" User Role Form "> User Role </asp:HyperLink>

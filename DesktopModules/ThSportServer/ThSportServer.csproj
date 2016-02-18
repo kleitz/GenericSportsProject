@@ -134,6 +134,7 @@
     <Compile Include="clsMatchPlayerPerfomance.cs" />
     <Compile Include="clsMatchResult.cs" />
     <Compile Include="clsCompetitionPlayerPerfomance.cs" />
+    <Compile Include="clsMerchandise .cs" />
     <Compile Include="Data\DataProvider.cs" />
     <Compile Include="DTOs\DTOAssign.cs" />
     <Compile Include="clsClubMemberType.cs" />
