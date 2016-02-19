@@ -57,6 +57,8 @@ namespace DotNetNuke.Modules.ThSport
                 li_Pictures.Visible = false;
                 li_Videos.Visible = false;
                 li_MatchType.Visible = false;
+                li_MerchandiseType.Visible = false;
+                //li_MerchandiseTYpe.Visible = false;
                 //li_Albam.Visible = false;
 
                 //li_UserRole.Visible = false;
@@ -130,6 +132,9 @@ namespace DotNetNuke.Modules.ThSport
                 hlLocation.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmLocation");
                 hlMatchStatus.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmMatchStatus");
                 hlMatchType.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmMatchType");
+                hlMerchandiseType.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmMerchandiseType");
+                hlMerchandise.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmMerchandise");
+            
             }
 
         }
@@ -311,6 +316,13 @@ namespace DotNetNuke.Modules.ThSport
                     titela.Text = " Sponsor &raquo;";
                     titela.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmSponsor");
                     break;
+                case "frmMerchandise.ascx":
+                    HtmlGenericControl li_Merchandise = this.li_Merchandise as HtmlGenericControl;
+                    if (li_Merchandise != null)
+                        this.li_Merchandise.Attributes.Add("class", "active");
+                    titela.Text = " Merchandise &raquo;";
+                    titela.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmMerchandise");
+                    break;
 
                 //case "frmAssignPlayerInTeam.ascx":
                 //    HtmlGenericControl li_AssignPlayerInTeam = this.li_AssignPlayerInTeam as HtmlGenericControl;
@@ -376,6 +388,14 @@ namespace DotNetNuke.Modules.ThSport
                         this.li_MatchType.Attributes.Add("class", "active");
                     titela.Text = "Match Type &raquo;";
                     titela.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmMatchType");
+                    break;
+
+                case "frmMerchandiseType.ascx":
+                    HtmlGenericControl li_MerchandiseType = this.li_MerchandiseType as HtmlGenericControl;
+                    if (li_MerchandiseType != null)
+                        this.li_MerchandiseType.Attributes.Add("class", "active");
+                    titela.Text = "Merchandise Type raquo;";
+                    titela.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmMerchandiseType");
                     break;
 
                 //case "CompetitionVideo.ascx":

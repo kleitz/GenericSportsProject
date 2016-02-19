@@ -26,8 +26,7 @@
 </script>
 
 <script type="text/javascript">
-    function SaveSuccessfully()
-    {
+    function SaveSuccessfully() {
         $(document).ready(function () {
             $.blockUI();
             setTimeout(function () {
@@ -40,8 +39,7 @@
 </script>
 
 <script type="text/javascript">
-    function savevalidateAndConfirmClose()
-    {
+    function savevalidateAndConfirmClose() {
         $(document).ready(function () {
             $("#divsavemassage").dialog({
                 modal: true,
@@ -62,8 +60,7 @@
 </script>
 
 <script type="text/javascript">
-    function UpdateSuccessfully()
-    {
+    function UpdateSuccessfully() {
         $(document).ready(function () {
             $.blockUI();
             setTimeout(function () {
@@ -76,8 +73,7 @@
 </script>
 
 <script type="text/javascript">
-    function updatevalidateAndConfirmClose()
-    {
+    function updatevalidateAndConfirmClose() {
         $(document).ready(function () {
             $("#divupdatemassage").dialog({
                 modal: true,
@@ -98,8 +94,7 @@
 </script>
 
 <script type="text/javascript">
-    function DeleteSuccessfully()
-    {
+    function DeleteSuccessfully() {
         $(document).ready(function () {
             $.blockUI();
             setTimeout(function () {
@@ -112,8 +107,7 @@
 </script>
 
 <script type="text/javascript">
-    function cancelvalidateAndConfirmClose()
-    {
+    function cancelvalidateAndConfirmClose() {
         $(document).ready(function () {
             $("#divcancelmassage").dialog({
                 modal: true,
@@ -134,36 +128,33 @@
 </script>
 
 <script type="text/javascript">
-    function transferSuccessfully() {
-        $(document).ready(function () {
-            $.blockUI();
-            setTimeout(function () {
-                $.unblockUI({
-                    onUnblock: function () { transfervalidateAndConfirmClose(); }
-                });
-            }, 2000);
-        });
+    function previewFilelogo() {
+        var preview = document.querySelector('#<%=UserLogoImage.ClientID %>');
+        var file = document.querySelector('#<%=UserLogoFile.ClientID %>').files[0];
+        var reader = new FileReader();
+
+        reader.onloadend = function () {
+            preview.src = reader.result;
+        }
+
+        if (file) {
+            if (file.size > 10485760) {
+                document.getElementById('dvMsg').style.display = "block";
+                preview.src = "";
+            }
+            reader.readAsDataURL(file);
+        }
+        else {
+            preview.src = "";
+        }
     }
 </script>
 
 <script type="text/javascript">
-    function transfervalidateAndConfirmClose() {
-        $(document).ready(function () {
-            $("#divtransfermassage").dialog({
-                modal: true,
-                resizable: true,
-                draggable: true,
-                closeOnEscape: true,
-                position: ['center', 80],
-                dialogClass: "dnnFormPopup",
-            });
-        });
-        setTimeout(function () {
-            $("#divtransfermassage").delay(2000).fadeOut(0);
-            $(".dnnFormPopup").delay(2000).fadeOut(0);
-            $(".ui-widget-overlay").delay(2000).fadeOut(0);
-            return false;
-        }, 2000);
+    function imgError(image) {
+        image.onerror = "";
+        image.src = "\\DesktopModules\\ThSport\\Images\\OtherImages\\1_pix.png";
+        return true;
     }
 </script>
 
@@ -281,26 +272,20 @@
 
 <div id="divsavemassage" runat="server" clientidmode="static" style="display: none;position:inherit !important;">
     <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/OtherImages/Ok.png")%>" />
-    <asp:Label CssClass="lobibox-body-text" ID="Label1" ClientIDMode="Static" runat="server" Text=" TeamPlayer detail are save successfully. ">
-    </asp:Label>
+     <asp:Label CssClass="lobibox-body-text" ID="Label1" ClientIDMode="Static" runat="server" Text=" TeamPlayer detail are save successfully. ">
+     </asp:Label>
 </div>
 
 <div id="divupdatemassage" runat="server" clientidmode="static" style="display: none;position:inherit !important;">
     <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/OtherImages/Ok.png")%>" />
-    <asp:Label CssClass="lobibox-body-text" ID="Label2" ClientIDMode="Static" runat="server" Text=" TeamPlayer detail are update successfully. ">
-    </asp:Label>
+     <asp:Label CssClass="lobibox-body-text" ID="Label2" ClientIDMode="Static" runat="server" Text=" TeamPlayer detail are update successfully. ">
+     </asp:Label>
 </div>
 
 <div id="divcancelmassage" runat="server" clientidmode="static" style="display: none;position:inherit !important;">
-    <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/OtherImages/Ok.png")%>" />
-    <asp:Label CssClass="lobibox-body-text" ID="Label3" ClientIDMode="Static" runat="server" Text=" This Player is Free Successfully. ">
-    </asp:Label>
-</div>
-
-<div id="divtransfermassage" runat="server" clientidmode="static" style="display: none;position:inherit !important;">
-    <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/OtherImages/Ok.png")%>" />
-    <asp:Label CssClass="lobibox-body-text" ID="Label4" ClientIDMode="Static" runat="server" Text=" Player is transfer successfully. ">
-    </asp:Label>
+       <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/OtherImages/Ok.png")%>" />
+     <asp:Label CssClass="lobibox-body-text" ID="Label3" ClientIDMode="Static" runat="server" Text=" This Player is Free Successfully. ">
+     </asp:Label>
 </div>
 
 <div id="dialogBox" runat="server" clientidmode="static"  style="display:none;">
@@ -358,7 +343,7 @@
 		<Columns>
 
         <asp:TemplateField HeaderText="PlayerId" ItemStyle-VerticalAlign="Middle" ItemStyle-HorizontalAlign="Center" 
-                           Visible="false" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column">
+                                    Visible="false" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column">
                 <ItemTemplate>
                     <div class="grid-cell-inner" style="width:130px; display: inline-block;">
                         <asp:Label ID="lblPlayerId" runat="server" Text='<%#Eval("PlayerId") %>'></asp:Label>
@@ -418,11 +403,12 @@
                     </asp:DropDownList>
                         <asp:Label ID="lblddlActionPlayerId" runat="server" Text='<%#Eval("PlayerId") %>' Visible="false">
                         </asp:Label>
+                              
                 </ItemTemplate>
             </asp:TemplateField>
 
 		</Columns>
-            <PagerSettings Mode="NumericFirstLast" PageButtonCount="8" />
+              <PagerSettings Mode="NumericFirstLast" PageButtonCount="8" />
             <PagerStyle CssClass="paging" HorizontalAlign="Center"/>
 	    </asp:GridView>  
     
@@ -559,6 +545,24 @@
            </div>
         </div>
 
+        <div class="control-group">
+		    <label class="control-label"> 
+                <asp:Label ID="lblUserLogo" runat="server" Text=" User Photo : "></asp:Label>
+             </label>
+            <div class="controls" style="position:relative;">  
+                <input ID="UserLogoFile" type="file" name="file" runat="server" onchange="previewFilelogo()"/>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator5" 
+                                                ValidationExpression="([a-zA-Z0-9\s_\\.\-:])+(.png|.jpg|.gif)$"
+                                                ControlToValidate="UserLogoFile" ValidationGroup="Sports" 
+                                                runat="server" ForeColor="Red" 
+                                                ErrorMessage="Please choose only .jpg, .png and .gif images!"
+                                                CssClass ="errorfordnn" />
+                <div style="padding-top:10px;border:none; Width:200px;">
+                    <asp:Image ID="UserLogoImage" runat="server" onError="imgError(this);"/>
+                </div>
+            </div>
+        </div>
+
         <div class="form-actions">
             <div class="right_div_css">
 
@@ -589,173 +593,6 @@
 
 </asp:Panel>
 
-
-<asp:Panel ID="pnlSelectTeam" runat="server" Visible="false">
-  
-    <div style="padding:10px 0px;">
-         * Note: All Fields marked with an asterisk (*) are required.
-    </div>
-
-    <div class="portlet box blue tabbable">
-		
-        	<div class="portlet-title">
-				<div class="caption">
-					<i class="icon-reorder"></i>
-					<span class="hidden-480"> Player Transfer Form</span>
-				</div>
-			</div>
-
- <div class="portlet-body form">
-
-	<div class="tabbable portlet-tabs">
-
-    <div class="tab-content" style="margin-top:10px !important;">
-		<div class="tab-pane active" id="Div1">
-
-        <div class="form-horizontal">
-
-         <div class="control-group">
-		    <label class="control-label">
-                <asp:Label ID="lblSelectPlayerName" runat="server" Text=" Player Name :" ></asp:Label>
-		    </label>
-            <div class="controls">
-                <asp:TextBox ID="txtSelectPlayerName" runat="server"  Enabled="false" CssClass="m-wrap large"></asp:TextBox>
-            </div>
-        </div>
-
-        <div class="control-group">
-		    <label class="control-label">
-                <asp:Label ID="lblSelectTeam" runat="server" Text=" Team :" ></asp:Label>
-		    </label>
-            <div class="startsetallfrom">
-                <span class="help-inline"><font Color="red"><b>*</b></font></span>
-            </div>
-            <div class="controls" style="position:relative;Width:320px !important;">
-                   <asp:DropDownList ID="ddlSelectTeam" runat="server" CssClass="m-wrap large">
-                   </asp:DropDownList>
-                   <asp:RequiredFieldValidator ID="RFVddlSelectteam" runat="server" ErrorMessage="Team"
-                                               ControlToValidate="ddlSelectTeam" SetFocusOnError="true" 
-                                               Text="Team Required !" ClientIDMode="Static" CssClass="errorfordnn" 
-                                               ValidationGroup="Sports" InitialValue="0">
-                   </asp:RequiredFieldValidator>
-            </div>
-        </div>
-
-        <div id="divposition" runat="server" class="control-group">
-		    <label class="control-label">
-                <asp:Label ID="lblSelectposition" runat="server" Text=" Position :" ></asp:Label>
-            </label>
-            <div class="startsetallfrom">
-                <span class="help-inline"><font Color="red"><b>*</b></font></span>
-            </div>
-            <div class="controls" style="position:relative;Width:320px !important;">
-                 <asp:DropDownList ID="ddlSelectPosition" runat="server" CssClass="m-wrap large" AutoPostBack="true"/>
-                 <asp:RequiredFieldValidator ID="RFVPosition" runat="server" ErrorMessage="Position ,"
-                                                ControlToValidate="ddlSelectPosition" SetFocusOnError="true"  
-                                                ValidationGroup="Sports" InitialValue="0" 
-                                                Text="Position Required !" CssClass="errorfordnn" 
-                                                ClientIDMode="Static"/>
-            </div>
-        </div>   
-
-        <div id="divJerseyNo" runat="server" class="control-group">
-		    <label class="control-label" style="position:relative;">
-                  <asp:Label ID="lblSelectJerseyNo" runat="server" Text="Jersey No :" ></asp:Label>
-             </label>
-             <div class="startsetallfrom">
-                  <span class="help-inline"><font Color="red"><b>*</b></font></span>
-             </div>  
-            <div class="controls" style="position:relative;">   
-                <asp:TextBox ID="txtSelectJerseyNo" runat="server" CssClass="m-wrap medium onlynumeric"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="RFVJerseyNo" runat="server" ErrorMessage="Jersey No,"
-                                ControlToValidate="txtSelectJerseyNo" ClientIDMode="Static" 
-                                SetFocusOnError="true" ValidationGroup="Sports"  
-                                CssClass="errorfordnn" 
-                                Text="Jersey No Required !"/>
-                    <asp:RegularExpressionValidator ID="REVJerseyNo"
-                                             Display="Static" ControlToValidate="txtSelectJerseyNo"  
-                                             ValidationGroup="Sports" CssClass="errorfordnn"
-                                             ValidationExpression = "^[\s\S]{0,3}$" 
-                                             runat="server" ErrorMessage="Maximum 3 characters allowed.">
-                    </asp:RegularExpressionValidator>
-            </div>
-        </div>   
-
-            <div class="control-group">
-		    <label class="control-label">
-                <asp:Label ID="lblSelectJerseyName" runat="server" Text=" Jersey Name :" ></asp:Label>
-            </label>
-            <div class="controls" style="position:relative;">
-                <asp:TextBox ID="txtSelectJerseyName" runat="server"  CssClass="m-wrap large"/>
-                       <asp:RegularExpressionValidator ID="RegularExpressionValidator3"
-                                                    Display="Static" ControlToValidate="txtSelectJerseyName"  
-                                                    ValidationGroup="Sports" CssClass="errorfordnn"
-                                                    ValidationExpression = "^[\s\S]{0,100}$" 
-                                                    runat="server" ErrorMessage="Maximum 100 characters allowed.">
-                    </asp:RegularExpressionValidator>  
-                  <asp:CustomValidator ID="CustomValidator2" ValidationGroup="Sports" runat="server" ErrorMessage="" SetFocusOnError="true" 
-                                                 ControlToValidate="txtSelectJerseyName" EnableClientScript="true" ClientValidationFunction="validateTextBox" 
-                                                 CssClass="errorfordnn" Text="First Character Should Not Be Special Character">
-                   </asp:CustomValidator>
-           </div>
-        </div>
-
-        <div class="control-group">
-		    <label class="control-label">
-                <asp:Label ID="lblSelectFamousName" runat="server" Text=" Famous Name :" ></asp:Label>
-            </label>
-            <div class="controls" style="position:relative;">
-                <asp:TextBox ID="txtSelectFamousName" runat="server"  CssClass="m-wrap large"/>
-                       <asp:RegularExpressionValidator ID="RegularExpressionValidator4"
-                                                    Display="Static" ControlToValidate="txtSelectFamousName"  
-                                                    ValidationGroup="Sports" CssClass="errorfordnn"
-                                                    ValidationExpression = "^[\s\S]{0,100}$" 
-                                                    runat="server" ErrorMessage="Maximum 100 characters allowed.">
-                    </asp:RegularExpressionValidator>  
-                  <asp:CustomValidator ID="CustomValidator3" ValidationGroup="Sports" runat="server" ErrorMessage="" SetFocusOnError="true" 
-                                                 ControlToValidate="txtSelectFamousName" EnableClientScript="true" ClientValidationFunction="validateTextBox" 
-                                                 CssClass="errorfordnn" Text="First Character Should Not Be Special Character">
-                   </asp:CustomValidator>
-           </div>
-        </div>
-
-        
-<div class="form-actions">
-    <div class="right_div_css">
-
-        	<asp:Button ID="btnConformTeam" 
-                        runat="server"  
-                        Text=" Confirm " 
-                        OnClientClick="return validateAndConfirm(this.id);"  
-                        ClientIDMode="Static" 
-                        Width="100px"
-                        OnClick="btnConformTeam_Click" 
-                        ValidationGroup="Sports" 
-                        CssClass="btn blue" />
-
-             <asp:Button ID="btnCancelTeam" 
-                         runat="server" 
-                         Text=" Cancel " 
-                         OnClick="btnCancelTeam_Click" 
-                         CssClass="btn" 
-                         OnClientClick="return validateAndConfirmClose(this.id);"  
-                         ClientIDMode="Static" 
-                         Width="100px"
-                         ValidationGroup="CloseSports"/>
-
-    </div>
-</div> 
-
-		</div>
-    </div>
-    </div>
-
-    </div>
-
-        </div>
-
-    </div>
-</asp:Panel>
 
 </div>
 </div>

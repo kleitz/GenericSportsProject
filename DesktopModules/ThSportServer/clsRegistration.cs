@@ -59,6 +59,7 @@ namespace ThSportServer
             public string PlayerJerseyName { get; set; }
             public string PlayerFamousName { get; set; }
             public int PlayerTypeId { get; set; }
+            public string PlayerPhoto { get; set; }
 
         // Filed in Team Member Table
             public int TeamMemberJerseyNo { get; set; }
@@ -365,7 +366,7 @@ namespace ThSportServer
         {
             try
             {
-                dataProvider.ExecuteNonQuery("usp_InsertPlayer", cc.TeamId, cc.RegistrationId, cc.PlayerJerseyNo, cc.PlayerJerseyName, cc.PlayerFamousName, cc.PortalID, cc.CreatedById, cc.ModifiedById, cc.PlayerTypeId);
+                dataProvider.ExecuteNonQuery("usp_InsertPlayer", cc.TeamId, cc.RegistrationId, cc.PlayerJerseyNo, cc.PlayerJerseyName, cc.PlayerFamousName, cc.PortalID, cc.CreatedById, cc.ModifiedById, cc.PlayerTypeId,cc.PlayerPhoto);
             }
             catch (Exception ex)
             {

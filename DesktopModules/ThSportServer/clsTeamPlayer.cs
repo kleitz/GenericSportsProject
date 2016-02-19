@@ -27,12 +27,7 @@ namespace ThSportServer
             public string ModifiedById { get; set; }
             public int PlayerTypeId { get; set; }
             public int PortalID { get; set; }
-
-            public int TOutID { get; set; }
-            public string TOutName { get; set; }
-            public int TInID { get; set; }
-            public string TInName { get; set; }
-            public string PlayerPosition { get; set; }
+            public string PlayerPhoto { get; set; }
     }
 
     public class clsTeamPlayerController
@@ -51,7 +46,7 @@ namespace ThSportServer
         {
             try
             {
-                dataProvider.ExecuteNonQuery("usp_InsertTeamPlayer", ccm.TeamId, ccm.RegistrationId, ccm.PlayerJerseyNo, ccm.PlayerJerseyName, ccm.PlayerFamousName, ccm.CreatedById, ccm.ModifiedById, ccm.PlayerTypeId, ccm.PortalID);
+                dataProvider.ExecuteNonQuery("usp_InsertTeamPlayer", ccm.TeamId, ccm.RegistrationId, ccm.PlayerJerseyNo, ccm.PlayerJerseyName, ccm.PlayerFamousName, ccm.CreatedById, ccm.ModifiedById, ccm.PlayerTypeId, ccm.PortalID,ccm.PlayerPhoto);
             }
             catch (Exception ex)
             {
@@ -66,7 +61,7 @@ namespace ThSportServer
 
             try
             {
-                dataProvider.ExecuteNonQuery("usp_UpdateTeamPlayer", ccm.PlayerID,ccm.TeamId,ccm.RegistrationId,ccm.PlayerJerseyNo,ccm.PlayerJerseyName,ccm.PlayerFamousName,ccm.ModifiedById,ccm.PlayerTypeId,ccm.PortalID);
+                dataProvider.ExecuteNonQuery("usp_UpdateTeamPlayer", ccm.PlayerID,ccm.TeamId,ccm.RegistrationId,ccm.PlayerJerseyNo,ccm.PlayerJerseyName,ccm.PlayerFamousName,ccm.ModifiedById,ccm.PlayerTypeId,ccm.PortalID,ccm.PlayerPhoto);
                 return i;
             }
             catch (Exception ex)
@@ -275,225 +270,6 @@ namespace ThSportServer
             }
             return i;
         }
-
-        public DataTable GetTransferPlayerToOtherTeam(int TeamPlayerID)
-        {
-            using (DataTable dt = new DataTable())
-            {
-                try
-                {
-                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetTransferPlayerToOtherTeam", TeamPlayerID))
-                    {
-                        dt.Load(reader);
-                        return dt;
-                    }
-                }
-
-                catch (Exception ex)
-                {
-                    Exceptions.LogException(ex);
-                }
-
-                return dt;
-            }
-        }
-
-        public DataTable GetPlayerNameByPlayerID(int PlayerID)
-        {
-            using (DataTable dt = new DataTable())
-            {
-                try
-                {
-                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetPlayerNameByPlayerID", PlayerID))
-                    {
-                        dt.Load(reader);
-                        return dt;
-                    }
-                }
-
-                catch (Exception ex)
-                {
-                    Exceptions.LogException(ex);
-                }
-
-                return dt;
-            }
-        }
-
-        public DataTable GetPlayerAllPositionList(int spoid)
-        {
-            using (DataTable dt = new DataTable())
-            {
-                try
-                {
-                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetPlayerAllPositionList", spoid))
-                    {
-                        dt.Load(reader);
-                        return dt;
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Exceptions.LogException(ex);
-                }
-                return dt;
-            }
-        }
-
-        public DataTable GetSportByPlayerID(int PlayerID)
-        {
-            using (DataTable dt = new DataTable())
-            {
-                try
-                {
-                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetSportByPlayerID", PlayerID))
-                    {
-                        dt.Load(reader);
-                        return dt;
-                    }
-                }
-
-                catch (Exception ex)
-                {
-                    Exceptions.LogException(ex);
-                }
-
-                return dt;
-            }
-        }
-
-        // Get Player Detail By Player ID in Team Player 
-        public DataTable GetPlayerDetailsBySelectedPlayerID(int PlayerID)
-        {
-            using (DataTable dt = new DataTable())
-            {
-                try
-                {
-                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetPlayerDetailsBySelectedPlayerID", PlayerID))
-                    {
-                        dt.Load(reader);
-                        return dt;
-                    }
-                }
-
-                catch (Exception ex)
-                {
-                    Exceptions.LogException(ex);
-                }
-
-                return dt;
-            }
-        }
-
-        // Transfer Player Entry Method     
-        public int InsertTeamPlayerTransfer(clsTeamPlayer tpc)
-        {
-            try
-            {
-                dataProvider.ExecuteNonQuery("usp_InsertTeamPlayerTransfer", tpc.PlayerID, tpc.TOutID, tpc.TOutName, tpc.TInID, tpc.TInName, tpc.PortalID, tpc.CreatedById, tpc.ModifiedById, tpc.PlayerPosition);
-            }
-            catch (Exception ex)
-            {
-                Exceptions.LogException(ex);
-            }
-            return 0;
-        }
-
-        public DataTable GetMasterPlayerIDByUserID(int PlayerID)
-        {
-            using (DataTable dt = new DataTable())
-            {
-                try
-                {
-                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetMasterPlayerIDByUserID", PlayerID))
-                    {
-                        dt.Load(reader);
-                        return dt;
-                    }
-                }
-
-                catch (Exception ex)
-                {
-                    Exceptions.LogException(ex);
-                }
-                return dt;
-            }
-        }
-
-        public DataTable EditTeamMasterPlayerCoach(int PlayerID)
-        {
-            DataTable dt = new DataTable();
-
-            try
-            {
-                using (IDataReader rdr = dataProvider.ExecuteReader("usp_EditTeamMasterPlayerCoach", PlayerID))
-                {
-                    dt.Load(rdr);
-                }
-
-                return dt;
-            }
-            catch (Exception ex)
-            {
-                return null;
-            }
-        }
-
-        public int DeleteTransferPlayerToTeamPlayer(int PlayerID)
-        {
-            try
-            {
-                dataProvider.ExecuteNonQuery("usp_DeleteTransferPlayerToTeamPlayer", PlayerID);
-            }
-            catch (Exception ex)
-            {
-                Exceptions.LogException(ex);
-            }
-            return 0;
-        }
-
-        public DataTable MatchWisePlayerPerformancePlayerEntry(int TeamMasterID)
-        {
-            using (DataTable dt = new DataTable())
-            {
-                try
-                {
-                    using (IDataReader reader = dataProvider.ExecuteReader("usp_MatchWisePlayerPerformancePlayerEntry", TeamMasterID))
-                    {
-                        dt.Load(reader);
-                        return dt;
-                    }
-                }
-
-                catch (Exception ex)
-                {
-                    Exceptions.LogException(ex);
-                }
-
-                return dt;
-            }
-        }
-
-        public DataTable GetTeamIDByTeamMasterIDandCompetitionID(int TeamMasterID, int CompetitionID)
-        {
-            using (DataTable dt = new DataTable())
-            {
-                try
-                {
-                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetTeamIDByTeamMasterIDandCompetitionID", TeamMasterID, CompetitionID))
-                    {
-                        dt.Load(reader);
-                        return dt;
-                    }
-                }
-
-                catch (Exception ex)
-                {
-                    Exceptions.LogException(ex);
-                }
-
-                return dt;
-            }
-        }
+     
     }
 }

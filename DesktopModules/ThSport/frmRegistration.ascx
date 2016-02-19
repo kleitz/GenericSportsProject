@@ -841,23 +841,7 @@
              </div>
         </div>
 
-        <div class="control-group">
-		    <label class="control-label"> 
-                <asp:Label ID="lblUserLogo" runat="server" Text=" User Photo : "></asp:Label>
-             </label>
-            <div class="controls" style="position:relative;">  
-                <input ID="UserLogoFile" type="file" name="file" runat="server" onchange="previewFilelogo()"/>
-                <asp:RegularExpressionValidator ID="RegularExpressionValidator5" 
-                                                ValidationExpression="([a-zA-Z0-9\s_\\.\-:])+(.png|.jpg|.gif)$"
-                                                ControlToValidate="UserLogoFile" ValidationGroup="Sports" 
-                                                runat="server" ForeColor="Red" 
-                                                ErrorMessage="Please choose only .jpg, .png and .gif images!"
-                                                CssClass ="errorfordnn" />
-                <div style="padding-top:10px;border:none; Width:200px;">
-                    <asp:Image ID="UserLogoImage" runat="server" onError="imgError(this);"/>
-                </div>
-            </div>
-        </div>
+       
 
        <div ID="divUserRole" runat="server">
         <div class="control-group">
@@ -1270,6 +1254,24 @@
            </div>
         </div>
             </div>
+
+         <div class="control-group">
+		            <label class="control-label"> 
+                        <asp:Label ID="lblUserLogo" runat="server" Text=" User Photo : "></asp:Label>
+                     </label>
+                    <div class="controls" style="position:relative;">  
+                        <input ID="UserLogoFile" type="file" name="file" runat="server" onchange="previewFilelogo()"/>
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator5" 
+                                                        ValidationExpression="([a-zA-Z0-9\s_\\.\-:])+(.png|.jpg|.gif)$"
+                                                        ControlToValidate="UserLogoFile" ValidationGroup="Sports" 
+                                                        runat="server" ForeColor="Red" 
+                                                        ErrorMessage="Please choose only .jpg, .png and .gif images!"
+                                                        CssClass ="errorfordnn" />
+                        <div style="padding-top:10px;border:none; Width:200px;">
+                            <asp:Image ID="UserLogoImage" runat="server" onError="imgError(this);"/>
+                        </div>
+                    </div>
+                </div>
 
       <div class="control-group">
 		    <label class="control-label">

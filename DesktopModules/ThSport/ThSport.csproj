@@ -140,6 +140,20 @@
       <DependentUpon>Password.ascx</DependentUpon>
     </Compile>
     <Compile Include="Components\FeatureController.cs" />
+    <Compile Include="frmMerchandise.ascx.cs">
+      <DependentUpon>frmMerchandise.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmMerchandise.ascx.designer.cs">
+      <DependentUpon>frmMerchandise.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="frmMerchandiseType.ascx.cs">
+      <DependentUpon>frmMerchandiseType.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmMerchandiseType.ascx.designer.cs">
+      <DependentUpon>frmMerchandiseType.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Data\DataProvider.cs" />
     <Content Include="Admin\Security\labelcontrol.ascx" />
     <Content Include="Admin\Security\Password.ascx" />
@@ -169,6 +183,8 @@
     <Content Include="bin\System.Web.Http.WebHost.dll" />
     <Content Include="bin\Telerik.Web.UI.dll" />
     <Content Include="bin\WebFormsMvp.dll" />
+    <Content Include="frmMerchandise.ascx" />
+    <Content Include="frmMerchandiseType.ascx" />
     <Content Include="CSS\flexslider.css" />
     <Content Include="CSS\Images\blank.gif" />
     <Content Include="CSS\Images\fancybox_loading%402x.gif" />
