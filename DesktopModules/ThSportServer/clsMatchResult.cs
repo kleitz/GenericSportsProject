@@ -34,6 +34,15 @@ namespace ThSportServer
          public string CreatedBy { get; set; }
         public string ModifyBy { get; set; }
         public int PortalID { get; set; }
+
+        public int CompetitionID { get; set; }
+        public int PlayerID { get; set; }
+        public int Goal { get; set; }
+        public int Assist { get; set; }
+        public int IsPlayed { get; set; }
+        public int Yellow { get; set; }
+        public int Red { get; set; }
+        public int TeamID { get; set; }
     }
 
     public class clsMatchResultController
@@ -48,6 +57,19 @@ namespace ThSportServer
             try
             {
                 dataProvider.ExecuteNonQuery("usp_InsertMatchResult", mr.MatchID, mr.TeamATotal, mr.TeamBTotal, mr.Descr, mr.PortalID, mr.CreatedBy, mr.ModifyBy, mr.WinningTeam, mr.LosingTeam, mr.DrawTeam, mr.IsPanlty, mr.TeamApanlty, mr.TeamBpanlty, mr.isNoShow, mr.TossWinningTeam, mr.NoShowPenaltyPoint);
+            }
+            catch (Exception ex)
+            {
+                Exceptions.LogException(ex);
+            }
+            return 0;
+        }
+
+        public int InsertMatchResultPlayerPerformance(clsMatchResult mr)
+        {
+            try
+            {
+                dataProvider.ExecuteNonQuery("usp_InsertMatchResultPlayerPerformance", mr.CompetitionID, mr.MatchID, mr.PlayerID, mr.Goal, mr.Assist, mr.PortalID, mr.CreatedBy, mr.ModifyBy, mr.Yellow, mr.Red, mr.IsPlayed, mr.TeamID);
             }
             catch (Exception ex)
             {
