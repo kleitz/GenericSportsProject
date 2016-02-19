@@ -23,6 +23,10 @@ namespace DotNetNuke.Modules.ThSport
 
         private readonly UserInfo currentUser = DotNetNuke.Entities.Users.UserController.GetCurrentUserInfo();
 
+        string physicalpath = HttpContext.Current.Request.PhysicalApplicationPath;
+        public string ImageUploadFolder = "DesktopModules\\ThSport\\Images\\RegistrationImages\\";
+        public string imhpathDB = "Images\\RegistrationImages\\";
+
         string currentId
         {
             get
@@ -118,6 +122,10 @@ namespace DotNetNuke.Modules.ThSport
 
             ccm.PortalID = PortalId;
             ccm.ModifiedById = currentUser.Username;
+            ccm.PlayerPhoto = imhpathDB + UserLogoFile.PostedFile.FileName.Replace(" ", "");
+
+            SaveImage();
+          
 
             // Call Update Method
             ccmc.UpdateTeamPlayer(ccm);
@@ -160,7 +168,7 @@ namespace DotNetNuke.Modules.ThSport
 
             clsTeamPlayer ccm = new clsTeamPlayer();
             clsTeamPlayerController ccmc = new clsTeamPlayerController();
-
+            
             ccm.TeamId = TeamID;
             ccm.RegistrationId = Convert.ToInt32(ddlSelectPlayer.SelectedValue);
 
@@ -179,7 +187,10 @@ namespace DotNetNuke.Modules.ThSport
             ccm.PortalID = PortalId;
             ccm.CreatedById = currentUser.Username;
             ccm.ModifiedById = currentUser.Username;
+            ccm.PlayerPhoto = imhpathDB + UserLogoFile.PostedFile.FileName.Replace(" ", "");
 
+            SaveImage();
+          
             // Call Save Method
             ccmc.InsertTeamPlayer(ccm);
 
@@ -215,10 +226,12 @@ namespace DotNetNuke.Modules.ThSport
             pnlEntryTeamPlayer.Visible = true;
             btnSaveTeamPlayer.Visible = true;
             btnUpdateTeamPlayer.Visible = false;
+            ddlSelectPlayer.Enabled = true;
+            ClearData();
             FillTeamName();
             FillPlayerType();
             FillPlayer();
-            ClearData();
+            
         }
 
         protected void ddlAction_SelectedIndexChanged(object sender, EventArgs e)
@@ -229,6 +242,7 @@ namespace DotNetNuke.Modules.ThSport
 
             if (ddlSelectedValue == "Edit")
             {
+                ClearData();
                 FillAllPlayer();
                 ddlSelectPlayer.Enabled = false;
                 int editid = 0;
@@ -247,7 +261,7 @@ namespace DotNetNuke.Modules.ThSport
 
                 FillPlayerType();
                
-                ClearData();
+               
                 DataTable dt1 = new clsTeamPlayerController().GetPlayerDetailByPlayerID(editid);
 
                 if (dt1.Rows.Count > 0)
@@ -259,6 +273,10 @@ namespace DotNetNuke.Modules.ThSport
                     txtPlayerJerseyName.Text = dt1.Rows[0]["PlayerJerseyName"].ToString();
                     txtPlayerFamousname.Text = dt1.Rows[0]["PlayerFamousName"].ToString();
                     ddlPlayerType.SelectedValue = dt1.Rows[0]["PlayerTypeId"].ToString();
+
+                    UserLogoImage.ImageUrl = dt1.Rows[0]["PlayerPhoto"].ToString();
+                    string ufname = dt1.Rows[0]["PlayerPhoto"].ToString().Replace(" ", "");
+                    UserLogoFile.ResolveUrl("ufname");
                 }
 
                 btnUpdateTeamPlayer.Visible = true;
@@ -299,7 +317,9 @@ namespace DotNetNuke.Modules.ThSport
             txtPlayerJerseyNo.Text = "";
             txtPlayerJerseyName.Text = "";
             txtPlayerFamousname.Text = "";
-        }
+             UserLogoImage.ImageUrl = "";
+             ddlSelectPlayer.Items.Clear();
+           }
 
         public void FillPlayerType()
         {
@@ -350,6 +370,65 @@ namespace DotNetNuke.Modules.ThSport
                 ddlSelectPlayer.DataBind();
                 ddlSelectPlayer.Items.Insert(0, new ListItem("-- Select --", "0"));
             }
+        }
+
+        private void SaveImage()
+        {
+
+            Boolean FileOK = false;
+            Boolean FileSaved = false;
+
+            if (UserLogoFile.PostedFile != null)
+            {
+                String FileExtension = Path.GetExtension(UserLogoFile.PostedFile.FileName.Replace(" ", "")).ToLower();
+                String[] allowedExtensions = { ".png", ".jpg", ".gif", ".jpeg" };
+                for (int i = 0; i < allowedExtensions.Length; i++)
+                {
+                    if (FileExtension == allowedExtensions[i])
+                    {
+                        FileOK = true;
+                        break;
+                    }
+                }
+            }
+
+            if (!string.IsNullOrEmpty(UserLogoFile.PostedFile.FileName))
+            {
+                if (!FileOK)
+                {
+                    //Page.ClientScript.RegisterClientScriptBlock(typeof(Page), "Alert", "alert('Please choose only .jpg, .png and .gif images For Competition !')", true);
+                    return;
+                }
+            }
+
+            if (FileOK)
+            {
+                if (UserLogoFile.PostedFile.ContentLength > 10485760)
+                {
+                    //dvMsg.Attributes.Add("style", "display:block;");
+                    //return;
+                }
+                else
+                {
+                    //dvMsg.Attributes.Add("style", "display:none;");
+                }
+
+                try
+                {
+                    UserLogoFile.PostedFile.SaveAs(physicalpath + ImageUploadFolder + UserLogoFile.PostedFile.FileName.Replace(" ", ""));
+                    FileSaved = true;
+                }
+                catch (Exception ex)
+                {
+                    FileSaved = false;
+                }
+            }
+
+
+
+
+            
+
         }
     }
 }

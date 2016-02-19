@@ -27,6 +27,7 @@ namespace ThSportServer
             public string ModifiedById { get; set; }
             public int PlayerTypeId { get; set; }
             public int PortalID { get; set; }
+            public string PlayerPhoto { get; set; }
     }
 
     public class clsTeamPlayerController
@@ -45,7 +46,7 @@ namespace ThSportServer
         {
             try
             {
-                dataProvider.ExecuteNonQuery("usp_InsertTeamPlayer", ccm.TeamId, ccm.RegistrationId, ccm.PlayerJerseyNo, ccm.PlayerJerseyName, ccm.PlayerFamousName, ccm.CreatedById, ccm.ModifiedById, ccm.PlayerTypeId, ccm.PortalID);
+                dataProvider.ExecuteNonQuery("usp_InsertTeamPlayer", ccm.TeamId, ccm.RegistrationId, ccm.PlayerJerseyNo, ccm.PlayerJerseyName, ccm.PlayerFamousName, ccm.CreatedById, ccm.ModifiedById, ccm.PlayerTypeId, ccm.PortalID,ccm.PlayerPhoto);
             }
             catch (Exception ex)
             {
@@ -60,7 +61,7 @@ namespace ThSportServer
 
             try
             {
-                dataProvider.ExecuteNonQuery("usp_UpdateTeamPlayer", ccm.PlayerID,ccm.TeamId,ccm.RegistrationId,ccm.PlayerJerseyNo,ccm.PlayerJerseyName,ccm.PlayerFamousName,ccm.ModifiedById,ccm.PlayerTypeId,ccm.PortalID);
+                dataProvider.ExecuteNonQuery("usp_UpdateTeamPlayer", ccm.PlayerID,ccm.TeamId,ccm.RegistrationId,ccm.PlayerJerseyNo,ccm.PlayerJerseyName,ccm.PlayerFamousName,ccm.ModifiedById,ccm.PlayerTypeId,ccm.PortalID,ccm.PlayerPhoto);
                 return i;
             }
             catch (Exception ex)

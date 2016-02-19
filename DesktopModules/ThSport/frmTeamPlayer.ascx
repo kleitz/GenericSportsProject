@@ -127,6 +127,37 @@
     }
 </script>
 
+<script type="text/javascript">
+    function previewFilelogo() {
+        var preview = document.querySelector('#<%=UserLogoImage.ClientID %>');
+        var file = document.querySelector('#<%=UserLogoFile.ClientID %>').files[0];
+        var reader = new FileReader();
+
+        reader.onloadend = function () {
+            preview.src = reader.result;
+        }
+
+        if (file) {
+            if (file.size > 10485760) {
+                document.getElementById('dvMsg').style.display = "block";
+                preview.src = "";
+            }
+            reader.readAsDataURL(file);
+        }
+        else {
+            preview.src = "";
+        }
+    }
+</script>
+
+<script type="text/javascript">
+    function imgError(image) {
+        image.onerror = "";
+        image.src = "\\DesktopModules\\ThSport\\Images\\OtherImages\\1_pix.png";
+        return true;
+    }
+</script>
+
 <style type="text/css">
    .ui-dialog , .ui-dialog-buttonpane 
    {
@@ -512,6 +543,24 @@
                                                  CssClass="errorfordnn" Text="First Character Should Not Be Special Character">
                    </asp:CustomValidator>
            </div>
+        </div>
+
+        <div class="control-group">
+		    <label class="control-label"> 
+                <asp:Label ID="lblUserLogo" runat="server" Text=" User Photo : "></asp:Label>
+             </label>
+            <div class="controls" style="position:relative;">  
+                <input ID="UserLogoFile" type="file" name="file" runat="server" onchange="previewFilelogo()"/>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator5" 
+                                                ValidationExpression="([a-zA-Z0-9\s_\\.\-:])+(.png|.jpg|.gif)$"
+                                                ControlToValidate="UserLogoFile" ValidationGroup="Sports" 
+                                                runat="server" ForeColor="Red" 
+                                                ErrorMessage="Please choose only .jpg, .png and .gif images!"
+                                                CssClass ="errorfordnn" />
+                <div style="padding-top:10px;border:none; Width:200px;">
+                    <asp:Image ID="UserLogoImage" runat="server" onError="imgError(this);"/>
+                </div>
+            </div>
         </div>
 
         <div class="form-actions">

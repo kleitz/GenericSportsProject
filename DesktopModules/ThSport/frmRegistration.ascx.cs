@@ -401,7 +401,7 @@ namespace DotNetNuke.Modules.ThSport
                         cc.PlayerJerseyName = txtPlayerJerseyName.Text.Trim();
                         cc.PlayerFamousName = txtPlayerFamousName.Text.Trim();
                         cc.PlayerTypeId = Convert.ToInt32(ddlPlayerType.SelectedValue);
-
+                        cc.PlayerPhoto = imhpathDB + UserLogoFile.PostedFile.FileName.Replace(" ", "");
                         ccc.InsertPlayer(cc);
 
                     }
