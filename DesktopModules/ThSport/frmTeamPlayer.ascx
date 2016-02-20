@@ -128,6 +128,40 @@
 </script>
 
 <script type="text/javascript">
+    function transferSuccessfully() {
+        $(document).ready(function () {
+            $.blockUI();
+            setTimeout(function () {
+                $.unblockUI({
+                    onUnblock: function () { transfervalidateAndConfirmClose(); }
+                });
+            }, 2000);
+        });
+    }
+</script>
+
+<script type="text/javascript">
+    function transfervalidateAndConfirmClose() {
+        $(document).ready(function () {
+            $("#divtransfermassage").dialog({
+                modal: true,
+                resizable: true,
+                draggable: true,
+                closeOnEscape: true,
+                position: ['center', 80],
+                dialogClass: "dnnFormPopup",
+            });
+        });
+        setTimeout(function () {
+            $("#divtransfermassage").delay(2000).fadeOut(0);
+            $(".dnnFormPopup").delay(2000).fadeOut(0);
+            $(".ui-widget-overlay").delay(2000).fadeOut(0);
+            return false;
+        }, 2000);
+    }
+</script>
+
+<script type="text/javascript">
     function previewFilelogo() {
         var preview = document.querySelector('#<%=UserLogoImage.ClientID %>');
         var file = document.querySelector('#<%=UserLogoFile.ClientID %>').files[0];
@@ -157,6 +191,8 @@
         return true;
     }
 </script>
+
+
 
 <style type="text/css">
    .ui-dialog , .ui-dialog-buttonpane 
@@ -226,6 +262,10 @@
              document.getElementById("msgConfirm").innerHTML = "Are You Sure, You Want to Update TeamPlayer Details ?";
          }
 
+         if (btn_clientid == "btnTransferPlayer") {
+             document.getElementById("msgConfirm").innerHTML = "Are You Sure, You Want to Transfer Player ?";
+         }
+
          if (validated)
          {
              $("#dialogBox").dialog({
@@ -249,6 +289,9 @@
                          {
                              <%=this.Page.ClientScript.GetPostBackEventReference(new PostBackOptions(this.btnUpdateTeamPlayer))%>;
                          }
+                         if (btn_clientid == "btnTransferPlayer") {
+                             <%=this.Page.ClientScript.GetPostBackEventReference(new PostBackOptions(this.btnTransferPlayer))%>;
+                          }
 
                      },
                      Cancel: function () {
@@ -269,6 +312,13 @@
      });
 
 </script>
+
+
+<div id="divtransfermassage" runat="server" clientidmode="static" style="display: none;position:inherit !important;">
+     <img src="<%= Page.ResolveUrl("~/DesktopModules/SportSite/Images/icons/Ok.png")%>" />
+     <asp:Label CssClass="lobibox-body-text" ID="Label4" ClientIDMode="Static" runat="server" Text=" Player is transfer successfully. ">
+     </asp:Label>
+</div>
 
 <div id="divsavemassage" runat="server" clientidmode="static" style="display: none;position:inherit !important;">
     <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/OtherImages/Ok.png")%>" />
@@ -446,7 +496,7 @@
                 
         </div>
 
-        <div class="control-group">
+        <div class="control-group" id="divPlayer" runat="server">
 		     <label class="control-label">
                    <asp:Label ID="lblSelectPlayer" runat="server" Text=" Player :" ></asp:Label>
              </label>
@@ -459,6 +509,23 @@
                                                 ControlToValidate="ddlSelectPlayer" SetFocusOnError="true"  
                                                 ValidationGroup="Sports" 
                                                 InitialValue="0" Text="Select Player Required !" CssClass="errorfordnn" 
+                                                ClientIDMode="Static"/>
+             </div>
+        </div>
+
+        <div class="control-group" id="divTeam" runat="server">
+		     <label class="control-label">
+                   <asp:Label ID="lblSelectTeam" runat="server" Text=" Team :" ></asp:Label>
+             </label>
+              <div class="startsetallfrom">
+                 <span class="help-inline"><font Color="red"><b>*</b></font></span>
+             </div>
+             <div class="controls" style="position:relative;">
+                  <asp:DropDownList ID="ddlSelectTeam" runat="server" CssClass="medium m-wrap"/>
+                  <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Team ,"
+                                                ControlToValidate="ddlSelectTeam" SetFocusOnError="true"  
+                                                ValidationGroup="Sports" 
+                                                InitialValue="0" Text="Select Team Required !" CssClass="errorfordnn" 
                                                 ClientIDMode="Static"/>
              </div>
         </div>
@@ -566,6 +633,9 @@
         <div class="form-actions">
             <div class="right_div_css">
 
+                    <asp:Button ID="btnTransferPlayer" runat="server"  Text=" Transfer " OnClick="btnTransferPlayer_Click" 
+                                ValidationGroup="Sports" CssClass="btn blue" ClientIDMode="Static" Width="100px"
+                                OnClientClick="return validateAndConfirm(this.id);" Visible="false"/>
                     <asp:Button ID="btnSaveTeamPlayer" runat="server"  Text=" Save " OnClick="btnSaveTeamPlayer_Click" 
                                 ValidationGroup="Sports" CssClass="btn blue" ClientIDMode="Static" Width="100px"
                                 OnClientClick="return validateAndConfirm(this.id);" />

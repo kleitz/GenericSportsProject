@@ -227,6 +227,7 @@ namespace DotNetNuke.Modules.ThSport
             btnSaveTeamPlayer.Visible = true;
             btnUpdateTeamPlayer.Visible = false;
             ddlSelectPlayer.Enabled = true;
+            divTeam.Visible = false;
             ClearData();
             FillTeamName();
             FillPlayerType();
@@ -243,6 +244,7 @@ namespace DotNetNuke.Modules.ThSport
             if (ddlSelectedValue == "Edit")
             {
                 ClearData();
+                divTeam.Visible = false;
                 FillAllPlayer();
                 ddlSelectPlayer.Enabled = false;
                 int editid = 0;
@@ -305,11 +307,39 @@ namespace DotNetNuke.Modules.ThSport
 
                 LoadDocumentsGrid(TeamID);
             }
+            else if (ddlSelectedValue == "Transfer")
+            {
+                pnlEntryTeamPlayer.Visible = true;
+                pnlGridTeamPlayer.Visible = false;
+                ClearData();
+                divTeam.Visible = true;
+                divPlayer.Visible = false;
+                btnTransferPlayer.Visible = true;
+                FilTeams();
+                int playerId = 0;
+                int.TryParse(str, out playerId);
+                FillPlayerType();
+                ViewState["currentId"] = Convert.ToInt16(str);
+
+            }
         }
 
         protected void btnGoToBack_Click(object sender, EventArgs e)
         {
             Response.Redirect(DotNetNuke.Common.Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmTeam"));
+        }
+
+        protected void btnTransferPlayer_Click(object sender, EventArgs e)
+        {
+            TransferPlayer();
+
+            btnAddTeamPlayer.Visible = true;
+            pnlGridTeamPlayer.Visible = true;
+            btnTransferPlayer.Visible = false;
+            FillTeamName();
+            LoadDocumentsGrid(TeamID);
+            ClearData();
+            //Response.Redirect(DotNetNuke.Common.Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmClubMember", "ClubID=" + ClubID));
         }
 
         public void ClearData()
@@ -371,6 +401,23 @@ namespace DotNetNuke.Modules.ThSport
                 ddlSelectPlayer.Items.Insert(0, new ListItem("-- Select --", "0"));
             }
         }
+        private void FilTeams()
+        {
+            clsTeam objTeam = new clsTeam();
+            clsTeamController objTeamController = new clsTeamController();
+            DataTable dt = new DataTable();
+
+            dt = objTeamController.GetTeamsByNotInTeamID(TeamID);
+            if (dt.Rows.Count > 0)
+            {
+                ddlSelectTeam.DataSource = dt;
+                ddlSelectTeam.DataTextField = "TeamName";
+                ddlSelectTeam.DataValueField = "TeamId";
+                ddlSelectTeam.DataBind();
+                ddlSelectTeam.Items.Insert(0, new ListItem("-- Select --", "0"));
+            }
+        }
+
 
         private void SaveImage()
         {
@@ -428,6 +475,176 @@ namespace DotNetNuke.Modules.ThSport
 
 
             
+
+        }
+
+
+        private void TransferPlayer()
+        {
+            Boolean FileOK = false;
+            Boolean FileSaved = false;
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "transferSuccessfully();", true);
+
+            // Player ID Store
+            int masterplayerid;
+            int.TryParse(currentId, out masterplayerid);
+
+            // Player Transfer Team Master ID
+            int selectedteamid = 0;
+            int.TryParse(ddlSelectTeam.SelectedValue, out selectedteamid);
+
+            clsTeamPlayer ctmpc = new clsTeamPlayer();
+            clsTeamPlayerController ctmpcc = new clsTeamPlayerController();
+            DataTable dt = new DataTable();
+            DataTable dt2 = new DataTable();
+
+            //Player Transfer Data Store In Table
+            // Get Player Details            
+
+            dt2 = ctmpcc.GetPlayerDetailsBySelectedPlayerID(masterplayerid);
+
+            if (dt2.Rows.Count > 0)
+            {
+                ctmpc.PlayerID = Convert.ToInt32(dt2.Rows[0]["PlayerID"].ToString());
+                ctmpc.TOutID = Convert.ToInt32(dt2.Rows[0]["TeamID"].ToString());
+                ctmpc.TOutName = dt2.Rows[0]["TeamName"].ToString();
+                ctmpc.TInID = selectedteamid;
+                ctmpc.TInName = ddlSelectTeam.SelectedItem.ToString();
+                ctmpc.PortalID = PortalId;
+                ctmpc.CreatedById = currentUser.Username;
+                ctmpc.ModifiedById = currentUser.Username;
+              
+                ctmpc.PlayerPosition = dt2.Rows[0]["PlayerPostition"].ToString();
+            }
+
+            ctmpcc.InsertTeamPlayerTransfer(ctmpc);
+           
+            ctmpcc.DeleteTransferPlayerToMatchPlayerPerformance(masterplayerid);
+
+            dt = ctmpcc.GetMasterPlayerIDByUserID(masterplayerid);
+
+            clsTeamPlayerController ctpcc = new clsTeamPlayerController();
+            clsTeamPlayer ctpc = new clsTeamPlayer();
+
+            dt = new clsTeamPlayerController().EditTeamMasterPlayerCoach(Convert.ToInt32(dt.Rows[0]["PlayerID"].ToString()));
+
+            ctmpc.TeamId = selectedteamid;
+            ctmpc.PlayerID = masterplayerid;
+           
+                ctmpc.PlayerPosition = ddlPlayerType.SelectedValue;
+                //ViewState["Store_PlayerPosition"] = ddlPosition.SelectedItem.ToString();
+           
+            ctmpc.PortalID = PortalId;
+            ctmpc.CreatedById = currentUser.Username;
+            ctmpc.ModifiedById = currentUser.Username;
+            ctmpc.PlayerJerseyName = txtPlayerJerseyName.Text;
+            ctmpc.PlayerJerseyNo =Convert.ToInt32( txtPlayerJerseyNo.Text);
+            ctmpc.RegistrationId = Convert.ToInt32(dt.Rows[0]["RegistrationId"].ToString());
+            ctmpc.PlayerTypeId = Convert.ToInt32(ddlPlayerType.SelectedValue);
+            if (UserLogoFile.PostedFile.FileName == "")
+            {
+                clsRegistration objclsRegistration = new clsRegistration();
+                clsRegistrationController objRegistrationController = new clsRegistrationController();
+                DataTable dtplayer = new DataTable();
+
+                objclsRegistration.UserId = masterplayerid;
+                dtplayer = objRegistrationController.GetPhotoByPlayerID(masterplayerid);
+                ctmpc.PlayerPhoto = dtplayer.Rows[0]["PlayerPhoto"].ToString();
+                string ufname = dtplayer.Rows[0]["PlayerPhoto"].ToString().Replace(" ", "");
+                //User_Reg.User_UploadPhoto = ufname;
+                //FileOKForUpdate = true;
+            }
+            else
+            {
+                ctmpc.PlayerPhoto = ImageUploadFolder + UserLogoFile.PostedFile.FileName.Replace(" ", "");
+                if (UserLogoFile.PostedFile != null)
+                {
+                    String FileExtension = Path.GetExtension(UserLogoFile.PostedFile.FileName.Replace(" ", "")).ToLower();
+                    String[] allowedExtensions = { ".png", ".jpg", ".gif", ".jpeg" };
+                    for (int i = 0; i < allowedExtensions.Length; i++)
+                    {
+                        if (FileExtension == allowedExtensions[i])
+                        {
+                            FileOK = true;
+                            break;
+                        }
+                    }
+                }
+
+                if (!string.IsNullOrEmpty(UserLogoFile.PostedFile.FileName))
+                {
+                    if (!FileOK)
+                    {
+                        return;
+                    }
+                }
+
+                if (FileOK)
+                {
+                    if (UserLogoFile.PostedFile.ContentLength > 10485760)
+                    {
+                        return;
+                    }
+                    else
+                    {
+                    }
+
+                    try
+                    {
+                        UserLogoFile.PostedFile.SaveAs(physicalpath + ImageUploadFolder + UserLogoFile.PostedFile.FileName.Replace(" ", ""));
+                        FileSaved = true;
+                    }
+                    catch (Exception ex)
+                    {
+
+                        FileSaved = false;
+                    }
+                }
+            }
+            int UserId = ctmpcc.InsertTeamPlayer(ctmpc);
+
+            // Delete Master Player 
+            ctmpcc.DeleteTeamPlayer(Convert.ToInt32(dt.Rows[0]["PlayerID"].ToString()));
+
+          
+
+            clsMatchResult matchResult = new clsMatchResult();
+            clsMatchResultController matchResultControl = new clsMatchResultController();
+            DataTable dt1 = new DataTable();
+
+            dt1 = ctmpcc.MatchWisePlayerPerformancePlayerEntry(selectedteamid);
+
+            if (dt1.Rows.Count != 0)
+            {
+                for (int j = 0; j < dt1.Rows.Count; j++)
+                {
+                    int matchid = 0;
+                    int.TryParse(dt1.Rows[j]["MatchID"].ToString(), out matchid);
+
+                    int competitionid = 0;
+                    int.TryParse(dt1.Rows[j]["CompetitionID"].ToString(), out competitionid);
+
+                    DataTable dt3 = new DataTable();
+                    dt3 = ctmpcc.GetTeamIDByTeamMasterIDandCompetitionID(selectedteamid, competitionid);
+
+                    int TeamIDByMasterIDAndCompetitionID = Convert.ToInt32((dt3.Rows[0]["TeamID"].ToString()));
+
+                    matchResult.CompetitionID = competitionid;
+                    matchResult.MatchID = matchid;
+                    matchResult.PlayerID = masterplayerid;
+                    matchResult.PortalID = PortalId;
+                    matchResult.CreatedBy = currentUser.Username;
+                    matchResult.ModifyBy = currentUser.Username;
+                    matchResult.Goal = 0;
+                    matchResult.Assist = 0;
+                    matchResult.IsPlayed = 1;
+                    matchResult.Yellow = 0;
+                    matchResult.Red = 0;
+                    matchResult.TeamID = TeamIDByMasterIDAndCompetitionID;
+
+                    matchResultControl.InsertMatchResultPlayerPerformance(matchResult);
+                }
+            }
 
         }
     }
