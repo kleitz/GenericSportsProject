@@ -28,6 +28,14 @@ namespace ThSportServer
             public int PlayerTypeId { get; set; }
             public int PortalID { get; set; }
             public string PlayerPhoto { get; set; }
+
+         
+        public int TOutID { get; set; }
+        public string TOutName { get; set; }
+        public int TInID { get; set; }
+        public string TInName { get; set; }
+        public string PlayerPosition { get; set; }
+    
     }
 
     public class clsTeamPlayerController
@@ -270,6 +278,129 @@ namespace ThSportServer
             }
             return i;
         }
+
+        // Get Player Detail By Player ID in Team Master Player 
+        public DataTable GetPlayerDetailsBySelectedPlayerID(int PlayerID)
+        {
+            using (DataTable dt = new DataTable())
+            {
+                try
+                {
+                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetPlayerDetailsBySelectedPlayerID", PlayerID))
+                    {
+                        dt.Load(reader);
+                        return dt;
+                    }
+                }
+
+                catch (Exception ex)
+                {
+                    Exceptions.LogException(ex);
+                }
+
+                return dt;
+            }
+        }
      
+          public int InsertTeamPlayerTransfer(clsTeamPlayer tpc)
+       {
+           try
+           {
+               dataProvider.ExecuteNonQuery("usp_InsertTeamPlayerTransfer", tpc.PlayerID, tpc.TOutID, tpc.TOutName, tpc.TInID, tpc.TInName, tpc.PortalID, tpc.CreatedById, tpc.ModifiedById,tpc.PlayerPosition);
+           }
+           catch (Exception ex)
+           {
+               Exceptions.LogException(ex); 
+           }
+           return 0;
+       }
+
+          public DataTable GetMasterPlayerIDByUserID(int UserID)
+          {
+              using (DataTable dt = new DataTable())
+              {
+                  try
+                  {
+                      using (IDataReader reader = dataProvider.ExecuteReader("usp_GetMasterPlayerIDByUserID", UserID))
+                      {
+                          dt.Load(reader);
+                          return dt;
+                      }
+                  }
+
+                  catch (Exception ex)
+                  {
+                      Exceptions.LogException(ex);
+                  }
+                  return dt;
+              }
+          }
+
+
+          public DataTable EditTeamMasterPlayerCoach(int TeamMasterPlayerCoachID)
+          {
+              DataTable dt = new DataTable();
+
+              try
+              {
+                  using (IDataReader rdr = dataProvider.ExecuteReader("usp_EditTeamMasterPlayerCoach", TeamMasterPlayerCoachID))
+                  {
+                      dt.Load(rdr);
+                  }
+
+                  return dt;
+              }
+              catch (Exception ex)
+              {
+                  return null;
+              }
+          }
+
+          public DataTable MatchWisePlayerPerformancePlayerEntry(int TeamMasterID)
+          {
+              using (DataTable dt = new DataTable())
+              {
+                  try
+                  {
+                      using (IDataReader reader = dataProvider.ExecuteReader("usp_MatchWisePlayerPerformancePlayerEntry", TeamMasterID))
+                      {
+                          dt.Load(reader);
+                          return dt;
+                      }
+                  }
+
+                  catch (Exception ex)
+                  {
+                      Exceptions.LogException(ex);
+                  }
+
+                  return dt;
+              }
+          }
+
+          public DataTable GetTeamIDByTeamMasterIDandCompetitionID(int TeamMasterID, int CompetitionID)
+          {
+              using (DataTable dt = new DataTable())
+              {
+                  try
+                  {
+                      using (IDataReader reader = dataProvider.ExecuteReader("usp_GetTeamIDByTeamMasterIDandCompetitionID", TeamMasterID, CompetitionID))
+                      {
+                          dt.Load(reader);
+                          return dt;
+                      }
+                  }
+
+                  catch (Exception ex)
+                  {
+                      Exceptions.LogException(ex);
+                  }
+
+                  return dt;
+              }
+          }
+
+
+
     }
 }

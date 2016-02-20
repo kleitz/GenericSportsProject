@@ -13,6 +13,24 @@ namespace DotNetNuke.Modules.ThSport {
     public partial class frmTeamPlayer {
         
         /// <summary>
+        /// divtransfermassage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divtransfermassage;
+        
+        /// <summary>
+        /// Label4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label4;
+        
+        /// <summary>
         /// divsavemassage control.
         /// </summary>
         /// <remarks>
@@ -157,6 +175,15 @@ namespace DotNetNuke.Modules.ThSport {
         protected global::System.Web.UI.WebControls.Panel pnlEntryTeamPlayer;
         
         /// <summary>
+        /// divPlayer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divPlayer;
+        
+        /// <summary>
         /// lblSelectPlayer control.
         /// </summary>
         /// <remarks>
@@ -182,6 +209,42 @@ namespace DotNetNuke.Modules.ThSport {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+        
+        /// <summary>
+        /// divTeam control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divTeam;
+        
+        /// <summary>
+        /// lblSelectTeam control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSelectTeam;
+        
+        /// <summary>
+        /// ddlSelectTeam control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlSelectTeam;
+        
+        /// <summary>
+        /// RequiredFieldValidator2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
         
         /// <summary>
         /// lblPlayerType control.
@@ -362,6 +425,15 @@ namespace DotNetNuke.Modules.ThSport {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image UserLogoImage;
+        
+        /// <summary>
+        /// btnTransferPlayer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnTransferPlayer;
         
         /// <summary>
         /// btnSaveTeamPlayer control.

@@ -152,6 +152,19 @@ namespace ThSportServer
             return 0;
         }
 
+        public int DeleteMatchPlayerPerformanceByPlayerId(int PlayerID)
+        {
+            try
+            {
+                dataProvider.ExecuteNonQuery("[usp_DeleteMatchPlayerPerformanceByPlayerId]", PlayerID);
+            }
+            catch (Exception ex)
+            {
+                Exceptions.LogException(ex);
+            }
+            return 0;
+        }
+
         #endregion Insert,Update,Delete Methods
 
 

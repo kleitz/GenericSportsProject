@@ -565,5 +565,25 @@ namespace ThSportServer
                 return dt;
             }
         }
+
+        public DataTable GetPhotoByPlayerID(int playerId)
+        {
+            using (DataTable dt = new DataTable())
+            {
+                try
+                {
+                    using (IDataReader reader = dataProvider.ExecuteReader("[usp_GetPhotoByPlayerID]",playerId))
+                    {
+                        dt.Load(reader);
+                        return dt;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Exceptions.LogException(ex);
+                }
+                return dt;
+            }
+        }
     }
 }
