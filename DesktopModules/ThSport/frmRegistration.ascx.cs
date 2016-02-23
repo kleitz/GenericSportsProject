@@ -402,8 +402,21 @@ namespace DotNetNuke.Modules.ThSport
                         cc.PlayerFamousName = txtPlayerFamousName.Text.Trim();
                         cc.PlayerTypeId = Convert.ToInt32(ddlPlayerType.SelectedValue);
                         cc.PlayerPhoto = imhpathDB + UserLogoFile.PostedFile.FileName.Replace(" ", "");
-                        ccc.InsertPlayer(cc);
+                       // ccc.InsertPlayer(cc);
+                    int teamPlayerID =ccc.InsertTeamPlayer(cc);
 
+                    clsTeamPlayerHistory objTeamPlayerHistory = new clsTeamPlayerHistory();
+                    clsTeamPlayerHistoryController objTeamPlayerHistoryController = new clsTeamPlayerHistoryController();
+                    objTeamPlayerHistory.TeamPlayerID = teamPlayerID;
+                    objTeamPlayerHistory.TeamId = cc.TeamId;
+                    objTeamPlayerHistory.RegistrationId = cc.RegistrationId;
+                    objTeamPlayerHistory.PlayerJerseyNo = cc.PlayerJerseyNo;
+                    objTeamPlayerHistory.PlayerJerseyName = cc.PlayerJerseyName;
+                    objTeamPlayerHistory.PlayerFamousName = cc.PlayerFamousName;
+                    objTeamPlayerHistory.PlayerTypeId = cc.PlayerTypeId;
+                    objTeamPlayerHistory.PlayerPhoto = cc.PlayerPhoto;
+                    objTeamPlayerHistory.CreatedById = currentUser.Username;
+                    objTeamPlayerHistoryController.InsertTeamPlayerHistory(objTeamPlayerHistory);
                     }
 
                     clsMatchPlayerPerfomance mpp = new clsMatchPlayerPerfomance();

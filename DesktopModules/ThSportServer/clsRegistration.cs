@@ -362,11 +362,28 @@ namespace ThSportServer
             return 0;
         }
 
-        public int InsertPlayer(clsRegistration cc)
+        //public int InsertPlayer(clsRegistration cc)
+        //{
+        //    try
+        //    {
+        //        dataProvider.ExecuteNonQuery("usp_InsertPlayer", cc.TeamId, cc.RegistrationId, cc.PlayerJerseyNo, cc.PlayerJerseyName, cc.PlayerFamousName, cc.PortalID, cc.CreatedById, cc.ModifiedById, cc.PlayerTypeId,cc.PlayerPhoto);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Exceptions.LogException(ex);
+        //    }
+        //    return 0;
+        //}
+
+        public int InsertTeamPlayer(clsRegistration cc)
         {
             try
             {
-                dataProvider.ExecuteNonQuery("usp_InsertPlayer", cc.TeamId, cc.RegistrationId, cc.PlayerJerseyNo, cc.PlayerJerseyName, cc.PlayerFamousName, cc.PortalID, cc.CreatedById, cc.ModifiedById, cc.PlayerTypeId,cc.PlayerPhoto);
+                
+                
+                return Convert.ToInt32(dataProvider.ExecuteScalar("usp_InsertTeamPlayer1", cc.RegistrationId, cc.TeamId, cc.PlayerTypeId, cc.CreatedById,cc.PortalID));
+
+
             }
             catch (Exception ex)
             {
@@ -374,6 +391,7 @@ namespace ThSportServer
             }
             return 0;
         }
+
 
         public int InsertTeamMember(clsRegistration cc)
         {

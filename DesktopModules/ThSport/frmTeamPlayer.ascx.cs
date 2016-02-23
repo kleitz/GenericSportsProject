@@ -193,6 +193,12 @@ namespace DotNetNuke.Modules.ThSport
           
             // Call Save Method
             ccmc.InsertTeamPlayer(ccm);
+            clsRegistration objclsRegistration = new clsRegistration();
+            objclsRegistration.TeamId = TeamID;
+            objclsRegistration.RegistrationId = Convert.ToInt32(ddlSelectPlayer.SelectedValue);
+            objclsRegistration.PlayerTypeId = Convert.ToInt32(ddlPlayerType.SelectedValue);
+            objclsRegistration.PortalID = PortalId;
+            int i = new clsRegistrationController().InsertTeamPlayer(objclsRegistration);
 
             btnAddTeamPlayer.Visible = true;
             pnlGridTeamPlayer.Visible = true;
@@ -247,6 +253,8 @@ namespace DotNetNuke.Modules.ThSport
                 divTeam.Visible = false;
                 FillAllPlayer();
                 ddlSelectPlayer.Enabled = false;
+                divTeam.Visible = false;
+                divPlayer.Visible = true;
                 int editid = 0;
                 int.TryParse(str, out editid);
                 ViewState["currentId"] = Convert.ToInt16(str);
@@ -268,7 +276,7 @@ namespace DotNetNuke.Modules.ThSport
 
                 if (dt1.Rows.Count > 0)
                 {
-                    ViewState["currentId"] = Convert.ToInt32(dt1.Rows[0]["PlayerId"].ToString());
+                    ViewState["currentId"] = Convert.ToInt32(dt1.Rows[0]["RegistrationId"].ToString());
                     ViewState["regiId"] = Convert.ToInt32(dt1.Rows[0]["RegistrationId"].ToString());
                     ddlSelectPlayer.SelectedValue = dt1.Rows[0]["RegistrationId"].ToString();
                     txtPlayerJerseyNo.Text = dt1.Rows[0]["PlayerJerseyNo"].ToString();
@@ -348,6 +356,7 @@ namespace DotNetNuke.Modules.ThSport
             txtPlayerJerseyName.Text = "";
             txtPlayerFamousname.Text = "";
              UserLogoImage.ImageUrl = "";
+             btnTransferPlayer.Visible = false;
              ddlSelectPlayer.Items.Clear();
            }
 

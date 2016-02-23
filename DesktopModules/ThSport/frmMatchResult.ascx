@@ -1446,7 +1446,7 @@ $(document).ready(function () {
                                 <td style="width: 64px">
                                     <%--<asp:TextBox ID="txtYellowA" runat="server" Width="30px" Height="25px" CssClass="fontcentersize">
                                     </asp:TextBox>--%>
-                                    <asp:DropDownList ID="dlYellowA" CssClass="m-wrap xsmall" onchange=<%# "javascript:OpenPopupA('Yellow','" + Eval("PlayerID") + "')" %>  runat="server">
+                                    <asp:DropDownList ID="dlYellowA" CssClass="m-wrap xsmall" onchange=<%# "javascript:OpenPopupA('Yellow','" + Eval("User_RegID") + "')" %>  runat="server">
                                         <asp:ListItem Text="--" Value="0"></asp:ListItem>
                                         <asp:ListItem Text="1" Value="1"></asp:ListItem>
                                         <asp:ListItem Text="2" Value="2"></asp:ListItem>
@@ -1454,7 +1454,7 @@ $(document).ready(function () {
                                 </td>
                                 <td style="padding-top: 5px; width: 84px; text-align: center; ">
                                     <label class="checkbox">
-                                        <asp:CheckBox ID="chkIsRedA" runat="server"  onchange=<%# "javascript:OpenPopupA('Red','" + Eval("PlayerID") + "')" %>/>
+                                        <asp:CheckBox ID="chkIsRedA" runat="server"  onchange=<%# "javascript:OpenPopupA('Red','" + Eval("User_RegID") + "')" %>/>
                                         </label>
                                 </td>
                             </tr>
@@ -1469,11 +1469,11 @@ $(document).ready(function () {
                 <asp:TextBox ID="txtNoteA" runat="server" TextMode="MultiLine"  Height="85px" Width="370px"></asp:TextBox>
                 </br>
                  <div style="padding-top: 10px;">
-                <asp:LinkButton ID="btnSubmitNote" runat="server" Text="Save"  CommandName="updatecards" CommandArgument='<%#Eval("PlayerID") %>'  CssClass="form-button form-button-submit"></asp:LinkButton>
-                <asp:Button ID="btnHidePopUp" runat="server" Text="Close"  CssClass="form-button" OnClientClick=<%# "javascript:return HidePopUpA('" + Eval("PlayerID") + "')" %> />
+                <asp:LinkButton ID="btnSubmitNote" runat="server" Text="Save"  CommandName="updatecards" CommandArgument='<%#Eval("User_RegID") %>'  CssClass="form-button form-button-submit"></asp:LinkButton>
+                <asp:Button ID="btnHidePopUp" runat="server" Text="Close"  CssClass="form-button" OnClientClick=<%# "javascript:return HidePopUpA('" + Eval("User_RegID") + "')" %> />
                 <%--OnClientClick="return ClosePopUp(this)--%>
                  </div>
-                <asp:HiddenField ID="lblPlayerID" runat="server" Value='<%#Eval("PlayerID") %>' ClientIDMode="Static"/>
+                <asp:HiddenField ID="lblPlayerID" runat="server" Value='<%#Eval("User_RegID") %>' ClientIDMode="Static"/>
                 </center>
             </div>
 
@@ -1521,7 +1521,7 @@ $(document).ready(function () {
                             <tr>
                                 <td>
                                     <div>
-                                        <asp:LinkButton ID="upSwap" runat="server" CommandName="SwapUpPlayer" CommandArgument='<%#Eval("PlayerID") %>' OnClientClick="javascript:return confirm('Are You Sure, You Want to Swap Up Player?')">
+                                        <asp:LinkButton ID="upSwap" runat="server" CommandName="SwapUpPlayer" CommandArgument='<%#Eval("User_RegID") %>' OnClientClick="javascript:return confirm('Are You Sure, You Want to Swap Up Player?')">
                                                         
                                                 <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/OtherImages/up.png")%>" alt="" width="30px" height="30px" style="max-width:30px;"/>
                                                                     
@@ -1534,7 +1534,7 @@ $(document).ready(function () {
                                             <asp:Label ID="lblPlayerName" runat="server" Text='<%#"" +" "+ Eval("PlayerName").ToString()+" "+ ":"%>' />
                                         </label>
                                     </div>
-                                    <asp:HiddenField ID="lblPlayerID" runat="server" Value='<%#Eval("PlayerID") %>' />
+                                    <asp:HiddenField ID="lblPlayerID" runat="server" Value='<%#Eval("User_RegID") %>' />
                                     <asp:HiddenField ID="hdnFlag" runat="server" Value='<%#Eval("Flag") %>' />
                                 </td>
                                 <td style="padding-top: 5px; width: 112px">
@@ -1666,7 +1666,7 @@ $(document).ready(function () {
                                         +</div>
                                 </td>
                                 <td style="width: 64px">
-                                    <asp:DropDownList ID="dlYellowB" CssClass="m-wrap xsmall" onchange=<%# "javascript:OpenPopupB('Yellow','" + Eval("PlayerID") + "')" %> runat="server">
+                                    <asp:DropDownList ID="dlYellowB" CssClass="m-wrap xsmall" onchange=<%# "javascript:OpenPopupB('Yellow','" + Eval("User_RegID") + "')" %> runat="server">
                                         <asp:ListItem Text="--" Value="0"></asp:ListItem>
                                         <asp:ListItem Text="1" Value="1"></asp:ListItem>
                                         <asp:ListItem Text="2" Value="2"></asp:ListItem>
@@ -1676,7 +1676,7 @@ $(document).ready(function () {
                                                         
                                 <td style="padding-top: 5px; width: 84px; text-align: center; ">
                                     <label class="checkbox">
-                                        <asp:CheckBox ID="chkIsRedB" onchange=<%# "javascript:OpenPopupB('Red','" + Eval("PlayerID") + "')" %>  runat="server" />
+                                        <asp:CheckBox ID="chkIsRedB" onchange=<%# "javascript:OpenPopupB('Red','" + Eval("User_RegID") + "')" %>  runat="server" />
                                     </label>
                                 </td>
                             </tr>
@@ -1690,10 +1690,10 @@ $(document).ready(function () {
                 <%--<div>Remark for Player: <asp:Literal id="playerrmk" runat="server" Text='<%#Eval("PlayerName").ToString()%>' /></div>--%>
                 <asp:TextBox ID="txtNoteB" runat="server" TextMode="MultiLine"  Height="85px" Width="370px"/>
                 <br /> <div style="padding-top: 10px;">
-                <asp:LinkButton ID="btnSubmitNote" runat="server" Text="Save"  CommandName="updatecards" CommandArgument='<%#Eval("PlayerID") %>'  CssClass="form-button form-button-submit"></asp:LinkButton>
-                <asp:Button ID="btnHidePopUp" runat="server" Text="Close"  CssClass="form-button" OnClientClick=<%# "javascript:return HidePopUpB('" + Eval("PlayerID") + "')" %> />
+                <asp:LinkButton ID="btnSubmitNote" runat="server" Text="Save"  CommandName="updatecards" CommandArgument='<%#Eval("User_RegID") %>'  CssClass="form-button form-button-submit"></asp:LinkButton>
+                <asp:Button ID="btnHidePopUp" runat="server" Text="Close"  CssClass="form-button" OnClientClick=<%# "javascript:return HidePopUpB('" + Eval("User_RegID") + "')" %> />
                 <%--OnClientClick="return ClosePopUp(this)--%></div>
-                <asp:HiddenField ID="lblPlayerID" runat="server" Value='<%#Eval("PlayerID") %>' ClientIDMode="Static" />
+                <asp:HiddenField ID="lblPlayerID" runat="server" Value='<%#Eval("User_RegID") %>' ClientIDMode="Static" />
                 </center>
             </div>
 
@@ -1740,7 +1740,7 @@ $(document).ready(function () {
                             <tr>
                                 <td>
                                     <div class="icons icon-5_8">
-                                        <asp:LinkButton ID="upSwap" runat="server" CommandName="SwapUpPlayer" CommandArgument='<%#Eval("PlayerID") %>' OnClientClick="javascript:return confirm('Are You Sure, You Want to Swap Up Player?')">
+                                        <asp:LinkButton ID="upSwap" runat="server" CommandName="SwapUpPlayer" CommandArgument='<%#Eval("User_RegID") %>' OnClientClick="javascript:return confirm('Are You Sure, You Want to Swap Up Player?')">
                                 <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/OtherImages/up.png")%>" alt="" width="30px" height="30px" style="max-width:30px;"/>
 
                                         </asp:LinkButton>
@@ -1753,7 +1753,7 @@ $(document).ready(function () {
                                             <asp:Label ID="lblPlayerName" runat="server" Text='<%#"" +" "+ Eval("PlayerName").ToString()+" "+ ":"%>' />
                                         </label>
                                     </div>
-                                    <asp:HiddenField ID="lblPlayerID" runat="server" Value='<%#Eval("PlayerID") %>' />
+                                    <asp:HiddenField ID="lblPlayerID" runat="server" Value='<%#Eval("User_RegID") %>' />
                                     <asp:HiddenField ID="hdnFlag" runat="server" Value='<%#Eval("Flag") %>' />
                                 </td>
                                 <td style="padding-top: 5px; width: 135px">
