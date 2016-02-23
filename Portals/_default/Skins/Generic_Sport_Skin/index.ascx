@@ -5,7 +5,6 @@
 <%@ Register TagPrefix="dnn" TagName="Meta" Src="~/Admin/Skins/Meta.ascx" %> 
 
 <!-- Adding CSS files into Skin -->
-<dnn:DnnCssInclude runat="server" FilePath="skin.css" PathNameAlias="SkinPath"/>
 <dnn:DnnCssInclude runat="server" FilePath="css/normalize.min.css" PathNameAlias="SkinPath"/>
 <dnn:DnnCssInclude runat="server" FilePath="css/font-awesome.min.css" PathNameAlias="SkinPath"/>
 <dnn:DnnCssInclude runat="server" FilePath="css/jquery.sidr.light.css" PathNameAlias="SkinPath"/>
@@ -268,7 +267,7 @@
 
 	<!-- Start Outter Wrapper -->
 	<!-- Start Outter Wrapper -->
-	<div class="outter-wrapper feat-block-1">
+	<div id="latestnew" class="outter-wrapper feat-block-1">
 		<div class="wrapper ad-pad clearfix">
 		
 				<h3>Featured Club News</h3>
