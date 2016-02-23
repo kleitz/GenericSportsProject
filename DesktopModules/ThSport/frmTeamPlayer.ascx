@@ -396,7 +396,7 @@
                                     Visible="false" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column">
                 <ItemTemplate>
                     <div class="grid-cell-inner" style="width:130px; display: inline-block;">
-                        <asp:Label ID="lblPlayerId" runat="server" Text='<%#Eval("PlayerId") %>'></asp:Label>
+                        <asp:Label ID="lblPlayerId" runat="server" Text='<%#Eval("RegistrationId") %>'></asp:Label>
                     </div> 
                 </ItemTemplate>
          </asp:TemplateField>

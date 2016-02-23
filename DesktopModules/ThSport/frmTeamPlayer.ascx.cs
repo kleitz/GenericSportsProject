@@ -514,7 +514,7 @@ namespace DotNetNuke.Modules.ThSport
 
             if (dt2.Rows.Count > 0)
             {
-                ctmpc.PlayerID = Convert.ToInt32(dt2.Rows[0]["PlayerID"].ToString());
+                ctmpc.PlayerID = Convert.ToInt32(dt2.Rows[0]["RegistrationID"].ToString());
                 ctmpc.TOutID = Convert.ToInt32(dt2.Rows[0]["TeamID"].ToString());
                 ctmpc.TOutName = dt2.Rows[0]["TeamName"].ToString();
                 ctmpc.TInID = selectedteamid;
@@ -522,7 +522,6 @@ namespace DotNetNuke.Modules.ThSport
                 ctmpc.PortalID = PortalId;
                 ctmpc.CreatedById = currentUser.Username;
                 ctmpc.ModifiedById = currentUser.Username;
-              
                 ctmpc.PlayerPosition = dt2.Rows[0]["PlayerPostition"].ToString();
             }
 
@@ -535,7 +534,7 @@ namespace DotNetNuke.Modules.ThSport
             clsTeamPlayerController ctpcc = new clsTeamPlayerController();
             clsTeamPlayer ctpc = new clsTeamPlayer();
 
-            dt = new clsTeamPlayerController().EditTeamMasterPlayerCoach(Convert.ToInt32(dt.Rows[0]["PlayerID"].ToString()));
+            dt = new clsTeamPlayerController().EditTeamMasterPlayerCoach(Convert.ToInt32(dt.Rows[0]["RegistrationID"].ToString()));
 
             ctmpc.TeamId = selectedteamid;
             ctmpc.PlayerID = masterplayerid;
@@ -613,7 +612,7 @@ namespace DotNetNuke.Modules.ThSport
             int UserId = ctmpcc.InsertTeamPlayer(ctmpc);
 
             // Delete Master Player 
-            ctmpcc.DeleteTeamPlayer(Convert.ToInt32(dt.Rows[0]["PlayerID"].ToString()));
+            ctmpcc.DeleteTeamPlayer(Convert.ToInt32(dt.Rows[0]["TeamPlayerID"].ToString()));
 
           
 
