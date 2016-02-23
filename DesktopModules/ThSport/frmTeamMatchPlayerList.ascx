@@ -29,7 +29,7 @@
           <asp:TemplateField HeaderText="Player Name" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" HeaderStyle-Width="197px" ItemStyle-HorizontalAlign="Center">
 				<ItemTemplate>
                     <div class="grid-cell-inner">
-                        <asp:HiddenField ID="hdnPlayerID" runat="server" Value='<%#Eval("PlayerID") %>' />
+                        <asp:HiddenField ID="hdnPlayerID" runat="server" Value='<%#Eval("RegistrationId") %>' />
                         <asp:Label ID="lblPlayerName" runat="server" Text='<%#Eval("FirstName") %>'></asp:Label>
                     </div> 
 				</ItemTemplate>

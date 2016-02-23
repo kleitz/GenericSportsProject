@@ -242,7 +242,7 @@ namespace DotNetNuke.Modules.ThSport
             {
 
                 int Player_ID = 0;
-                int.TryParse(dt.Rows[i]["PlayerID"].ToString(), out Player_ID);
+                int.TryParse(dt.Rows[i]["RegistrationId"].ToString(), out Player_ID);
 
                 int TeamID = 0;
                 int.TryParse(dt.Rows[i]["TeamID"].ToString(), out TeamID);

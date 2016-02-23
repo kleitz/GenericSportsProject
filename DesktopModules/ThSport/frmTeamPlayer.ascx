@@ -315,7 +315,7 @@
 
 
 <div id="divtransfermassage" runat="server" clientidmode="static" style="display: none;position:inherit !important;">
-     <img src="<%= Page.ResolveUrl("~/DesktopModules/SportSite/Images/icons/Ok.png")%>" />
+     <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/OtherImages/Ok.png")%>" />
      <asp:Label CssClass="lobibox-body-text" ID="Label4" ClientIDMode="Static" runat="server" Text=" Player is transfer successfully. ">
      </asp:Label>
 </div>
@@ -451,7 +451,7 @@
                             <asp:ListItem Value="Transfer">Transfer</asp:ListItem>
                             <asp:ListItem Value="Delete">Transfer To Free Player</asp:ListItem>
                     </asp:DropDownList>
-                        <asp:Label ID="lblddlActionPlayerId" runat="server" Text='<%#Eval("PlayerId") %>' Visible="false">
+                        <asp:Label ID="lblddlActionPlayerId" runat="server" Text='<%#Eval("RegistrationId") %>' Visible="false">
                         </asp:Label>
                               
                 </ItemTemplate>
