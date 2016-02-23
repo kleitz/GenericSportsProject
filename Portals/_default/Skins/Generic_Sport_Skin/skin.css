@@ -60,11 +60,6 @@ Version: 1.0
    ========================================================================== */
 
 
-
-
-
-
-
 /* ==========================================================================
    01. Typography
    ========================================================================== */
@@ -72,7 +67,7 @@ Version: 1.0
 html {
     font-size: 1em;
     line-height: 1.5;
-    padding: 0 1em 2em;
+    /*padding: 0 1em 2em;*/
 }
 
 h1, h2, h3{
@@ -2920,8 +2915,8 @@ ul.accordion{
    ========================================================================== */
    
 form{
-	margin-top: 1.5em;
-	margin-bottom: 2em;
+	/*margin-top: 1.5em;
+	margin-bottom: 2em;*/
 }
 
 .widget form{
@@ -3799,5 +3794,6 @@ img.aligncenter {display: block; margin-left: auto; margin-right: auto}
 	max-width: 100%;
 	height: auto;
 }
+
 
 

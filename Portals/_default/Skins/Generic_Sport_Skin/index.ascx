@@ -4,20 +4,9 @@
 <%@ Register TagPrefix="dnn" TagName="LOGIN" Src="~/Admin/Skins/Login.ascx" %>
 <%@ Register TagPrefix="dnn" TagName="Meta" Src="~/Admin/Skins/Meta.ascx" %> 
 
-<dnn:Meta charset="utf-8"/>
-<dnn:Meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"/>
-<dnn:Meta content="black" name="apple-mobile-web-app-status-bar-style"/>
-<dnn:Meta name="description" content="Sport is the best theme for sports clubs and centres"/>
-<dnn:Meta name="msapplication-TileColor" content="#ffffff"/>
-<dnn:Meta name="msapplication-TileImage" content="favicons/mstile-144x144.png"/>
-
-<!-- Load jQuery -->
-<dnn:DnnJsInclude runat="server" FilePath="js/vendor/jquery-1.8.3.min.js" PathNameAlias="SkinPath" />
-
 <!-- Adding CSS files into Skin -->
-
+<dnn:DnnCssInclude runat="server" FilePath="skin.css" PathNameAlias="SkinPath"/>
 <dnn:DnnCssInclude runat="server" FilePath="css/normalize.min.css" PathNameAlias="SkinPath"/>
-<dnn:DnnCssInclude runat="server" FilePath="styles.css" PathNameAlias="SkinPath"/>
 <dnn:DnnCssInclude runat="server" FilePath="css/font-awesome.min.css" PathNameAlias="SkinPath"/>
 <dnn:DnnCssInclude runat="server" FilePath="css/jquery.sidr.light.css" PathNameAlias="SkinPath"/>
 <dnn:DnnCssInclude runat="server" FilePath="js/media/mediaelementplayer.min.css" PathNameAlias="SkinPath"/>
@@ -35,8 +24,6 @@
 <dnn:DnnCssInclude runat="server" FilePath="css/mega.css" PathNameAlias="SkinPath"/>
 <dnn:DnnCssInclude runat="server" FilePath="css/full.css" PathNameAlias="SkinPath"/>
 <dnn:DnnCssInclude runat="server" FilePath="css/skin2.css" PathNameAlias="SkinPath"/> 
-
-
 	
 <!-- Start Scripts --> 
 <dnn:DnnJsInclude runat="server" FilePath="js/rs-plugin/js/jquery.themepunch.tools.min.js" PathNameAlias="SkinPath" />
@@ -86,7 +73,7 @@
     				
 					<!-- Start Logo -->
 					<a class="logo centered" href="index.html">
-						<img src="/portals/_default/Skins/GenericSportSkin/images/logo-white.png" alt="Sport" />
+						<img src="/portals/_default/Skins/Generic_Sport_Skin/images/logo-white.png" alt="Sport" />
 					</a>
 
 				</div>
@@ -102,40 +89,18 @@
    		
 	<!-- Revolution Slider -->
 	<div id="mainbanner" class="tp-banner-container">
-		<div class="tp-banner">
+		<div class="tp-banner" >
 			<ul>
-				<li data-transition="slidehorizontal" data-slotamount="1" data-masterspeed="1000"  data-fstransition="fade" data-fsmasterspeed="1000"  data-saveperformance="off">
-					<!-- MAIN IMAGE -->
-					<img src="/portals/_default/Skins/GenericSportSkin/images/media/Sprinkle.jpg"  alt="Title"  data-bgposition="left center" data-bgfit="cover" data-bgrepeat="no-repeat">
-					<!-- LAYERS -->
-			
-					<!-- LAYER NR. 1 -->
-					<div class="tp-caption tp-fade fadeout fullscreenvideo"
-						data-x="0"
-						data-y="0"
-						data-speed="1000"
-						data-start="1100"
-						data-easing="Power4.easeOut"
-						data-elementdelay="0.01"
-						data-endelementdelay="0.1"
-						data-endspeed="1500"
-						data-endeasing="Power4.easeIn"
-						data-autoplay="true"
-						data-autoplayonlyfirsttime="false"
-						data-nextslideatend="false"
-			 			data-volume="mute" data-forceCover="1" data-aspectratio="16:9" data-forcerewind="on" >
-				
-						<video controls style="width: 100%; height: 100%" poster="/portals/_default/Skins/GenericSportSkin/images/media/Sprinkle.jpg" loop>
-						<source src="/portals/_default/Skins/GenericSportSkin/images/media/Sprinkle.webm"  type='video/webm;codecs="vp8, vorbis"' />
-						<source src="/portals/_default/Skins/GenericSportSkin/images/media/Sprinkle.mp4"   type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"' />
-						<source src="/portals/_default/Skins/GenericSportSkin/images/media/Sprinkle.ogv" type='video/ogg; codecs="theora, vorbis"'>
-						</video>
-					</div>
 					
-					<!-- LAYER NR. 2 -->
+				<!-- SLIDE  -->
+				<li data-transition="fade" data-masterspeed="500" >
+					<!-- MAIN IMAGE -->
+					<img src="/portals/_default/Skins/Generic_Sport_Skin/images/mock.jpg" alt="Slider Image 1" data-bgposition="left center" data-kenburns="on" data-duration="14000" data-ease="Linear.easeNone" data-bgfit="100" data-bgfitend="130" data-bgpositionend="right center">
+					<!-- LAYERS -->
+					<!-- LAYER NR. 1 -->
 					<div class="tp-caption fadeout sfr sport-rs-boxed sport-rs-heading"
 						data-x="0" data-hoffset="0"
-						data-y="215" data-voffset="0"
+						data-y="155" data-voffset="0"
 						data-captionhidden="off"
 						data-speed="800"
 						data-start="500"
@@ -150,10 +115,10 @@
 						Your Tears <div>- CLUB MOTTO</div>
 					</div>
 					
-					<!-- LAYER NR. 3 -->
+					<!-- LAYER NR. 2 -->
 					<div class="tp-caption fadeout sfr sport-rs-boxed sport-rs-text"
 						data-x="0" data-hoffset="0"
-						data-y="340" data-voffset="0"
+						data-y="280" data-voffset="0"
 						data-captionhidden="off"
 						data-speed="800"
 						data-start="750"
@@ -169,10 +134,10 @@
 						 blandit sit amet non magna... 
 					</div>
 					
-					<!-- LAYER NR. 4 -->
+					<!-- LAYER NR. 3 -->
 					<div class="tp-caption fadeout sfr tp-resizeme"
 						data-x="0" data-hoffset="0"
-						data-y="460" data-voffset="0"
+						data-y="400" data-voffset="0"
 						data-speed="800"
 						data-start="1000"
 						data-easing="Power4.easeInOut"
@@ -183,13 +148,71 @@
 						data-endspeed="1000"
 						data-endeasing="Power1.easeOut">
 						<a class="btn" href="pricing1.html">Join Our Club Today</a>&nbsp; <a class="btn-2" href="about.html">Read More</a>
-					</div>	
+					</div>
 				</li>
 				
-
+				<!-- SLIDE  -->
+				<li data-transition="fade" data-masterspeed="500" >
+					<!-- MAIN IMAGE -->
+					<img src="/portals/_default/Skins/Generic_Sport_Skin/images/mock2.jpg" alt="Slider Image 1" data-bgposition="left center" data-kenburns="on" data-duration="14000" data-ease="Linear.easeNone" data-bgfit="100" data-bgfitend="130" data-bgpositionend="right center">
+					<!-- LAYERS -->
+					<!-- LAYER NR. 1 -->
+					<div class="tp-caption fadeout sfr sport-rs-boxed sport-rs-heading"
+						data-x="0" data-hoffset="0"
+						data-y="155" data-voffset="0"
+						data-captionhidden="off"
+						data-speed="800"
+						data-start="500"
+						data-easing="Power4.easeInOut"
+						data-splitin="none"
+						data-splitout="none"
+						data-elementdelay="0.05"
+						data-endelementdelay="0.1"
+						data-endspeed="1000"
+						data-endeasing="Power1.easeOut">
+						Our Blood, Our Sweat,<br/> 
+						Your Tears <div>- CLUB MOTTO</div>
+					</div>
+					<!-- LAYER NR. 2 -->
+					<div class="tp-caption fadeout sfr sport-rs-boxed sport-rs-text"
+						data-x="0" data-hoffset="0"
+						data-y="280" data-voffset="0"
+						data-captionhidden="off"
+						data-speed="800"
+						data-start="750"
+						data-easing="Power4.easeInOut"
+						data-splitin="none"
+						data-splitout="none"
+						data-elementdelay="0.05"
+						data-endelementdelay="0.1"
+						data-endspeed="1000"
+						data-endeasing="Power1.easeOut">
+						Cum sociis natoque penatibus et magnis dis parturient montes,<br/> 
+						nascetur ridiculus mus. Maecenas sed diam eget risus varius<br/>
+						 blandit sit amet non magna... 
+					</div>
+					<!-- LAYER NR. 3 -->
+					<div class="tp-caption fadeout sfr tp-resizeme"
+						data-x="0" data-hoffset="0"
+						data-y="400" data-voffset="0"
+						data-speed="800"
+						data-start="1000"
+						data-easing="Power4.easeInOut"
+						data-splitin="none"
+						data-splitout="none"
+						data-elementdelay="0.05"
+						data-endelementdelay="0.1"
+						data-endspeed="1000"
+						data-endeasing="Power1.easeOut">
+						<a class="btn" href="pricing1.html">Join Our Club Today</a>&nbsp; <a class="btn-2" href="about.html">Read More</a>
+					</div>
+				</li>
+				
 			</ul>
 		</div>
 	</div>
+			
+	
    				
     	
 	<!-- Start Outter Wrapper -->
@@ -204,111 +227,132 @@
 				
 				<p>Morbi leo risus, porta ac conse ctetur ac, vestiosite Duis mollis, est non commodo luctus, nisi erat porttitor ligula est non commodo sed diam. Donec id elit non mi porta gravida at eget metus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Sed posuere consectetur est at lobortis. Curabitur blandit tempus porttitor. Nullam id dolor id nibh ultricies vehicula ut id elit. Fusce dapibus, tellus ac cursus commodo.</p> 
 				
-				<p><img src="/portals/_default/Skins/GenericSportSkin/images/sig.jpg" alt="Fill" /><br/> <strong>John Doe - Club President</strong></p>
+				<p><img src="/portals/_default/Skins/Generic_Sport_Skin/images/sig.jpg" alt="Fill" /><br/> <strong>John Doe - Club President</strong></p>
 				 					
 			</div>
-			
-			
 			
 			<!-- Column -->
 			<div class="col-1-4">
 				<h3>In Profile</h3>
 				<div class="mosaic-block circle">
 					<a href="#" class="mosaic-overlay fancybox link" title="Insert Your Title"></a><div class="mosaic-backdrop">
-					<div class="corner">Assistant Coach</div><img src="/portals/_default/Skins/GenericSportSkin/images/team-2.jpg" alt="Mock" /></div>
+					<div class="corner">Assistant Coach</div><img src="/portals/_default/Skins/Generic_Sport_Skin/images/team-2.jpg" alt="Mock" /></div>
 				</div>
 				<p>Morbi leo risus, porta ac conse ctetur ac, vestiosite Duis mollis, est non commodo luctus, nisi erat porttitor ligula. Maecenas sed diam eget risus varius
 				&#8230;<a href="widgets.html" class="read-more">More</a></p>
 			</div>
-			
-
-			
-			
+						
 			<!-- Column -->
 			<div class="col-1-4 last">
 				<h3>Coming Events</h3>
 				<ul class="widget-event-list">
 					<li>
-						<img class="left stay" src="/portals/_default/Skins/GenericSportSkin/images/thumb-3.jpg" alt="mock" />
+						<img class="left stay" src="/portals/_default/Skins/Generic_Sport_Skin/images/thumb-3.jpg" alt="mock" />
 						<div class="date">15 Aug</div>
 						<h6 class="title"><a href="#">Melbourne Sharks VS Our Team - Home Game</a></h6>
 					</li>
-					
 					<li>
-						<img class="left stay" src="/portals/_default/Skins/GenericSportSkin/images/thumb-2.jpg" alt="mock" />
+						<img class="left stay" src="/portals/_default/Skins/Generic_Sport_Skin/images/thumb-2.jpg" alt="mock" />
 						<div class="date">26 Aug</div>
 						<h6 class="title"><a href="#">Quarter Finals - Tigers VS Our Team - Home Game</a></h6>
 					</li>
-					
 					<li>
-						<img class="left stay" src="/portals/_default/Skins/GenericSportSkin/images/thumb-1.jpg" alt="mock" />
+						<img class="left stay" src="/portals/_default/Skins/Generic_Sport_Skin/images/thumb-1.jpg" alt="mock" />
 						<div class="date">31 Aug</div>
 						<h6 class="title"><a href="#">Sydney VS Our Team - Away Game</a></h6>
 					</li>
 				</ul>
-						
 			</div>
-			
-			
 		</div>
 	</div>
-    
 
 	<!-- Start Outter Wrapper -->
-	<div id="latestNews" class="outter-wrapper">
+	<!-- Start Outter Wrapper -->
+	<div class="outter-wrapper feat-block-1">
 		<div class="wrapper ad-pad clearfix">
+		
+				<h3>Featured Club News</h3>
+				<!-- Start Carousel -->
+				<div class="owl-carousel-container">
+					<div id="carousel-1" class="owl-carousel">
+
+					  <!-- Carousel Item -->	
+					  <div class="item">
+		    			  	<div class="mosaic-block circle">
+		    			  		<a href="post.html" class="mosaic-overlay fancybox link" title="Insert Your Title"></a><div class="mosaic-backdrop">
+		    			  		<div class="corner date">16 Aug</div><img src="/portals/_default/Skins/Generic_Sport_Skin/images/fill-4.jpg" alt="Mock" /></div>
+		    			  	</div>
+		    			  	
+		    			  	<h6 class="title"><a href="post.html">Pre season camp success</a></h6>
+		    			  	<p>Morbi leo risus, porta ac conse ctetur ac, vestiosite Duis mollis, est non commodo luctus, nisi erat porttitor ligula soren
+		    			  	&#8230;<a href="post.html" class="read-more">More</a></p>
+					  </div>
+					  
+					  <!-- Carousel Item -->	
+					  <div class="item">
+					  	  	<div class="mosaic-block circle">
+					  	  		<a href="post.html" class="mosaic-overlay fancybox link" title="Insert Your Title"></a><div class="mosaic-backdrop">
+					  	  		<div class="corner date">26 Aug</div><img src="/portals/_default/Skins/Generic_Sport_Skin/images/fill-3.jpg" alt="Mock" /></div>
+					  	  	</div>
+					  	  	
+					  	  	<h6 class="title"><a href="post.html">Nominated club of the year</a></h6>
+					  	  	<p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula. Maecenas sed diam eget risus varius blandit sit amet non
+					  	  	&#8230;<a href="post.html" class="read-more">More</a></p>
+					  </div>
+					  
+					  <!-- Carousel Item -->	
+					  <div class="item">
+					  	  	<div class="mosaic-block circle">
+					  	  		<a href="post.html" class="mosaic-overlay fancybox link" title="Insert Your Title"></a><div class="mosaic-backdrop">
+					  	  		<div class="corner date">17 Sept</div><img src="/portals/_default/Skins/Generic_Sport_Skin/images/fill-5.jpg" alt="Mock" /></div>
+					  	  	</div>
+					  	  	
+					  	  	<h6 class="title"><a href="post.html">Road to the grand finals</a></h6>
+					  	  	<p>Vestiosite Duis mollis, est non commodo luctus, nisi erat porttitor sed diam eget risus varius blandit sit amet non magna
+					  	  	&#8230;<a href="post.html" class="read-more">More</a></p>
+					  </div>
+					  
+					  <!-- Carousel Item -->	
+					  <div class="item">
+					  	  	<div class="mosaic-block circle">
+					  	  		<a href="post.html" class="mosaic-overlay fancybox link" title="Insert Your Title"></a><div class="mosaic-backdrop">
+					  	  		<div class="corner date">24 Sept</div><img src="/portals/_default/Skins/Generic_Sport_Skin/images/fill-2.jpg" alt="Mock" /></div>
+					  	  	</div>
+					  	  	
+					  	  	<h6 class="title"><a href="post.html">Club facilities upgrade</a></h6>
+					  	  	<p>Mollis, est non commodo luctus, nisi erat porttitor ligula. Maecenas sed diam eget risus varius blandit sit amet non
+					  	  	&#8230;<a href="post.html" class="read-more">More</a></p>
+					  </div>
+					  
+					  <!-- Carousel Item -->	
+					  <div class="item">
+					  	  	<div class="mosaic-block circle">
+					  	  		<a href="post.html" class="mosaic-overlay fancybox link" title="Insert Your Title"></a><div class="mosaic-backdrop">
+					  	  		<div class="corner date">26 Aug</div><img src="/portals/_default/Skins/Generic_Sport_Skin/images/fill-11.jpg" alt="Mock" /></div>
+					  	  	</div>
+					  	  	
+					  	  	<h6 class="title"><a href="post.html">Pre game rundowns</a></h6>
+					  	  	<p>Porta ac conse ctetur ac, vestiosite Duis mollis, est non commodo luctus, nisi erat porttitor ligula maecenas sed diam
+					  	  	&#8230;<a href="post.html" class="read-more">More</a></p>
+					  </div>
+					  
+					  <!-- Carousel Item -->	
+					  <div class="item">
+					  	  	<div class="mosaic-block circle">
+					  	  		<a href="post.html" class="mosaic-overlay fancybox link" title="Insert Your Title"></a><div class="mosaic-backdrop">
+					  	  		<div class="corner date">26 Aug</div><img src="/portals/_default/Skins/Generic_Sport_Skin/images/fill-8.jpg" alt="Mock" /></div>
+					  	  	</div>
+					  	  	
+					  	  	<h6 class="title"><a href="post.html">Divisions and Coaching</a></h6>
+					  	  	<p>Conse ctetur ac, vestiosite Duis mollis, est non commodo luctus, nisi erat porttitor ligula. Maecenas sed diam eget dolen
+					  	  	&#8230;<a href="post.html" class="read-more">More</a></p>
+					  </div>
+		
+		    		</div>
+				</div>
+    	   </div>
 			
-			<h3>Latest Club News</h3>
-			
-			<div class="col-1-4">
-			  	<div class="mosaic-block circle">
-			  		<a href="post.html" class="mosaic-overlay fancybox link" title="Insert Your Title"></a><div class="mosaic-backdrop">
-			  		<div class="corner date">16 Aug</div><img src="/portals/_default/Skins/GenericSportSkin/images/fill-4.jpg" alt="Mock" /></div>
-			  	</div>
-			  	
-			  	<h6 class="title"><a href="post.html">Pre season camp success</a></h6>
-			  	<p>Morbi leo risus, porta ac conse ctetur ac, vestiosite Duis mollis, est non commodo luctus, nisi erat porttitor ligula soren
-			  	&#8230;<a href="post.html" class="read-more">More</a></p>
-			</div>
-			
-				
-			<div class="col-1-4">
-			  	<div class="mosaic-block circle">
-			  		<a href="post.html" class="mosaic-overlay fancybox link" title="Insert Your Title"></a><div class="mosaic-backdrop">
-			  		<div class="corner date">26 Aug</div><img src="/portals/_default/Skins/GenericSportSkin/images/fill-3.jpg" alt="Mock" /></div>
-			  	</div>
-			  	
-			  	<h6 class="title"><a href="post.html">Nominated club of the year</a></h6>
-			  	<p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula. Maecenas sed diam eget risus varius blandit sit amet non
-			  	&#8230;<a href="post.html" class="read-more">More</a></p>
-			</div>
-			
-				
-			<div class="col-1-4">
-			  	<div class="mosaic-block circle">
-			  		<a href="post.html" class="mosaic-overlay fancybox link" title="Insert Your Title"></a><div class="mosaic-backdrop">
-			  		<div class="corner date">17 Sept</div><img src="/portals/_default/Skins/GenericSportSkin/images/fill-5.jpg" alt="Mock" /></div>
-			  	</div>
-			  	
-			  	<h6 class="title"><a href="post.html">Road to the grand finals</a></h6>
-			  	<p>Vestiosite Duis mollis, est non commodo luctus, nisi erat porttitor sed diam eget risus varius blandit sit amet non magna
-			  	&#8230;<a href="post.html" class="read-more">More</a></p>
-			</div>
-			
-			
-			<div class="col-1-4 last">
-			  	<div class="mosaic-block circle">
-			  		<a href="post.html" class="mosaic-overlay fancybox link" title="Insert Your Title"></a><div class="mosaic-backdrop">
-			  		<div class="corner date">24 Sept</div><img src="/portals/_default/Skins/GenericSportSkin/images/fill-2.jpg" alt="Mock" /></div>
-			  	</div>
-			  	
-			  	<h6 class="title"><a href="post.html">Club facilities upgrade</a></h6>
-			  	<p>Mollis, est non commodo luctus, nisi erat porttitor ligula. Maecenas sed diam eget risus varius blandit sit amet non
-			  	&#8230;<a href="post.html" class="read-more">More</a></p>
-			</div>
-						
 		</div>
-	</div>
     	
 	<!-- Start Outter Wrapper -->
 	<div id="homepagecontactus" class="outter-wrapper footer-wrapper">		
@@ -319,13 +363,9 @@
 				<ul class="list-1">
 					<li>
 						<strong>Telephone Enquiry:</strong><br/>  
-					   +61 555 555 1234
+					   +260 954280548
 					</li>
-					<li>
-						<strong>Facsimile:</strong><br/>  
-						+61 555 555 1234
-					</li>
-					<li><a href="#">info@sports.com</a></li>	
+					<li><a href="#">info@zambiafutsal.com</a></li>	
 				</ul>	
 			</div>
 			
@@ -333,8 +373,17 @@
 			
 			<!-- Start Widget -->
 			<div class="col-1-4 widget">
-				<h3 class="widget-title">Our Mission</h3>
-				<p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Maecenas sed diam eget risus varius blandit sit amet non magna. Fusce dapibus.</p>
+				<h3 class="widget-title">Useful Links</h3>
+				<ul>
+					<li class="cat-item cat-item-28"><a href="http://www.fifa.com">Fifa</a> </li>
+					<li class="cat-item cat-item-24"><a href="http://www.fazfootball.com">FAZ Football</a> </li>
+					<li class="cat-item cat-item-1"><a href="http://www.cafonline.com">Caf Online</a> </li>
+					<li class="cat-item cat-item-27"><a href="http://www.futsalfocus.net">Futsal Focus</a> </li>
+					<li class="cat-item cat-item-25"><a href="http://www.futsalplanet.com">Futsal Planet</a> </li>
+					<li class="cat-item cat-item-75"><a href="http://www.pasionfutsal.com.ar/">Pasion Futsal</a> </li>
+					<li class="cat-item cat-item-23"><a href="http://www.ilcalcioa5.com/">Ilcalcioa5</a> </li>
+					<li class="cat-item cat-item-26"><a href="http://www.coachingfutsal.com">Coaching Futsal</a> </li>
+				</ul>
 			</div>
 			
 		
@@ -354,12 +403,14 @@
 			<!-- Start Widget -->
 			<div class="col-1-4 widget last">
 				<a class="logo" href="index.html">
-					<img src="/portals/_default/Skins/GenericSportSkin/images/logo-white.png" alt="Sport" />
+					<img src="/portals/_default/Skins/Generic_Sport_Skin/images/logo-white.png" alt="Sport" />
 				</a>
 				<ul class="list-1">
 					<li>
 	    				<strong>Address:</strong><br/>  
-	    				310 Ashfield Ave, Suburbia, Brisbane, Australia, 4000
+	    				Sabrewing Infotech Zambia Limited
+						1669 Panganani Road,
+						Lusaka 10101, Zambia.
 					</li>
 					<li>
 						<strong><a href="contact.html">View on Map</a></strong>
@@ -372,7 +423,7 @@
 	<!-- Start Outter Wrapper -->
 	<div class="outter-wrapper base-wrapper">
 		<div class="wrapper clearfix">
-			<div class="left">Powered By <img src="/portals/_default/Skins/GenericSportSkin/images/footer_logo.png" style="width: 30px;" /><a href="http://www.hummingbird-infotech.com" target="_blank">HummingBird Infotech</a></div>
+			<div class="left">Powered By <img src="/portals/_default/Skins/Generic_Sport_Skin/images/footer_logo.png" style="width: 30px;" /><a href="http://www.hummingbird-infotech.com" target="_blank">HummingBird Infotech</a></div>
 			
 			<!-- Social Icons -->
 			<ul class="social-links right">
