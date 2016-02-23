@@ -81,6 +81,7 @@
 	</div>		
     	
 	<!-- Post Header Area -->
+	 <div id="ContentPane" runat="server"></div>
 	<div id="sitemenu" class="outter-wrapper nav-container post-header-area header-style-3">
 		<dnn:MENU id="newmenu" runat="server" MenuStyle="DNNMobileNav"></dnn:MENU>
 		<dnn:LOGIN ID="dnnLogin" CssClass="LoginLink" runat="server" LegacyMode="false"/>
