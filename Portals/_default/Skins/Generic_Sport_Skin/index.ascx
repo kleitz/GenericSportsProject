@@ -14,6 +14,7 @@
 <dnn:DnnCssInclude runat="server" FilePath="js/owl-carousel/owl.carousel.css" PathNameAlias="SkinPath"/>
 <dnn:DnnCssInclude runat="server" FilePath="js/fancybox/jquery.fancybox.css?v=2.1.4" PathNameAlias="SkinPath"/>
 
+
 <!-- Slider CSS-->
 <dnn:DnnCssInclude runat="server" FilePath="css/mosaic.css" PathNameAlias="SkinPath"/>
 <dnn:DnnCssInclude runat="server" FilePath="css/responsive.css" PathNameAlias="SkinPath"/>
