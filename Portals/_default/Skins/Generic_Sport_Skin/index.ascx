@@ -235,7 +235,7 @@
 			<!-- Column -->
 			<div class="col-1-4">
 				<h3>In Profile</h3>
-				<div class="mosaic-block circle">
+				<div class="mosaic-block circle"  style="height: 50%;">
 					<a href="#" class="mosaic-overlay fancybox link" title="Insert Your Title"></a><div class="mosaic-backdrop">
 					<div class="corner">Assistant Coach</div><img src="/portals/_default/Skins/Generic_Sport_Skin/images/team-2.jpg" alt="Mock" /></div>
 				</div>
@@ -279,7 +279,7 @@
 
 					  <!-- Carousel Item -->	
 					  <div class="item">
-		    			  	<div class="mosaic-block circle">
+		    			  	<div class="mosaic-block circle" style="height: 50%;">
 		    			  		<a href="post.html" class="mosaic-overlay fancybox link" title="Insert Your Title"></a><div class="mosaic-backdrop">
 		    			  		<div class="corner date">16 Aug</div><img src="/portals/_default/Skins/Generic_Sport_Skin/images/fill-4.jpg" alt="Mock" /></div>
 		    			  	</div>
@@ -291,7 +291,7 @@
 					  
 					  <!-- Carousel Item -->	
 					  <div class="item">
-					  	  	<div class="mosaic-block circle">
+					  	  	<div class="mosaic-block circle"  style="height: 50%;">
 					  	  		<a href="post.html" class="mosaic-overlay fancybox link" title="Insert Your Title"></a><div class="mosaic-backdrop">
 					  	  		<div class="corner date">26 Aug</div><img src="/portals/_default/Skins/Generic_Sport_Skin/images/fill-3.jpg" alt="Mock" /></div>
 					  	  	</div>
@@ -303,7 +303,7 @@
 					  
 					  <!-- Carousel Item -->	
 					  <div class="item">
-					  	  	<div class="mosaic-block circle">
+					  	  	<div class="mosaic-block circle"  style="height: 50%;">
 					  	  		<a href="post.html" class="mosaic-overlay fancybox link" title="Insert Your Title"></a><div class="mosaic-backdrop">
 					  	  		<div class="corner date">17 Sept</div><img src="/portals/_default/Skins/Generic_Sport_Skin/images/fill-5.jpg" alt="Mock" /></div>
 					  	  	</div>
@@ -315,7 +315,7 @@
 					  
 					  <!-- Carousel Item -->	
 					  <div class="item">
-					  	  	<div class="mosaic-block circle">
+					  	  	<div class="mosaic-block circle"  style="height: 50%;">
 					  	  		<a href="post.html" class="mosaic-overlay fancybox link" title="Insert Your Title"></a><div class="mosaic-backdrop">
 					  	  		<div class="corner date">24 Sept</div><img src="/portals/_default/Skins/Generic_Sport_Skin/images/fill-2.jpg" alt="Mock" /></div>
 					  	  	</div>
@@ -327,7 +327,7 @@
 					  
 					  <!-- Carousel Item -->	
 					  <div class="item">
-					  	  	<div class="mosaic-block circle">
+					  	  	<div class="mosaic-block circle"  style="height: 50%;">
 					  	  		<a href="post.html" class="mosaic-overlay fancybox link" title="Insert Your Title"></a><div class="mosaic-backdrop">
 					  	  		<div class="corner date">26 Aug</div><img src="/portals/_default/Skins/Generic_Sport_Skin/images/fill-11.jpg" alt="Mock" /></div>
 					  	  	</div>
@@ -339,7 +339,7 @@
 					  
 					  <!-- Carousel Item -->	
 					  <div class="item">
-					  	  	<div class="mosaic-block circle">
+					  	  	<div class="mosaic-block circle"  style="height: 50%;">
 					  	  		<a href="post.html" class="mosaic-overlay fancybox link" title="Insert Your Title"></a><div class="mosaic-backdrop">
 					  	  		<div class="corner date">26 Aug</div><img src="/portals/_default/Skins/Generic_Sport_Skin/images/fill-8.jpg" alt="Mock" /></div>
 					  	  	</div>
