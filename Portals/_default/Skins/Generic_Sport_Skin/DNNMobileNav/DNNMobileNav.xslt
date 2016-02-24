@@ -15,14 +15,12 @@
 	</xsl:template>
 	
 	<xsl:template match="root"> 
-		<nav id="{$ControlID}" class="navigation">
-			<a class="cs-click-menu"><i class="fa fa-bars"></i></a>
-			<ul id="menus" class="dnnPEM-GlobalNav dnnClear">
+			<ul id="nav" class="centered-menu megamenu">
 				<xsl:apply-templates select="node">
 				  <xsl:with-param name="nodeType"/>
 				</xsl:apply-templates>
 			</ul>
-		</nav>
+		
 	</xsl:template>
 	
 	<xsl:template match="node">
@@ -30,11 +28,10 @@
 		<li>
 		  <xsl:variable name="nodeClass">
 			<xsl:value-of select="$nodeType"/>
-			menu-item menu-item-type-post_type menu-item-object-page			
-			<xsl:if test="@first = 1">dnnPEM-NavFirst </xsl:if>        
-			<xsl:if test="@last = 1">dnnPEM-NavLast </xsl:if>
-			<xsl:if test="node">hasChild </xsl:if>
-			<xsl:if test="@selected = 1">dnnPEM-NavOn </xsl:if>
+			<xsl:if test="@first = 1">nav-parent </xsl:if>        
+			<xsl:if test="@last = 1">nav-parent </xsl:if>
+			<xsl:if test="node">megamenu_drop </xsl:if>
+			<xsl:if test="@selected = 1"> </xsl:if>
 		  </xsl:variable>
 		  <xsl:attribute name="class">
 			<xsl:value-of select="$nodeClass"/>
