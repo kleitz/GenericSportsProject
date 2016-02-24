@@ -46,42 +46,35 @@
 <dnn:DnnJsInclude runat="server" FilePath="js/slider-3.js" PathNameAlias="SkinPath" />
 <dnn:DnnJsInclude runat="server" FilePath="js/main.js" PathNameAlias="SkinPath" />
 <dnn:DnnJsInclude runat="server" FilePath="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js" PathNameAlias="SkinPath" />
-
-<div id="wrappermain-pix" class="outter-wrapper pre-header-area header-style-3">
-	<!-- Pre Header Area -->
-	<!-- Login Start -->
-	<div class="wrapper clearfix">
-		<div class="pre-header-left left">
-			<!-- Second Nav -->
-			<ul>
-			</ul>
-		</div>
-		<div class="pre-header-right right">
-			<ul class="social-links boxy">
-				
-			</ul>
-		</div>
-	</div>	
-</div>
  
 	<!-- Header Area -->
-	<div id="displaylogo" class="outter-wrapper header-area header-style-3">
+	
+	<div id="displaylogo" class="outter-wrapper header-area header-style-1">
 		<div class="wrapper clearfix logo-container">
 			<header>
 				<div class="clearfix">
-    				
-					<!-- Start Logo -->
-					<a class="logo centered" href="index.html">
-						<img src="/portals/_default/Skins/Generic_Sport_Skin/images/logo-white.png" alt="Sport" />
-					</a>
+
+					<div class="main-header-left left adjust-left">
+						<!-- Start Logo -->
+						<a class="logo" href="index.html">
+							<img src="/portals/_default/Skins/Generic_Sport_Skin/images/logo-white.png" alt="Sport" />
+						</a>
+					</div>
+										
+					<div class="main-header-right right adjust-right">
+						<!-- Start Ad -->
+						<a href="#" class="ads ad-468">
+							<img src="/portals/_default/Skins/Generic_Sport_Skin/images/ads/468x60.png" alt="Ad" />
+						</a>
+					</div>
 
 				</div>
 			</header>
 		</div>
-	</div>		
+	</div>	
     	
 	<!-- Post Header Area -->
-	 <div id="ContentPane" runat="server"></div>
+ <div id="ContentPane" runat="server"></div>
 	<div id="sitemenu" class="outter-wrapper nav-container post-header-area header-style-3">
 		<dnn:MENU id="newmenu" runat="server" MenuStyle="DNNMobileNav"></dnn:MENU>
 		<dnn:LOGIN ID="dnnLogin" CssClass="LoginLink" runat="server" LegacyMode="false"/>
@@ -211,9 +204,7 @@
 			</ul>
 		</div>
 	</div>
-			
-	
-   				
+				
     	
 	<!-- Start Outter Wrapper -->
 	<div id="startoutterwapper" class="outter-wrapper body-wrapper">		
@@ -266,12 +257,54 @@
 		</div>
 	</div>
 
+	<div id="latestimage" class="outter-wrapper body-wrapper">		
+		<div class="wrapper ad-pad clearfix">
+				
+			<div class="main-content col-1-1">
+				<h1>Latest Photo</h1>
+					
+					<div class="col-1-4">
+						<!-- Start Carousel -->
+						<div class="owl-carousel-container">
+			    			<!-- Carousel Nav -->
+			    			<div class="customNavigation">
+			    			    <a class="prev"></a>
+			    			    <a class="next"></a>
+			    			</div>
+						
+			    			<div id="carousel-single" class="owl-carousel carousel-single">
+			
+				    			  <!-- Carousel Item -->	
+				    			  <div class="item">
+					    			  	<img src="/portals/_default/Skins/Generic_Sport_Skin/images/fill-2.jpg" alt="Fill" />
+				    			  </div>
+				    			  
+				    			  <!-- Carousel Item -->	
+				    			  <div class="item">
+				    			  	  	<img src="/portals/_default/Skins/Generic_Sport_Skin/images/fill-2.jpg" alt="Fill" />
+				    			  </div>
+				    			  
+				    			  <!-- Carousel Item -->	
+				    			  <div class="item">
+				    			  	  	<img src="/portals/_default/Skins/Generic_Sport_Skin/images/fill-2.jpg" alt="Fill" />
+				    			  </div>
+			
+				    		</div>
+						</div>
+					</div>
+					
+				<!-- Finish Main Content -->
+			</div>
+			
+		</div>
+	</div>
+	
 	<!-- Start Outter Wrapper -->
 	<!-- Start Outter Wrapper -->
 	<div id="latestnew" class="outter-wrapper feat-block-1">
 		<div class="wrapper ad-pad clearfix">
 		
-				<h3>Featured Club News</h3>
+				<h1>Featured Club News</h1>
 				<!-- Start Carousel -->
 				<div class="owl-carousel-container">
 					<div id="carousel-1" class="owl-carousel">
