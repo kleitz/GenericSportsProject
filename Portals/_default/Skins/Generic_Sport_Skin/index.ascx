@@ -102,14 +102,26 @@
     	
 	<!-- Post Header Area -->
  <div id="ContentPane" runat="server"></div>
-	<div id="sitemenu" class="outter-wrapper nav-container post-header-area header-style-3">
-		<dnn:MENU id="newmenu" runat="server" MenuStyle="DNNMobileNav"></dnn:MENU>
-		<dnn:LOGIN ID="dnnLogin" CssClass="LoginLink" runat="server" LegacyMode="false"/>
-	</div>
-   		
+	
+	<!-- Login Start -->
+
+		<div class="outter-wrapper nav-container post-header-area header-style-3">
+			<div id="navigation" class="clearfix">
+				<div class="post-header-center centered-menu">
+					<div class="nav megamenu_container wrapper">
+						<dnn:MENU id="newmenu" runat="server" MenuStyle="DNNMobileNav"></dnn:MENU>
+					
+					</div>
+						<dnn:LOGIN ID="dnnLogin" CssClass="LoginLink" runat="server" LegacyMode="false"/>
+				</div>
+			</div>
+		</div>
+		
+	<!-- Login Close -->
+		
 	<!-- Revolution Slider -->
 	<div id="mainbanner" class="tp-banner-container">
-		<div class="tp-banner" >
+		<div class="tp-banner">
 			<ul>
 					
 				<!-- SLIDE  -->
