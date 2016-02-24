@@ -5,7 +5,9 @@
 <%@ Register TagPrefix="dnn" TagName="Meta" Src="~/Admin/Skins/Meta.ascx" %> 
 
 <!-- Adding CSS files into Skin -->
-<dnn:DnnCssInclude runat="server" FilePath="css/normalize.min.css" PathNameAlias="SkinPath"/>
+ 
+<dnn:DnnCssInclude runat="server" FilePath="css/styles.css" PathNameAlias="SkinPath"/>
+
 <dnn:DnnCssInclude runat="server" FilePath="css/font-awesome.min.css" PathNameAlias="SkinPath"/>
 <dnn:DnnCssInclude runat="server" FilePath="css/jquery.sidr.light.css" PathNameAlias="SkinPath"/>
 <dnn:DnnCssInclude runat="server" FilePath="js/media/mediaelementplayer.min.css" PathNameAlias="SkinPath"/>
@@ -21,8 +23,11 @@
 <dnn:DnnCssInclude runat="server" FilePath="js/rs-plugin/css/settings.css" PathNameAlias="SkinPath" />
 <dnn:DnnCssInclude runat="server" FilePath="css/tooltipster.css" PathNameAlias="SkinPath"/>
 <dnn:DnnCssInclude runat="server" FilePath="css/mega.css" PathNameAlias="SkinPath"/>
+<dnn:DnnCssInclude runat="server" FilePath="css/skin2.css" PathNameAlias="SkinPath"/>
 <dnn:DnnCssInclude runat="server" FilePath="css/full.css" PathNameAlias="SkinPath"/>
-<dnn:DnnCssInclude runat="server" FilePath="css/skin2.css" PathNameAlias="SkinPath"/> 
+<dnn:DnnCssInclude runat="server" FilePath="css/normalize.min.css" PathNameAlias="SkinPath"/>
+ 
+ <dnn:DnnJsInclude runat="server" FilePath="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js" PathNameAlias="SkinPath" />
 	
 <!-- Start Scripts --> 
 <dnn:DnnJsInclude runat="server" FilePath="js/rs-plugin/js/jquery.themepunch.tools.min.js" PathNameAlias="SkinPath" />
@@ -33,6 +38,7 @@
 <dnn:DnnJsInclude runat="server" FilePath="js/cleantabs.jquery.js" PathNameAlias="SkinPath" />
 <dnn:DnnJsInclude runat="server" FilePath="js/fitvids.min.js" PathNameAlias="SkinPath" />
 <dnn:DnnJsInclude runat="server" FilePath="js/jquery.scrollUp.min.js" PathNameAlias="SkinPath" />
+<dnn:DnnJsInclude runat="server" FilePath="js/media/mediaelement-and-player.min.js" PathNameAlias="SkinPath" />
 <dnn:DnnJsInclude runat="server" FilePath="js/owl-carousel/owl.carousel.js" PathNameAlias="SkinPath" />
 <dnn:DnnJsInclude runat="server" FilePath="js/selectivizr-min.js" PathNameAlias="SkinPath" />
 <dnn:DnnJsInclude runat="server" FilePath="js/placeholder.js" PathNameAlias="SkinPath" />
@@ -44,8 +50,10 @@
 <dnn:DnnJsInclude runat="server" FilePath="js/jquery.countdown.js" PathNameAlias="SkinPath" />
 <dnn:DnnJsInclude runat="server" FilePath="js/jquery.sticky.js" PathNameAlias="SkinPath" />
 <dnn:DnnJsInclude runat="server" FilePath="js/slider-3.js" PathNameAlias="SkinPath" />
+<dnn:DnnJsInclude runat="server" FilePath="js/html5media.js" PathNameAlias="SkinPath" />
+
 <dnn:DnnJsInclude runat="server" FilePath="js/main.js" PathNameAlias="SkinPath" />
-<dnn:DnnJsInclude runat="server" FilePath="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js" PathNameAlias="SkinPath" />
+
 
 <div id="wrappermain-pix" class="outter-wrapper pre-header-area header-style-3">
 	<!-- Pre Header Area -->
@@ -234,7 +242,7 @@
 			<!-- Column -->
 			<div class="col-1-4">
 				<h3>In Profile</h3>
-				<div class="mosaic-block circle"  style="height: 50%;">
+				<div class="mosaic-block circle"  style="height: 180px;">
 					<a href="#" class="mosaic-overlay fancybox link" title="Insert Your Title"></a><div class="mosaic-backdrop">
 					<div class="corner">Assistant Coach</div><img src="/portals/_default/Skins/Generic_Sport_Skin/images/team-2.jpg" alt="Mock" /></div>
 				</div>
@@ -266,7 +274,10 @@
 		</div>
 	</div>
 
-	<!-- Start Outter Wrapper -->
+	
+<!-- Start Outter Wrapper -->
+	<div class="outter-wrapper divider"></div>
+
 	<!-- Start Outter Wrapper -->
 	<div id="latestnew" class="outter-wrapper feat-block-1">
 		<div class="wrapper ad-pad clearfix">
@@ -278,7 +289,7 @@
 
 					  <!-- Carousel Item -->	
 					  <div class="item">
-		    			  	<div class="mosaic-block circle" style="height: 50%;">
+		    			  	<div class="mosaic-block circle"  style="height:180px">
 		    			  		<a href="post.html" class="mosaic-overlay fancybox link" title="Insert Your Title"></a><div class="mosaic-backdrop">
 		    			  		<div class="corner date">16 Aug</div><img src="/portals/_default/Skins/Generic_Sport_Skin/images/fill-4.jpg" alt="Mock" /></div>
 		    			  	</div>
@@ -290,7 +301,7 @@
 					  
 					  <!-- Carousel Item -->	
 					  <div class="item">
-					  	  	<div class="mosaic-block circle"  style="height: 50%;">
+					  	  	<div class="mosaic-block circle"   style="height:180px">
 					  	  		<a href="post.html" class="mosaic-overlay fancybox link" title="Insert Your Title"></a><div class="mosaic-backdrop">
 					  	  		<div class="corner date">26 Aug</div><img src="/portals/_default/Skins/Generic_Sport_Skin/images/fill-3.jpg" alt="Mock" /></div>
 					  	  	</div>
@@ -302,7 +313,7 @@
 					  
 					  <!-- Carousel Item -->	
 					  <div class="item">
-					  	  	<div class="mosaic-block circle"  style="height: 50%;">
+					  	  	<div class="mosaic-block circle"  style="height:180px" >
 					  	  		<a href="post.html" class="mosaic-overlay fancybox link" title="Insert Your Title"></a><div class="mosaic-backdrop">
 					  	  		<div class="corner date">17 Sept</div><img src="/portals/_default/Skins/Generic_Sport_Skin/images/fill-5.jpg" alt="Mock" /></div>
 					  	  	</div>
@@ -314,7 +325,7 @@
 					  
 					  <!-- Carousel Item -->	
 					  <div class="item">
-					  	  	<div class="mosaic-block circle"  style="height: 50%;">
+					  	  	<div class="mosaic-block circle"  style="height:180px" >
 					  	  		<a href="post.html" class="mosaic-overlay fancybox link" title="Insert Your Title"></a><div class="mosaic-backdrop">
 					  	  		<div class="corner date">24 Sept</div><img src="/portals/_default/Skins/Generic_Sport_Skin/images/fill-2.jpg" alt="Mock" /></div>
 					  	  	</div>
@@ -326,7 +337,7 @@
 					  
 					  <!-- Carousel Item -->	
 					  <div class="item">
-					  	  	<div class="mosaic-block circle"  style="height: 50%;">
+					  	  	<div class="mosaic-block circle"   style="height:180px">
 					  	  		<a href="post.html" class="mosaic-overlay fancybox link" title="Insert Your Title"></a><div class="mosaic-backdrop">
 					  	  		<div class="corner date">26 Aug</div><img src="/portals/_default/Skins/Generic_Sport_Skin/images/fill-11.jpg" alt="Mock" /></div>
 					  	  	</div>
@@ -338,7 +349,7 @@
 					  
 					  <!-- Carousel Item -->	
 					  <div class="item">
-					  	  	<div class="mosaic-block circle"  style="height: 50%;">
+					  	  	<div class="mosaic-block circle" style="height:180px">
 					  	  		<a href="post.html" class="mosaic-overlay fancybox link" title="Insert Your Title"></a><div class="mosaic-backdrop">
 					  	  		<div class="corner date">26 Aug</div><img src="/portals/_default/Skins/Generic_Sport_Skin/images/fill-8.jpg" alt="Mock" /></div>
 					  	  	</div>
@@ -353,6 +364,7 @@
     	   </div>
 			
 		</div>
+	
     	
 	<!-- Start Outter Wrapper -->
 	<div id="homepagecontactus" class="outter-wrapper footer-wrapper">		
