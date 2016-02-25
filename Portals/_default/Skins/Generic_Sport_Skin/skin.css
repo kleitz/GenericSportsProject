@@ -3795,5 +3795,235 @@ img.aligncenter {display: block; margin-left: auto; margin-right: auto}
 	height: auto;
 }
 
+/* custom design for Result slider*/
+
+.right-side {
+    float: right;
+    margin: 0;
+}
+
+.post-option {
+    display: block;
+    margin: 0;
+}
+.post-option li {
+    color: #ccc;
+    float: left;
+    font-size: 14px;
+    font-weight: 400;
+    list-style: outside none none;
+    margin-left: 30px;
+}
+.post-option li:first-child {
+    margin-left: 0;
+}
+.post-option li time {
+    border-radius: 2px;
+    font-size: 12px;
+    font-weight: 400;
+    margin-right: 4px;
+    padding: 4px 8px;
+}
+
+.featured-event {
+    background: rgba(0, 0, 0, 0) url("assets/extraimages/match1.html") no-repeat scroll 0 0;
+    float: left;
+    margin: 0 0 30px;
+    padding: 60px 0 0;
+    position: relative;
+    width: 100%;
+}
+
+.featured-event::before {
+    background: rgba(14, 23, 35, 0.7) none repeat scroll 0 0;
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+.featured-event .cs-sc-team {
+    margin: 0 0 35px;
+    padding: 0 65px;
+}
+.featured-event .cs-sc-team, .featured-event .cs-sc-team ul {
+    float: left;
+    margin: 0 0 0 -45;
+    width: 100%;
+}
+.featured-event .cs-sc-team ul li {
+    float: left;
+    list-style: outside none none;
+    width: 40%;
+}
+.featured-event .cs-sc-team ul li:nth-child(2) {
+    padding: 0;
+    text-align: center;
+    width: 15%;
+}
+.cs-sc-team ul li figure {
+    float: left;
+    width: 100%;
+	position: relative;
+}
+.cs-sc-team ul li figure img, .cs-sc-team ul li figure img {
+    width: auto;
+}
+.cs-sc-team ul li figure figcaption {
+    color: #ffffff;
+    float: left;
+    margin: -20px -25px 0 0;
+    position: absolute;
+    right: 0;
+    top: 50%;
+}
+.cs-sc-team ul li figure figcaption a {
+    border: 1px solid #fff;
+    color: #fff;
+    float: left;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 5px 10px;
+    text-transform: uppercase;
+}
+.cs-sc-team ul li.right-side figure img, .cs-sc-team ul li.right-side {
+    float: right;
+}
+.cs-sc-team ul li.right-side figure figcaption {
+    float: right;
+    left: 0;
+    margin: -20px 0 0;
+}
+.cs-sc-team ul li .match-score {
+    float: left;
+    margin: -5px 0 0;
+    position: relative;
+    text-align: center;
+    width: 100%;
+    z-index: 1;
+}
+.cs-sc-team ul li .match-score span {
+    background-color: #579f4b;
+    color: #fff;
+    display: inline-block;
+    font-size: 11px;
+    line-height: 16px;
+    margin: 0 0 30px;
+    padding: 1px 5px 2px;
+    text-transform: uppercase;
+}
+.cs-sc-team ul li .match-score strong {
+    color: #fff;
+    display: inline-block;
+    font-size: 30px;
+    font-weight: 700;
+    width: 100%;
+}
+.cs-sc-team ul li .match-score strong small {
+    font-size: 20px;
+    margin: 0 10px;
+    position: relative;
+    top: -3px;
+}
+.cs-sc-team .match-score ul {
+    margin: 0
+}
+.cs-sc-team .match-score ul li {
+    color: #fff;
+    font-size: 12px;
+    width: 100%;
+}
+.cs-sc-team .match-score ul li i {
+    margin: 0 8px 0 0;
+}
+.featured-event .bottom-event-panel {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.bottom-event-panel {
+    background-color: #efefef;
+    float: left;
+    padding: 10px 0;
+    position: relative;
+    text-align: center;
+    width: 100%;
+    z-index: 1;
+}
+.bottom-event-panel a {
+    color: #0e1723;
+    font-size: 11px;
+    text-transform: uppercase;
+}
+.bottom-event-panel a i {
+    margin: 0 2px 0 0;
+}
+.bottom-event-panel .post-option li {
+    color: #fff;
+    display: inline-block;
+    float: none;
+    font-size: 12px;
+    margin-left: 10px;
+}
+.bottom-event-panel .post-option li a {
+    color: #fff;
+}
+.featured-event .cs-sc-team img {
+    width: 90px;
+}
+.featured-event .cs-sc-team ul li figure figcaption {
+    left: 50%;
+    margin: -20px 0 0;
+    right: auto;
+}
+.featured-event .cs-sc-team ul li.right-side figure figcaption {
+    left: auto;
+    margin: -20px 0 0;
+    right: 50%;
+}
+.event {
+    box-shadow: 0 0 7px rgba(0, 0, 0, 0.2);
+    float: left;
+    width: 100%;
+}
+.event article {
+    border-bottom: 1px solid #efefef;
+    border-left: 2px solid #579f4b;
+    float: left;
+    position: relative;
+    width: 100%;
+}
+.event .calendar-date, .event .match-result {
+    float: left;
+    padding: 20px 0 0;
+    position: relative;
+    text-align: center;
+    width: 15%;
+}
+.event .event-fixtures .calendar-date, .event .event-fixtures .match-result {
+    padding: 10px 0 0;
+}
+.event.event-results article {
+    display: table-row;
+}
+.event.event-results article .calendar-date {
+    float: left;
+    padding: 6px 0 0;
+}
+.event.event-results article .text {
+    float: left;
+    padding: 36px 0 35px 15px;
+}
+.event.event-listing-v2 .event-fixtures .text {
+    padding: 0;
+}
+.event-listing-v2 article.event-fixtures {
+    padding: 12px 15px 18px;
+}
+.event-listing-v2 .event-fixtures .post-option {
+    padding: 6px 0 0;
+}
+/* .featured-event .cs-sc-team img {
+    width: 130px;
+} */
 
 
