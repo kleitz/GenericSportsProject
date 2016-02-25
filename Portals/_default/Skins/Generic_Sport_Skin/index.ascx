@@ -4,8 +4,9 @@
 <%@ Register TagPrefix="dnn" TagName="LOGIN" Src="~/Admin/Skins/Login.ascx" %>
 <%@ Register TagPrefix="dnn" TagName="Meta" Src="~/Admin/Skins/Meta.ascx" %> 
 
+
 <!-- Adding CSS files into Skin -->
- 
+
 <dnn:DnnCssInclude runat="server" FilePath="css/styles.css" PathNameAlias="SkinPath"/>
 
 <dnn:DnnCssInclude runat="server" FilePath="css/font-awesome.min.css" PathNameAlias="SkinPath"/>
@@ -19,6 +20,7 @@
 <dnn:DnnCssInclude runat="server" FilePath="css/mosaic.css" PathNameAlias="SkinPath"/>
 <dnn:DnnCssInclude runat="server" FilePath="css/responsive.css" PathNameAlias="SkinPath"/>
 <dnn:DnnCssInclude runat="server" FilePath="css/rs-plugin.css" PathNameAlias="SkinPath"/>
+ <dnn:DnnCssInclude runat="server" FilePath="jquery.bxslider.css" PathNameAlias="SkinPath"/>
 
 <!-- Slider JS -->
 <dnn:DnnCssInclude runat="server" FilePath="js/rs-plugin/css/settings.css" PathNameAlias="SkinPath" />
@@ -26,6 +28,7 @@
 <dnn:DnnCssInclude runat="server" FilePath="css/mega.css" PathNameAlias="SkinPath"/>
 <dnn:DnnCssInclude runat="server" FilePath="css/skin2.css" PathNameAlias="SkinPath"/>
 <dnn:DnnCssInclude runat="server" FilePath="css/full.css" PathNameAlias="SkinPath"/>
+
 <dnn:DnnCssInclude runat="server" FilePath="css/normalize.min.css" PathNameAlias="SkinPath"/>
  
  <dnn:DnnJsInclude runat="server" FilePath="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js" PathNameAlias="SkinPath" />
@@ -52,18 +55,19 @@
 <dnn:DnnJsInclude runat="server" FilePath="js/jquery.sticky.js" PathNameAlias="SkinPath" />
 <dnn:DnnJsInclude runat="server" FilePath="js/slider-3.js" PathNameAlias="SkinPath" />
 <dnn:DnnJsInclude runat="server" FilePath="js/html5media.js" PathNameAlias="SkinPath" />
-
+<dnn:DnnJsInclude runat="server" FilePath="jquery.bxslider.min.js" PathNameAlias="SkinPath" />
+<dnn:DnnJsInclude runat="server" FilePath="cus.js" PathNameAlias="SkinPath" />
 <dnn:DnnJsInclude runat="server" FilePath="js/main.js" PathNameAlias="SkinPath" />
 
 
 
-<div id="wrappermain-pix" class="outter-wrapper pre-header-area header-style-3">
+ <div id="wrappermain-pix" class="outter-wrapper pre-header-area header-style-3">
 	<!-- Pre Header Area -->
 	<!-- Login Start -->
-	<div class="wrapper clearfix">
+	 <div class="wrapper clearfix">
 		<div class="pre-header-left left">
 			<!-- Second Nav -->
-			<ul>
+	<ul>
 			</ul>
 		</div>
 		<div class="pre-header-right right">
@@ -251,16 +255,104 @@
 			
 			<!-- Column -->
 			<div class="col-1-2">
-				<h3>Welcome To Our Club</h3>
-				
-				<p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-				
-				<p>Morbi leo risus, porta ac conse ctetur ac, vestiosite Duis mollis, est non commodo luctus, nisi erat porttitor ligula est non commodo sed diam. Donec id elit non mi porta gravida at eget metus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Sed posuere consectetur est at lobortis. Curabitur blandit tempus porttitor. Nullam id dolor id nibh ultricies vehicula ut id elit. Fusce dapibus, tellus ac cursus commodo.</p> 
-				
-				<p><img src="/portals/_default/Skins/Generic_Sport_Skin/images/sig.jpg" alt="Fill" /><br/> <strong>John Doe - Club President</strong></p>
-				 					
+					
+			<div class="col-md-12">
+				<div class="cs-section-title">
+					<h2>
+						LATEST RESULT
+					</h2>
+				</div>
+
+				  <div class="bx-viewport" style="width: 100%; overflow: hidden; position: relative; height:315px">
+					  
+						<ul runat="server" clientidmode="Static"  class="bxslider" style="margin:0;"> 
+							<li>
+
+								<div class="post-675">
+									<div class="featured-event" style="background:url(/portals/_default/Skins/Generic_Sport_Skin/images/team-2.jpg) no-repeat;background-size:100%; ">
+										<style>
+										.post-675 span.win:before {
+											background: none repeat scroll 0 0 #579f4b !important;
+										}
+										</style>
+									<div class="cs-sc-team">
+										<ul style="margin:0;">
+											<li>
+												<figure>
+								
+													
+													<img src="/portals/_default/Skins/Generic_Sport_Skin/images/Chrysanthemum.jpg" alt="Mock"  Width="100px" Height="100px" />
+								
+													<figcaption>
+													  <a href="#">  Team12</a>
+													</figcaption>
+
+												</figure>
+											</li>
+											<li style="padding-top:5%;">
+
+												<div class="match-score">
+													<strong>
+													<a href="#">  1</a>
+													<small>
+														:
+													</small>
+													<a href="#">  0</a>
+													</strong>
+												  
+													<ul>
+													<li style="display:none;">
+														<i class="icon-group">
+														</i>
+													</li>
+													</ul>
+												</div>
+
+											</li>
+											<li class="right-side">
+												<figure>
+													
+												 <img src="/portals/_default/Skins/Generic_Sport_Skin/images/Chrysanthemum.jpg" alt="Mock"  Width="100px" Height="100px" />
+												<figcaption>
+												 <a href="#">  Team1</a>
+												</figcaption>
+												</figure>
+											</li>
+										</ul>
+									</div>
+									<div class="bottom-event-panel">
+										<ul class="post-option">
+											<li>
+												<i class="icon-flag5">
+												</i>
+												 <a href="" rel="tag">
+														Futsal
+												</a>              
+							
+											</li>
+											<li>
+												<i class=" icon-calendar11">
+												</i>
+												<time datetime='21/2/2015'>21/2/2015</time>
+											</li>
+											<li>
+												<i class=" icon-location6">
+												</i>
+												<asp:Literal  Text='Location 1'></asp:Literal>
+											</li>
+										</ul>
+										</div>
+									</div>
+								 </div>
+
+							</li>  
+							
+						</ul>
+
+				  </div>  
 			</div>
-			
+
+		</div>
 			<!-- Column -->
 			<div class="col-1-4">
 				<h3>In Profile</h3>
@@ -298,6 +390,7 @@
 
 
 
+			
     	
 	<!-- Start Outter Wrapper -->
 	<div class="outter-wrapper">
@@ -378,35 +471,7 @@
     	   			<div class="mosaic-backdrop"><img src="/portals/_default/Skins/Generic_Sport_Skin/images/fill-12.jpg" alt="Mock" /></div></div><h6 class="title"><a href="post.html">Pre season camp success</a></h6>
     	   		</div>
     	   		
-    	   		<!-- Start Thumbnail -->
-    	   		<div class="col-1-5 element cat-2">
-    	   			<div class="mosaic-block circle"><a href="/portals/_default/Skins/Generic_Sport_Skin/images/fill-1.jpg" class="mosaic-overlay fancybox" data-fancybox-group="gallery" title="Insert Title"></a>
-    	   			<div class="mosaic-backdrop"><img src="/portals/_default/Skins/Generic_Sport_Skin/images/fill-1.jpg" alt="Mock" /></div></div><h6 class="title"><a href="post.html">Pre season camp success</a></h6>
-    	   		</div>
-    	   		
-    	   		<!-- Start Thumbnail -->
-    	   		<div class="col-1-5 element cat-1">
-    	   			<div class="mosaic-block circle"><a href="/portals/_default/Skins/Generic_Sport_Skin/images/fill-3.jpg" class="mosaic-overlay fancybox" data-fancybox-group="gallery" title="Insert Title"></a>
-    	   			<div class="mosaic-backdrop"><img src="/portals/_default/Skins/Generic_Sport_Skin/images/fill-3.jpg" alt="Mock" /></div></div><h6 class="title"><a href="post.html">Pre season camp success</a></h6>
-    	   		</div>
-    	   		
-    	   		<!-- Start Thumbnail -->
-    	   		<div class="col-1-5 element cat-2">
-    	   			<div class="mosaic-block circle"><a href="/portals/_default/Skins/Generic_Sport_Skin/images/fill-6.jpg" class="mosaic-overlay fancybox" data-fancybox-group="gallery" title="Insert Title"></a>
-    	   			<div class="mosaic-backdrop"><img src="/portals/_default/Skins/Generic_Sport_Skin/images/fill-6.jpg" alt="Mock" /></div></div><h6 class="title"><a href="post.html">Pre season camp success</a></h6>
-    	   		</div>
-    	   		
-    	   		<!-- Start Thumbnail -->
-    	   		<div class="col-1-5 element cat-1">
-    	   			<div class="mosaic-block circle"><a href="/portals/_default/Skins/Generic_Sport_Skin/images/fill-2.jpg" class="mosaic-overlay fancybox" data-fancybox-group="gallery" title="Insert Title"></a>
-    	   			<div class="mosaic-backdrop"><img src="/portals/_default/Skins/Generic_Sport_Skin/images/fill-2.jpg" alt="Mock" /></div></div><h6 class="title"><a href="post.html">Pre season camp success</a></h6>
-    	   		</div>
-    	   		
-    	   		<!-- Start Thumbnail -->
-    	   		<div class="col-1-5 element cat-2">
-    	   			<div class="mosaic-block circle"><a href="/portals/_default/Skins/Generic_Sport_Skin/images/fill-8.jpg" class="mosaic-overlay fancybox" data-fancybox-group="gallery" title="Insert Title"></a>
-    	   			<div class="mosaic-backdrop"><img src="/portals/_default/Skins/Generic_Sport_Skin/images/fill-8.jpg" alt="Mock" /></div></div><h6 class="title"><a href="post.html">Pre season camp success</a></h6>
-    	   		</div>
+    	 
     	   		
     	   </div>
 			
@@ -414,7 +479,54 @@
 	</div>
 	
 	<!-- Start Outter Wrapper -->
+	<div class="outter-wrapper feat-block-1">
+		<div class="wrapper ad-pad clearfix">
+			<h3>Video Gallery</h3>
+			<div class="owl-carousel-container">
+				<div  >
 
+						  <!-- Carousel Item -->	
+					<div class="col-1-5 element cat-1" style="margin-right: 1.5%;">
+						<div class="mosaic-block circle" style="height: 155px;">
+							<a href="#" class="mosaic-overlay fancybox link" title="Insert Your Title"></a><div class="mosaic-backdrop">
+						<!-- 	<div class="corner">Assistant Coach</div> --><img src="/portals/_default/Skins/Generic_Sport_Skin/images/team-2.jpg" alt="Mock" /></div>
+						</div>
+						
+							<h6 class="title"><a href="post.html">Pre season camp success</a></h6>
+					</div>
+					<div class="col-1-5 element cat-1"  style="margin-right: 1.5%;">
+						<div class="mosaic-block circle"  style="height: 155px;">
+							<a href="#" class="mosaic-overlay fancybox link" title="Insert Your Title"></a><div class="mosaic-backdrop">
+						<!-- 	<div class="corner">Assistant Coach</div> --><img src="/portals/_default/Skins/Generic_Sport_Skin/images/team-2.jpg" alt="Mock" /></div>
+						</div>
+							<h6 class="title"><a href="post.html">Pre season camp success</a></h6>
+					</div>		
+					<div class="col-1-5 element cat-1"  style="margin-right: 1.5%;">
+						<div class="mosaic-block circle"  style="height: 155px;">
+						<a href="#" class="mosaic-overlay fancybox link" title="Insert Your Title"></a><div class="mosaic-backdrop">
+					<!-- 	<div class="corner">Assistant Coach</div> --><img src="/portals/_default/Skins/Generic_Sport_Skin/images/team-2.jpg" alt="Mock" /></div>
+						</div>
+						<h6 class="title"><a href="post.html">Pre season camp success</a></h6>
+					</div>	
+					<div class="col-1-5 element cat-1"  style="margin-right: 1.5%;">
+						<div class="mosaic-block circle"  style="height: 155px;">
+						<a href="#" class="mosaic-overlay fancybox link" title="Insert Your Title"></a><div class="mosaic-backdrop">
+						<img src="/portals/_default/Skins/Generic_Sport_Skin/images/team-2.jpg" alt="Mock" /></div>
+						</div>
+						<h6 class="title"><a href="post.html">Pre season camp success</a></h6>
+					</div>	
+					<div class="col-1-5 element cat-1"  style="margin-right: 1.5%;">
+						<div class="mosaic-block circle"  style="height: 155px;">
+						<a href="#" class="mosaic-overlay fancybox link" title="Insert Your Title"></a><div class="mosaic-backdrop">
+						<img src="/portals/_default/Skins/Generic_Sport_Skin/images/team-2.jpg" alt="Mock" /></div>
+						</div>
+						<h6 class="title"><a href="post.html">Pre season camp success</a></h6>
+					</div>	
+		
+				</div>
+			</div>
+		</div>	
+	</div>
 	<!-- Start Outter Wrapper -->
 	<div id="latestnew" class="outter-wrapper feat-block-1">
 		<div class="wrapper ad-pad clearfix">
