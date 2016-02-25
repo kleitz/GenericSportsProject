@@ -4,18 +4,18 @@ $(document).ready(function () {
 		
 
 		
-			 	  $('.bxslider').bxslider({
+			 	  $('.bxslider').bxSlider({
 					  
-					 mode: 'horizontal',
-				 slidemargin: 3,
-				 auto: true
-				 });
-			 $('.bxsliderfor').bxslider({
+					mode: 'horizontal',
+					slideMargin: 3,
+					auto: true
+				});
+				$('.bxsliderfor').bxSlider({
 					  
-					 mode: 'horizontal',
+					mode: 'horizontal',
 					
-				 auto: true
-				 });
+					auto: true
+				});
     
       		 
 	
