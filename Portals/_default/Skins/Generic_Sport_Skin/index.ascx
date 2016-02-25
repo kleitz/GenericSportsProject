@@ -11,7 +11,6 @@
 <dnn:DnnCssInclude runat="server" FilePath="js/owl-carousel/owl.carousel.css" PathNameAlias="SkinPath"/>
 <dnn:DnnCssInclude runat="server" FilePath="js/fancybox/jquery.fancybox.css?v=2.1.4" PathNameAlias="SkinPath"/>
 
-
 <!-- Slider CSS-->
 <dnn:DnnCssInclude runat="server" FilePath="css/mosaic.css" PathNameAlias="SkinPath"/>
 <dnn:DnnCssInclude runat="server" FilePath="css/responsive.css" PathNameAlias="SkinPath"/>
@@ -25,7 +24,7 @@
 <dnn:DnnCssInclude runat="server" FilePath="css/full.css" PathNameAlias="SkinPath"/>
 <dnn:DnnCssInclude runat="server" FilePath="css/normalize.min.css" PathNameAlias="SkinPath"/>
  
- <dnn:DnnJsInclude runat="server" FilePath="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js" PathNameAlias="SkinPath" />
+<dnn:DnnJsInclude runat="server" FilePath="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js" PathNameAlias="SkinPath" />
 	
 <!-- Start Scripts --> 
 <dnn:DnnJsInclude runat="server" FilePath="js/rs-plugin/js/jquery.themepunch.tools.min.js" PathNameAlias="SkinPath" />
@@ -65,14 +64,18 @@
 							<img src="/portals/_default/Skins/Generic_Sport_Skin/images/logo-white.png" alt="Sport" />
 						</a>
 					</div>
-										
+								
+					<div class="main-header-right right adjust-right" style="margin:20px;">
+						<dnn:LOGIN ID="dnnLogin" CssClass="LoginLink" runat="server" LegacyMode="false"/>
+					</div>
+					
 					<div class="main-header-right right adjust-right">
 						<!-- Start Ad -->
 						<a href="#" class="ads ad-468">
 							<img src="/portals/_default/Skins/Generic_Sport_Skin/images/ads/468x60.png" alt="Ad" />
 						</a>
 					</div>
-
+					
 				</div>
 			</header>
 		</div>
@@ -88,9 +91,7 @@
 				<div class="post-header-center centered-menu">
 					<div class="nav megamenu_container wrapper">
 						<dnn:MENU id="newmenu" runat="server" MenuStyle="DNNMobileNav"></dnn:MENU>
-					
 					</div>
-						<dnn:LOGIN ID="dnnLogin" CssClass="LoginLink" runat="server" LegacyMode="false"/>
 				</div>
 			</div>
 		</div>
