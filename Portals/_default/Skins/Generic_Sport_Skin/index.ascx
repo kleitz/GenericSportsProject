@@ -5,9 +5,6 @@
 <%@ Register TagPrefix="dnn" TagName="Meta" Src="~/Admin/Skins/Meta.ascx" %> 
 
 <!-- Adding CSS files into Skin -->
- 
-<dnn:DnnCssInclude runat="server" FilePath="css/skin.css" PathNameAlias="SkinPath"/>
-
 <dnn:DnnCssInclude runat="server" FilePath="css/font-awesome.min.css" PathNameAlias="SkinPath"/>
 <dnn:DnnCssInclude runat="server" FilePath="css/jquery.sidr.light.css" PathNameAlias="SkinPath"/>
 <dnn:DnnCssInclude runat="server" FilePath="js/media/mediaelementplayer.min.css" PathNameAlias="SkinPath"/>
@@ -54,25 +51,6 @@
 <dnn:DnnJsInclude runat="server" FilePath="js/html5media.js" PathNameAlias="SkinPath" />
 
 <dnn:DnnJsInclude runat="server" FilePath="js/main.js" PathNameAlias="SkinPath" />
-
-
-
-<div id="wrappermain-pix" class="outter-wrapper pre-header-area header-style-3">
-	<!-- Pre Header Area -->
-	<!-- Login Start -->
-	<div class="wrapper clearfix">
-		<div class="pre-header-left left">
-			<!-- Second Nav -->
-			<ul>
-			</ul>
-		</div>
-		<div class="pre-header-right right">
-			<ul class="social-links boxy">
-				
-			</ul>
-		</div>
-	</div>	
-</div>
  
 	<!-- Header Area -->
 	
