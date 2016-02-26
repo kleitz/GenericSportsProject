@@ -90,8 +90,11 @@ namespace DotNetNuke.Modules.ThSport
             DataTable dt = new DataTable();
             dt = dvController.GetDivisionList();
 
-            gvDivision.DataSource = dt;
-            gvDivision.DataBind();
+            if (dt.Rows.Count > 0)
+            {
+                gvDivision.DataSource = dt;
+                gvDivision.DataBind();
+            }
         }
 
         #endregion Methods

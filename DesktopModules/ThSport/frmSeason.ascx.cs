@@ -59,10 +59,10 @@ namespace DotNetNuke.Modules.ThSport
         {
             DataTable dt = new DataTable();
 
-            if (currentUser.IsSuperUser || currentUser.IsInRole("clubadmin"))
-            {
+            //if (currentUser.IsSuperUser || currentUser.IsInRole("clubadmin"))
+            //{
                 dt = csc.GetDataSeason();
-            }
+            //}
 
             DataView dv = new DataView();
             dv = dt.AsDataView();

@@ -117,8 +117,11 @@ namespace DotNetNuke.Modules.ThSport
             DataTable dt = new DataTable();
             dt = tmController.GetTeamList();
 
-            gvTeam.DataSource = dt;
-            gvTeam.DataBind();
+            if (dt.Rows.Count > 0)
+            {
+                gvTeam.DataSource = dt;
+                gvTeam.DataBind();
+            }
         }
 
         #endregion Methods
