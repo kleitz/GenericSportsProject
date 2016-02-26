@@ -18,6 +18,7 @@ namespace ThSportServer
     public class clsMatchType
     {
         public int MatchTypeId { get; set; }
+        public int SportID { get; set; }
         public string MatchTypeName { get; set; }
         public string MatchTypeDescription { get; set; }
         public string CreatedById { get; set; }
@@ -36,7 +37,7 @@ namespace ThSportServer
         {
             try
             {
-                dataProvider.ExecuteNonQuery("usp_InsertMatchType", ms.MatchTypeName ,ms.MatchTypeDescription, ms.PortalID,ms.ModifiedById);
+                dataProvider.ExecuteNonQuery("usp_InsertMatchType",ms.SportID, ms.MatchTypeName ,ms.MatchTypeDescription, ms.PortalID,ms.ModifiedById);
             }
             catch (Exception ex)
             {
@@ -49,7 +50,7 @@ namespace ThSportServer
         {
             try
             {
-                dataProvider.ExecuteNonQuery("[usp_UpdateMatchType]", ms.MatchTypeId, ms.MatchTypeName, ms.MatchTypeDescription,ms.ModifiedById);
+                dataProvider.ExecuteNonQuery("[usp_UpdateMatchType]",ms.SportID, ms.MatchTypeId, ms.MatchTypeName, ms.MatchTypeDescription,ms.ModifiedById);
             }
             catch (Exception ex)
             {

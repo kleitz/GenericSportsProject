@@ -318,14 +318,14 @@
 
 		<Columns>
 
-            <asp:TemplateField HeaderText="Season" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center">
+           <%-- <asp:TemplateField HeaderText="Season" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center">
 				<ItemTemplate>
                     <div class="grid-cell-inner" style="text-align:center;">
 					    <asp:Label ID="lblSeason" runat="server" Text='<%#Eval("SeasonName") %>' ToolTip="Competition Season"></asp:Label>
                     </div> 
                     <asp:HiddenField ID="hdn_Season_Id" runat="server" Value='<%#Eval("SeasonId") %>'></asp:HiddenField>
 				</ItemTemplate>
-			</asp:TemplateField>
+			</asp:TemplateField>--%>
 
             <asp:TemplateField HeaderText="Division" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center">
 				<ItemTemplate>
@@ -435,7 +435,7 @@
 
         <asp:HiddenField ID="hdnDivisionID" runat="server" />
 
-            <div class="control-group">
+           <%-- <div class="control-group">
 		        <label class="control-label">Season : </label>
                 <div class="startsetallfrom">
              <span class="help-inline"><font Color="red"><b>*</b></font></span>
@@ -448,7 +448,7 @@
                         ErrorMessage="Season Required !" CssClass="errorfordnn" SetFocusOnError="true" ControlToValidate="ddlSeason"
                         ValidationGroup="Sports" Text="Season Required !"></asp:RequiredFieldValidator>
                 </div>
-            </div>
+            </div>--%>
 
            <div class="control-group">
 		         <label class="control-label">          

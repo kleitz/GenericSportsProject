@@ -282,9 +282,15 @@
         <AlternatingRowStyle CssClass="grid-row grid-row-alternet" />
 		<Columns>
 
-            <asp:BoundField DataField="MatchStatusName" HeaderText="Match Status Name" HeaderStyle-CssClass="grid-header-column" ItemStyle-Width="80%" HeaderStyle-Width="25%" ItemStyle-CssClass="grid-column" />
+            <asp:BoundField DataField="MatchStatusName" HeaderText="Match Status Name" HeaderStyle-CssClass="grid-header-column" ItemStyle-Width="40%" HeaderStyle-Width="25%" ItemStyle-CssClass="grid-column" />
             
-			
+			 <asp:TemplateField HeaderText="Sport Name" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="40%">
+				<ItemTemplate>
+                    <div class="grid-cell-inner" style="text-align:center;">
+					    <asp:Label ID="lblSportName" runat="server" Text='<%#Eval("SportName") %>' ToolTip=" Sport Name"></asp:Label>
+                    </div> 
+				</ItemTemplate>
+			</asp:TemplateField>
               <asp:TemplateField HeaderText="Action"  HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" 
                                ItemStyle-HorizontalAlign="Center" ItemStyle-Width="20%">
                 <ItemTemplate>
@@ -339,6 +345,25 @@
 
             <div style="width: 100%;margin-top:20px;"></div>
             
+             <div ID="divSport" runat="server">
+            <div class="control-group">
+		         <label class="control-label">
+                       <asp:Label ID="lblSport" runat="server" Text=" Sport :" ></asp:Label>
+                 </label>
+                <div class="startsetallfrom">
+                        <span class="help-inline"><font Color="red"><b>*</b></font></span>
+                 </div>
+                 <div class="controls" style="position:relative;">
+                      <asp:DropDownList ID="ddlSport" runat="server" CssClass="medium m-wrap"/>
+                     <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage=" Sport,"
+                                                ControlToValidate="ddlSport" SetFocusOnError="true"  
+                                                ValidationGroup="Sports" 
+                                                InitialValue="0" Text="Select Sport Required !" CssClass="errorfordnn" 
+                                                ClientIDMode="Static"/>
+                 </div>
+            </div>
+        </div> 
+
         <div class="control-group">
 		     <label class="control-label">          
                    <asp:Label ID="lblMatchStatusName" runat="server" Text=" MatchStatus Name :" ></asp:Label>

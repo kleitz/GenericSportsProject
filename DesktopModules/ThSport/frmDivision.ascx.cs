@@ -61,7 +61,7 @@ namespace DotNetNuke.Modules.ThSport
 
             if (IsPostBack)
             {
-                FillSeason();
+                //FillSeason();
             }
 
         }
@@ -70,20 +70,20 @@ namespace DotNetNuke.Modules.ThSport
 
         #region Methods
 
-        public void FillSeason()
-        {
-            using (DataTable Season_dt = sController.GetDataSeason())
-            {
-                if (Season_dt.Rows.Count > 0)
-                {
-                    ddlSeason.DataSource = Season_dt;
-                    ddlSeason.DataTextField = "SeasonName";
-                    ddlSeason.DataValueField = "SeasonID";
-                    ddlSeason.DataBind();
-                }
-                ddlSeason.Items.Insert(0, new ListItem("--Select--", "0"));
-            }
-        }
+        //public void FillSeason()
+        //{
+        //    using (DataTable Season_dt = sController.GetDataSeason())
+        //    {
+        //        if (Season_dt.Rows.Count > 0)
+        //        {
+        //            ddlSeason.DataSource = Season_dt;
+        //            ddlSeason.DataTextField = "SeasonName";
+        //            ddlSeason.DataValueField = "SeasonID";
+        //            ddlSeason.DataBind();
+        //        }
+        //        ddlSeason.Items.Insert(0, new ListItem("--Select--", "0"));
+        //    }
+        //}
 
         public void LoadDivisionGrid()
         {
@@ -105,7 +105,7 @@ namespace DotNetNuke.Modules.ThSport
         {
             Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "SaveSuccessfully();", true);
 
-            int.TryParse(ddlSeason.SelectedValue, out dvClass.SeasonId);
+            //int.TryParse(ddlSeason.SelectedValue, out dvClass.SeasonId);
 
             dvClass.DivisionName = txtDivision.Text.Trim();
             dvClass.DivisionAbbr = txtDivisionAbbr.Text;
@@ -184,7 +184,7 @@ namespace DotNetNuke.Modules.ThSport
             Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "UpdateSuccessfully();", true);
 
             dvClass.DivisionId = DivisionID;
-            int.TryParse(ddlSeason.SelectedValue, out dvClass.SeasonId);
+            //int.TryParse(ddlSeason.SelectedValue, out dvClass.SeasonId);
 
             dvClass.DivisionName = txtDivision.Text.Trim();
             dvClass.DivisionAbbr = txtDivisionAbbr.Text;
@@ -295,7 +295,7 @@ namespace DotNetNuke.Modules.ThSport
             txtTotalNoOfTeam.Text = "";
             txtPromotedNum.Text = "";
             txtDemotedNum.Text = "";
-            ddlSeason.ClearSelection();
+            //ddlSeason.ClearSelection();
 
         }
 
@@ -337,7 +337,7 @@ namespace DotNetNuke.Modules.ThSport
                     txtDivisionLogoName.Text = dt1.Rows[0]["DivisionLogoName"].ToString();
                     DivisionLogoImage.ImageUrl = dt1.Rows[0]["DivisionLogoFile"].ToString();
 
-                    ddlSeason.SelectedValue = dt1.Rows[0]["SeasonId"].ToString();
+                    //ddlSeason.SelectedValue = dt1.Rows[0]["SeasonId"].ToString();
 
                     txtDivisionLevel.Text = dt1.Rows[0]["DivisionLevel"].ToString();
                     txtTotalNoOfTeam.Text = dt1.Rows[0]["TotalNumofTeams"].ToString();
