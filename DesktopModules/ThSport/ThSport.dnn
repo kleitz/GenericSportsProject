@@ -22,8 +22,8 @@
             <basePath>DesktopModules\ThSport</basePath>
             <script type="Install">
               <path>Providers\DataProviders\SqlDataProvider</path>
-              <name>12.01.16.SqlDataProvider</name>
-              <version>12.01.16</version>
+              <name>25.02.16.SqlDataProvider</name>
+              <version>25.02.16</version>
             </script>
             <script type="UnInstall">
               <path>Providers\DataProviders\SqlDataProvider</path>
