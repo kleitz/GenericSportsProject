@@ -24,6 +24,9 @@ namespace DotNetNuke.Modules.ThSport
         clsMatchStatus lClass = new clsMatchStatus();
         clsMatchStatusController lController = new clsMatchStatusController();
 
+        clsPlayerType ccm = new clsPlayerType();
+        clsPlayerTypeController ccmc = new clsPlayerTypeController();
+
         #region MatchStatus
 
         int MatchStatus_ID
@@ -77,7 +80,7 @@ namespace DotNetNuke.Modules.ThSport
                 btnUpdateMatchStatus.Visible = true;
 
                 ClearData();
-
+                FillSport();
                 LinkButton btn = sender as LinkButton;
 
                 using (DataTable dt = lController.usp_GetMatchStatusByMatchStatusId(MatchStatus_ID))
@@ -88,6 +91,7 @@ namespace DotNetNuke.Modules.ThSport
                         {
                             txtMatchStatusName.Text = dt.Rows[0]["MatchStatusName"].ToString();
                         }
+                        ddlSport.SelectedValue = dt.Rows[0]["SportID"].ToString();
                     }
                 }
             }
@@ -113,6 +117,21 @@ namespace DotNetNuke.Modules.ThSport
         #endregion
 
         #region Methods
+
+        private void FillSport()
+        {
+            DataTable dt = new DataTable();
+            dt = ccmc.GetSport();
+            if (dt.Rows.Count > 0)
+            {
+                ddlSport.DataSource = dt;
+                ddlSport.DataTextField = "SportName";
+                ddlSport.DataValueField = "SportID";
+                ddlSport.DataBind();
+                ddlSport.Items.Insert(0, new ListItem("-- Select --", "0"));
+            }
+        }
+
 
         private void FillMatchStatusGridView()
         {
@@ -152,7 +171,7 @@ namespace DotNetNuke.Modules.ThSport
             lClass.MatchStatusName = txtMatchStatusName.Text.Trim();
             lClass.CreatedById = currentUser.Username;
             lClass.ModifiedById = currentUser.Username;
-
+            lClass.SportID = Convert.ToInt32(ddlSport.SelectedValue);
             lController.InsertMatchStatus(lClass);
 
             pnlList.Visible = true;
@@ -168,6 +187,7 @@ namespace DotNetNuke.Modules.ThSport
             pnlList.Visible = false;
             btnSaveMatchStatus.Visible = true;
             btnUpdateMatchStatus.Visible = false;
+            FillSport();
             
         }
 
@@ -188,6 +208,8 @@ namespace DotNetNuke.Modules.ThSport
             lClass.ModifiedById = currentUser.Username;
 
             lClass.MatchStatusId = MatchStatus_ID;
+
+            lClass.SportID = Convert.ToInt32(ddlSport.SelectedValue);
 
             lController.UpdateMatchStatus(lClass);
 

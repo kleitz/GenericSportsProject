@@ -18,6 +18,7 @@ namespace ThSportServer
     public class clsMatchStatus
     {
         public int MatchStatusId { get; set; }
+        public int SportID { get; set; }
         public string MatchStatusName { get; set; }
         public string CreatedById { get; set; }
         public string ModifiedById { get; set; }
@@ -34,7 +35,7 @@ namespace ThSportServer
         {
             try
             {
-                dataProvider.ExecuteNonQuery("usp_InsertMatchStatus", ms.MatchStatusName ,ms.CreatedById, ms.ModifiedById);
+                dataProvider.ExecuteNonQuery("usp_InsertMatchStatus",ms.SportID,ms.MatchStatusName ,ms.CreatedById, ms.ModifiedById);
             }
             catch (Exception ex)
             {
@@ -47,7 +48,7 @@ namespace ThSportServer
         {
             try
             {
-                dataProvider.ExecuteNonQuery("usp_UpdateMatchStatus", ms.MatchStatusId,ms.MatchStatusName, ms.ModifiedById);
+                dataProvider.ExecuteNonQuery("usp_UpdateMatchStatus", ms.MatchStatusId,ms.MatchStatusName,ms.SportID ,ms.ModifiedById);
             }
             catch (Exception ex)
             {
