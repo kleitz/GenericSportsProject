@@ -280,5 +280,90 @@
         </component>
       </components>
     </package>
+
+
+    <package name="conTeamList" type="Module" version="00.00.01">
+      <friendlyName>conTeamList</friendlyName>
+      <description>DotNetNuke Corporation conTeamList module</description>
+      <iconFile>Images/icon_extensions.gif</iconFile>
+      <owner>
+        <name>DotNetNuke Corporation</name>
+        <organization>DotNetNuke Corporation</organization>
+        <url>http://www.dotnetnuke.com</url>
+        <email>training@dotnetnuke.com</email>
+      </owner>
+      <license src="License.txt"></license>
+      <releaseNotes src="ReleaseNotes.txt"></releaseNotes>
+      <dependencies>
+        <dependency type="CoreVersion">06.00.00</dependency>
+      </dependencies>
+
+      <components>
+        <component type="Script">
+          <scripts>
+            <basePath>DesktopModules\ThSport</basePath>
+            <!--<script type="Install">
+            <path>Providers\DataProviders\SqlDataProvider</path>
+            <name>03.10.14.SqlDataProvider</name>
+            <version>03.10.14</version>
+          </script>-->
+            <script type="UnInstall">
+              <path>Providers\DataProviders\SqlDataProvider</path>
+              <name>Uninstall.SqlDataProvider</name>
+              <version>00.00.01</version>
+            </script>
+          </scripts>
+        </component>
+
+        <component type="ResourceFile">
+          <resourceFiles>
+            <basePath>DesktopModules/ThSport</basePath>
+            <resourceFile>
+              <name>Resources.zip</name>
+            </resourceFile>
+          </resourceFiles>
+        </component>
+
+        <component type="Module">
+          <desktopModule>
+            <moduleName>conTeamList</moduleName>
+            <foldername>conTeamList</foldername>
+            <businessControllerClass>DotNetNuke.Modules.ThSport.Components.FeatureController</businessControllerClass>
+            <supportedFeatures />
+
+            <moduleDefinitions>
+
+              <moduleDefinition>
+                <friendlyName>conTeamList</friendlyName>
+                <defaultCacheTime>0</defaultCacheTime>
+                <moduleControls>
+                  <moduleControl>
+                    <controlKey></controlKey>
+                    <controlSrc>DesktopModules/ThSport/conTeamList.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle></controlTitle>
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                </moduleControls>
+              </moduleDefinition>
+
+            </moduleDefinitions>
+
+          </desktopModule>
+        </component>
+        <component type="Assembly">
+          <assemblies>
+            <basePath>bin</basePath>
+            <assembly>
+              <name>ThSport.dll</name>
+            </assembly>
+          </assemblies>
+        </component>
+      </components>
+    </package>
+
   </packages>
 </dotnetnuke>
