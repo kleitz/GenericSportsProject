@@ -3864,7 +3864,7 @@ img.aligncenter {display: block; margin-left: auto; margin-right: auto}
 }
 .cs-sc-team ul li figure {
     float: left;
-    width: 100%;
+    width: 80%;
 	position: relative;
 }
 .cs-sc-team ul li figure img, .cs-sc-team ul li figure img {
@@ -3897,7 +3897,7 @@ img.aligncenter {display: block; margin-left: auto; margin-right: auto}
 }
 .cs-sc-team ul li .match-score {
     float: left;
-    margin: -5px 0 0;
+    margin: -15px 0 0;
     position: relative;
     text-align: center;
     width: 100%;
@@ -3968,7 +3968,8 @@ img.aligncenter {display: block; margin-left: auto; margin-right: auto}
     color: #fff;
 }
 .featured-event .cs-sc-team img {
-    width: 90px;
+    width: 60px;
+	height: 60px;
 }
 .featured-event .cs-sc-team ul li figure figcaption {
     left: 50%;
@@ -4022,8 +4023,228 @@ img.aligncenter {display: block; margin-left: auto; margin-right: auto}
 .event-listing-v2 .event-fixtures .post-option {
     padding: 6px 0 0;
 }
-/* .featured-event .cs-sc-team img {
-    width: 130px;
-} */
+
+/* Schedule Slider */
+
+.homepage_schedule {
+    color: #212121;
+    font-family: "Fjalla One",sans-serif;
+    font-size: 17px;
+    text-transform: capitalize;
+}
+.homepage_schedule_competition {
+    color: gray;
+    font-family: "Fjalla One",sans-serif;
+    font-size: 14px;
+    text-transform: capitalize;
+}
+.match_result_for_ResultMenu {
+    float: left !important;
+    min-width: 110px;
+    padding: 0 20px;
+}
+.hprForhomePageSchedule {
+    position: relative;
+    z-index: 1;
+}
+
+#defaultCountdown, .pix-sc-team {
+    float: left;
+    margin-bottom: 5px;
+    position: relative;
+    text-align: center;
+    width: 100%;
+    z-index: 9;
+}
+.pix-sc-team ul {
+    float: left;
+    margin: 0;
+    width: 100%;
+}
+.pix-sc-team li {
+    display: inline;
+}
+.pix-sc-team li figure {
+    display: inline-block;
+    height: 60px;
+    margin: 0 0 0 20px;
+    width: 60px;
+}
+.pix-sc-team li:first-child figure {
+    margin: 0;
+	
+}
+.pix-sc-team li figure img {
+    height: 100%;
+}
+.pix-sc-team li span.vs {
+    color: #a5a5a5;
+    display: inline-block;
+    font-family: "Oswald",sans-serif;
+    font-size: 22px;
+    padding-top: 28px;
+    text-align: center;
+    vertical-align: top;
+    width: 45px;
+}
+.pix-sc-team li figure figcaption {
+    color: #212121;
+    float: left;
+    font-size: 12px;
+    position: relative;
+    width: 100%;
+}
+#defaultCountdown {
+    color: #e00034;
+    font-family: "Fjalla One",sans-serif;
+    font-size: 30px;
+    font-weight: 400;
+    margin-bottom: 3px;
+    text-transform: uppercase;
+}
+#defaultCountdown span {
+    display: inline-block;
+    margin-left: 14px;
+    position: relative;
+    vertical-align: top;
+    width: 44px;
+}
+#defaultCountdown span:first-child {
+    width: 64px;
+}
+#defaultCountdown span::before {
+    color: #e95842;
+    content: "";
+    display: block;
+    float: left;
+    font-family: FontAwesome;
+    font-size: 15px;
+    height: 8px;
+    left: -18px;
+    margin: -18px 0 0;
+    position: absolute;
+    top: 50%;
+    width: 8px;
+}
+#defaultCountdown span:first-child {
+    margin: 0;
+}
+#defaultCountdown span:first-child::before {
+    display: none;
+}
+#defaultCountdown span small {
+    color: #959595;
+    display: block;
+    float: left;
+    font-size: 12px;
+    width: 100%;
+}
+
+header.pix-heading-title {
+    float: left;
+    width: 100%;
+    /*margin-bottom: 20px;*/
+    border-bottom:;
+    padding: 0px 0px 8px 0px;
+    border-bottom: 1px solid #dbdbdb;
+}
+header.pix-heading-title h2 {
+    float: left;
+    margin-bottom: 0;
+    font-weight: 400;
+	display:block;
+}
+
+/*===== ContDown Section Title  =====*/
+header.pix-cont-title {
+    float: none;
+    display: inline-block;
+    width: 100%;
+    margin: 0px 0px 9px 0px;
+    overflow: hidden;
+    border-bottom: none;
+    text-align: center;
+}
+header.pix-cont-title h2 {
+    color: #fff;
+    display: inline-block;
+    vertical-align: top;
+    float: none;
+    position: relative;
+    font-size: 11px;
+    font-weight: 400;
+    background-color: #949494;
+    padding: 5px 10px;
+}
+header.pix-cont-title h2 span:before,
+header.pix-cont-title h2 span:after{
+    content: '';
+    position: absolute;
+    left: -7px;
+    top: 0px;
+    border-color: transparent #949494;
+    border-style: solid;
+    border-width: 14px 7px 11px 0px;
+}
+header.pix-cont-title h2 span:after{
+    border-width: 14px 0 13px 6px;
+    left: auto;
+    right: -6px;
+}
+header.pix-cont-title h2:before,header.pix-cont-title h2:after {
+    content: '';
+    width: 9999px;
+    height: 4px;
+    border-bottom: 1px solid #949494;
+    position: absolute;
+    top: 11px;
+    left: 100%;
+    margin-left: 12px;
+}
+header.pix-cont-title h2:after {
+    content: '';
+    left: auto;
+    right: 100%;
+    margin-left: 0px;
+    margin-right: 12px;
+}
+.pix-sc-team-info p{
+    color: #212121;
+    font-size: 16px;
+    text-transform: capitalize;
+    font-family: 'Fjalla One', sans-serif;
+}
+.pix-label{
+    float: left;
+    font-family: 'Fjalla One', sans-serif;
+    margin: 0px 0px 25px -15px;
+	position:relative;
+}
+.pix-label:before{
+	position:absolute;
+	content:"";
+	top:31px;
+	left:0;
+	width: 0;
+	height: 0;
+	border-top: 14px solid #212121;
+	border-left: 15px solid transparent;
+}
+.pix-tittle{
+    background-color: #e95842;
+    color: #fff;
+    padding: 7px 9px;
+    font-size: 14px;
+    text-transform: uppercase;
+    float: left;
+}
+.pix-label time{
+    background-color: #2a2a2a;
+    float: left;
+    padding: 9px 9px 8px 9px;
+    color: #959595;
+    font-size: 12px;
+}
+
 
 
