@@ -2,8 +2,6 @@
 
 <%@ Register TagPrefix="dnn" Namespace="DotNetNuke.Web.Client.ClientResourceManagement" Assembly="DotNetNuke.Web.Client" %>
 
-
-
 <script type="text/javascript">
     function validateTextBox(sender, args) {
         var txtcheckValue = args.Value;

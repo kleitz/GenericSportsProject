@@ -61,8 +61,11 @@ namespace DotNetNuke.Modules.ThSport
             DataTable dt = new DataTable();
             dt = ccmc.GetCompetitionTypeList();
 
-            gvCompetitionType.DataSource = dt;
-            gvCompetitionType.DataBind();
+            if (dt.Rows.Count > 0)
+            {
+                gvCompetitionType.DataSource = dt;
+                gvCompetitionType.DataBind();
+            }
             
         }
 

@@ -61,8 +61,11 @@ namespace DotNetNuke.Modules.ThSport
             DataTable dt = new DataTable();
             dt = cfc.GetCompetitionFormatList();
 
-            gvCompetitionFormat.DataSource = dt;
-            gvCompetitionFormat.DataBind();
+            if (dt.Rows.Count > 0)
+            {
+                gvCompetitionFormat.DataSource = dt;
+                gvCompetitionFormat.DataBind();
+            }
         }
 
         #endregion Methods
