@@ -179,6 +179,236 @@ namespace DotNetNuke.Modules.ThSport
             }
         }
 
+        public DataTable GetCompetitionOnlyCup(int Sport_ID, int SeasonID)
+        {
+            using (DataTable dt = new DataTable())
+            {
+                try
+                {
+                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetCompetitionOnlyCup", Sport_ID, SeasonID))
+                    {
+                        dt.Load(reader);
+                        return dt;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Exceptions.LogException(ex);
+                }
+                return dt;
+            }
+        }
+
+        public DataTable GetCompetitionOnlyLeague(int Sport_ID, int SeasonID)
+        {
+            using (DataTable dt = new DataTable())
+            {
+                try
+                {
+                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetCompetitionOnlyLeague", Sport_ID, SeasonID))
+                    {
+                        dt.Load(reader);
+                        return dt;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Exceptions.LogException(ex);
+                }
+                return dt;
+            }
+        }
+
+        public DataTable GetDetailAllCompetitionList(int CompetitionID, int Sport_ID, int SeasonID)
+        {
+            using (DataTable dt = new DataTable())
+            {
+                try
+                {
+                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetAllCompetitionList", CompetitionID, Sport_ID, SeasonID))
+                    {
+                        dt.Load(reader);
+                        return dt;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Exceptions.LogException(ex);
+                }
+                return dt;
+            }
+        }
+
+        public DataTable GetDetailAllLeagueList(int CompetitionID, int Sport_ID, int SeasonID)
+        {
+            using (DataTable dt = new DataTable())
+            {
+                try
+                {
+                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetAllLeagueList", CompetitionID, Sport_ID, SeasonID))
+                    {
+                        dt.Load(reader);
+                        return dt;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Exceptions.LogException(ex);
+                }
+                return dt;
+            }
+        }
+
+        public DataTable GetCompetitionFixturesByCompetitionID(int competitionID)
+        {
+            using (DataTable dt = new DataTable())
+            {
+                try
+                {
+                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetCompetitionFixturesByCompetitionID", competitionID))
+                    {
+                        dt.Load(reader);
+                        return dt;
+                    }
+                }
+
+                catch (Exception ex)
+                {
+                    Exceptions.LogException(ex);
+                }
+                return dt;
+            }
+        }
+
+        public DataTable GetCompetitionResultsByCompetitionID(int competitionID)
+        {
+            using (DataTable dt = new DataTable())
+            {
+                try
+                {
+                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetCompetitionResultsByCompetitionID", competitionID))
+                    {
+                        dt.Load(reader);
+                        return dt;
+                    }
+                }
+
+                catch (Exception ex)
+                {
+                    Exceptions.LogException(ex);
+                }
+                return dt;
+            }
+        }
+
+        public DataTable GetCompetitionPhotoByCompetitionID(int competitionID)
+        {
+            using (DataTable dt = new DataTable())
+            {
+                try
+                {
+                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetCompetitionPhotoByCompetitionID", competitionID))
+                    {
+                        dt.Load(reader);
+                        return dt;
+                    }
+                }
+
+                catch (Exception ex)
+                {
+                    Exceptions.LogException(ex);
+                }
+                return dt;
+            }
+        }
+
+        public DataTable GetCompetitionVideoByCompetitionIDCheck(int competitionID)
+        {
+            using (DataTable dt = new DataTable())
+            {
+                try
+                {
+                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetCompetitionVideoByCompetitionIDCheck", competitionID))
+                    {
+                        dt.Load(reader);
+                        return dt;
+                    }
+                }
+
+                catch (Exception ex)
+                {
+                    Exceptions.LogException(ex);
+                }
+                return dt;
+            }
+        }
+
+        public DataTable GetNewsByCompetitionId(int competitionId,int Portal_id)
+        {
+            using (DataTable dt = new DataTable())
+            {
+                try
+                {
+                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetNewsByCompetitionId", competitionId, Portal_id))
+                    {
+                        dt.Load(reader);
+                        return dt;
+                    }
+                }
+
+                catch (Exception ex)
+                {
+                    Exceptions.LogException(ex);
+                }
+
+                return dt;
+            }
+        }
+
+        public DataTable GetDetailAllTeamCompetitionGroupByCompetitionId(int competitionID)
+        {
+            using (DataTable dt = new DataTable())
+            {
+                try
+                {
+
+                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetDetailAllTeamCompetitionGroupByCompetitionId", competitionID))
+                    {
+                        dt.Load(reader);
+                        return dt;
+                    }
+                }
+
+                catch (Exception ex)
+                {
+                    Exceptions.LogException(ex);
+                }
+                return dt;
+            }
+        }
+
+        //public DataTable GetCompetitionPointsByCompetitionID(int competitionId)
+        //{
+        //    using (DataTable dt = new DataTable())
+        //    {
+        //        try
+        //        {
+
+        //            using (IDataReader reader = dataProvider.ExecuteReader("usp_GetCompetitionPointsByCompetitionID", competitionId))
+        //            {
+        //                dt.Load(reader);
+        //                return dt;
+        //            }
+        //        }
+
+        //        catch (Exception ex)
+        //        {
+        //            Exceptions.LogException(ex);
+        //        }
+        //        return dt;
+        //    }
+        //}
+
         #endregion Getdata Methods
 
     }
