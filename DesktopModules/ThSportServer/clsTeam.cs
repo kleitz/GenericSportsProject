@@ -165,13 +165,13 @@ namespace ThSportServer
             }
         }
 
-        public DataTable GetTeamDetailByNotInTeamID(int TeamID)
+        public DataTable GetTeamDetailByNotInTeamID(int TeamID ,int competitionID)
         {
             DataTable dt = new DataTable();
 
             try
             {
-                using (IDataReader rdr = dataProvider.ExecuteReader("[usp_GetTeamDetailByNotInTeamID]", TeamID))
+                using (IDataReader rdr = dataProvider.ExecuteReader("[usp_GetTeamDetailByNotInTeamID]", TeamID, competitionID))
                 {
                     dt.Load(rdr);
                 }
@@ -198,6 +198,26 @@ namespace ThSportServer
             catch (Exception ex)
             {
                 return null;
+            }
+        }
+
+        public DataTable GetTeamListbyCompetitionID(int CompetitionID)
+        {
+            using (DataTable dt = new DataTable())
+            {
+                try
+                {
+                    using (IDataReader reader = dataProvider.ExecuteReader("[usp_GetTeamListByCompetitionId]", CompetitionID))
+                    {
+                        dt.Load(reader);
+                        return dt;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Exceptions.LogException(ex);
+                }
+                return dt;
             }
         }
 
