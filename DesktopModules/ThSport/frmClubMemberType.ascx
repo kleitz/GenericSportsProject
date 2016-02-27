@@ -1,20 +1,24 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="frmClubMemberType.ascx.cs" Inherits="DotNetNuke.Modules.ThSport.frmClubMemberType" %>
 
 <script type="text/javascript">
-    function validateTextBox(sender, args) {
+    function validateTextBox(sender, args)
+    {
         var txtcheckValue = args.Value;
 
         var chars = ['<', '>', '*', '$', '@', ',', '_', '%', '.', '!', '#', '^', '&', '(', ')', '-', '=', '+', '\\', '|', '?', '/', '[', ']', '{', '}'];
         args.IsValid = true;
 
-        if (txtcheckValue.length > 0) {
+        if (txtcheckValue.length > 0)
+        {
             var currentChar = txtcheckValue.charAt(0);
 
-            if (chars.indexOf(currentChar) >= 0) {
+            if (chars.indexOf(currentChar) >= 0)
+            {
                 args.IsValid = false;
                 txtcheckValue.value = "";
             }
-            else {
+            else
+            {
                 args.IsValid = true;
             }
         }
@@ -22,7 +26,8 @@
 </script>
 
 <script type="text/javascript">
-    function SaveSuccessfully() {
+    function SaveSuccessfully()
+    {
         $(document).ready(function () {
             $.blockUI();
             setTimeout(function () {
@@ -35,7 +40,8 @@
 </script>
 
 <script type="text/javascript">
-    function savevalidateAndConfirmClose() {
+    function savevalidateAndConfirmClose()
+    {
         $(document).ready(function () {
             $("#divsavemassage").dialog({
                 modal: true,
