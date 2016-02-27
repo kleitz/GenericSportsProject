@@ -146,7 +146,7 @@
          var validated = Page_ClientValidate('CloseSports');
 
          if (OnlyClose == "btnCancelClubMemberType") {
-             document.getElementById("msgConfirm").innerHTML = "Are You Sure, You Want to Close ClubMemberType Form ?";
+             document.getElementById("msgConfirm").innerHTML = "Are You Sure, You Want to Close Club Member Position Form ?";
          }
 
          if (validated) {
@@ -185,7 +185,7 @@
 
          if (btn_clientid == "btnUpdateClubMemberType")
          {
-             document.getElementById("msgConfirm").innerHTML = "Are You Sure, You Want to Update ClubMemberType Details ?";
+             document.getElementById("msgConfirm").innerHTML = "Are You Sure, You Want to Update Club Member Position Details ?";
          }
 
          if (validated) {
@@ -233,25 +233,25 @@
 
 <div id="divsavemassage" runat="server" clientidmode="static" style="display: none;position:inherit !important;">
     <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/OtherImages/Ok.png")%>" />
-     <asp:Label CssClass="lobibox-body-text" ID="Label1" ClientIDMode="Static" runat="server" Text=" ClubMemberType detail are save successfully. ">
+     <asp:Label CssClass="lobibox-body-text" ID="Label1" ClientIDMode="Static" runat="server" Text=" Club Member Position detail are save successfully. ">
      </asp:Label>
 </div>
 
 <div id="divupdatemassage" runat="server" clientidmode="static" style="display: none;position:inherit !important;">
     <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/OtherImages/Ok.png")%>" />
-     <asp:Label CssClass="lobibox-body-text" ID="Label2" ClientIDMode="Static" runat="server" Text=" ClubMemberType detail are update successfully. ">
+     <asp:Label CssClass="lobibox-body-text" ID="Label2" ClientIDMode="Static" runat="server" Text=" Club Member Position detail are update successfully. ">
      </asp:Label>
 </div>
 
 <div id="divcancelmassage" runat="server" clientidmode="static" style="display: none;position:inherit !important;">
     <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/OtherImages/Cancel.png")%>" />
-     <asp:Label CssClass="lobibox-body-text" ID="Label3" ClientIDMode="Static" runat="server" Text=" ClubMemberType detail are delete successfully. ">
+     <asp:Label CssClass="lobibox-body-text" ID="Label3" ClientIDMode="Static" runat="server" Text=" Club Member Position detail are delete successfully. ">
      </asp:Label>
 </div>
 
 <div id="dialogBox" runat="server" clientidmode="static"  style="display:none;">
     <div class="lobibox-body-text-wrapper">
-        <asp:Label CssClass="lobibox-body-text" ID="msgConfirm" ClientIDMode="Static" runat="server" Text="Are You Sure, You Want to Save ClubMemberType Details ?"></asp:Label>
+        <asp:Label CssClass="lobibox-body-text" ID="msgConfirm" ClientIDMode="Static" runat="server" Text="Are You Sure, You Want to Save Club Member Position Details ?"></asp:Label>
     </div>
 </div>
 
@@ -265,7 +265,7 @@
             <ul>
                 <li class="active">
                     <asp:LinkButton ID="btnAddClubMemberType" runat="server" 
-                                            Height="35px" Text=" Add Member Type" 
+                                            Height="35px" Text=" Add Club Member Position" 
                                             onclick="btnAddClubMemberType_Click" ForeColor="White"/>
                 </li>
             </ul>
@@ -279,7 +279,7 @@
 			<div class="portlet-title">
 				<div class="caption">
 					<i class="icon-reorder"></i>
-					<span class="hidden-480"> Club Member Type List</span>
+					<span class="hidden-480"> Club Member Position List</span>
 				</div>
                 <div class="tools">
 					<a href="javascript:;" class="collapse"></a>
@@ -309,26 +309,26 @@
                 </ItemTemplate>
          </asp:TemplateField>
 
-               <asp:TemplateField HeaderText="Sport Name" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="40%">
+            <asp:TemplateField HeaderText="Member Position" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="15%">
+				<ItemTemplate>
+                    <div class="grid-cell-inner" style="text-align:center;">
+					    <asp:Label ID="lblClubMemberTypeValue" runat="server" Text='<%#Eval("ClubMemberTypeValue") %>' ToolTip=" Club Member Position "></asp:Label>
+                    </div> 
+				</ItemTemplate>
+			</asp:TemplateField>
+
+                <asp:TemplateField HeaderText="Sport Name" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="40%">
 				<ItemTemplate>
                     <div class="grid-cell-inner" style="text-align:center;">
 					    <asp:Label ID="lblSportName" runat="server" Text='<%#Eval("SportName") %>' ToolTip=" Sport Name"></asp:Label>
                     </div> 
 				</ItemTemplate>
 			</asp:TemplateField>
-
-            <asp:TemplateField HeaderText="Member Position" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="15%">
-				<ItemTemplate>
-                    <div class="grid-cell-inner" style="text-align:center;">
-					    <asp:Label ID="lblClubMemberTypeValue" runat="server" Text='<%#Eval("ClubMemberTypeValue") %>' ToolTip=" Club Member Type "></asp:Label>
-                    </div> 
-				</ItemTemplate>
-			</asp:TemplateField>
-
+            
             <asp:TemplateField HeaderText=" Description " HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="25%">
 				<ItemTemplate>
                     <div class="grid-cell-inner" style="text-align:center;">
-					    <asp:Label ID="lblClubMemberTypeDesc" runat="server" Text='<%#Eval("ClubMemberTypeDesc") %>' ToolTip=" Club Member Type Description"></asp:Label>
+					    <asp:Label ID="lblClubMemberTypeDesc" runat="server" Text='<%#Eval("ClubMemberTypeDesc") %>' ToolTip=" Club Member Position Description"></asp:Label>
                     </div> 
 				</ItemTemplate>
 			</asp:TemplateField>
@@ -369,7 +369,7 @@
 			<div class="portlet-title">
 				<div class="caption">
 					<i class="icon-reorder"></i>
-					<span class="hidden-480">Club Member Type Details</span>
+					<span class="hidden-480">Club Member Position Details</span>
 				</div>
 			</div>
 
@@ -407,7 +407,7 @@
 
        <div class="control-group">
 		     <label class="control-label">          
-                   <asp:Label ID="lblClubMemberTypeValue" runat="server" Text=" Member Type :" ></asp:Label>
+                   <asp:Label ID="lblClubMemberTypeValue" runat="server" Text=" Member Position :" ></asp:Label>
              </label>
              <div class="startsetallfrom">
                  <span class="help-inline"><font Color="red"><b>*</b></font></span>
@@ -416,7 +416,7 @@
                   <asp:TextBox ID="txtClubMemberTypeValue" runat="server" CssClass="m-wrap large"/>
                   <asp:RequiredFieldValidator ID="rfvClubMemberTypeValue" runat="server" ErrorMessage="Club Member Type,"
                                               ControlToValidate="txtClubMemberTypeValue" SetFocusOnError="true" 
-                                              ValidationGroup="Sports" Text="Member Type Required !" 
+                                              ValidationGroup="Sports" Text="Member Position Required !" 
                                               CssClass="errorfordnn" ClientIDMode="Static"/>
                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1"
                                                     Display="Static" ControlToValidate="txtClubMemberTypeValue"  
@@ -452,10 +452,10 @@
         </div>
 
 
-                     <div class="control-group">
-		    <label class="control-label">
-            <asp:Label ID="lblActive" runat="server" Text=" Is Active :"></asp:Label>
-        </label>
+        <div class="control-group">
+		   <label class="control-label">
+                <asp:Label ID="lblActive" runat="server" Text=" IsActive :"></asp:Label>
+            </label>
             <div class="controls" style="margin-top:8px;">
                 <div id="checkdiv" runat="server" class="SingleCheckbox col-left">
                     <asp:CheckBox ID="ChkIsActive" runat="server" />
@@ -467,7 +467,7 @@
 
        <div class="control-group">
 		    <label class="control-label">
-            <asp:Label ID="lblShow" runat="server" Text=" Is Show :"></asp:Label>
+            <asp:Label ID="lblShow" runat="server" Text=" IsShow :"></asp:Label>
         </label>
             <div class="controls" style="margin-top:8px;">
                 <div id="checdivshow" runat="server" class="SingleCheckbox col-left">

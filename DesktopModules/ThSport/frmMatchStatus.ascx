@@ -1,23 +1,25 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="frmMatchStatus.ascx.cs" Inherits="DotNetNuke.Modules.ThSport.frmMatchStatus" %>
-
-
 <%@ Register TagPrefix="dnn" Namespace="DotNetNuke.Web.Client.ClientResourceManagement" Assembly="DotNetNuke.Web.Client" %>
 
 <script type="text/javascript">
-    function validateTextBox(sender, args) {
+    function validateTextBox(sender, args)
+    {
         var txtcheckValue = args.Value;
 
         var chars = ['<', '>', '*', '$', '@', ',', '_', '%', '.', '!', '#', '^', '&', '(', ')', '-', '=', '+', '\\', '|', '?', '/', '[', ']', '{', '}'];
         args.IsValid = true;
 
-        if (txtcheckValue.length > 0) {
+        if (txtcheckValue.length > 0)
+        {
             var currentChar = txtcheckValue.charAt(0);
 
-            if (chars.indexOf(currentChar) >= 0) {
+            if (chars.indexOf(currentChar) >= 0)
+            {
                 args.IsValid = false;
                 txtcheckValue.value = "";
             }
-            else {
+            else
+            {
                 args.IsValid = true;
             }
         }
@@ -225,19 +227,19 @@
 
 <div id="divMatchStatussavemassage" runat="server" clientidmode="static" style="display: none;position:inherit !important;">
     <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/OtherImages/Ok.png")%>" />
-     <asp:Label CssClass="lobibox-body-text" ID="Label1" ClientIDMode="Static" runat="server" Text=" MatchStatus detail are save successfully. ">
+     <asp:Label CssClass="lobibox-body-text" ID="Label1" ClientIDMode="Static" runat="server" Text=" Match Status detail are save successfully. ">
      </asp:Label>
 </div>
 
 <div id="divMatchStatusupdatemassage" runat="server" clientidmode="static" style="display: none;position:inherit !important;">
     <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/OtherImages/Ok.png")%>" />
-     <asp:Label CssClass="lobibox-body-text" ID="Label2" ClientIDMode="Static" runat="server" Text=" MatchStatus detail are update successfully. ">
+     <asp:Label CssClass="lobibox-body-text" ID="Label2" ClientIDMode="Static" runat="server" Text=" Match Status detail are update successfully. ">
      </asp:Label>
 </div>
 
 <div id="dialogBox" runat="server" clientidmode="static"  style="display:none;">
      <div class="lobibox-body-text-wrapper">
-        <asp:Label CssClass="lobibox-body-text" ID="msgConfirm" ClientIDMode="Static" runat="server" Text="Are You Sure, You Want to Save MatchStatus Details ?"></asp:Label>
+        <asp:Label CssClass="lobibox-body-text" ID="msgConfirm" ClientIDMode="Static" runat="server" Text="Are You Sure, You Want to Save Match Status Details ?"></asp:Label>
     </div>
 </div>
 
@@ -249,7 +251,7 @@
         <div id="submenu" style="float:left;">
             <ul>
                 <li class="active">
-                    <asp:LinkButton ID="btnAddMatchStatus" runat="server" Height="35px" Text=" Add MatchStatus" onclick="btnAddMatchStatus_Click" ForeColor="White"></asp:LinkButton>
+                    <asp:LinkButton ID="btnAddMatchStatus" runat="server" Height="35px" Text=" Add Match Status" onclick="btnAddMatchStatus_Click" ForeColor="White"></asp:LinkButton>
                 </li>
             </ul>
         </div>
@@ -264,7 +266,7 @@
 			<div class="portlet-title">
 				<div class="caption">
 					<i class="icon-reorder"></i>
-					<span class="hidden-480">MatchStatus List</span>
+					<span class="hidden-480">Match Status List</span>
 				</div>
                 <div class="tools">
 					<a href="javascript:;" class="collapse"></a>
@@ -282,7 +284,7 @@
         <AlternatingRowStyle CssClass="grid-row grid-row-alternet" />
 		<Columns>
 
-            <asp:BoundField DataField="MatchStatusName" HeaderText="Match Status Name" HeaderStyle-CssClass="grid-header-column" ItemStyle-Width="40%" HeaderStyle-Width="25%" ItemStyle-CssClass="grid-column" />
+            <asp:BoundField DataField="MatchStatusName" HeaderText="Match Status " HeaderStyle-CssClass="grid-header-column" ItemStyle-Width="40%" HeaderStyle-Width="25%" ItemStyle-CssClass="grid-column" />
             
 			 <asp:TemplateField HeaderText="Sport Name" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="40%">
 				<ItemTemplate>
@@ -366,7 +368,7 @@
 
         <div class="control-group">
 		     <label class="control-label">          
-                   <asp:Label ID="lblMatchStatusName" runat="server" Text=" MatchStatus Name :" ></asp:Label>
+                   <asp:Label ID="lblMatchStatusName" runat="server" Text=" Match Status :" ></asp:Label>
              </label>
              <div class="startsetallfrom">
                  <span class="help-inline"><font Color="red"><b>*</b></font></span>
@@ -375,7 +377,7 @@
                   <asp:TextBox ID="txtMatchStatusName" runat="server" CssClass="m-wrap large"/>
                      <asp:RequiredFieldValidator ID="rfvtxtMatchStatusName" runat="server" ErrorMessage="MatchStatusName"  
                                                 ControlToValidate="txtMatchStatusName" SetFocusOnError="true" 
-                                                ValidationGroup="Sports" Text=" MatchStatus Name Required !" CssClass="errorfordnn" ClientIDMode="Static"/>
+                                                ValidationGroup="Sports" Text=" Match Status Required !" CssClass="errorfordnn" ClientIDMode="Static"/>
                    <asp:RegularExpressionValidator ID="rgvtxtMatchStatusName"
                                                     Display="Static" ControlToValidate="txtMatchStatusName"  
                                                     ValidationGroup="Sports" CssClass="errorfordnn"

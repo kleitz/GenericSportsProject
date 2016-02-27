@@ -4,7 +4,6 @@
 
     function validateTextBox(sender, args)
     {
-
         var txtcheckValue = args.Value;
 
         var chars = ['<', '>', '*', '$', '@', ',', '_', '%', '.', '!', '#', '^', '&', '(', ')', '-', '=', '+', '\\', '|', '?', '/', '[', ']', '{', '}'];
@@ -26,23 +25,28 @@
         }
     }
 
-    function previewFilephoto() {
+    function previewFilephoto()
+    {
         var preview = document.querySelector('#<%=CompetitionLeagueLogoImage.ClientID %>');
         var file = document.querySelector('#<%=CompetitionLeagueLogoFile.ClientID %>').files[0];
         var reader = new FileReader();
 
-        reader.onloadend = function () {
+        reader.onloadend = function ()
+        {
             preview.src = reader.result;
         }
 
-        if (file) {
-            if (file.size > 10485760) {
+        if (file)
+        {
+            if (file.size > 10485760)
+            {
                 document.getElementById('dvMsg').style.display = "block";
                 preview.src = "";
             }
             reader.readAsDataURL(file);
         }
-        else {
+        else
+        {
             preview.src = "";
         }
     }
@@ -171,7 +175,7 @@
          var validated = Page_ClientValidate('CloseSports');
 
          if (OnlyClose == "btnCancelCompetitionLeague") {
-             document.getElementById("msgConfirm").innerHTML = "Are You Sure, You Want to Close CompetitionLeague Form ?";
+             document.getElementById("msgConfirm").innerHTML = "Are You Sure, You Want to Close Competition League Form ?";
          }
 
          if (validated) {
@@ -208,7 +212,7 @@
          var validated = Page_ClientValidate('Sports');
 
          if (btn_clientid == "btnUpdateCompetitionLeague") {
-             document.getElementById("msgConfirm").innerHTML = "Are You Sure, You Want to Update CompetitionLeague Details ?";
+             document.getElementById("msgConfirm").innerHTML = "Are You Sure, You Want to Update Competition League Details ?";
          }
 
          if (validated) {
@@ -254,25 +258,25 @@
 
 <div id="divsavemassage" runat="server" clientidmode="static" style="display: none;position:inherit !important;">
     <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/OtherImages/Ok.png")%>" />
-     <asp:Label CssClass="lobibox-body-text" ID="Label1" ClientIDMode="Static" runat="server" Text=" CompetitionLeague detail are save successfully. ">
+     <asp:Label CssClass="lobibox-body-text" ID="Label1" ClientIDMode="Static" runat="server" Text=" Competition League detail are save successfully. ">
      </asp:Label>
 </div>
 
 <div id="divupdatemassage" runat="server" clientidmode="static" style="display: none;position:inherit !important;">
     <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/OtherImages/Ok.png")%>" />
-     <asp:Label CssClass="lobibox-body-text" ID="Label2" ClientIDMode="Static" runat="server" Text=" CompetitionLeague detail are update successfully. ">
+     <asp:Label CssClass="lobibox-body-text" ID="Label2" ClientIDMode="Static" runat="server" Text=" Competition League detail are update successfully. ">
      </asp:Label>
 </div>
 
 <div id="divcancelmassage" runat="server" clientidmode="static" style="display: none;position:inherit !important;">
     <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/OtherImages/Cancel.png")%>" />
-     <asp:Label CssClass="lobibox-body-text" ID="Label3" ClientIDMode="Static" runat="server" Text=" CompetitionLeague detail are delete successfully. ">
+     <asp:Label CssClass="lobibox-body-text" ID="Label3" ClientIDMode="Static" runat="server" Text=" Competition League detail are delete successfully. ">
      </asp:Label>
 </div>
 
 <div id="dialogBox" runat="server" clientidmode="static"  style="display:none;">
     <div class="lobibox-body-text-wrapper">
-        <asp:Label CssClass="lobibox-body-text" ID="msgConfirm" ClientIDMode="Static" runat="server" Text="Are You Sure, You Want to Save CompetitionLeague Details ?"></asp:Label>
+        <asp:Label CssClass="lobibox-body-text" ID="msgConfirm" ClientIDMode="Static" runat="server" Text="Are You Sure, You Want to Save Competition League Details ?"></asp:Label>
     </div>
 </div>
 
@@ -446,7 +450,7 @@
 
         <div class="control-group">
 		    <label class="control-label">
-                <asp:Label ID="lblCompetitionLeagueLogoName" runat="server" Text="Competition League Logo Name :" ></asp:Label>
+                <asp:Label ID="lblCompetitionLeagueLogoName" runat="server" Text="Logo Name :" ></asp:Label>
             </label>
             <div class="controls" style="position:relative;">
                 <asp:TextBox ID="txtCompetitionLeagueLogoName" runat="server"  CssClass="m-wrap large" />
@@ -479,7 +483,7 @@
 
         <div class="control-group">
 		    <label class="control-label">
-            <asp:Label ID="lblActive" runat="server" Text=" Is Active :"></asp:Label>
+            <asp:Label ID="lblActive" runat="server" Text=" IsActive :"></asp:Label>
         </label>
             <div class="controls">
                 <label class="checkbox"> 
@@ -490,7 +494,7 @@
 
        <div class="control-group">
 		    <label class="control-label">
-            <asp:Label ID="lblShow" runat="server" Text=" Is Show :"></asp:Label>
+            <asp:Label ID="lblShow" runat="server" Text=" IsShow :"></asp:Label>
         </label>
             <div class="controls">
                 <label class="checkbox"> 

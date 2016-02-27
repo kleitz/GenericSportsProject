@@ -626,7 +626,7 @@
 
        <div class="control-group">
 		     <label class="control-label">          
-                   <asp:Label ID="lblCompetition" runat="server" Text=" Competition  :" ></asp:Label>
+                   <asp:Label ID="lblCompetition" runat="server" Text=" Competition Name :" ></asp:Label>
              </label>
             <div class="startsetallfrom">
               <span class="help-inline"><font Color="red"><b>*</b></font></span>
@@ -689,7 +689,7 @@
 
         <div class="control-group">
 		    <label class="control-label">
-                <asp:Label ID="lblCompetitionLogoName" runat="server" Text="Competition  Logo Name :" ></asp:Label>
+                <asp:Label ID="lblCompetitionLogoName" runat="server" Text=" Logo Name :" ></asp:Label>
             </label>
             <div class="controls" style="position:relative;">
                 <asp:TextBox ID="txtCompetitionLogoName" runat="server"  CssClass="m-wrap large" />

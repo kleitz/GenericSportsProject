@@ -1,20 +1,24 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="frmSponsorLevel.ascx.cs" Inherits="DotNetNuke.Modules.ThSport.frmSponsorLevel" %>
 
 <script type="text/javascript">
-    function validateTextBox(sender, args) {
+    function validateTextBox(sender, args)
+    {
         var txtcheckValue = args.Value;
 
         var chars = ['<', '>', '*', '$', '@', ',', '_', '%', '.', '!', '#', '^', '&', '(', ')', '-', '=', '+', '\\', '|', '?', '/', '[', ']', '{', '}'];
         args.IsValid = true;
 
-        if (txtcheckValue.length > 0) {
+        if (txtcheckValue.length > 0)
+        {
             var currentChar = txtcheckValue.charAt(0);
 
-            if (chars.indexOf(currentChar) >= 0) {
+            if (chars.indexOf(currentChar) >= 0)
+            {
                 args.IsValid = false;
                 txtcheckValue.value = "";
             }
-            else {
+            else
+            {
                 args.IsValid = true;
             }
         }
@@ -155,7 +159,7 @@
 
          if (OnlyClose == "btnCancelSponsorLevel")
          {
-             document.getElementById("msgConfirm").innerHTML = "Are You Sure, You Want to Close SponsorLevel Form ?";
+             document.getElementById("msgConfirm").innerHTML = "Are You Sure, You Want to Close Sponsor Level Form ?";
          }
 
          if (validated) {
@@ -195,7 +199,7 @@
 
          if (btn_clientid == "btnUpdateSponsorLevel")
          {
-             document.getElementById("msgConfirm").innerHTML = "Are You Sure, You Want to Update SponsorLevel Details ?";
+             document.getElementById("msgConfirm").innerHTML = "Are You Sure, You Want to Update Sponsor Level Details ?";
          }
 
          if (validated) {
@@ -243,25 +247,25 @@
 
 <div id="divsavemassage" runat="server" clientidmode="static" style="display: none;position:inherit !important;">
     <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/OtherImages/Ok.png")%>" />
-     <asp:Label CssClass="lobibox-body-text" ID="Label1" ClientIDMode="Static" runat="server" Text=" SponsorLevel detail are save successfully. ">
+     <asp:Label CssClass="lobibox-body-text" ID="Label1" ClientIDMode="Static" runat="server" Text=" Sponsor Level detail are save successfully. ">
      </asp:Label>
 </div>
 
 <div id="divupdatemassage" runat="server" clientidmode="static" style="display: none;position:inherit !important;">
     <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/OtherImages/Ok.png")%>" />
-     <asp:Label CssClass="lobibox-body-text" ID="Label2" ClientIDMode="Static" runat="server" Text=" SponsorLevel detail are update successfully. ">
+     <asp:Label CssClass="lobibox-body-text" ID="Label2" ClientIDMode="Static" runat="server" Text=" Sponsor Level detail are update successfully. ">
      </asp:Label>
 </div>
 
 <div id="divcancelmassage" runat="server" clientidmode="static" style="display: none;position:inherit !important;">
     <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/OtherImages/Cancel.png")%>" />
-     <asp:Label CssClass="lobibox-body-text" ID="Label3" ClientIDMode="Static" runat="server" Text=" SponsorLevel detail are delete successfully. ">
+     <asp:Label CssClass="lobibox-body-text" ID="Label3" ClientIDMode="Static" runat="server" Text=" Sponsor Level detail are delete successfully. ">
      </asp:Label>
 </div>
 
 <div id="dialogBox" runat="server" clientidmode="static"  style="display:none;">
     <div class="lobibox-body-text-wrapper">
-        <asp:Label CssClass="lobibox-body-text" ID="msgConfirm" ClientIDMode="Static" runat="server" Text="Are You Sure, You Want to Save SponsorLevel Details ?"></asp:Label>
+        <asp:Label CssClass="lobibox-body-text" ID="msgConfirm" ClientIDMode="Static" runat="server" Text="Are You Sure, You Want to Save Sponsor Level Details ?"></asp:Label>
     </div>
 </div>
 
@@ -322,7 +326,7 @@
             <asp:TemplateField HeaderText="Sponsor Level" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="80%">
 				<ItemTemplate>
                     <div class="grid-cell-inner" style="text-align:center;">
-					    <asp:Label ID="lblSponsorLevelName" runat="server" Text='<%#Eval("SponsorLevelValue") %>' ToolTip=" Sponsor Level Value "></asp:Label>
+					    <asp:Label ID="lblSponsorLevelName" runat="server" Text='<%#Eval("SponsorLevelValue") %>' ToolTip=" Sponsor Level "></asp:Label>
                     </div> 
 				</ItemTemplate>
 			</asp:TemplateField>
