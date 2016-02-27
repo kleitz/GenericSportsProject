@@ -41,7 +41,7 @@ namespace DotNetNuke.Modules.ThSport
         {
             if (!IsPostBack)
             {
-                FillSport();
+                //FillSport();
                 FillGridView();
             }
         }
@@ -78,20 +78,20 @@ namespace DotNetNuke.Modules.ThSport
             }
         }
 
-        private void FillSport()
-        {
-            DataTable dt = new DataTable();
-            dt = ccc.FillSportDropdown();
-            if (dt.Rows.Count > 0)
-            {
-                ddlSport.DataSource = dt;
-                ddlSport.DataTextField = "SportName";
-                ddlSport.DataValueField = "SportID";
-                ddlSport.DataBind();
-                ddlSport.Items.Insert(0, new ListItem("-- Select Sport --", "0"));
-                ddlSport.SelectedValue = "1";
-            }
-        }
+        //private void FillSport()
+        //{
+        //    DataTable dt = new DataTable();
+        //    dt = ccc.FillSportDropdown();
+        //    if (dt.Rows.Count > 0)
+        //    {
+        //        ddlSport.DataSource = dt;
+        //        ddlSport.DataTextField = "SportName";
+        //        ddlSport.DataValueField = "SportID";
+        //        ddlSport.DataBind();
+        //        ddlSport.Items.Insert(0, new ListItem("-- Select Sport --", "0"));
+        //        ddlSport.SelectedValue = "1";
+        //    }
+        //}
 
         protected void btnClear_Click(object sender, EventArgs e)
         {
@@ -100,7 +100,7 @@ namespace DotNetNuke.Modules.ThSport
 
         private void funClearData()
         {
-            ddlSport.SelectedValue = "1";
+            //ddlSport.SelectedValue = "1";
             txtClubName.Text = "";
             txtClubAddress.Text = "";
             txtClubDescription.Text = "";
@@ -120,7 +120,7 @@ namespace DotNetNuke.Modules.ThSport
             Boolean FileOK = false;
             Boolean FileSaved = false;
 
-            cc.SportID = Convert.ToInt32(ddlSport.SelectedValue);
+            //cc.SportID = Convert.ToInt32(ddlSport.SelectedValue);
             cc.ClubName = txtClubName.Text.Trim();
             cc.ClubAbbr = txtClubAddress.Text.Trim();
             cc.ClubDesc = txtClubDescription.Text.Trim();
@@ -250,13 +250,13 @@ namespace DotNetNuke.Modules.ThSport
             int clubid = ccc.InsertClub(cc);
 
             DataTable dt = ccc.GetClubLatestValue();
-            if (dt.Rows.Count > 0)
-            {
-                int ClubID = Convert.ToInt32(dt.Rows[0]["ClubId"].ToString());
-                int SportID = Convert.ToInt32(ddlSport.SelectedValue);
+            //if (dt.Rows.Count > 0)
+            //{
+            //    int ClubID = Convert.ToInt32(dt.Rows[0]["ClubId"].ToString());
+            //    //int SportID = Convert.ToInt32(ddlSport.SelectedValue);
 
-                ccc.InsertClubSports(ClubID,SportID);
-            }
+            //    ccc.InsertClubSports(ClubID,SportID);
+            //}
            
             mainContentClub.Visible = false;
             PnlGridClub.Visible = true;
@@ -271,7 +271,7 @@ namespace DotNetNuke.Modules.ThSport
             PnlGridClub.Visible = false;
             btnSaveClub.Visible = true;
             btnUpdateClub.Visible = false;
-            FillSport();
+            //FillSport();
         }
 
         protected void btnCloseClub_Click(object sender, EventArgs e)
@@ -289,7 +289,7 @@ namespace DotNetNuke.Modules.ThSport
             Boolean FileSaved = false;
 
             cc.ClubId = Convert.ToInt32(hidRegID.Value);
-            cc.SportID = Convert.ToInt32(ddlSport.SelectedValue);
+            //cc.SportID = Convert.ToInt32(ddlSport.SelectedValue);
             cc.ClubName = txtClubName.Text.Trim();
             cc.ClubAbbr = txtClubAddress.Text.Trim();
             cc.ClubDesc = txtClubDescription.Text.Trim();
@@ -446,7 +446,7 @@ namespace DotNetNuke.Modules.ThSport
 
             int clubid = ccc.UpdateClub(cc);
 
-            int ucsid = ccc.UpdateClubSports(cc.ClubId, cc.SportID);
+            //int ucsid = ccc.UpdateClubSports(cc.ClubId, cc.SportID);
 
             mainContentClub.Visible = false;
             PnlGridClub.Visible = true;
@@ -525,15 +525,15 @@ namespace DotNetNuke.Modules.ThSport
                         ChkIsShow.Checked = false;
                     }
 
-                    DataTable dt2 = ccc.GetSportIDByClubID(ClubID);
-                    if (dt2.Rows.Count > 0)
-                    {
-                        ddlSport.SelectedValue = dt2.Rows[0]["SportID"].ToString();
-                    }
-                    else
-                    {
-                        ddlSport.SelectedValue = "1";
-                    }
+                    //DataTable dt2 = ccc.GetSportIDByClubID(ClubID);
+                    //if (dt2.Rows.Count > 0)
+                    //{
+                    //    ddlSport.SelectedValue = dt2.Rows[0]["SportID"].ToString();
+                    //}
+                    //else
+                    //{
+                    //    ddlSport.SelectedValue = "1";
+                    //}
 
                     mainContentClub.Visible = true;
                     PnlGridClub.Visible = false;
@@ -556,6 +556,14 @@ namespace DotNetNuke.Modules.ThSport
                 hidRegID.Value = str;
                 int ClubID = Convert.ToInt32(hidRegID.Value);
                 Response.Redirect(DotNetNuke.Common.Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmClubMember", "ClubID=" + ClubID));
+            }
+            else if (ddlSelectedValue == "Sport")
+            {
+                PnlGridClub.Visible = false;
+                mainContentClub.Visible = false;
+                hidRegID.Value = str;
+                int ClubID = Convert.ToInt32(hidRegID.Value);
+                Response.Redirect(DotNetNuke.Common.Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmClubSport", "ClubID=" + ClubID));
             }
             else if (ddlSelectedValue == "Delete")
             {

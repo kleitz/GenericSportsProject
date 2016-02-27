@@ -140,6 +140,13 @@
       <DependentUpon>Password.ascx</DependentUpon>
     </Compile>
     <Compile Include="Components\FeatureController.cs" />
+    <Compile Include="frmClubSport.ascx.cs">
+      <DependentUpon>frmClubSport.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmClubSport.ascx.designer.cs">
+      <DependentUpon>frmClubSport.ascx</DependentUpon>
+    </Compile>
     <Compile Include="frmMerchandise.ascx.cs">
       <DependentUpon>frmMerchandise.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -183,6 +190,7 @@
     <Content Include="bin\System.Web.Http.WebHost.dll" />
     <Content Include="bin\Telerik.Web.UI.dll" />
     <Content Include="bin\WebFormsMvp.dll" />
+    <Content Include="frmClubSport.ascx" />
     <Content Include="frmMerchandise.ascx" />
     <Content Include="frmMerchandiseType.ascx" />
     <Content Include="CSS\flexslider.css" />
