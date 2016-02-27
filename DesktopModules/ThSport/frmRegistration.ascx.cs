@@ -82,10 +82,10 @@ namespace DotNetNuke.Modules.ThSport
         {
             DataTable dt = new DataTable();
 
-            if (currentUser.IsSuperUser || currentUser.IsInRole("Club Admin"))
-            {
+            //if (currentUser.IsSuperUser || currentUser.IsInRole("Club Admin"))
+            //{
                 dt = ccc.GetUserAndRegistrationDetailByUserID();
-            }
+            //}
 
             DataView dv = new DataView();
             dv = dt.AsDataView();

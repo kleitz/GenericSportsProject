@@ -46,7 +46,7 @@ namespace ThSportServer
         {
             try
             {
-                dataProvider.ExecuteNonQuery("usp_InsertDivision", dv.SeasonId, dv.DivisionName , dv.DivisionAbbr, dv.DivisionDesc, dv.DivisionLogoName , dv.DivisionLogoFile , dv.DivisionLevel,dv.TotalNumofTeams,dv.PromotedNum,dv.DemotedNum,dv.IsArchive,dv.PortalID, dv.CreatedById, dv.ModifiedById);
+                dataProvider.ExecuteNonQuery("usp_InsertDivision", dv.DivisionName , dv.DivisionAbbr, dv.DivisionDesc, dv.DivisionLogoName , dv.DivisionLogoFile , dv.DivisionLevel,dv.TotalNumofTeams,dv.PromotedNum,dv.DemotedNum,dv.IsArchive,dv.PortalID, dv.CreatedById, dv.ModifiedById);
             }
             catch (Exception ex)
             {
@@ -59,7 +59,7 @@ namespace ThSportServer
         {
             try
             {
-                dataProvider.ExecuteNonQuery("usp_UpdateDivision", dv.DivisionId, dv.SeasonId, dv.DivisionName, dv.DivisionAbbr, dv.DivisionDesc, dv.DivisionLogoName, dv.DivisionLogoFile, dv.DivisionLevel, dv.TotalNumofTeams, dv.PromotedNum, dv.DemotedNum, dv.IsArchive,dv.PortalID, dv.ModifiedById);
+                dataProvider.ExecuteNonQuery("usp_UpdateDivision", dv.DivisionId, dv.DivisionName, dv.DivisionAbbr, dv.DivisionDesc, dv.DivisionLogoName, dv.DivisionLogoFile, dv.DivisionLevel, dv.TotalNumofTeams, dv.PromotedNum, dv.DemotedNum, dv.IsArchive,dv.PortalID, dv.ModifiedById);
             }
             catch (Exception ex)
             {

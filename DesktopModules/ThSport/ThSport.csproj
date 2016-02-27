@@ -140,6 +140,13 @@
       <DependentUpon>Password.ascx</DependentUpon>
     </Compile>
     <Compile Include="Components\FeatureController.cs" />
+    <Compile Include="conTeamList.ascx.cs">
+      <DependentUpon>conTeamList.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="conTeamList.ascx.designer.cs">
+      <DependentUpon>conTeamList.ascx</DependentUpon>
+    </Compile>
     <Compile Include="frmMerchandise.ascx.cs">
       <DependentUpon>frmMerchandise.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -183,6 +190,7 @@
     <Content Include="bin\System.Web.Http.WebHost.dll" />
     <Content Include="bin\Telerik.Web.UI.dll" />
     <Content Include="bin\WebFormsMvp.dll" />
+    <Content Include="conTeamList.ascx" />
     <Content Include="frmMerchandise.ascx" />
     <Content Include="frmMerchandiseType.ascx" />
     <Content Include="CSS\flexslider.css" />
@@ -958,6 +966,7 @@
     <Content Include="Providers\DataProviders\SqlDataProvider\31.12.14.SqlDataProvider" />
     <Content Include="Providers\DataProviders\SqlDataProvider\12.01.16.SqlDataProvider" />
     <Content Include="Providers\DataProviders\SqlDataProvider\25.02.16.SqlDataProvider" />
+    <Content Include="Providers\DataProviders\SqlDataProvider\26.02.16.SqlDataProvider" />
     <None Include="ThSport.dnn" />
     <None Include="Providers\DataProviders\SqlDataProvider\Uninstall.SqlDataProvider" />
     <None Include="module.css" />

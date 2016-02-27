@@ -82,8 +82,11 @@ namespace DotNetNuke.Modules.ThSport
             DataTable dt = new DataTable();
             dt = cgController.GetCompetitionGroupList(CompetitionID);
 
-            gvCompetitionGroup.DataSource = dt;
-            gvCompetitionGroup.DataBind();
+            if (dt.Rows.Count > 0)
+            {
+                gvCompetitionGroup.DataSource = dt;
+                gvCompetitionGroup.DataBind();
+            }
         }
 
         #endregion Methods

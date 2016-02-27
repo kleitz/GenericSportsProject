@@ -158,8 +158,11 @@ namespace DotNetNuke.Modules.ThSport
             DataTable dt = new DataTable();
             dt = clc.GetCompetitionList();
 
-            gvCompetition.DataSource = dt;
-            gvCompetition.DataBind();
+            if (dt.Rows.Count > 0)
+            {
+                gvCompetition.DataSource = dt;
+                gvCompetition.DataBind();
+            }
         }
 
         public void DeleteCompetition()

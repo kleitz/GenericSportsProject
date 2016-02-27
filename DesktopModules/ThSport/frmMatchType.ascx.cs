@@ -25,6 +25,10 @@ namespace DotNetNuke.Modules.ThSport
         clsMatchType lClass = new clsMatchType();
         clsMatchTypeController lController = new clsMatchTypeController();
 
+        clsPlayerType ccm = new clsPlayerType();
+        clsPlayerTypeController ccmc = new clsPlayerTypeController();
+
+
         #region MatchType
 
         int MatchType_ID
@@ -78,7 +82,7 @@ namespace DotNetNuke.Modules.ThSport
                 btnUpdateMatchType.Visible = true;
 
                 ClearData();
-
+                FillSport();
                 LinkButton btn = sender as LinkButton;
 
                 using (DataTable dt = lController.usp_GetMatchTypeByMatchTypeId(MatchType_ID))
@@ -92,6 +96,11 @@ namespace DotNetNuke.Modules.ThSport
                         if (!string.IsNullOrEmpty(dt.Rows[0]["MatchDesc"].ToString()))
                         {
                             txtMatchTypeDescription.Text = dt.Rows[0]["MatchDesc"].ToString();
+                        }
+
+                        if (!string.IsNullOrEmpty(dt.Rows[0]["SportID"].ToString()))
+                        {
+                            ddlSport.SelectedValue = dt.Rows[0]["SportID"].ToString();
                         }
                     }
                 }
@@ -119,6 +128,20 @@ namespace DotNetNuke.Modules.ThSport
         #endregion
 
         #region Methods
+
+        private void FillSport()
+        {
+            DataTable dt = new DataTable();
+            dt = ccmc.GetSport();
+            if (dt.Rows.Count > 0)
+            {
+                ddlSport.DataSource = dt;
+                ddlSport.DataTextField = "SportName";
+                ddlSport.DataValueField = "SportID";
+                ddlSport.DataBind();
+                ddlSport.Items.Insert(0, new ListItem("-- Select --", "0"));
+            }
+        }
 
         private void FillMatchTypeGridView()
         {
@@ -163,7 +186,7 @@ namespace DotNetNuke.Modules.ThSport
                 lClass.PortalID = currentUser.PortalID;
                 lClass.CreatedById = currentUser.Username;
                 lClass.ModifiedById = currentUser.Username;
-
+                lClass.SportID = Convert.ToInt32(ddlSport.SelectedValue);
                 lController.InsertMatchType(lClass);
 
                 pnlList.Visible = true;
@@ -180,6 +203,7 @@ namespace DotNetNuke.Modules.ThSport
             pnlList.Visible = false;
             btnSaveMatchType.Visible = true;
             btnUpdateMatchType.Visible = false;
+            FillSport();
 
         }
 
@@ -202,7 +226,7 @@ namespace DotNetNuke.Modules.ThSport
             lClass.ModifiedById = currentUser.Username;
 
             lClass.MatchTypeId = MatchType_ID;
-
+            lClass.SportID = Convert.ToInt32(ddlSport.SelectedValue);
             lController.UpdateMatchType(lClass);
 
             pnlEntry.Visible = false;
@@ -213,5 +237,6 @@ namespace DotNetNuke.Modules.ThSport
 
 
         #endregion
+
     }
 }

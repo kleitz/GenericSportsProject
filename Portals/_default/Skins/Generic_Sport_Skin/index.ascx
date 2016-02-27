@@ -7,7 +7,7 @@
 
 <!-- Adding CSS files into Skin -->
 
-<dnn:DnnCssInclude runat="server" FilePath="css/styles.css" PathNameAlias="SkinPath"/>
+<dnn:DnnCssInclude runat="server" FilePath="css/skin.css" PathNameAlias="SkinPath"/>
 
 <dnn:DnnCssInclude runat="server" FilePath="css/font-awesome.min.css" PathNameAlias="SkinPath"/>
 <dnn:DnnCssInclude runat="server" FilePath="css/jquery.sidr.light.css" PathNameAlias="SkinPath"/>
@@ -237,12 +237,12 @@
 		<div class="wrapper ad-pad clearfix">
 			
 			<!-- Column -->
-			<div class="col-1-2">
+			<div class="col-1-2" >
 					
 			<div class="col-md-12">
 				<div class="cs-section-title">
 					<h2>
-						LATEST RESULT
+						Latest Result
 					</h2>
 				</div>
 
@@ -252,7 +252,7 @@
 							<li>
 
 								<div class="post-675">
-									<div class="featured-event" style="background:url(/portals/_default/Skins/Generic_Sport_Skin/images/team-2.jpg) no-repeat;background-size:100%; ">
+									<div class="featured-event" style="background:url(/portals/_default/Skins/Generic_Sport_Skin/images/Chrysanthemum.jpg) no-repeat;background-size:100%; ">
 										<style>
 										.post-675 span.win:before {
 											background: none repeat scroll 0 0 #579f4b !important;
@@ -337,14 +337,67 @@
 
 		</div>
 			<!-- Column -->
-			<div class="col-1-4">
-				<h3>In Profile</h3>
+			<div class="col-1-4" style="float: left;margin-right: 2%;width: 23%;">
+				<!-- <h3>In Profile</h3>
 				<div class="mosaic-block circle"  style="height: 180px;">
 					<a href="#" class="mosaic-overlay fancybox link" title="Insert Your Title"></a><div class="mosaic-backdrop">
 					<div class="corner">Assistant Coach</div><img src="/portals/_default/Skins/Generic_Sport_Skin/images/team-2.jpg" alt="Mock" /></div>
 				</div>
 				<p>Morbi leo risus, porta ac conse ctetur ac, vestiosite Duis mollis, est non commodo luctus, nisi erat porttitor ligula. Maecenas sed diam eget risus varius
-				&#8230;<a href="widgets.html" class="read-more">More</a></p>
+				&#8230;<a href="widgets.html" class="read-more">More</a></p> -->
+				
+			<h3>Coming Match</h3>
+			<div class="text">
+				<ul runat="server" clientidmode="Static" id="scheduleUl" class="bxslider">
+			
+
+				<li>
+						<div class="pix-sc-team">
+							<div class="homepage_schedule_competition">
+
+								<span>Competition 1</span>
+							</div>
+							<ul>
+								<li>
+									<figure>
+										 <img src="/portals/_default/Skins/Generic_Sport_Skin/images/Chrysanthemum.jpg"  />
+										
+										</figure>
+								</li>
+								<li>
+									<span class="vs" style="color:gray;">
+										VS
+									</span>
+								</li>
+								<li>
+									<figure>
+										<img src="/portals/_default/Skins/Generic_Sport_Skin/images/Chrysanthemum.jpg"  />
+										
+									</figure>
+								</li>
+							</ul>
+							<div class="pix-sc-team-info" style="display:none;">
+								<p>
+									<span class="time-sec">
+									</span>
+								</p>
+							</div>
+						</div>
+
+						<header class="pix-cont-title">
+							<h2 class="pix-section-title">
+									 
+								
+								<span>Mar 01, 2016 @ 12:24 &nbsp;On&nbsp;
+									   Location 1
+								</span>
+							</h2>
+						</header>
+				</li>
+			
+				</ul>
+			</div>
+				
 			</div>
 						
 			<!-- Column -->

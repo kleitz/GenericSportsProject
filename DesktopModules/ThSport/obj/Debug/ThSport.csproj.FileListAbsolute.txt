@@ -22,9 +22,9 @@ F:\GenericSportsProject\bin\ThSport.xml
 F:\GenericSportsProject\DesktopModules\ThSport\obj\Debug\ThSport.csprojResolveAssemblyReference.cache
 F:\GenericSportsProject\DesktopModules\ThSport\obj\Debug\ThSport.dll
 F:\GenericSportsProject\DesktopModules\ThSport\obj\Debug\ThSport.pdb
-D:\GenericSportsProject\DesktopModules\ThSport\obj\Debug\ThSport.dll
 D:\GenericSportsProject\bin\ThSport.dll
 D:\GenericSportsProject\bin\ThSport.pdb
 D:\GenericSportsProject\bin\ThSport.xml
 D:\GenericSportsProject\DesktopModules\ThSport\obj\Debug\ThSport.csprojResolveAssemblyReference.cache
+D:\GenericSportsProject\DesktopModules\ThSport\obj\Debug\ThSport.dll
 D:\GenericSportsProject\DesktopModules\ThSport\obj\Debug\ThSport.pdb
