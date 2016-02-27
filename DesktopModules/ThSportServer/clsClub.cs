@@ -108,19 +108,7 @@ namespace ThSportServer
             return 0;
         }
 
-        public int InsertClubSports(int ClubID, int SportID)
-        {
-            try
-            {
-                dataProvider.ExecuteNonQuery("usp_InsertClubSports", ClubID, SportID);
-            }
-            catch (Exception ex)
-            {
-                Exceptions.LogException(ex);
-            }
-            return 0;
-        }
-        
+       
 
         public int UpdateClub(clsClub cc)
         {
@@ -137,19 +125,7 @@ namespace ThSportServer
             return i;
         }
 
-        public int UpdateClubSports(int ClubID, int SportID)
-        {
-            try
-            {
-                dataProvider.ExecuteNonQuery("usp_UpdateClubSports", ClubID, SportID);
-            }
-            catch (Exception ex)
-            {
-                Exceptions.LogException(ex);
-            }
-            return 0;
-        }
-
+       
         #endregion Insert,Update,Delete Methods
 
         public DataTable GetClubDataByClubID(int ClubID)

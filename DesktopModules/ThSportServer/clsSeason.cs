@@ -165,5 +165,25 @@ namespace ThSportServer
             }
         }
 
+        public DataTable GetSeasonListForCompetitionCupAndLeague(int sportID)
+        {
+            using (DataTable dt = new DataTable())
+            {
+                try
+                {
+                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetSeasonListForCompetitionCupAndLeague", sportID))
+                    {
+                        dt.Load(reader);
+                        return dt;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Exceptions.LogException(ex);
+                }
+                return dt;
+            }
+        }
+
     }
 }
