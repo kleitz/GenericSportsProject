@@ -98,6 +98,7 @@
     <Compile Include="Class1.cs" />
     <Compile Include="clsAddDocuments.cs" />
     <Compile Include="clsAddDocumentsType.cs" />
+    <Compile Include="clsCompetitionAllDetail.cs" />
     <Compile Include="clsCompetitionTeam.cs" />
     <Compile Include="clsDivisionTeams.cs" />
     <Compile Include="clsEvent.cs" />
@@ -123,6 +124,7 @@
     <Compile Include="clsRegistrationParentsOrRelatives.cs" />
     <Compile Include="clsSeason.cs" />
     <Compile Include="clsSport.cs" />
+    <Compile Include="clsTeamDirectory.cs" />
     <Compile Include="clsTeamMember.cs" />
     <Compile Include="clsTeamMemberType.cs" />
     <Compile Include="clsTeamPlayer.cs" />
@@ -141,6 +143,7 @@
     <Compile Include="DTOs\DTOAssign.cs" />
     <Compile Include="clsClubMemberType.cs" />
     <Compile Include="clsUserType.cs" />
+    <Compile Include="NewsDetail.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -150,6 +153,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceObjects\DTOAssign.cs" />
     <Compile Include="ServiceObjects\DTOTeamVideo.cs" />
+    <Compile Include="TeamsClass.cs" />
+    <Compile Include="UtilityFunctions.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="ThSportServer.sln" />

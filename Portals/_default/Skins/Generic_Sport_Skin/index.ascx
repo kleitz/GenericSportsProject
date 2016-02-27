@@ -7,7 +7,7 @@
 
 <!-- Adding CSS files into Skin -->
 
-<dnn:DnnCssInclude runat="server" FilePath="css/styles.css" PathNameAlias="SkinPath"/>
+<dnn:DnnCssInclude runat="server" FilePath="css/skin.css" PathNameAlias="SkinPath"/>
 
 <dnn:DnnCssInclude runat="server" FilePath="css/font-awesome.min.css" PathNameAlias="SkinPath"/>
 <dnn:DnnCssInclude runat="server" FilePath="css/jquery.sidr.light.css" PathNameAlias="SkinPath"/>
