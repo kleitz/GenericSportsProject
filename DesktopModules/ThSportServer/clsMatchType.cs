@@ -50,7 +50,7 @@ namespace ThSportServer
         {
             try
             {
-                dataProvider.ExecuteNonQuery("[usp_UpdateMatchType]",ms.SportID, ms.MatchTypeId, ms.MatchTypeName, ms.MatchTypeDescription,ms.ModifiedById);
+                dataProvider.ExecuteNonQuery("usp_UpdateMatchType",ms.SportID, ms.MatchTypeId, ms.MatchTypeName, ms.MatchTypeDescription,ms.ModifiedById);
             }
             catch (Exception ex)
             {
@@ -143,7 +143,7 @@ namespace ThSportServer
             {
                 try
                 {
-                    using (IDataReader reader = dataProvider.ExecuteReader("[usp_GetAllMatchType]"))
+                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetAllMatchType"))
                     {
                         dt.Load(reader);
                         return dt;

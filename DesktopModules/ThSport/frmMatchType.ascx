@@ -1,24 +1,25 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="frmMatchType.ascx.cs" Inherits="DotNetNuke.Modules.ThSport.frmMatchType" %>
-
-
-
 <%@ Register TagPrefix="dnn" Namespace="DotNetNuke.Web.Client.ClientResourceManagement" Assembly="DotNetNuke.Web.Client" %>
 
 <script type="text/javascript">
-    function validateTextBox(sender, args) {
+    function validateTextBox(sender, args)
+    {
         var txtcheckValue = args.Value;
 
         var chars = ['<', '>', '*', '$', '@', ',', '_', '%', '.', '!', '#', '^', '&', '(', ')', '-', '=', '+', '\\', '|', '?', '/', '[', ']', '{', '}'];
         args.IsValid = true;
 
-        if (txtcheckValue.length > 0) {
+        if (txtcheckValue.length > 0)
+        {
             var currentChar = txtcheckValue.charAt(0);
 
-            if (chars.indexOf(currentChar) >= 0) {
+            if (chars.indexOf(currentChar) >= 0)
+            {
                 args.IsValid = false;
                 txtcheckValue.value = "";
             }
-            else {
+            else
+            {
                 args.IsValid = true;
             }
         }
@@ -274,25 +275,25 @@
 
 <div id="divMatchTypesavemassage" runat="server" clientidmode="static" style="display: none; position: inherit !important;">
     <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/OtherImages/Ok.png")%>" />
-    <asp:Label CssClass="lobibox-body-text" ID="Label1" ClientIDMode="Static" runat="server" Text=" MatchType detail are save successfully. ">
+    <asp:Label CssClass="lobibox-body-text" ID="Label1" ClientIDMode="Static" runat="server" Text=" Match Type detail are save successfully. ">
     </asp:Label>
 </div>
 
 <div id="divMatchTypeupdatemassage" runat="server" clientidmode="static" style="display: none; position: inherit !important;">
     <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/OtherImages/Ok.png")%>" />
-    <asp:Label CssClass="lobibox-body-text" ID="Label2" ClientIDMode="Static" runat="server" Text=" MatchType detail are update successfully. ">
+    <asp:Label CssClass="lobibox-body-text" ID="Label2" ClientIDMode="Static" runat="server" Text=" Match Type detail are update successfully. ">
     </asp:Label>
 </div>
 
 <div id="divcancelmassage" runat="server" clientidmode="static" style="display: none;position:inherit !important;">
     <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/OtherImages/Cancel.png")%>" />
-     <asp:Label CssClass="lobibox-body-text" ID="Label3" ClientIDMode="Static" runat="server" Text=" MatchType detail are delete successfully. ">
+     <asp:Label CssClass="lobibox-body-text" ID="Label3" ClientIDMode="Static" runat="server" Text=" Match Type detail are delete successfully. ">
      </asp:Label>
 </div>
 
 <div id="dialogBox" runat="server" clientidmode="static" style="display: none;">
     <div class="lobibox-body-text-wrapper">
-        <asp:Label CssClass="lobibox-body-text" ID="msgConfirm" ClientIDMode="Static" runat="server" Text="Are You Sure, You Want to Save MatchType Details ?"></asp:Label>
+        <asp:Label CssClass="lobibox-body-text" ID="msgConfirm" ClientIDMode="Static" runat="server" Text="Are You Sure, You Want to Save Match Type Details ?"></asp:Label>
     </div>
 </div>
 
@@ -304,7 +305,7 @@
                 <div id="submenu" style="float: left;">
                     <ul>
                         <li class="active">
-                            <asp:LinkButton ID="btnAddMatchType" runat="server" Height="35px" Text=" Add MatchType" OnClick="btnAddMatchType_Click" ForeColor="White"></asp:LinkButton>
+                            <asp:LinkButton ID="btnAddMatchType" runat="server" Height="35px" Text=" Add Match Type" OnClick="btnAddMatchType_Click" ForeColor="White"></asp:LinkButton>
                         </li>
                     </ul>
                 </div>
@@ -319,7 +320,7 @@
                 <div class="portlet-title">
                     <div class="caption">
                         <i class="icon-reorder"></i>
-                        <span class="hidden-480">MatchType List</span>
+                        <span class="hidden-480">Match Type List</span>
                     </div>
                     <div class="tools">
                         <a href="javascript:;" class="collapse"></a>
@@ -337,7 +338,7 @@
                         <AlternatingRowStyle CssClass="grid-row grid-row-alternet" />
                         <Columns>
 
-                            <asp:BoundField DataField="MatchTypeName" HeaderText="Match Type Name" HeaderStyle-CssClass="grid-header-column" ItemStyle-Width="20%" HeaderStyle-Width="25%" ItemStyle-CssClass="grid-column" />
+                            <asp:BoundField DataField="MatchTypeName" HeaderText="Match Type " HeaderStyle-CssClass="grid-header-column" ItemStyle-Width="20%" HeaderStyle-Width="25%" ItemStyle-CssClass="grid-column" />
 
 
                             <asp:TemplateField HeaderText="Sport Name" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="20%">
@@ -428,7 +429,7 @@
                                         </div> 
                                     <div class="control-group">
                                         <label class="control-label">
-                                            <asp:Label ID="lblMatchTypeName" runat="server" Text="Type Name :"></asp:Label>
+                                            <asp:Label ID="lblMatchTypeName" runat="server" Text="Match Type :"></asp:Label>
                                         </label>
                                         <div class="startsetallfrom">
                                             <span class="help-inline"><font color="red"><b>*</b></font></span>
@@ -437,7 +438,7 @@
                                             <asp:TextBox ID="txtMatchTypeName" runat="server" CssClass="m-wrap large" />
                                             <asp:RequiredFieldValidator ID="rfvtxtMatchTypeName" runat="server" ErrorMessage="TypeName"
                                                 ControlToValidate="txtMatchTypeName" SetFocusOnError="true"
-                                                ValidationGroup="Sports" Text=" MatchType Name Required !" CssClass="errorfordnn" ClientIDMode="Static" />
+                                                ValidationGroup="Sports" Text=" Match Type Required !" CssClass="errorfordnn" ClientIDMode="Static" />
                                             <asp:RegularExpressionValidator ID="rgvtxtMatchTypeName"
                                                 Display="Static" ControlToValidate="txtMatchTypeName"
                                                 ValidationGroup="Sports" CssClass="errorfordnn"
@@ -453,7 +454,7 @@
 
                                     <div class="control-group">
                                         <label class="control-label">
-                                            <asp:Label ID="lblMatchTypeDescription" runat="server" Text="Type Description :"></asp:Label>
+                                            <asp:Label ID="lblMatchTypeDescription" runat="server" Text=" Description :"></asp:Label>
                                         </label>
                                         <%--  <div class="startsetallfrom">
                  <span class="help-inline"><font Color="red"><b>*</b></font></span>

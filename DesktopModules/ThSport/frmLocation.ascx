@@ -1,22 +1,25 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="frmLocation.ascx.cs" Inherits="DotNetNuke.Modules.ThSport.frmLocation" %>
-
 <%@ Register TagPrefix="dnn" Namespace="DotNetNuke.Web.Client.ClientResourceManagement" Assembly="DotNetNuke.Web.Client" %>
 
 <script type="text/javascript">
-    function validateTextBox(sender, args) {
+    function validateTextBox(sender, args)
+    {
         var txtcheckValue = args.Value;
 
         var chars = ['<', '>', '*', '$', '@', ',', '_', '%', '.', '!', '#', '^', '&', '(', ')', '-', '=', '+', '\\', '|', '?', '/', '[', ']', '{', '}'];
         args.IsValid = true;
 
-        if (txtcheckValue.length > 0) {
+        if (txtcheckValue.length > 0)
+        {
             var currentChar = txtcheckValue.charAt(0);
 
-            if (chars.indexOf(currentChar) >= 0) {
+            if (chars.indexOf(currentChar) >= 0)
+            {
                 args.IsValid = false;
                 txtcheckValue.value = "";
             }
-            else {
+            else
+            {
                 args.IsValid = true;
             }
         }
@@ -156,7 +159,7 @@
          var validated = Page_ClientValidate('Sports');
 
          if (btn_clientid == "btnUpdateLocation") {
-             document.getElementById("msgConfirm").innerHTML = "Are You Sure, You Want to Updat Location Details ?";
+             document.getElementById("msgConfirm").innerHTML = "Are You Sure, You Want to Update Location Details ?";
          }
 
          if (validated) {

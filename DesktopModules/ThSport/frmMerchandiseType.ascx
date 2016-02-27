@@ -1,10 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="frmMerchandiseType.ascx.cs" Inherits="DotNetNuke.Modules.ThSport.frmMerchandiseType" %>
-
-
-
 <%@ Register TagPrefix="dnn" Namespace="DotNetNuke.Web.Client.ClientResourceManagement" Assembly="DotNetNuke.Web.Client" %>
-
-
 
 <script type="text/javascript">
     function validateTextBox(sender, args) {
@@ -132,15 +127,14 @@
     }
 </script>
 
-
-
 <script type="text/javascript">
-
-
-    function validateAndConfirmClose(OnlyClose) {
+    function validateAndConfirmClose(OnlyClose)
+    {
         var validated = Page_ClientValidate('CloseSports');
-        if (OnlyClose == "btnCloseMerchandiseType") {
-            document.getElementById("msgConfirm").innerHTML = "Are You Sure, You Want to Close Match Type Form ?";
+
+        if (OnlyClose == "btnCloseMerchandiseType")
+        {
+            document.getElementById("msgConfirm").innerHTML = "Are You Sure, You Want to Close Merchandise Type Form ?";
         }
 
         if (validated) {
@@ -170,11 +164,13 @@
         return false;
     }
 
-    function validateAndConfirm(btn_clientid) {
+    function validateAndConfirm(btn_clientid)
+    {
         var validated = Page_ClientValidate('Sports');
 
-        if (btn_clientid == "btnUpdateMerchandiseType") {
-            document.getElementById("msgConfirm").innerHTML = "Are You Sure, You Want to Update Match Type Details ?";
+        if (btn_clientid == "btnUpdateMerchandiseType")
+        {
+            document.getElementById("msgConfirm").innerHTML = "Are You Sure, You Want to Update Merchandise Type Details ?";
         }
 
         if (validated) {
@@ -276,25 +272,25 @@
 
 <div id="divMerchandiseTypesavemassage" runat="server" clientidmode="static" style="display: none; position: inherit !important;">
     <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/OtherImages/Ok.png")%>" />
-    <asp:Label CssClass="lobibox-body-text" ID="Label1" ClientIDMode="Static" runat="server" Text=" MatchType detail are save successfully. ">
+    <asp:Label CssClass="lobibox-body-text" ID="Label1" ClientIDMode="Static" runat="server" Text=" Merchandise Type detail are save successfully. ">
     </asp:Label>
 </div>
 
 <div id="divMerchandiseTypeupdatemassage" runat="server" clientidmode="static" style="display: none; position: inherit !important;">
     <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/OtherImages/Ok.png")%>" />
-    <asp:Label CssClass="lobibox-body-text" ID="Label2" ClientIDMode="Static" runat="server" Text=" MatchType detail are update successfully. ">
+    <asp:Label CssClass="lobibox-body-text" ID="Label2" ClientIDMode="Static" runat="server" Text=" Merchandise Type detail are update successfully. ">
     </asp:Label>
 </div>
 
 <div id="divcancelmassage" runat="server" clientidmode="static" style="display: none;position:inherit !important;">
     <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/OtherImages/Cancel.png")%>" />
-     <asp:Label CssClass="lobibox-body-text" ID="Label3" ClientIDMode="Static" runat="server" Text=" MatchType detail are delete successfully. ">
+     <asp:Label CssClass="lobibox-body-text" ID="Label3" ClientIDMode="Static" runat="server" Text=" Merchandise Type detail are delete successfully. ">
      </asp:Label>
 </div>
 
 <div id="dialogBox" runat="server" clientidmode="static" style="display: none;">
     <div class="lobibox-body-text-wrapper">
-        <asp:Label CssClass="lobibox-body-text" ID="msgConfirm" ClientIDMode="Static" runat="server" Text="Are You Sure, You Want to Save MerchandiseType Details ?"></asp:Label>
+        <asp:Label CssClass="lobibox-body-text" ID="msgConfirm" ClientIDMode="Static" runat="server" Text="Are You Sure, You Want to Save Merchandise Type Details ?"></asp:Label>
     </div>
 </div>
 
@@ -306,7 +302,7 @@
                 <div id="submenu" style="float: left;">
                     <ul>
                         <li class="active">
-                            <asp:LinkButton ID="btnAddMerchandiseType" runat="server" Height="35px" Text=" Add MerchandiseType" OnClick="btnAddMerchandiseType_Click" ForeColor="White"></asp:LinkButton>
+                            <asp:LinkButton ID="btnAddMerchandiseType" runat="server" Height="35px" Text=" Add Merchandise Type" OnClick="btnAddMerchandiseType_Click" ForeColor="White"></asp:LinkButton>
                         </li>
                     </ul>
                 </div>
@@ -321,7 +317,7 @@
                 <div class="portlet-title">
                     <div class="caption">
                         <i class="icon-reorder"></i>
-                        <span class="hidden-480">MerchandiseType List</span>
+                        <span class="hidden-480">Merchandise Type List</span>
                     </div>
                     <div class="tools">
                         <a href="javascript:;" class="collapse"></a>
@@ -339,7 +335,7 @@
                         <AlternatingRowStyle CssClass="grid-row grid-row-alternet" />
                         <Columns>
 
-                            <asp:BoundField DataField="MerchandiseType" HeaderText="Merchandise Name" HeaderStyle-CssClass="grid-header-column" ItemStyle-Width="20%" HeaderStyle-Width="25%" ItemStyle-CssClass="grid-column" />
+                            <asp:BoundField DataField="MerchandiseType" HeaderText="Merchandise Type" HeaderStyle-CssClass="grid-header-column" ItemStyle-Width="20%" HeaderStyle-Width="25%" ItemStyle-CssClass="grid-column" />
 
                             <asp:TemplateField HeaderText="Description" HeaderStyle-CssClass="grid-header-column" HeaderStyle-VerticalAlign="Middle"
                                 ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Left" ItemStyle-Width="50%" HeaderStyle-Width="150px">
@@ -427,7 +423,7 @@
                                             <asp:TextBox ID="txtMerchandiseTypeName" runat="server" CssClass="m-wrap large" />
                                             <asp:RequiredFieldValidator ID="rfvtxtMerchandiseTypeName" runat="server" ErrorMessage="Merchandise Title"
                                                 ControlToValidate="txtMerchandiseTypeName" SetFocusOnError="true"
-                                                ValidationGroup="Sports" Text=" MerchandiseType Name Required !" CssClass="errorfordnn" ClientIDMode="Static" />
+                                                ValidationGroup="Sports" Text=" MerchandiseType Required !" CssClass="errorfordnn" ClientIDMode="Static" />
                                             <asp:RegularExpressionValidator ID="rgvtxtMerchandiseTypeName"
                                                 Display="Static" ControlToValidate="txtMerchandiseTypeName"
                                                 ValidationGroup="Sports" CssClass="errorfordnn"
@@ -443,7 +439,7 @@
 
                                     <div class="control-group">
                                         <label class="control-label">
-                                            <asp:Label ID="lblMerchandiseTypeDescription" runat="server" Text="Type Description :"></asp:Label>
+                                            <asp:Label ID="lblMerchandiseTypeDescription" runat="server" Text=" Description :"></asp:Label>
                                         </label>
                    
                                         <div class="controls" style="position: relative;">

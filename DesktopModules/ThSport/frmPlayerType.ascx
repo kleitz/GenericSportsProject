@@ -148,7 +148,7 @@
 
          if (OnlyClose == "btnCancelPlayerType")
          {
-             document.getElementById("msgConfirm").innerHTML = "Are You Sure, You Want to Close PlayerType Form ?";
+             document.getElementById("msgConfirm").innerHTML = "Are You Sure, You Want to Close Player Position Form ?";
          }
 
          if (validated) {
@@ -188,7 +188,7 @@
 
          if (btn_clientid == "btnUpdatePlayerType")
          {
-             document.getElementById("msgConfirm").innerHTML = "Are You Sure, You Want to Update PlayerType Details ?";
+             document.getElementById("msgConfirm").innerHTML = "Are You Sure, You Want to Update Player Position Details ?";
          }
 
          if (validated) {
@@ -236,25 +236,25 @@
 
 <div id="divsavemassage" runat="server" clientidmode="static" style="display: none;position:inherit !important;">
     <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/OtherImages/Ok.png")%>" />
-     <asp:Label CssClass="lobibox-body-text" ID="Label1" ClientIDMode="Static" runat="server" Text=" PlayerType detail are save successfully. ">
+     <asp:Label CssClass="lobibox-body-text" ID="Label1" ClientIDMode="Static" runat="server" Text=" Player Position detail are save successfully. ">
      </asp:Label>
 </div>
 
 <div id="divupdatemassage" runat="server" clientidmode="static" style="display: none;position:inherit !important;">
     <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/OtherImages/Ok.png")%>" />
-     <asp:Label CssClass="lobibox-body-text" ID="Label2" ClientIDMode="Static" runat="server" Text=" PlayerType detail are update successfully. ">
+     <asp:Label CssClass="lobibox-body-text" ID="Label2" ClientIDMode="Static" runat="server" Text=" Player Position detail are update successfully. ">
      </asp:Label>
 </div>
 
 <div id="divcancelmassage" runat="server" clientidmode="static" style="display: none;position:inherit !important;">
     <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/OtherImages/Cancel.png")%>" />
-     <asp:Label CssClass="lobibox-body-text" ID="Label3" ClientIDMode="Static" runat="server" Text=" PlayerType detail are delete successfully. ">
+     <asp:Label CssClass="lobibox-body-text" ID="Label3" ClientIDMode="Static" runat="server" Text=" Player Position detail are delete successfully. ">
      </asp:Label>
 </div>
 
 <div id="dialogBox" runat="server" clientidmode="static"  style="display:none;">
     <div class="lobibox-body-text-wrapper">
-        <asp:Label CssClass="lobibox-body-text" ID="msgConfirm" ClientIDMode="Static" runat="server" Text="Are You Sure, You Want to Save PlayerType Details ?"></asp:Label>
+        <asp:Label CssClass="lobibox-body-text" ID="msgConfirm" ClientIDMode="Static" runat="server" Text="Are You Sure, You Want to Save Player Position Details ?"></asp:Label>
     </div>
 </div>
 
@@ -310,7 +310,15 @@
                         <asp:Label ID="lblPlayerTypeID" runat="server" Text='<%#Eval("PlayerTypeID") %>'></asp:Label>
                     </div> 
                 </ItemTemplate>
-            </asp:TemplateField>
+            </asp:TemplateField>         
+
+            <asp:TemplateField HeaderText="Player Position" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="40%">
+				<ItemTemplate>
+                    <div class="grid-cell-inner" style="text-align:center;">
+					    <asp:Label ID="lblPlayerTypeName" runat="server" Text='<%#Eval("PlayerTypeName") %>' ToolTip=" Player Position"></asp:Label>
+                    </div> 
+				</ItemTemplate>
+			</asp:TemplateField>
 
             <asp:TemplateField HeaderText="Sport Name" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="40%">
 				<ItemTemplate>
@@ -320,18 +328,10 @@
 				</ItemTemplate>
 			</asp:TemplateField>
 
-            <asp:TemplateField HeaderText="Player Position" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="40%">
-				<ItemTemplate>
-                    <div class="grid-cell-inner" style="text-align:center;">
-					    <asp:Label ID="lblPlayerTypeName" runat="server" Text='<%#Eval("PlayerTypeName") %>' ToolTip=" Player Type Name"></asp:Label>
-                    </div> 
-				</ItemTemplate>
-			</asp:TemplateField>
-
             <asp:TemplateField HeaderText=" Description " HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center" Visible="false">
 				<ItemTemplate>
                     <div class="grid-cell-inner" style="text-align:center;">
-					    <asp:Label ID="lblPlayerTypeDesc" runat="server" Text='<%#Eval("PlayerTypeDesc") %>' ToolTip=" Player Type Description"></asp:Label>
+					    <asp:Label ID="lblPlayerTypeDesc" runat="server" Text='<%#Eval("PlayerTypeDesc") %>' ToolTip=" Player Position Description"></asp:Label>
                     </div> 
 				</ItemTemplate>
 			</asp:TemplateField>
