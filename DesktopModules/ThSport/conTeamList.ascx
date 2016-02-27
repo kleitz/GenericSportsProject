@@ -35,8 +35,9 @@
 
 		<div class="team-listing">
 
-			<asp:Repeater ID="rptrTeamListing" runat="server" OnItemDataBound="rptrTeamListing_ItemDataBound"
-                                            OnItemCommand="rptrTeamListing_OnItemCommand">
+			<asp:Repeater ID="rptrTeamListing" runat="server" 
+                                OnItemDataBound="rptrTeamListing_ItemDataBound"
+                                OnItemCommand="rptrTeamListing_OnItemCommand">
 				<ItemTemplate>
 					<article>
 						<div class="text">
@@ -91,8 +92,8 @@
                     
                                <asp:Literal ID="activepage" runat="server" Visible="false" Text='<%# "<span class=\"active\">" + Eval("PageIndex") + "</span>" %>' />
                                <asp:LinkButton ID="Pagingbtn" runat="server" 
-                                       CommandArgument='<%# Eval("PageIndex") %>' CommandName="newpage" 
-                                       Text='<%# Eval("PageText") %> ' Width="20px"></asp:LinkButton>
+                                                     CommandArgument='<%# Eval("PageIndex") %>' CommandName="newpage" 
+                                                     Text='<%# Eval("PageText") %> ' Width="20px"></asp:LinkButton>
                                 </li>
                           </ItemTemplate>
                         </asp:Repeater>
