@@ -4,7 +4,6 @@
 <%@ Register TagPrefix="dnn" TagName="LOGIN" Src="~/Admin/Skins/Login.ascx" %>
 <%@ Register TagPrefix="dnn" TagName="Meta" Src="~/Admin/Skins/Meta.ascx" %> 
 
-
 <!-- Adding CSS files into Skin -->
 
 <dnn:DnnCssInclude runat="server" FilePath="css/skin.css" PathNameAlias="SkinPath"/>
@@ -90,7 +89,7 @@
 	</div>	
     	
 	<!-- Post Header Area -->
- <div id="ContentPane" runat="server"></div>
+	<div id="ContentPane" runat="server"></div>
 	
 	<!-- Login Start -->
 
@@ -309,7 +308,7 @@
 												<i class="icon-flag5">
 												</i>
 												 <a href="" rel="tag">
-														Futsal
+														Sports
 												</a>              
 							
 											</li>

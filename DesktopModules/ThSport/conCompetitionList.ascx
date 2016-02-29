@@ -143,9 +143,7 @@
 					            <asp:HyperLink ID="comp_gallerylink"  runat="server" CssClass="Competitionbtn" Visible="false">Gallery</asp:HyperLink>
 				            </span>
                             <span>
-                                <asp:HyperLink ID="comp_newslink"  runat="server" CssClass="Competitionbtn" Visible="false">
-                                    News
-                                </asp:HyperLink> 
+                                <asp:HyperLink ID="comp_newslink"  runat="server" CssClass="Competitionbtn" Visible="false">News</asp:HyperLink> 
 				            </span>
                             <span>
 					            <asp:HyperLink ID="comp_videolink"  runat="server" CssClass="Competitionbtn" Visible="false">Video</asp:HyperLink>
@@ -163,4 +161,5 @@
     </div>
 </center>
 </asp:Panel>
+
 <asp:PlaceHolder ID="loadSelectedControl" runat="server"></asp:PlaceHolder>
