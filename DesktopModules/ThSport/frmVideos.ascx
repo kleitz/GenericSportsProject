@@ -438,8 +438,8 @@
                   <span class="help-inline"><font Color="red"><b>*</b></font></span>
                     </div>
                  <div class="controls" style="position:relative;">
-                      <asp:DropDownList ID="ddlSports" runat="server" CssClass="medium m-wrap" AutoPostBack="true"
-                          OnSelectedIndexChanged="ddlSports_SelectedIndexChanged"/>
+                      <asp:DropDownList ID="ddlSports" runat="server" CssClass="medium m-wrap"
+                          />
                      <asp:RequiredFieldValidator ID="rfvddlSport" ClientIDMode="Static" runat="server" InitialValue="0" 
                     ErrorMessage="Sport Required !" CssClass="errorfordnn" SetFocusOnError="true" ControlToValidate="ddlSports"
                     ValidationGroup="Sports" Text="Sport Required !"></asp:RequiredFieldValidator>
@@ -487,12 +487,11 @@
                    <asp:Label ID="lblClub" runat="server" Text="  Club :" ></asp:Label>
              </label>
              <div class="controls" style="position:relative;">
-                  <asp:DropDownList ID="ddlClub" runat="server" CssClass="medium m-wrap" AutoPostBack="true" 
-                      OnSelectedIndexChanged="ddlClub_SelectedIndexChanged"/>
+                  <asp:DropDownList ID="ddlClub" runat="server" CssClass="medium m-wrap" />
              </div>
         </div>
 
-    <div id="divclubowner" runat="server" visible="false">
+    <div id="divclubowner" runat="server" >
         <div class="control-group">
 		     <label class="control-label">
                    <asp:Label ID="lblClubOwner" runat="server" Text="  Club Owner :" ></asp:Label>
@@ -503,7 +502,7 @@
         </div>
      </div>
 
-     <div id="divclubmember" runat="server" visible="false">
+     <div id="divclubmember" runat="server" >
         <div class="control-group">
 		     <label class="control-label">
                    <asp:Label ID="lblClubMember" runat="server" Text="  Club Member :" ></asp:Label>
@@ -519,12 +518,11 @@
                    <asp:Label ID="lblTeam" runat="server" Text="  Team :" ></asp:Label>
              </label>
              <div class="controls" style="position:relative;">
-                  <asp:DropDownList ID="ddlTeam" runat="server" CssClass="medium m-wrap" AutoPostBack="true"
-                      OnSelectedIndexChanged="ddlTeam_SelectedIndexChanged"/>
+                  <asp:DropDownList ID="ddlTeam" runat="server" CssClass="medium m-wrap" />
              </div>
         </div>
 
-            <div id="divteammember" runat="server" visible="false">
+            <div id="divteammember" runat="server" >
         <div class="control-group">
 		     <label class="control-label">
                    <asp:Label ID="lblTeamMember" runat="server" Text="  Team Member :" ></asp:Label>
