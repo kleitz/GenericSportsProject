@@ -30,24 +30,26 @@
 </script>
 
     <script type="text/javascript">
-        function previewFile() {
+        function previewFile()
+        {
             var file = document.querySelector('#<%=NewsVideoLogoFile.ClientID %>').files[0];
             var reader = new FileReader();
 
-            reader.onloadend = function () {
+            reader.onloadend = function ()
+            {
                 preview.src = reader.result;
             }
 
-            if (file) {
+            if (file)
+            {
                 reader.readAsDataURL(file);
             }
-            else {
+            else
+            {
                 preview.src = "";
             }
         }
     </script>
-
-
 
 <script type="text/javascript">
     function previewFilelogo()
@@ -467,15 +469,9 @@
 		         <label class="control-label">
                        <asp:Label ID="lblSport" runat="server" Text=" Sport :" ></asp:Label>
                  </label>
-                <div class="startsetallfrom">
-                  <span class="help-inline"><font Color="red"><b>*</b></font></span>
-                    </div>
                  <div class="controls" style="position:relative;">
                       <asp:DropDownList ID="ddlSports" runat="server" CssClass="medium m-wrap" 
                           OnSelectedIndexChanged="ddlSports_SelectedIndexChanged"/>
-                     <asp:RequiredFieldValidator ID="rfvddlSport" ClientIDMode="Static" runat="server" InitialValue="0" 
-                    ErrorMessage="Sport Required !" CssClass="errorfordnn" SetFocusOnError="true" ControlToValidate="ddlSports"
-                    ValidationGroup="Sports" Text="Sport Required !"></asp:RequiredFieldValidator>
                  </div>
             </div>
 

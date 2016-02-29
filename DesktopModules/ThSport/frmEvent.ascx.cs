@@ -491,7 +491,7 @@ namespace DotNetNuke.Modules.ThSport
                 ddlSports.DataTextField = "SportName";
                 ddlSports.DataValueField = "SportID";
                 ddlSports.DataBind();
-                ddlSports.Items.Insert(0, new ListItem("-- Select Sport --", "0"));
+                ddlSports.Items.Insert(0, new ListItem("-- Select --", "0"));
             }
         }
 

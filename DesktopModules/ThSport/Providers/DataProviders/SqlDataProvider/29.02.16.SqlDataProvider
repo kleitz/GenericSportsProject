@@ -1,0 +1,1380 @@
+
+/****** Object:  StoredProcedure [dbo].[usp_GetClubIDAndClubName]    Script Date: 02/29/2016 15:09:11 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[usp_GetClubIDAndClubName]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[usp_GetClubIDAndClubName]
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_GetClubBySportID]    Script Date: 02/29/2016 15:09:11 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[usp_GetClubBySportID]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[usp_GetClubBySportID]
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_GetAllPlayer]    Script Date: 02/29/2016 15:09:11 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[usp_GetAllPlayer]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[usp_GetAllPlayer]
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_GetCompetitionVideoByCompetitionIDAndVideoType]    Script Date: 02/29/2016 15:09:11 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[usp_GetCompetitionVideoByCompetitionIDAndVideoType]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[usp_GetCompetitionVideoByCompetitionIDAndVideoType]
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_GetCompetitionSponsorByCompetitionID]    Script Date: 02/29/2016 15:09:11 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[usp_GetCompetitionSponsorByCompetitionID]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[usp_GetCompetitionSponsorByCompetitionID]
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_GetNewsByCompetitionId]    Script Date: 02/29/2016 15:09:11 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[usp_GetNewsByCompetitionId]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[usp_GetNewsByCompetitionId]
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_GetAllClubs]    Script Date: 02/29/2016 15:09:11 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[usp_GetAllClubs]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[usp_GetAllClubs]
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_GetAllTeams]    Script Date: 02/29/2016 15:09:11 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[usp_GetAllTeams]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[usp_GetAllTeams]
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_GetAllCompetition]    Script Date: 02/29/2016 15:09:11 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[usp_GetAllCompetition]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[usp_GetAllCompetition]
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_GetDetailAllTeamCompetitionGroupByCompetitionId]    Script Date: 02/29/2016 15:09:11 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[usp_GetDetailAllTeamCompetitionGroupByCompetitionId]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[usp_GetDetailAllTeamCompetitionGroupByCompetitionId]
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_GetTeamDetailByNotInTeamID]    Script Date: 02/29/2016 15:09:11 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[usp_GetTeamDetailByNotInTeamID]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[usp_GetTeamDetailByNotInTeamID]
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_GetTeamList]    Script Date: 02/29/2016 15:09:11 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[usp_GetTeamList]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[usp_GetTeamList]
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_GetTeamListByCompetitionId]    Script Date: 02/29/2016 15:09:11 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[usp_GetTeamListByCompetitionId]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[usp_GetTeamListByCompetitionId]
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_GetAllLeagueList]    Script Date: 02/29/2016 15:09:11 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[usp_GetAllLeagueList]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[usp_GetAllLeagueList]
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_GetCompetitionOnlyCup]    Script Date: 02/29/2016 15:09:12 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[usp_GetCompetitionOnlyCup]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[usp_GetCompetitionOnlyCup]
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_GetCompetitionOnlyLeague]    Script Date: 02/29/2016 15:09:12 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[usp_GetCompetitionOnlyLeague]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[usp_GetCompetitionOnlyLeague]
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_DeleteClubSports]    Script Date: 02/29/2016 15:09:12 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[usp_DeleteClubSports]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[usp_DeleteClubSports]
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_GetSportNotAssignByClubId]    Script Date: 02/29/2016 15:09:12 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[usp_GetSportNotAssignByClubId]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[usp_GetSportNotAssignByClubId]
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_GetClubSportListByClubId]    Script Date: 02/29/2016 15:09:12 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[usp_GetClubSportListByClubId]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[usp_GetClubSportListByClubId]
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_GetAllCompetitionList]    Script Date: 02/29/2016 15:09:12 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[usp_GetAllCompetitionList]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[usp_GetAllCompetitionList]
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_GetAllTeamsByUser]    Script Date: 02/29/2016 15:09:12 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[usp_GetAllTeamsByUser]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[usp_GetAllTeamsByUser]
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_GetSeasonListForCompetitionCupAndLeague]    Script Date: 02/29/2016 15:09:12 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[usp_GetSeasonListForCompetitionCupAndLeague]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[usp_GetSeasonListForCompetitionCupAndLeague]
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_GetSportDetailBySportName]    Script Date: 02/29/2016 15:09:12 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[usp_GetSportDetailBySportName]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[usp_GetSportDetailBySportName]
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_GetCompetitionVideoByCompetitionIDCheck]    Script Date: 02/29/2016 15:09:12 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[usp_GetCompetitionVideoByCompetitionIDCheck]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[usp_GetCompetitionVideoByCompetitionIDCheck]
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_GetCompetitionPhotoByCompetitionID]    Script Date: 02/29/2016 15:09:12 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[usp_GetCompetitionPhotoByCompetitionID]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[usp_GetCompetitionPhotoByCompetitionID]
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_InsertClubSports]    Script Date: 02/29/2016 15:09:12 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[usp_InsertClubSports]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[usp_InsertClubSports]
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_GetCompetitionResultsByCompetitionID]    Script Date: 02/29/2016 15:09:12 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[usp_GetCompetitionResultsByCompetitionID]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[usp_GetCompetitionResultsByCompetitionID]
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_GetCompetitionFixturesByCompetitionID]    Script Date: 02/29/2016 15:09:12 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[usp_GetCompetitionFixturesByCompetitionID]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[usp_GetCompetitionFixturesByCompetitionID]
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_GetAllMatchType]    Script Date: 02/29/2016 15:09:12 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[usp_GetAllMatchType]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[usp_GetAllMatchType]
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_UpdateMatchType]    Script Date: 02/29/2016 15:09:12 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[usp_UpdateMatchType]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[usp_UpdateMatchType]
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_InsertMatchType]    Script Date: 02/29/2016 15:09:12 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[usp_InsertMatchType]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[usp_InsertMatchType]
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_GetAllMatchStatus]    Script Date: 02/29/2016 15:09:12 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[usp_GetAllMatchStatus]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[usp_GetAllMatchStatus]
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_UpdateMatchStatus]    Script Date: 02/29/2016 15:09:12 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[usp_UpdateMatchStatus]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[usp_UpdateMatchStatus]
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_InsertMatchStatus]    Script Date: 02/29/2016 15:09:12 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[usp_InsertMatchStatus]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[usp_InsertMatchStatus]
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_UpdateDivision]    Script Date: 02/29/2016 15:09:12 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[usp_UpdateDivision]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[usp_UpdateDivision]
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_GetDivisionList]    Script Date: 02/29/2016 15:09:12 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[usp_GetDivisionList]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[usp_GetDivisionList]
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_InsertDivision]    Script Date: 02/29/2016 15:09:12 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[usp_InsertDivision]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[usp_InsertDivision]
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_GetDetailAllTeamList]    Script Date: 02/29/2016 15:09:12 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[usp_GetDetailAllTeamList]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[usp_GetDetailAllTeamList]
+GO
+
+
+/****** Object:  StoredProcedure [dbo].[usp_GetClubIDAndClubName]    Script Date: 02/29/2016 15:09:12 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROC [dbo].[usp_GetClubIDAndClubName]  
+  
+	@SportID int
+	
+AS  
+  
+ SELECT cl.ClubId, cl.ClubName 
+ FROM tblClub AS cl
+ INNER JOIN tblClubSports AS cs ON cl.ClubId = cs.ClubId
+ WHERE cs.SportId = @SportID and (cs.IsArchive=0 or cs.IsArchive is null)
+ 
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_GetClubBySportID]    Script Date: 02/29/2016 15:09:15 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROC [dbo].[usp_GetClubBySportID]
+
+	@SportID int
+	
+AS
+
+	SELECT cl.ClubId, cl.ClubName FROM tblClub AS cl
+	INNER JOIN tblClubSports AS cs ON cl.ClubId = cs.ClubId
+	WHERE cs.SportId = @SportID and (cs.IsArchive =0 or cs.IsArchive is null)
+	
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_GetAllPlayer]    Script Date: 02/29/2016 15:09:15 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+CREATE proc [dbo].[usp_GetAllPlayer]
+
+as 
+
+Select r.RegistrationId,u.FirstName +' '+ u.LastName AS PlayerName from tblTeamPlayer tp join tblRegistration r on tp.RegistrationID = r.RegistrationId join tblUsers u on r.UserId = u.UserId
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_GetCompetitionVideoByCompetitionIDAndVideoType]    Script Date: 02/29/2016 15:09:16 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROC [dbo].[usp_GetCompetitionVideoByCompetitionIDAndVideoType]  
+
+ @CompetitionID int,
+ @VideoType int
+ 
+AS  
+  
+ select vl.*,v.* from tblVideos v   
+ Inner Join tblVideoLinks vl on v.VideoId = vl.VideoId
+ join tblCompetition co on co.CompetitionId = vl.CompetitionId
+ where co.CompetitionId = @CompetitionID and v.VideoType = @VideoType
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_GetCompetitionSponsorByCompetitionID]    Script Date: 02/29/2016 15:09:17 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROC [dbo].[usp_GetCompetitionSponsorByCompetitionID]  
+
+ @CompetitionID int  
+ 
+AS  
+  
+ SELECT s.*,rs.*  FROM tblSponsor s
+ Inner Join tblRefSportsSponsor rs ON rs.SponsorID = s.SponsorId 
+ WHERE rs.CompetitionId = @CompetitionID
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_GetNewsByCompetitionId]    Script Date: 02/29/2016 15:09:17 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROC [dbo].[usp_GetNewsByCompetitionId]        
+  
+@CompetitionId int,        
+@PortalId int         
+  
+AS         
+  
+  
+ SELECT n.*,nl.*,DATENAME(MONTH, n.CreatedDate)+ ' ' + RIGHT('0' + DATENAME(DAY, n.CreatedDate), 2) + ', ' + DATENAME(YEAR, n.CreatedDate)   
+ AS CreatedOnDateChange     
+ FROM tblNewsLinks nl  
+ Inner Join tblNews n on n.NewsId = nl.NewsId  
+ WHERE nl.CompetitionId = @CompetitionId 
+ AND n.PortalId = @PortalId   
+ AND (n.IsArchive = 0 or n.IsArchive Is Null)  
+   
+ 
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_GetAllClubs]    Script Date: 02/29/2016 15:09:18 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+create proc [dbo].[usp_GetAllClubs] 
+
+as 
+
+Select * from tblClub where (IsArchive =0 or IsArchive is null)
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_GetAllTeams]    Script Date: 02/29/2016 15:09:18 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+create proc [dbo].[usp_GetAllTeams] 
+
+as 
+
+Select * from tblTeam where (IsArchive =0 or IsArchive is null)
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_GetAllCompetition]    Script Date: 02/29/2016 15:09:18 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+create proc [dbo].[usp_GetAllCompetition] 
+
+as 
+
+Select * from tblCompetition where (IsArchive =0 or IsArchive is null)
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_GetDetailAllTeamCompetitionGroupByCompetitionId]    Script Date: 02/29/2016 15:09:18 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+--exec usp_GetDetailAllTeamCompetitionGroupByCompetitionId 35
+CREATE Proc [dbo].[usp_GetDetailAllTeamCompetitionGroupByCompetitionId]            
+  
+ @CompetitionID int            
+   
+AS  
+    
+Select tm.TeamID,tm.TeamLogoFile as TeamLogo,tm.TeamName,co.CompetitionId,CompetitionName,CompetitionGroupName             
+from tblCompetitionTeams ct Inner join tblTeam tm on tm.TeamID = ct.TeamId  
+join tblCompetition co             
+on co.CompetitionId = ct.CompetitionId  
+    
+left join tblCompetitionGroup cg             
+    
+on cg.CompetitionID = co.CompetitionId and cg.CompetitionGroupID = ct.CompetitionGroupId             
+    
+where co.CompetitionId = @CompetitionID        
+    
+and (co.IsArchive = 0 or co.IsArchive Is Null)  
+and (tm.IsArchive = 0 or tm.IsArchive Is Null)  
+    
+order by co.CompetitionId,cg.CompetitionGroupID,tm.TeamName    
+       
+    
+       
+    
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_GetTeamDetailByNotInTeamID]    Script Date: 02/29/2016 15:09:18 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+  
+CREATE PROC [dbo].[usp_GetTeamDetailByNotInTeamID]      
+        
+      @TeamId int,  
+      @CompetitionID int
+        
+AS        
+      
+ --SELECT t.*,s.SportName,c.ClubName,dt.DivisionId FROM tblTeam t   
+ --Inner join tblSport s on s.SportID = t.SportId  
+ --Inner Join tblClub c on c.ClubId = t.ClubId  
+ --Inner Join tblDivisionTeam dt on dt.TeamId = t.TeamId
+ --Where t.TeamId not in(@TeamId)
+ SELECT t.*,s.SportName,c.ClubName,d.*,dt.* FROM tblTeam t  
+ Inner join tblCompetitionTeams ct on t.TeamId = ct.TeamId
+ Inner join tblSport s on s.SportID = t.SportId  
+ Inner Join tblClub c on c.ClubId = t.ClubId  
+ Inner Join tblDivisionTeam dt on dt.TeamId = t.TeamId
+ Inner Join tblDivision d on d.DivisionId = dt.DivisionId
+ Where (t.IsArchive = 0 Or t.IsArchive is null) and ct.CompetitionId =@CompetitionID and  t.TeamId not in(@TeamId)
+
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_GetTeamList]    Script Date: 02/29/2016 15:09:18 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+  
+CREATE PROC [dbo].[usp_GetTeamList]      
+        
+        
+AS        
+      
+ SELECT t.*,s.SportName,c.ClubName,d.*,dt.* FROM tblTeam t   
+ Inner join tblSport s on s.SportID = t.SportId  
+ Inner Join tblClub c on c.ClubId = t.ClubId  
+ Inner Join tblDivisionTeam dt on dt.TeamId = t.TeamId
+ Inner Join tblDivision d on d.DivisionId = dt.DivisionId
+  Where (t.IsArchive = 0 Or t.IsArchive is null)
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_GetTeamListByCompetitionId]    Script Date: 02/29/2016 15:09:18 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CReate PROC [dbo].[usp_GetTeamListByCompetitionId]      
+
+@CompetitionID int 
+        
+AS        
+      
+ SELECT t.*,s.SportName,c.ClubName,d.*,dt.* FROM tblTeam t  
+ Inner join tblCompetitionTeams ct on t.TeamId = ct.TeamId
+ Inner join tblSport s on s.SportID = t.SportId  
+ Inner Join tblClub c on c.ClubId = t.ClubId  
+ Inner Join tblDivisionTeam dt on dt.TeamId = t.TeamId
+ Inner Join tblDivision d on d.DivisionId = dt.DivisionId
+ Where (t.IsArchive = 0 Or t.IsArchive is null) and ct.CompetitionId =@CompetitionID
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_GetAllLeagueList]    Script Date: 02/29/2016 15:09:18 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+          
+CREATE PROC [dbo].[usp_GetAllLeagueList]        
+                              
+ @CompetitionID int,              
+ @Sport_ID int,        
+ @SeasonID int                  
+   
+ AS  
+                
+Declare @TopLastSeasonId int           
+set @TopLastSeasonId = (Select top 1 se.SeasonId FROM tblSeason AS se        
+inner join tblCompetition as co on co.SeasonID = se.SeasonId        
+inner join tblCompetitionTeams as ct on ct.CompetitionId = co.CompetitionId  
+WHERE co.SportID = @Sport_ID AND (co.IsArchive = 0 or co.IsArchive Is Null)  
+GROUP BY se.SeasonId, se.SeasonName            
+ORDER BY SeasonID DESC )        
+           
+IF @CompetitionID = 0                    
+BEGIN                    
+                
+ IF @CompetitionID = 0 AND @SeasonID = 0        
+ BEGIN        
+          
+  SELECT co.CompetitionId,co.CompetitionName,co.CompetitionDesc,convert(varchar(10),co.StartDate,101) AS StartDate,  
+  convert(varchar(10),co.EndDate,101) AS EndDate, co.CompetitionLogoFile,                          
+  Count(ct.TeamId) AS TotalTeam,   
+  (SELECT COUNT(*) FROM tblCompetitionGroup  WHERE CompetitionID = co.CompetitionId) AS TotalGroup,                              
+  (SELECT SponsorLogoFile FROM tblSponsor           
+  WHERE SponsorID IN(SELECT TOP 1 SponsorID FROM tblRefSportsSponsor           
+  WHERE CompetitionID = co.CompetitionId)) AS SponsorLogo                              
+  FROM tblCompetition co                           
+  join tblCompetitionTeams ct on ct.CompetitionId = co.CompetitionId  
+  WHERE co.SportID = @Sport_ID AND co.SeasonID = @TopLastSeasonId   
+  AND co.CompetitionTypeId in (Select CompetitionTypeId From tblCompetitionType where LOWER(CompetitionTypeName) = 'league')           
+  AND (co.IsArchive = 0 or co.IsArchive Is Null)  
+  GROUP BY co.CompetitionId,co.CompetitionName,co.StartDate,co.EndDate,          
+  co.CompetitionDesc,co.CompetitionLogoFile  
+  ORDER BY co.CompetitionName ASC          
+            
+   END        
+   ELSE        
+   BEGIN        
+            
+  SELECT co.CompetitionId,co.CompetitionName,co.CompetitionDesc,convert(varchar(10),co.StartDate,101) AS StartDate,  
+  convert(varchar(10),co.EndDate,101) AS EndDate, co.CompetitionLogoFile,                          
+  Count(ct.TeamId ) AS TotalTeam,   
+  (SELECT COUNT(*) FROM tblCompetitionGroup  WHERE CompetitionID = co.CompetitionId ) AS TotalGroup,                              
+  (SELECT SponsorLogoFile FROM tblSponsor           
+  WHERE SponsorID IN(SELECT TOP 1 SponsorID FROM tblRefSportsSponsor           
+  WHERE CompetitionID = co.CompetitionId)) AS SponsorLogo                              
+  FROM tblCompetition co                           
+  join tblCompetitionTeams ct on ct.CompetitionId = co.CompetitionId  
+  WHERE co.SportID = @Sport_ID AND co.SeasonID = @SeasonID   
+  AND co.CompetitionTypeId in (Select CompetitionTypeId From tblCompetitionType where LOWER(CompetitionTypeName) = 'league')           
+  AND (co.IsArchive =0 or co.IsArchive Is Null)  
+  GROUP BY co.CompetitionId,co.CompetitionName,co.StartDate,co.EndDate,          
+  co.CompetitionDesc,co.CompetitionLogoFile  
+  ORDER BY co.CompetitionName ASC          
+      END                        
+                        
+END                    
+ELSE                   
+BEGIN                    
+                       
+                       
+  IF @SeasonID = 0        
+  BEGIN        
+          
+ SELECT co.CompetitionId,co.CompetitionName,co.CompetitionDesc,convert(varchar(10),co.StartDate,101) AS StartDate,  
+ convert(varchar(10),co.EndDate,101) AS EndDate, co.CompetitionLogoFile,                          
+ Count(ct.TeamId) AS TotalTeam,   
+ (SELECT COUNT(*) FROM tblCompetitionGroup  WHERE CompetitionID = co.CompetitionId) AS TotalGroup,                              
+ (SELECT SponsorLogoFile FROM tblSponsor           
+ WHERE SponsorID IN(SELECT TOP 1 SponsorID FROM tblRefSportsSponsor  
+ WHERE CompetitionID = co.CompetitionId)) AS SponsorLogo                              
+ FROM tblCompetition co                           
+ join tblCompetitionTeams ct on ct.CompetitionId = co.CompetitionId  
+ WHERE co.CompetitionId = @CompetitionID AND co.SportID = @Sport_ID   
+ AND co.CompetitionTypeId in (Select CompetitionTypeId From tblCompetitionType where LOWER(CompetitionTypeName) = 'league')           
+ AND (co.IsArchive = 0 or co.IsArchive Is Null)  
+ GROUP BY co.CompetitionId,co.CompetitionName,co.StartDate,co.EndDate,          
+ co.CompetitionDesc,co.CompetitionLogoFile  
+ ORDER BY co.CompetitionName ASC          
+            
+   END        
+   ELSE        
+   BEGIN             
+   SELECT co.CompetitionId,co.CompetitionName,co.CompetitionDesc,convert(varchar(10),co.StartDate,101) AS StartDate,  
+ convert(varchar(10),co.EndDate,101) AS EndDate, co.CompetitionLogoFile,                          
+ Count(ct.TeamId) AS TotalTeam,   
+ (SELECT COUNT(*) FROM tblCompetitionGroup  WHERE CompetitionID = co.CompetitionId) AS TotalGroup,                              
+ (SELECT SponsorLogoFile FROM tblSponsor           
+ WHERE SponsorID IN(SELECT TOP 1 SponsorID FROM tblRefSportsSponsor  
+ WHERE CompetitionID = co.CompetitionId)) AS SponsorLogo                              
+ FROM tblCompetition co                           
+ join tblCompetitionTeams ct on ct.CompetitionId = co.CompetitionId  
+   WHERE co.CompetitionId = @CompetitionID AND co.SportID = @Sport_ID  
+   AND co.SeasonID = @SeasonID          
+   AND co.CompetitionTypeId in (Select CompetitionTypeId From tblCompetitionType where LOWER(CompetitionTypeName) = 'league')           
+   AND (co.IsArchive = 0 or co.IsArchive Is Null)  
+   GROUP BY co.CompetitionId,co.CompetitionName,co.StartDate,co.EndDate,co.CompetitionDesc,co.CompetitionLogoFile  
+   ORDER BY co.CompetitionName asc          
+   END                 
+                    
+        
+ END 
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_GetCompetitionOnlyCup]    Script Date: 02/29/2016 15:09:18 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+  
+-- EXEC usp_GetCompetitionOnlyCup 1,5            
+CREATE PROC [dbo].[usp_GetCompetitionOnlyCup]          
+          
+ @Sport_ID int,        
+ @SeasonID int          
+          
+AS           
+          
+ declare @TopLatestSeasonId int         
+ set @TopLatestSeasonId = (select top 1 se.SeasonId FROM tblSeason AS se      
+ inner join tblCompetition as co on co.SeasonID = se.SeasonId      
+ inner join tblCompetitionTeams as ct on ct.CompetitionId = co.CompetitionId  
+ WHERE co.SportID = @Sport_ID AND (se.IsArchive = 0 or se.IsArchive IS null)  
+ GROUP BY se.SeasonId, se.SeasonName          
+ ORDER BY SeasonID DESC)      
+        
+IF @SeasonID = 0      
+BEGIN      
+ SELECT CompetitionId AS CompetitionID,CompetitionName           
+ FROM tblCompetition   
+ WHERE SportID = @Sport_ID  
+   AND SeasonID = @TopLatestSeasonId  
+   AND CompetitionTypeId in (Select CompetitionTypeId from tblCompetitionType where CompetitionTypeName = 'Cup')  
+   AND (IsArchive = 0 or IsArchive = Null)  
+ ORDER BY CompetitionName           
+END      
+ELSE      
+BEGIN          
+ SELECT CompetitionId AS CompetitionID,CompetitionName           
+ FROM tblCompetition         
+ WHERE SportID = @Sport_ID         
+   AND SeasonID = @SeasonID        
+   AND CompetitionTypeId in (Select CompetitionTypeId from tblCompetitionType where CompetitionTypeName = 'Cup')  
+   AND (IsArchive = 0 or IsArchive = Null)  
+ ORDER BY CompetitionName           
+END
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_GetCompetitionOnlyLeague]    Script Date: 02/29/2016 15:09:18 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+  
+        
+--exec usp_GetCompetitionOnlyLeague 1,5           
+CREATE PROC [dbo].[usp_GetCompetitionOnlyLeague]            
+          
+ @Sport_ID int,          
+ @SeasonID int      
+          
+AS             
+        
+ declare @TopLatestSeasonId int         
+ set @TopLatestSeasonId = (select top 1 se.SeasonId FROM tblSeason AS se      
+ inner join tblCompetition as co on co.SeasonID = se.SeasonId      
+ inner join tblCompetitionTeams as ct on ct.CompetitionId = co.CompetitionId  
+ WHERE co.SportID = @Sport_ID AND (se.IsArchive = 0 or se.IsArchive Is null)  
+ GROUP BY se.SeasonId, se.SeasonName          
+ ORDER BY SeasonID DESC)      
+        
+IF @SeasonID = 0      
+BEGIN      
+ SELECT CompetitionId AS CompetitionID,CompetitionName           
+ FROM tblCompetition   
+ WHERE SportID = @Sport_ID  
+   AND SeasonID = @TopLatestSeasonId  
+   AND CompetitionTypeId in (Select CompetitionTypeId from tblCompetitionType where CompetitionTypeName = 'League')  
+   AND (IsArchive = 0 or IsArchive Is Null)  
+ ORDER BY CompetitionName           
+END      
+ELSE      
+BEGIN          
+ SELECT CompetitionId AS CompetitionID,CompetitionName           
+ FROM tblCompetition         
+ WHERE SportID = @Sport_ID         
+   AND SeasonID = @SeasonID        
+   AND CompetitionTypeId in (Select CompetitionTypeId from tblCompetitionType where CompetitionTypeName = 'League')  
+   AND (IsArchive = 0 or IsArchive Is Null)  
+ ORDER BY CompetitionName           
+END
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_DeleteClubSports]    Script Date: 02/29/2016 15:09:18 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [dbo].[usp_DeleteClubSports]  
+  
+@CLubSportID int
+  
+  
+AS     
+    
+ --Delete from tblClubSports
+ 
+ --Where ClubSportsId = @CLubSportID
+ 
+ 
+ Update tblClubSports set IsArchive =1 , ModifiedDate =GETDATE() where ClubSportsId = @CLubSportID
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_GetSportNotAssignByClubId]    Script Date: 02/29/2016 15:09:18 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE Proc [dbo].[usp_GetSportNotAssignByClubId]
+
+@ClubID int
+As
+
+Select * from tblSport s where SportID not in (select SportId from tblClubSports where ClubId =@ClubID and (IsArchive=0 or IsArchive is null))
+
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_GetClubSportListByClubId]    Script Date: 02/29/2016 15:09:18 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+  
+CREATE Proc [dbo].[usp_GetClubSportListByClubId]  
+  
+@ClubID int  
+As  
+  
+select * from tblClub c join  tblClubSports Cp  on c.ClubId = cp.ClubId Left Join tblSport s on cp.SportId = s.SportID where cp.ClubId= @ClubID and (cp.IsArchive =0 or cp.IsArchive is null)
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_GetAllCompetitionList]    Script Date: 02/29/2016 15:09:18 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+
+--EXEC usp_GetAllCompetitionList 0,1,0          
+CREATE PROC [dbo].[usp_GetAllCompetitionList]                              
+         
+ @CompetitionID int,                  
+ @Sport_ID int,            
+ @SeasonID int        
+         
+AS                        
+                     
+ 
+ declare @TopLastSeasonId int         
+ set @TopLastSeasonId = (select top 1 se.SeasonId FROM tblSeason AS se      
+ inner join tblCompetition as co on co.SeasonID = se.SeasonId      
+ inner join tblCompetitionTeams as ct on ct.CompetitionId = co.CompetitionId
+ WHERE co.SportID = @Sport_ID AND (se.IsArchive = 0 or se.IsArchive Is Null)
+ GROUP BY se.SeasonId, se.SeasonName          
+ ORDER BY SeasonID DESC )      
+                     
+ IF @CompetitionID = 0                    
+ Begin                    
+                    
+	IF @CompetitionID = 0 AND @SeasonID = 0      
+	BEGIN      
+        
+			SELECT co.CompetitionId,co.CompetitionName,co.CompetitionDesc,convert(varchar(10),co.StartDate,101) AS StartDate,                              
+			convert(varchar(10),co.EndDate,101) AS EndDate, co.CompetitionLogoFile,                        
+			Count(ct.TeamId) AS TotalTeam, 
+			(SELECT COUNT(*) FROM tblCompetitionGroup  WHERE CompetitionID = co.CompetitionId ) AS TotalGroup,                            
+			(SELECT SponsorLogoFile FROM tblSponsor         
+			WHERE SponsorID IN(SELECT TOP 1 SponsorID FROM tblRefSportsSponsor         
+			WHERE CompetitionID = co.CompetitionId)) AS SponsorLogo                            
+			FROM tblCompetition co                         
+			join tblCompetitionTeams ct on ct.CompetitionId = co.CompetitionId
+			WHERE co.SportID = @Sport_ID AND co.SeasonID = @TopLastSeasonId 
+			AND co.CompetitionTypeId in
+			(Select CompetitionTypeId from tblCompetitionType where LOWER(CompetitionTypeName) = 'cup')          
+			AND (co.IsArchive = 0 or co.IsArchive Is Null)
+			GROUP BY co.CompetitionId,co.CompetitionName,co.StartDate,co.EndDate,        
+			co.CompetitionDesc,co.CompetitionLogoFile
+			ORDER BY co.CompetitionName ASC        
+   END      
+   ELSE      
+   BEGIN      
+          
+			SELECT co.CompetitionId,co.CompetitionName,co.CompetitionDesc,convert(varchar(10),co.StartDate,101) AS StartDate,                              
+			convert(varchar(10),co.EndDate,101) AS EndDate, co.CompetitionLogoFile,                        
+			Count(ct.TeamId) AS TotalTeam, 
+			(SELECT COUNT(*) FROM tblCompetitionGroup  WHERE CompetitionID = co.CompetitionId ) AS TotalGroup,                            
+			(SELECT SponsorLogoFile FROM tblSponsor         
+			WHERE SponsorID IN(SELECT TOP 1 SponsorID FROM tblRefSportsSponsor         
+			WHERE CompetitionID = co.CompetitionId)) AS SponsorLogo                            
+			FROM tblCompetition co                         
+			join tblCompetitionTeams ct on ct.CompetitionId = co.CompetitionId
+			WHERE co.SportID = @Sport_ID AND co.SeasonID = @SeasonID 
+			AND co.CompetitionTypeId in
+			(Select CompetitionTypeId from tblCompetitionType where LOWER(CompetitionTypeName) = 'cup')          
+			AND (co.IsArchive = 0 or co.IsArchive Is Null)
+			GROUP BY co.CompetitionId,co.CompetitionName,co.StartDate,co.EndDate,        
+			co.CompetitionDesc,co.CompetitionLogoFile
+			ORDER BY co.CompetitionName ASC   
+         
+  END                
+  END                    
+  ELSE                    
+  BEGIN               
+      
+  IF @SeasonID = 0      
+  BEGIN      
+			SELECT co.CompetitionId,co.CompetitionName,co.CompetitionDesc,convert(varchar(10),co.StartDate,101) AS StartDate,                              
+			convert(varchar(10),co.EndDate,101) AS EndDate, co.CompetitionLogoFile,
+			Count(ct.TeamId) AS TotalTeam,
+			(SELECT COUNT(*) FROM tblCompetitionGroup  WHERE CompetitionID = co.CompetitionId) AS TotalGroup,                            
+			(SELECT SponsorLogoFile FROM tblSponsor         
+			WHERE SponsorID IN(SELECT TOP 1 SponsorID FROM tblRefSportsSponsor
+			WHERE CompetitionID = co.CompetitionId)) AS SponsorLogo                            
+			FROM tblCompetition co                         
+			join tblCompetitionTeams ct on ct.CompetitionId = co.CompetitionId              
+			WHERE co.CompetitionId = @CompetitionID AND co.SportID = @Sport_ID
+			AND co.CompetitionTypeId in
+			(Select CompetitionTypeId from tblCompetitionType where LOWER(CompetitionTypeName) = 'cup')   
+			AND (co.IsArchive = 0 or co.IsArchive Is Null)
+			GROUP BY co.CompetitionId,co.CompetitionName,co.StartDate,co.EndDate,        
+			co.CompetitionDesc,co.CompetitionLogoFile
+			ORDER BY co.CompetitionName ASC        
+   END      
+   ELSE 
+   BEGIN 
+             
+		SELECT co.CompetitionId,co.CompetitionName,co.CompetitionDesc,convert(varchar(10),co.StartDate,101) AS StartDate,
+		Convert(varchar(10),co.EndDate,101) AS EndDate, co.CompetitionLogoFile,                        
+		Count(ct.TeamID) AS TotalTeam,
+		(SELECT COUNT(*) FROM tblCompetitionGroup  WHERE CompetitionID = co.CompetitionId) AS TotalGroup,                            
+		(SELECT SponsorLogoFile FROM tblSponsor WHERE SponsorID IN(SELECT TOP 1 SponsorID FROM tblRefSportsSponsor 
+		WHERE CompetitionID = co.CompetitionId)) AS SponsorLogo                            
+		FROM tblCompetition co                         
+		join tblCompetitionTeams ct on ct.CompetitionId = co.CompetitionId
+		where co.CompetitionId = @CompetitionID         
+		and co.SportID = @Sport_ID
+		AND co.SeasonID = @SeasonID        
+		AND co.CompetitionTypeId in
+		(Select CompetitionTypeId from tblCompetitionType where LOWER(CompetitionTypeName) = 'cup')   
+		AND (co.IsArchive = 0 or co.IsArchive Is Null)                    
+		GROUP BY co.CompetitionId,co.CompetitionName,co.StartDate,co.EndDate,co.CompetitionDesc,co.CompetitionLogoFile
+		ORDER BY co.CompetitionName asc        
+		END                     
+		
+  END 
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_GetAllTeamsByUser]    Script Date: 02/29/2016 15:09:18 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+  -- exec usp_GetAllTeamsByUser 'host',29,0,0  
+      
+CREATE PROCEDURE [dbo].[usp_GetAllTeamsByUser]        
+                                    
+     @current_user varchar(100),      
+     @CompetitionId int,      
+     @CompetitionGroupId int,      
+     @TeamId int      
+                                            
+AS                                           
+   DECLARE @query nvarchar(MAX)                                        
+                              
+                               
+ SET @query =         
+       
+ 'Select ct.CompetitionTeamId,         
+  t.TeamId,ct.CompetitionId,cp.CompetitionName,cg.CompetitionGroupName,                        
+  t.TeamName,t.TeamLogoFile,t.TeamPhotoFile,      
+  (cp.CompetitionName + ''>>'' +     t.TeamName)                              
+ as TeamFullName                                             
+ from tblCompetitionTeams ct join tblCompetition Cp                                             
+ on ct.CompetitionId = cp.CompetitionId      
+ left join tblCompetitionGroup cg                                          
+ on cg.CompetitionGroupID = ct.CompetitionGroupId      
+ inner join tblTeam t on t.TeamId = ct.TeamId      
+ Where (t.IsArchive =0 or t.IsArchive is null)      
+ And (Cp.IsArchive =0 or Cp.IsArchive is null)'      
+                   
+      
+IF @TeamId !=0      
+BEGIN      
+ SET @query = @query + ' And t.TeamId =' + CONVERT(nvarchar(MAX),@TeamId)      
+END      
+      
+IF @CompetitionId != 0      
+BEGIN      
+ SET @query = @query + ' And ct.CompetitionId = ' + CONVERT(nvarchar(MAX),@CompetitionId)      
+END      
+      
+IF @CompetitionGroupId != 0      
+BEGIN      
+ SET @query = @query + ' And ct.CompetitionGroupId = ' + CONVERT(nvarchar(MAX),@CompetitionGroupId)      
+END      
+                              
+SET @query = @query + ' order by TeamFullName ASC'                            
+                                
+execute sp_executesql @query                                        
+                              
+print @query                                        
+      
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_GetSeasonListForCompetitionCupAndLeague]    Script Date: 02/29/2016 15:09:18 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+--EXEC usp_GetSeasonListForCompetitionCupAndLeague 1          
+CREATE PROC [dbo].[usp_GetSeasonListForCompetitionCupAndLeague]          
+  
+ @Sport_ID int          
+   
+AS          
+          
+ SELECT se.SeasonId AS SeasonID, se.SeasonName AS SeasonName           
+ FROM tblSeason AS se        
+ inner join tblCompetition as co on co.SeasonID = se.SeasonId        
+ inner join tblCompetitionTeams ct on ct.CompetitionId = co.CompetitionId  
+ WHERE co.SportId = @Sport_ID AND (se.IsArchive = 0 or se.IsArchive IS NULL)
+ GROUP BY se.SeasonId, se.SeasonName            
+ ORDER BY se.SeasonID DESC   
+ 
+ 
+   
+   
+   
+   
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_GetSportDetailBySportName]    Script Date: 02/29/2016 15:09:18 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+--EXEC usp_GetSportDetailBySportName  
+CREATE PROC [dbo].[usp_GetSportDetailBySportName]  
+          
+ @Sport_Name nvarchar(100)          
+           
+AS          
+          
+ Select * from tblSport where SportName = @Sport_Name
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_GetCompetitionVideoByCompetitionIDCheck]    Script Date: 02/29/2016 15:09:18 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE Proc [dbo].[usp_GetCompetitionVideoByCompetitionIDCheck]    
+
+ @CompetitionID int    
+ 
+AS
+    
+ select v.VideoYouTubeFile as VideoPath,v.VideoTitle as Title,'' from tblVideoLinks vl
+ Inner Join tblVideos v on v.VideoId = vl.VideoId
+ join tblCompetition co on co.CompetitionId = vl.CompetitionId
+ where co.CompetitionId = @CompetitionID and v.VideoType = 1  
+   
+ union   
+   
+   
+ select '',v.VideoTitle as Title,v.VideoOtherFile as OtherVideoPath from tblVideoLinks vl
+ Inner Join tblVideos v on v.VideoId = vl.VideoId
+ join tblCompetition co on co.CompetitionId = vl.CompetitionId
+ where co.CompetitionId = @CompetitionID and v.VideoType = 2  
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_GetCompetitionPhotoByCompetitionID]    Script Date: 02/29/2016 15:09:18 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROC [dbo].[usp_GetCompetitionPhotoByCompetitionID]  
+
+ @CompetitionID int  
+ 
+AS  
+  
+ SELECT p.PictureFile AS CompGalleryPath,p.PictureTitle
+ FROM tblPictureLinks pl   
+ Inner Join tblPictures p on p.PictureId = pl.PictureId
+ JOIN tblCompetition co ON co.CompetitionId = pl.CompetitionId
+ WHERE co.CompetitionId = @CompetitionID 
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_InsertClubSports]    Script Date: 02/29/2016 15:09:18 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROC [dbo].[usp_InsertClubSports]
+
+	@ClubId int,
+	@SportId int,
+	@PortalId int,
+	@CreatedBy nvarchar(100)
+	
+AS
+
+	INSERT INTO tblClubSports(ClubId,SportId,PortalID,CreatedById) Values (@ClubId,@SportId,@PortalId,@CreatedBy)
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_GetCompetitionResultsByCompetitionID]    Script Date: 02/29/2016 15:09:18 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE Proc [dbo].[usp_GetCompetitionResultsByCompetitionID]
+                      
+ @CompetitionID int        
+               
+as   
+  
+  
+SELECT  ma.MatchID, co.CompetitionName AS CompetitionName, co.CompetitionId AS CompetitionID,             
+	lo.Loc_LocationName AS LocationName, ma.StartDateTime as StartDate, ma.EndDateTime as EndDate,             
+	tmaA.TeamID as TeamAID, tmaA.TeamName AS TeamAName, tmaA.TeamLogoFile AS TeamALogo,             
+	tmaB.TeamID as TeamBID, tmaB.TeamName AS TeamBName, tmaB.TeamLogoFile AS TeamBLogo,             
+	mar.TeamATotal AS TeamAScore, mar.TeamBTotal AS TeamBScore, ma.MatchTypeId,             
+	ISNULL(mar.IsNoShow, 0) AS IsNoShow, ISNULL(mar.Ispanlty, 0) AS Ispanlty,             
+	ISNULL(mar.TeamApanlty, 0) AS TeamApenalty , ISNULL(mar.TeamBpanlty, 0) AS TeamBpenalty,             
+	ISNULL(mar.WinningTeam, 0) AS WinningTeam, ISNULL(mar.LosingTeam, 0) AS LosingTeam,       
+	ISNULL(mar.DrawTeam, 0) AS DrawTeam, ISNULL(winTeam.TeamName, '') AS WinningTeamName,       
+	ISNULL(lTeam.TeamName, '') AS LosingTeamName, ISNULL(dTeam.TeamName,'') AS DrawTeamName,       
+	mar.MatchResultId, mar.TeamApanlty, mar.TeamBpanlty      
+FROM  tblMatch AS ma             
+ INNER JOIN tblCompetitionTeams AS tmA ON ma.TeamAID = tmA.TeamID             
+ inner join tblTeam tmaA on tmA.TeamId = tmaA.TeamID        
+ INNER JOIN tblCompetitionTeams AS tmB ON ma.TeamBID = tmB.TeamID             
+ inner join tblTeam tmaB on tmB.TeamId = tmaB.TeamID        
+ INNER JOIN tblMatchResult AS mar ON ma.MatchID = mar.MatchID             
+ INNER JOIN tblCompetition AS co ON ma.CompetitionID = co.CompetitionId
+ INNER JOIN tblLocation AS lo ON ma.LocationID = lo.Loc_LocationID             
+ LEFT OUTER JOIN tblTeam AS winTeam ON mar.WinningTeam = winTeam.TeamID             
+ LEFT OUTER JOIN tblTeam AS lTeam ON mar.LosingTeam = lTeam.TeamID             
+ LEFT OUTER JOIN tblTeam AS dTeam ON mar.DrawTeam = dTeam.TeamID            
+ where co.CompetitionId = @CompetitionID  AND ma.IsFinalized = 1    
+ order by ma.StartDateTime 
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_GetCompetitionFixturesByCompetitionID]    Script Date: 02/29/2016 15:09:18 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE Proc [dbo].[usp_GetCompetitionFixturesByCompetitionID]                      
+
+ @CompetitionID int                      
+as   
+  
+  
+SELECT  Match.MatchID, Competition.CompetitionName, Competition.CompetitionId AS CompetitionID,                       
+	Location.Loc_LocationName AS LocationName,                       
+	Match.StartDateTime as StartDate , Match.EndDateTime as EndDate,                    
+	tmaA.TeamID AS TeamAID, tmaA.TeamName AS TeamAName, tmaA.TeamLogoFile as TeamALogo,                     
+	tmaB.TeamID AS TeamBID, tmaB.TeamName AS TeamBName, tmaB.TeamLogoFile as TeamBLogo,                  
+	0 as TeamAScore,0 as TeamBScore ,Match.MatchTypeId,            
+	0 as IsNoShow, 0 as Ispanlty, 0 as TeamApenalty, 0 as TeamBpenalty,            
+	0 as WinningTeam, 0 as LosingTeam, 0 as DrawTeam,            
+	'' as WinningTeamName, '' as  LosingTeamName, '' as DrawTeamName , 0 as MatchResultId, 0 as TeamApenalty, 0 as TeamBpenalty      
+	FROM  tblCompetitionTeams TeamA                       
+	INNER JOIN tblTeam tmaA on TeamA.TeamId = tmaA.TeamId        
+	INNER JOIN tblLocation Location                       
+	INNER JOIN tblMatch Match ON Location.Loc_LocationID = Match.LocationID                       
+	INNER JOIN tblCompetition Competition ON Competition.CompetitionId = Match.CompetitionID ON Match.TeamAID = TeamA.TeamID                       
+	INNER JOIN tblCompetitionTeams AS TeamB ON TeamB.TeamID = Match.TeamBID              
+	inner join tblTeam tmaB on TeamB.TeamID = tmaB.TeamID                
+	Where 1=1                 
+	--and CAST(StartDate as DATE) >= CAST(GETDATE() as DATE)                 
+	and (Competition.CompetitionId = @CompetitionID)                      
+	   AND Match.MatchID NOT IN (SELECT MatchID FROM tblMatchResult) AND Match.IsFinalized = 1 
+       
+       
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_GetAllMatchType]    Script Date: 02/29/2016 15:09:18 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+CREATE proc [dbo].[usp_GetAllMatchType]      
+
+ 
+    
+AS      
+      
+ Select * from tblMatchType mt left JOIN tblSport AS so ON mt.SportID = so.SportID where (mt.IsArchive =0 or mt.IsArchive is null)
+     
+
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_UpdateMatchType]    Script Date: 02/29/2016 15:09:18 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+CREATE proc [dbo].[usp_UpdateMatchType]  
+@SportID int,        
+  @MatchTypeId int,
+  @MatchTypeName varchar(50),
+ @MatchTypeDescription varchar(300),
+ @ModifiedById varchar(100)     
+      
+AS        
+        
+ Update tblMatchType set  
+ MatchTypeName = @MatchTypeName,  
+ MatchDesc = @MatchTypeDescription,
+ ModifiedById = @ModifiedById, 
+ SportId = @SportID, 
+ ModifiedDate = GETDATE()  
+   
+ Where MatchTypeId = @MatchTypeId  
+   
+
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_InsertMatchType]    Script Date: 02/29/2016 15:09:18 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+CREATE proc [dbo].[usp_InsertMatchType]      
+@SportID int,  
+ @MatchTypeName varchar(50),
+ @MatchTypeDescription varchar(300),
+  @PortalId Int,
+ @CreatedById varchar(100)      
+ 
+    
+AS      
+      
+ insert into tblMatchType    
+ (SportId,MatchTypeName,
+ MatchDesc,
+ PortalId,
+ CreatedById)       
+     values(@SportID,@MatchTypeName,@MatchTypeDescription,
+     @PortalId,    
+     @CreatedById) 
+
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_GetAllMatchStatus]    Script Date: 02/29/2016 15:09:18 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE proc [dbo].[usp_GetAllMatchStatus]      
+
+ 
+    
+AS      
+      
+ Select * from tblMatchStatus ms  left JOIN tblSport AS so ON ms.SportID = so.SportID
+ 
+     
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_UpdateMatchStatus]    Script Date: 02/29/2016 15:09:18 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE proc [dbo].[usp_UpdateMatchStatus]        
+  
+ @MatchStatusId int,  
+ @MatchStatusName varchar(50),
+ @SportID int,  
+ @ModifiedById varchar(100)     
+      
+AS        
+        
+ Update tblMatchStatus set  
+ MatchStatusName = @MatchStatusName,  
+ ModifiedById = @ModifiedById,
+ SportId= @SportID,  
+ ModifiedDate = GETDATE()  
+   
+ Where MatchStatusId = @MatchStatusId  
+   
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_InsertMatchStatus]    Script Date: 02/29/2016 15:09:18 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE proc [dbo].[usp_InsertMatchStatus]      
+@SportID int,
+ @MatchStatusName varchar(50),
+ @CreatedById varchar(100),      
+ @ModifiedById varchar(100)   
+    
+AS      
+      
+ insert into tblMatchStatus      
+ (SportId,MatchStatusName,
+ CreatedById,    
+ ModifiedById)       
+     values(@SportID,@MatchStatusName,
+     @CreatedById,    
+     @ModifiedById) 
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_UpdateDivision]    Script Date: 02/29/2016 15:09:19 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+  
+CREATE PROC [dbo].[usp_UpdateDivision]  
+  
+@DivisionId int,  
+ 
+@DivisionName varchar(100),  
+@DivisionAbbr varchar(5),  
+@DivisionDesc varchar(200),  
+@DivisionLogoName varchar(200),  
+@DivisionLogoFile varchar(200),  
+@DivisionLevel int,  
+@TotalNumofTeams int,  
+@PromotedNum int,  
+@DemotedNum int,  
+@IsArchive int,
+@PortalID int,  
+@ModifiedById varchar(100)  
+    
+AS     
+    
+Update tblDivision set  
+ 
+DivisionName = @DivisionName,  
+DivisionAbbr = @DivisionAbbr,  
+DivisionDesc = @DivisionDesc,  
+DivisionLogoName = @DivisionLogoName,  
+DivisionLogoFile = @DivisionLogoFile,  
+DivisionLevel = @DivisionLevel,  
+TotalNumofTeams =@TotalNumofTeams,  
+PromotedNum = @PromotedNum,  
+DemotedNum = @DemotedNum,  
+IsArchive = @IsArchive,
+PortalID = @PortalID,  
+ModifiedById = @ModifiedById,  
+ModifiedDate = GETDATE() Where DivisionId = @DivisionId
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_GetDivisionList]    Script Date: 02/29/2016 15:09:19 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROC [dbo].[usp_GetDivisionList]      
+      
+AS          
+        
+ Select d.* from tblDivision d    
+ --inner join tblSeason s on s.SeasonID = d.SeasonId    
+ where (d.IsArchive = 0 or d.IsArchive is null)
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_InsertDivision]    Script Date: 02/29/2016 15:09:19 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+  
+  
+CREATE PROC [dbo].[usp_InsertDivision]  
+  
+--@SeasonId int,  
+@DivisionName varchar(100),  
+@DivisionAbbr varchar(5),  
+@DivisionDesc varchar(200),  
+@DivisionLogoName varchar(200),  
+@DivisionLogoFile varchar(200),  
+@DivisionLevel int,  
+@TotalNumofTeams int,  
+@PromotedNum int,  
+@DemotedNum int, 
+@IsArchive int, 
+@PortalID int,  
+@CreatedById varchar(100),  
+@ModifiedById varchar(100)  
+  
+AS     
+    
+ INSERT INTO tblDivision  
+ (  
+DivisionName,  
+DivisionAbbr,  
+DivisionDesc,  
+DivisionLogoName,  
+DivisionLogoFile,  
+DivisionLevel,  
+TotalNumofTeams,  
+PromotedNum,  
+DemotedNum,  
+IsArchive,
+PortalID,  
+CreatedById,  
+ModifiedById)   
+    
+ VALUES   
+   
+( --(@SeasonId,  
+@DivisionName,  
+@DivisionAbbr,  
+@DivisionDesc,  
+@DivisionLogoName,  
+@DivisionLogoFile,  
+@DivisionLevel,  
+@TotalNumofTeams,  
+@PromotedNum,  
+@DemotedNum,  
+@IsArchive,
+@PortalID,  
+@CreatedById,  
+@ModifiedById)  
+GO
+
+/****** Object:  StoredProcedure [dbo].[usp_GetDetailAllTeamList]    Script Date: 02/29/2016 15:09:19 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+--EXEC usp_GetDetailAllTeamList 5  
+  
+CREATE PROC [dbo].[usp_GetDetailAllTeamList]    
+  
+	
+AS       
+  
+ SELECT DISTINCT TeamID,TeamLogoFile,TeamName, ISNULL(TeamAbbr, SUBSTRING(TeamName, 1, 3)) AS TeamAbbr               
+ FROM tblTeam      
+ WHERE IsArchive = 0 OR IsArchive is null 
+ ORDER BY TeamName     
+  
+  
+GO
+
+

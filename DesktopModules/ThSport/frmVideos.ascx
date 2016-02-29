@@ -434,15 +434,8 @@
 		         <label class="control-label">
                        <asp:Label ID="lblSport" runat="server" Text=" Sport :" ></asp:Label>
                  </label>
-                <div class="startsetallfrom">
-                  <span class="help-inline"><font Color="red"><b>*</b></font></span>
-                    </div>
                  <div class="controls" style="position:relative;">
-                      <asp:DropDownList ID="ddlSports" runat="server" CssClass="medium m-wrap"
-                          />
-                     <asp:RequiredFieldValidator ID="rfvddlSport" ClientIDMode="Static" runat="server" InitialValue="0" 
-                    ErrorMessage="Sport Required !" CssClass="errorfordnn" SetFocusOnError="true" ControlToValidate="ddlSports"
-                    ValidationGroup="Sports" Text="Sport Required !"></asp:RequiredFieldValidator>
+                      <asp:DropDownList ID="ddlSports" runat="server" CssClass="medium m-wrap"/>
                  </div>
             </div>
 
