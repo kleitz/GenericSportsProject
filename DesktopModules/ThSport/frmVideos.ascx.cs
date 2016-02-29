@@ -304,6 +304,8 @@ namespace DotNetNuke.Modules.ThSport
             FillCompetition();
             FillClubOwner();
             FillClubMember();
+            FillTeamMember();
+            FillPlayer();
             ddlvideotype.SelectedValue = "YouTube";
             divvideopath.Visible = true;
             divOtherVideoPath.Visible = false;

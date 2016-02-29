@@ -697,6 +697,7 @@ namespace DotNetNuke.Modules.ThSport
             btnSaveRegistration.Visible = true;
             btnUpdateRegistration.Visible = false;
             divAssignToTeam.Visible = false;
+            divUserRole.Visible = true;
             FillUserRole();
             FillUserType();
             FillCountry();
