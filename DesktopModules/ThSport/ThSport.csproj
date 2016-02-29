@@ -142,12 +142,14 @@
     <Compile Include="Components\FeatureController.cs" />
     <Compile Include="conCompetitionList.ascx.cs">
       <DependentUpon>conCompetitionList.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="conCompetitionList.ascx.designer.cs">
       <DependentUpon>conCompetitionList.ascx</DependentUpon>
     </Compile>
     <Compile Include="conTeamList.ascx.cs">
       <DependentUpon>conTeamList.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="conTeamList.ascx.designer.cs">
       <DependentUpon>conTeamList.ascx</DependentUpon>

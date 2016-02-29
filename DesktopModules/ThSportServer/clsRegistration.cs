@@ -410,7 +410,7 @@ namespace ThSportServer
         {
             try
             {
-                dataProvider.ExecuteNonQuery("usp_InsertClubOwner", cc.ClubID, cc.OwnerDescription, cc.OwnerPercentage, cc.PortalID, cc.CreatedById, cc.ModifiedById, cc.RegistrationId);
+                dataProvider.ExecuteNonQuery("usp_InsertClubOwner", cc.ClubID,cc.RegistrationId, cc.OwnerDescription, cc.OwnerPercentage, cc.PortalID, cc.CreatedById, cc.ModifiedById);
             }
             catch (Exception ex)
             {

@@ -610,14 +610,14 @@ namespace DotNetNuke.Modules.ThSport
                     {
                         cc.ClubID = Convert.ToInt32(ddlClub.SelectedValue);
                         cc.RegistrationId = Convert.ToInt32(dt1.Rows[0]["RegistrationId"].ToString());
-                        cc.OwnerDescription = txtClubOwnerDescription.Text.Trim();
-                        if (txtClubOwnerPercentage.Text == " ")
+                        cc.OwnerDescription = txtClubOwnerDescription.Text;
+                        if (string.IsNullOrEmpty( txtClubOwnerPercentage.Text))
                         {
                             cc.OwnerPercentage = 0;
                         }
                         else
                         {
-                            cc.OwnerPercentage = Convert.ToInt32(txtClubOwnerPercentage.Text.Trim());
+                            cc.OwnerPercentage = Convert.ToInt32(txtClubOwnerPercentage.Text);
                         }
 
                         ccc.InsertClubOwner(cc);
