@@ -12,14 +12,16 @@
             <h2 style="float:left;">Team List</h2>
             
 			<div style="float: right;">
-				<asp:TextBox ID="txtTeamSearch" runat="server" AutoPostBack="true" placeholder="Search For Team Name" Width="195px" style="margin-right:4px;"
-					OnTextChanged="txtTeamSearch_TextChanged" CssClass="m-wrap medium team-search-box teamlistingFilterTextBox res_text" AutoCompleteType="FirstName" />
+				<asp:TextBox ID="txtTeamSearch" runat="server" AutoPostBack="true" placeholder="Search For Team Name" 
+                                   Width="195px" style="margin-right:4px;" OnTextChanged="txtTeamSearch_TextChanged" 
+                                   CssClass="m-wrap medium team-search-box teamlistingFilterTextBox res_text" 
+                                   AutoCompleteType="FirstName" />
 
 				<asp:DropDownList ID="ddlCompetitionSearch" runat="server" CssClass="form-select res_text" Width="301px"
-					AutoPostBack="true" OnSelectedIndexChanged="ddlCompetitionSearch_SelectedIndexChanged" />
+					                      AutoPostBack="true" OnSelectedIndexChanged="ddlCompetitionSearch_SelectedIndexChanged" />
 			
 				<asp:DropDownList ID="ddlGroupSearch" runat="server" CssClass="form-select res_text" Width="323px"
-					AutoPostBack="true" OnSelectedIndexChanged="ddlGroupSearch_SelectedIndexChanged" />
+					                      AutoPostBack="true" OnSelectedIndexChanged="ddlGroupSearch_SelectedIndexChanged" />
 
 				<asp:Button ID="btnSearch" runat="server" Text="Search" CssClass="btnreadmore btn pix-bgcolrhvr" OnClick="btnSearch_Click" />
 				<asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="btnreadmore btn pix-bgcolrhvr" OnClick="btnClear_Click" />
@@ -31,6 +33,7 @@
                 </div>
 
 			</div>
+
 		</div>
 
 		<div class="team-listing">

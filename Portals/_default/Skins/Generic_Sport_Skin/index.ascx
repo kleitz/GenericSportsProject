@@ -68,7 +68,7 @@
 					<div class="main-header-left left adjust-left">
 						<!-- Start Logo -->
 						<a class="logo" href="index.html">
-							<img src="/portals/_default/Skins/Generic_Sport_Skin/images/logo-white.png" alt="Sport" />
+							<img src="/portals/_default/Skins/Generic_Sport_Skin/images/SportingWaveZambia.jpg" alt="Sport" />
 						</a>
 					</div>
 								
@@ -93,15 +93,15 @@
 	
 	<!-- Login Start -->
 
-		<div class="outter-wrapper nav-container post-header-area header-style-3">
-			<div id="navigation" class="clearfix">
-				<div class="post-header-center centered-menu">
-					<div class="nav megamenu_container wrapper">
-						<dnn:MENU id="newmenu" runat="server" MenuStyle="DNNMobileNav"></dnn:MENU>
-					</div>
+	<div class="outter-wrapper nav-container post-header-area header-style-3">
+		<div id="navigation" class="clearfix">
+			<div class="post-header-center centered-menu">
+				<div class="nav megamenu_container wrapper">
+					<dnn:MENU id="newmenu" runat="server" MenuStyle="DNNMobileNav"></dnn:MENU>
 				</div>
 			</div>
 		</div>
+	</div>
 		
 	<!-- Login Close -->
 		
@@ -699,7 +699,7 @@
 			<!-- Start Widget -->
 			<div class="col-1-4 widget last">
 				<a class="logo" href="index.html">
-					<img src="/portals/_default/Skins/Generic_Sport_Skin/images/logo-white.png" alt="Sport" />
+					<img src="/portals/_default/Skins/Generic_Sport_Skin/images/SportingWaveZambia.jpg" alt="Sport" />
 				</a>
 				<ul class="list-1">
 					<li>
