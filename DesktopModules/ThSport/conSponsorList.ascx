@@ -22,113 +22,16 @@
 							<div class="mosaic-backdrop"><img src="img/fill-3.jpg" alt="Mock" /></div></div>
 						</div>
 						
-						<!-- Start Thumbnail -->
-						<div class="col-1-3 element cat-1">
-							<div class="mosaic-block circle"><a href="img/fill-4.jpg" class="mosaic-overlay fancybox" data-fancybox-group="gallery" title="Insert Title"></a>
-							<div class="mosaic-backdrop"><img src="img/fill-4.jpg" alt="Mock" /></div></div>
-						</div>
-						
-						<!-- Start Thumbnail -->
-						<div class="col-1-3 element cat-2">
-							<div class="mosaic-block circle"><a href="img/fill-5.jpg" class="mosaic-overlay fancybox" data-fancybox-group="gallery" title="Insert Title"></a>
-							<div class="mosaic-backdrop"><img src="img/fill-5.jpg" alt="Mock" /></div></div>
-						</div>
-						
-						<!-- Start Thumbnail -->
-						<div class="col-1-3 element cat-1">
-							<div class="mosaic-block circle"><a href="img/fill-6.jpg" class="mosaic-overlay fancybox" data-fancybox-group="gallery" title="Insert Title"></a>
-							<div class="mosaic-backdrop"><img src="img/fill-6.jpg" alt="Mock" /></div></div>
-						</div>
-						
-						<!-- Start Thumbnail -->
-						<div class="col-1-3 element cat-2">
-							<div class="mosaic-block circle"><a href="img/fill-11.jpg" class="mosaic-overlay fancybox" data-fancybox-group="gallery" title="Insert Title"></a>
-							<div class="mosaic-backdrop"><img src="img/fill-11.jpg" alt="Mock" /></div></div>
-						</div>
-						
-						<!-- Start Thumbnail -->
-						<div class="col-1-3 element cat-1">
-							<div class="mosaic-block circle"><a href="img/fill-7.jpg" class="mosaic-overlay fancybox" data-fancybox-group="gallery" title="Insert Title"></a>
-							<div class="mosaic-backdrop"><img src="img/fill-7.jpg" alt="Mock" /></div></div>
-						</div>
-						
-						<!-- Start Thumbnail -->
-						<div class="col-1-3 element cat-2">
-							<div class="mosaic-block circle"><a href="img/fill-8.jpg" class="mosaic-overlay fancybox" data-fancybox-group="gallery" title="Insert Title"></a>
-							<div class="mosaic-backdrop"><img src="img/fill-8.jpg" alt="Mock" /></div></div>
-						</div>
-						
-						<!-- Start Thumbnail -->
-						<div class="col-1-3 element cat-1">
-							<div class="mosaic-block circle"><a href="img/fill-1.jpg" class="mosaic-overlay fancybox" data-fancybox-group="gallery" title="Insert Title"></a>
-							<div class="mosaic-backdrop"><img src="img/fill-1.jpg" alt="Mock" /></div></div>
-						</div>
-						
-						<!-- Start Thumbnail -->
-						<div class="col-1-3 element cat-2">
-							<div class="mosaic-block circle"><a href="img/fill-9.jpg" class="mosaic-overlay fancybox" data-fancybox-group="gallery" title="Insert Title"></a>
-							<div class="mosaic-backdrop"><img src="img/fill-9.jpg" alt="Mock" /></div></div>
-						</div>
-						
-						<!-- Start Thumbnail -->
-						<div class="col-1-3 element cat-1">
-							<div class="mosaic-block circle"><a href="img/fill-10.jpg" class="mosaic-overlay fancybox" data-fancybox-group="gallery" title="Insert Title"></a>
-							<div class="mosaic-backdrop"><img src="img/fill-10.jpg" alt="Mock" /></div></div>
-						</div>
-						
-						<!-- Start Thumbnail -->
-						<div class="col-1-3 element cat-2">
-							<div class="mosaic-block circle"><a href="img/fill-12.jpg" class="mosaic-overlay fancybox" data-fancybox-group="gallery" title="Insert Title"></a>
-							<div class="mosaic-backdrop"><img src="img/fill-12.jpg" alt="Mock" /></div></div>
-						</div>
-						
-						<!-- Start Thumbnail -->
-						<div class="col-1-3 element cat-1">
-							<div class="mosaic-block circle"><a href="img/fill-3.jpg" class="mosaic-overlay fancybox" data-fancybox-group="gallery" title="Insert Title"></a>
-							<div class="mosaic-backdrop"><img src="img/fill-3.jpg" alt="Mock" /></div></div>
-						</div>
-						
-						<!-- Start Thumbnail -->
-						<div class="col-1-3 element cat-2">
-							<div class="mosaic-block circle"><a href="img/fill-6.jpg" class="mosaic-overlay fancybox" data-fancybox-group="gallery" title="Insert Title"></a>
-							<div class="mosaic-backdrop"><img src="img/fill-6.jpg" alt="Mock" /></div></div>
-						</div>
-						
-						<!-- Start Thumbnail -->
-						<div class="col-1-3 element cat-1">
-							<div class="mosaic-block circle"><a href="img/fill-8.jpg" class="mosaic-overlay fancybox" data-fancybox-group="gallery" title="Insert Title"></a>
-							<div class="mosaic-backdrop"><img src="img/fill-8.jpg" alt="Mock" /></div></div>
-						</div>
-						
-						<!-- Start Thumbnail -->
-						<div class="col-1-3 element cat-2">
-							<div class="mosaic-block circle"><a href="img/fill-4.jpg" class="mosaic-overlay fancybox" data-fancybox-group="gallery" title="Insert Title"></a>
-							<div class="mosaic-backdrop"><img src="img/fill-4.jpg" alt="Mock" /></div></div>
-						</div>
 							
 					<!-- End Isotope -->		
 					</div>
 
 				</div>
-				
-				
-				
-
 			</div>
 			
 		</div>
 	</div>
     	
-    	
-    	
-    	
-    
-   
-    	
-
-
-
-
 <script type="text/javascript">
     $(document).ready(function () {
         $('.image-popup-no-margins').magnificPopup({
@@ -234,6 +137,7 @@ uncomment this part if you haven't added this code anywhere else
 											<i class="fa fa-plus"></i>                            </a>
 									</figcaption>
 								</figure>
+
 							</li>
 							
 						</ItemTemplate>

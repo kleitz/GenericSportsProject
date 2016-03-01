@@ -28,11 +28,6 @@ namespace DotNetNuke.Modules.ThSport
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (currentpage != "Club Admin")
-                titel.Text = "&raquo; Sponser Detail";
-            else
-                titel.Visible = false;
-
             clsSponsorController spo = new clsSponsorController();
 
             DataTable dt = spo.GetSponsorListForUserSide();

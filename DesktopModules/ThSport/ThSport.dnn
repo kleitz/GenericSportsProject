@@ -20,11 +20,11 @@
         <component type="Script">
           <scripts>
             <basePath>DesktopModules\ThSport</basePath>
-            <script type="Install">
+            <!--<script type="Install">
               <path>Providers\DataProviders\SqlDataProvider</path>
               <name>29.02.16.SqlDataProvider</name>
               <version>29.02.16</version>
-            </script>
+            </script>-->
             <script type="UnInstall">
               <path>Providers\DataProviders\SqlDataProvider</path>
               <name>Uninstall.SqlDataProvider</name>
