@@ -365,8 +365,6 @@
       </components>
     </package>
 
-  
-
     <package name="CompetitionList" type="Module" version="00.00.01">
       <friendlyName>CompetitionList</friendlyName>
       <description>DotNetNuke Corporation CompetitionList module</description>

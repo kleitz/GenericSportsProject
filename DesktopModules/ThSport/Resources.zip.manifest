@@ -4,5 +4,81 @@
       <path />
       <name>conCompetitionList.ascx</name>
     </file>
+    <file>
+      <path />
+      <name>conSponsorList.ascx</name>
+    </file>
+    <file>
+      <path />
+      <name>conTeamList.ascx</name>
+    </file>
+    <file>
+      <path />
+      <name>Edit.ascx</name>
+    </file>
+    <file>
+      <path />
+      <name>frmAddDocuments.ascx</name>
+    </file>
+    <file>
+      <path />
+      <name>frmAddDocumentsType.ascx</name>
+    </file>
+    <file>
+      <path />
+      <name>frmAdminMenu.ascx</name>
+    </file>
+    <file>
+      <path />
+      <name>frmAssignPlayerInTeam.ascx</name>
+    </file>
+    <file>
+      <path />
+      <name>frmClub.ascx</name>
+    </file>
+    <file>
+      <path />
+      <name>frmClubMember.ascx</name>
+    </file>
+    <file>
+      <path />
+      <name>frmClubMemberType.ascx</name>
+    </file>
+    <file>
+      <path />
+      <name>frmClubOwner.ascx</name>
+    </file>
+    <file>
+      <path />
+      <name>frmClubSport.ascx</name>
+    </file>
+    <file>
+      <path />
+      <name>frmCompetition.ascx</name>
+    </file>
+    <file>
+      <path />
+      <name>frmCompetitionFormat.ascx</name>
+    </file>
+    <file>
+      <path />
+      <name>frmCompetitionGroup.ascx</name>
+    </file>
+    <file>
+      <path />
+      <name>frmCompetitionLeague.ascx</name>
+    </file>
+    <file>
+      <path />
+      <name>frmCompetitionMatch.ascx</name>
+    </file>
+    <file>
+      <path />
+      <name>frmCompetitionTeam.ascx</name>
+    </file>
+    <file>
+      <path />
+      <name>frmCompetitionType.ascx</name>
+    </file>
   </files>
 </dotnetnuke>
