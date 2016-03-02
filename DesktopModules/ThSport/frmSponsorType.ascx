@@ -159,7 +159,7 @@
 
          if (OnlyClose == "btnCancelSponsorType")
          {
-             document.getElementById("msgConfirm").innerHTML = "Are You Sure, You Want to Close SponsorType Form ?";
+             document.getElementById("msgConfirm").innerHTML = "Are You Sure, You Want to Close Sponsor Type Form ?";
          }
 
          if (validated) {
@@ -199,7 +199,7 @@
 
          if (btn_clientid == "btnUpdateSponsorType")
          {
-             document.getElementById("msgConfirm").innerHTML = "Are You Sure, You Want to Update SponsorType Details ?";
+             document.getElementById("msgConfirm").innerHTML = "Are You Sure, You Want to Update Sponsor Type Details ?";
          }
 
          if (validated) {
@@ -247,25 +247,25 @@
 
 <div id="divsavemassage" runat="server" clientidmode="static" style="display: none;position:inherit !important;">
     <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/OtherImages/Ok.png")%>" />
-     <asp:Label CssClass="lobibox-body-text" ID="Label1" ClientIDMode="Static" runat="server" Text=" SponsorType detail are save successfully. ">
+     <asp:Label CssClass="lobibox-body-text" ID="Label1" ClientIDMode="Static" runat="server" Text=" Sponsor Type detail are save successfully. ">
      </asp:Label>
 </div>
 
 <div id="divupdatemassage" runat="server" clientidmode="static" style="display: none;position:inherit !important;">
     <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/OtherImages/Ok.png")%>" />
-     <asp:Label CssClass="lobibox-body-text" ID="Label2" ClientIDMode="Static" runat="server" Text=" SponsorType detail are update successfully. ">
+     <asp:Label CssClass="lobibox-body-text" ID="Label2" ClientIDMode="Static" runat="server" Text=" Sponsor Type detail are update successfully. ">
      </asp:Label>
 </div>
 
 <div id="divcancelmassage" runat="server" clientidmode="static" style="display: none;position:inherit !important;">
     <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/OtherImages/Cancel.png")%>" />
-     <asp:Label CssClass="lobibox-body-text" ID="Label3" ClientIDMode="Static" runat="server" Text=" SponsorType detail are delete successfully. ">
+     <asp:Label CssClass="lobibox-body-text" ID="Label3" ClientIDMode="Static" runat="server" Text=" Sponsor Type detail are delete successfully. ">
      </asp:Label>
 </div>
 
 <div id="dialogBox" runat="server" clientidmode="static"  style="display:none;">
     <div class="lobibox-body-text-wrapper">
-        <asp:Label CssClass="lobibox-body-text" ID="msgConfirm" ClientIDMode="Static" runat="server" Text="Are You Sure, You Want to Save SponsorType Details ?"></asp:Label>
+        <asp:Label CssClass="lobibox-body-text" ID="msgConfirm" ClientIDMode="Static" runat="server" Text="Are You Sure, You Want to Save Sponsor Type Details ?"></asp:Label>
     </div>
 </div>
 

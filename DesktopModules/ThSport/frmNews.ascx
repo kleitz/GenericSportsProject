@@ -30,24 +30,26 @@
 </script>
 
     <script type="text/javascript">
-        function previewFile() {
+        function previewFile()
+        {
             var file = document.querySelector('#<%=NewsVideoLogoFile.ClientID %>').files[0];
             var reader = new FileReader();
 
-            reader.onloadend = function () {
+            reader.onloadend = function ()
+            {
                 preview.src = reader.result;
             }
 
-            if (file) {
+            if (file)
+            {
                 reader.readAsDataURL(file);
             }
-            else {
+            else
+            {
                 preview.src = "";
             }
         }
     </script>
-
-
 
 <script type="text/javascript">
     function previewFilelogo()
@@ -467,15 +469,9 @@
 		         <label class="control-label">
                        <asp:Label ID="lblSport" runat="server" Text=" Sport :" ></asp:Label>
                  </label>
-                <div class="startsetallfrom">
-                  <span class="help-inline"><font Color="red"><b>*</b></font></span>
-                    </div>
                  <div class="controls" style="position:relative;">
-                      <asp:DropDownList ID="ddlSports" runat="server" CssClass="medium m-wrap" AutoPostBack="true"
+                      <asp:DropDownList ID="ddlSports" runat="server" CssClass="medium m-wrap" 
                           OnSelectedIndexChanged="ddlSports_SelectedIndexChanged"/>
-                     <asp:RequiredFieldValidator ID="rfvddlSport" ClientIDMode="Static" runat="server" InitialValue="0" 
-                    ErrorMessage="Sport Required !" CssClass="errorfordnn" SetFocusOnError="true" ControlToValidate="ddlSports"
-                    ValidationGroup="Sports" Text="Sport Required !"></asp:RequiredFieldValidator>
                  </div>
             </div>
 
@@ -520,12 +516,12 @@
                    <asp:Label ID="lblClub" runat="server" Text="  Club :" ></asp:Label>
              </label>
              <div class="controls" style="position:relative;">
-                  <asp:DropDownList ID="ddlClub" runat="server" CssClass="medium m-wrap" AutoPostBack="true" 
+                  <asp:DropDownList ID="ddlClub" runat="server" CssClass="medium m-wrap" 
                       OnSelectedIndexChanged="ddlClub_SelectedIndexChanged"/>
              </div>
         </div>
 
-    <div id="divclubowner" runat="server" visible="false">
+    <div id="divclubowner" runat="server" >
         <div class="control-group">
 		     <label class="control-label">
                    <asp:Label ID="lblClubOwner" runat="server" Text="  Club Owner :" ></asp:Label>
@@ -536,7 +532,7 @@
         </div>
      </div>
 
-            <div id="divclubmember" runat="server" visible="false">
+            <div id="divclubmember" runat="server">
         <div class="control-group">
 		     <label class="control-label">
                    <asp:Label ID="lblClubMember" runat="server" Text="  Club Member :" ></asp:Label>
@@ -552,12 +548,12 @@
                    <asp:Label ID="lblTeam" runat="server" Text="  Team :" ></asp:Label>
              </label>
              <div class="controls" style="position:relative;">
-                  <asp:DropDownList ID="ddlTeam" runat="server" CssClass="medium m-wrap" AutoPostBack="true"
+                  <asp:DropDownList ID="ddlTeam" runat="server" CssClass="medium m-wrap" 
                       OnSelectedIndexChanged="ddlTeam_SelectedIndexChanged"/>
              </div>
         </div>
 
-            <div id="divteammember" runat="server" visible="false">
+            <div id="divteammember" runat="server">
         <div class="control-group">
 		     <label class="control-label">
                    <asp:Label ID="lblTeamMember" runat="server" Text="  Team Member :" ></asp:Label>
@@ -722,7 +718,7 @@
              </label>
             <div class="controls" style="position:relative;">
                     <asp:DropDownList ID="ddlvideotype" runat="server" Width="320px" Height="34px" 
-                                      OnSelectedIndexChanged="ddlvideotype_SelectedIndexChanged" AutoPostBack="true">
+                                      OnSelectedIndexChanged="ddlvideotype_SelectedIndexChanged" >
                             <asp:ListItem Value="YouTube">YouTube</asp:ListItem>
                             <asp:ListItem Value="Other">Other</asp:ListItem>
                     </asp:DropDownList>

@@ -2,22 +2,24 @@
 
 <script type="text/javascript">
 
-    function validateTextBox(sender, args) {
-
+    function validateTextBox(sender, args)
+    {
         var txtcheckValue = args.Value;
 
         var chars = ['<', '>', '*', '$', '@', ',', '_', '%', '.', '!', '#', '^', '&', '(', ')', '-', '=', '+', '\\', '|', '?', '/', '[', ']', '{', '}'];
         args.IsValid = true;
 
-        if (txtcheckValue.length > 0) {
+        if (txtcheckValue.length > 0)
+        {
             var currentChar = txtcheckValue.charAt(0);
 
-            if (chars.indexOf(currentChar) >= 0) {
+            if (chars.indexOf(currentChar) >= 0)
+            {
                 args.IsValid = false;
                 txtcheckValue.value = "";
-
             }
-            else {
+            else
+            {
                 args.IsValid = true;
             }
         }
@@ -147,7 +149,7 @@
          var validated = Page_ClientValidate('CloseSports');
 
          if (OnlyClose == "btnCancelCompetitionType") {
-             document.getElementById("msgConfirm").innerHTML = "Are You Sure, You Want to Close CompetitionType Form ?";
+             document.getElementById("msgConfirm").innerHTML = "Are You Sure, You Want to Close Competition Type Form ?";
          }
 
          if (validated) {
@@ -184,7 +186,7 @@
          var validated = Page_ClientValidate('Sports');
 
          if (btn_clientid == "btnUpdateCompetitionType") {
-             document.getElementById("msgConfirm").innerHTML = "Are You Sure, You Want to Update CompetitionType Details ?";
+             document.getElementById("msgConfirm").innerHTML = "Are You Sure, You Want to Update Competition Type Details ?";
          }
 
          if (validated) {
@@ -230,25 +232,25 @@
 
 <div id="divsavemassage" runat="server" clientidmode="static" style="display: none;position:inherit !important;">
     <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/OtherImages/Ok.png")%>" />
-     <asp:Label CssClass="lobibox-body-text" ID="Label1" ClientIDMode="Static" runat="server" Text=" CompetitionType detail are save successfully. ">
+     <asp:Label CssClass="lobibox-body-text" ID="Label1" ClientIDMode="Static" runat="server" Text=" Competition Type detail are save successfully. ">
      </asp:Label>
 </div>
 
 <div id="divupdatemassage" runat="server" clientidmode="static" style="display: none;position:inherit !important;">
     <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/OtherImages/Ok.png")%>" />
-     <asp:Label CssClass="lobibox-body-text" ID="Label2" ClientIDMode="Static" runat="server" Text=" CompetitionType detail are update successfully. ">
+     <asp:Label CssClass="lobibox-body-text" ID="Label2" ClientIDMode="Static" runat="server" Text=" Competition Type detail are update successfully. ">
      </asp:Label>
 </div>
 
 <div id="divcancelmassage" runat="server" clientidmode="static" style="display: none;position:inherit !important;">
     <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/OtherImages/Cancel.png")%>" />
-     <asp:Label CssClass="lobibox-body-text" ID="Label3" ClientIDMode="Static" runat="server" Text=" CompetitionType detail are delete successfully. ">
+     <asp:Label CssClass="lobibox-body-text" ID="Label3" ClientIDMode="Static" runat="server" Text=" Competition Type detail are delete successfully. ">
      </asp:Label>
 </div>
 
 <div id="dialogBox" runat="server" clientidmode="static"  style="display:none;">
     <div class="lobibox-body-text-wrapper">
-        <asp:Label CssClass="lobibox-body-text" ID="msgConfirm" ClientIDMode="Static" runat="server" Text="Are You Sure, You Want to Save CompetitionType Details ?"></asp:Label>
+        <asp:Label CssClass="lobibox-body-text" ID="msgConfirm" ClientIDMode="Static" runat="server" Text="Are You Sure, You Want to Save Competition Type Details ?"></asp:Label>
     </div>
 </div>
 
@@ -407,7 +409,7 @@
 
         <div class="control-group">
 		    <label class="control-label">
-            <asp:Label ID="lblActive" runat="server" Text=" Is Active :"></asp:Label>
+            <asp:Label ID="lblActive" runat="server" Text=" IsActive :"></asp:Label>
         </label>
             <div class="controls">
                 <label class="checkbox"> 
@@ -418,7 +420,7 @@
 
        <div class="control-group">
 		    <label class="control-label">
-            <asp:Label ID="lblShow" runat="server" Text=" Is Show :"></asp:Label>
+            <asp:Label ID="lblShow" runat="server" Text=" IsShow :"></asp:Label>
         </label>
             <div class="controls">
                 <label class="checkbox"> 

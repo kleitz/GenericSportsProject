@@ -148,7 +148,7 @@
 
          if (OnlyClose == "btnCancelTeamMemberType")
          {
-             document.getElementById("msgConfirm").innerHTML = "Are You Sure, You Want to Close TeamMemberType Form ?";
+             document.getElementById("msgConfirm").innerHTML = "Are You Sure, You Want to Close Team Member Position Form ?";
          }
 
          if (validated) {
@@ -186,7 +186,7 @@
 
          if (btn_clientid == "btnUpdateTeamMemberType")
          {
-             document.getElementById("msgConfirm").innerHTML = "Are You Sure, You Want to Update TeamMemberType Details ?";
+             document.getElementById("msgConfirm").innerHTML = "Are You Sure, You Want to Update Team Member Position Details ?";
          }
 
          if (validated) {
@@ -232,25 +232,25 @@
 
 <div id="divsavemassage" runat="server" clientidmode="static" style="display: none;position:inherit !important;">
     <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/OtherImages/Ok.png")%>" />
-     <asp:Label CssClass="lobibox-body-text" ID="Label1" ClientIDMode="Static" runat="server" Text=" TeamMemberType detail are save successfully. ">
+     <asp:Label CssClass="lobibox-body-text" ID="Label1" ClientIDMode="Static" runat="server" Text=" Team Member Position detail are save successfully. ">
      </asp:Label>
 </div>
 
 <div id="divupdatemassage" runat="server" clientidmode="static" style="display: none;position:inherit !important;">
     <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/OtherImages/Ok.png")%>" />
-     <asp:Label CssClass="lobibox-body-text" ID="Label2" ClientIDMode="Static" runat="server" Text=" TeamMemberType detail are update successfully. ">
+     <asp:Label CssClass="lobibox-body-text" ID="Label2" ClientIDMode="Static" runat="server" Text=" Team Member Position detail are update successfully. ">
      </asp:Label>
 </div>
 
 <div id="divcancelmassage" runat="server" clientidmode="static" style="display: none;position:inherit !important;">
     <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/OtherImages/Cancel.png")%>" />
-     <asp:Label CssClass="lobibox-body-text" ID="Label3" ClientIDMode="Static" runat="server" Text=" TeamMemberType detail are delete successfully. ">
+     <asp:Label CssClass="lobibox-body-text" ID="Label3" ClientIDMode="Static" runat="server" Text=" Team Member Position detail are delete successfully. ">
      </asp:Label>
 </div>
 
 <div id="dialogBox" runat="server" clientidmode="static"  style="display:none;">
     <div class="lobibox-body-text-wrapper">
-        <asp:Label CssClass="lobibox-body-text" ID="msgConfirm" ClientIDMode="Static" runat="server" Text="Are You Sure, You Want to Save TeamMemberType Details ?"></asp:Label>
+        <asp:Label CssClass="lobibox-body-text" ID="msgConfirm" ClientIDMode="Static" runat="server" Text="Are You Sure, You Want to Save Team Member Position Details ?"></asp:Label>
     </div>
 </div>
 
@@ -308,14 +308,6 @@
                 </ItemTemplate>
             </asp:TemplateField>
 
-           <asp:TemplateField HeaderText="Sport Name" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="40%">
-				<ItemTemplate>
-                    <div class="grid-cell-inner" style="text-align:center;">
-					    <asp:Label ID="lblSportName" runat="server" Text='<%#Eval("SportName") %>' ToolTip=" Sport Name"></asp:Label>
-                    </div> 
-				</ItemTemplate>
-			</asp:TemplateField>
-
             <asp:TemplateField HeaderText="Team Member Position" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="40%">
 				<ItemTemplate>
                     <div class="grid-cell-inner" style="text-align:center;">
@@ -324,6 +316,14 @@
 				</ItemTemplate>
 			</asp:TemplateField>
 
+           <asp:TemplateField HeaderText="Sport Name" HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="40%">
+				<ItemTemplate>
+                    <div class="grid-cell-inner" style="text-align:center;">
+					    <asp:Label ID="lblSportName" runat="server" Text='<%#Eval("SportName") %>' ToolTip=" Sport Name"></asp:Label>
+                    </div> 
+				</ItemTemplate>
+			</asp:TemplateField>
+         
             <asp:TemplateField HeaderText=" Description " HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center" Visible="false">
 				<ItemTemplate>
                     <div class="grid-cell-inner" style="text-align:center;">
@@ -452,7 +452,7 @@
 
         <div class="control-group">
 		    <label class="control-label">
-            <asp:Label ID="lblActive" runat="server" Text=" Is Active :"></asp:Label>
+            <asp:Label ID="lblActive" runat="server" Text=" IsActive :"></asp:Label>
         </label>
             <div class="controls" style="margin-top:8px;">
                 <div id="checkdiv" runat="server" class="SingleCheckbox col-left">
@@ -465,7 +465,7 @@
 
        <div class="control-group">
 		    <label class="control-label">
-            <asp:Label ID="lblShow" runat="server" Text=" Is Show :"></asp:Label>
+            <asp:Label ID="lblShow" runat="server" Text=" IsShow :"></asp:Label>
         </label>
             <div class="controls" style="margin-top:8px;">
                 <div id="checdivshow" runat="server" class="SingleCheckbox col-left">

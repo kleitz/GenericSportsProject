@@ -146,7 +146,7 @@
          var validated = Page_ClientValidate('CloseSports');
 
          if (OnlyClose == "btnCancelDocumentType") {
-             document.getElementById("msgConfirm").innerHTML = "Are You Sure, You Want to Close Document Form ?";
+             document.getElementById("msgConfirm").innerHTML = "Are You Sure, You Want to Close Document Type Form ?";
          }
 
          if (validated) {
@@ -183,7 +183,7 @@
          var validated = Page_ClientValidate('Sports');
 
          if (btn_clientid == "btnUpdateDocumentType") {
-             document.getElementById("msgConfirm").innerHTML = "Are You Sure, You Want to Update Document Details ?";
+             document.getElementById("msgConfirm").innerHTML = "Are You Sure, You Want to Update Document Type Details ?";
          }
 
          if (validated) {
@@ -247,7 +247,7 @@
 
 <div id="dialogBox" runat="server" clientidmode="static"  style="display:none;">
     <div class="lobibox-body-text-wrapper">
-        <asp:Label CssClass="lobibox-body-text" ID="msgConfirm" ClientIDMode="Static" runat="server" Text="Are You Sure, You Want to Save Document Details ?"></asp:Label>
+        <asp:Label CssClass="lobibox-body-text" ID="msgConfirm" ClientIDMode="Static" runat="server" Text="Are You Sure, You Want to Save Document Type Details ?"></asp:Label>
     </div>
 </div>
 

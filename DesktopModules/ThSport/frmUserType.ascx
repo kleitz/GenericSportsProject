@@ -148,7 +148,7 @@
 
          if (OnlyClose == "btnCancelUserType")
          {
-             document.getElementById("msgConfirm").innerHTML = "Are You Sure, You Want to Close UserType Form ?";
+             document.getElementById("msgConfirm").innerHTML = "Are You Sure, You Want to Close User Type Form ?";
          }
 
          if (validated)
@@ -187,7 +187,7 @@
          var validated = Page_ClientValidate('Sports');
 
          if (btn_clientid == "btnUpdateUserType") {
-             document.getElementById("msgConfirm").innerHTML = "Are You Sure, You Want to Update UserType Details ?";
+             document.getElementById("msgConfirm").innerHTML = "Are You Sure, You Want to Update User Type Details ?";
          }
 
          if (validated) {
@@ -235,25 +235,25 @@
 
 <div id="divsavemassage" runat="server" clientidmode="static" style="display: none;position:inherit !important;">
     <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/OtherImages/Ok.png")%>" />
-     <asp:Label CssClass="lobibox-body-text" ID="Label1" ClientIDMode="Static" runat="server" Text=" UserType detail are save successfully. ">
+     <asp:Label CssClass="lobibox-body-text" ID="Label1" ClientIDMode="Static" runat="server" Text=" User Type detail are save successfully. ">
      </asp:Label>
 </div>
 
 <div id="divupdatemassage" runat="server" clientidmode="static" style="display: none;position:inherit !important;">
     <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/OtherImages/Ok.png")%>" />
-     <asp:Label CssClass="lobibox-body-text" ID="Label2" ClientIDMode="Static" runat="server" Text=" UserType detail are update successfully. ">
+     <asp:Label CssClass="lobibox-body-text" ID="Label2" ClientIDMode="Static" runat="server" Text=" User Type detail are update successfully. ">
      </asp:Label>
 </div>
 
 <div id="divcancelmassage" runat="server" clientidmode="static" style="display: none;position:inherit !important;">
     <img src="<%= Page.ResolveUrl("~/DesktopModules/ThSport/Images/OtherImages/Cancel.png")%>" />
-     <asp:Label CssClass="lobibox-body-text" ID="Label3" ClientIDMode="Static" runat="server" Text=" UserType detail are delete successfully. ">
+     <asp:Label CssClass="lobibox-body-text" ID="Label3" ClientIDMode="Static" runat="server" Text=" User Type detail are delete successfully. ">
      </asp:Label>
 </div>
 
 <div id="dialogBox" runat="server" clientidmode="static"  style="display:none;">
     <div class="lobibox-body-text-wrapper">
-        <asp:Label CssClass="lobibox-body-text" ID="msgConfirm" ClientIDMode="Static" runat="server" Text="Are You Sure, You Want to Save UserType Details ?"></asp:Label>
+        <asp:Label CssClass="lobibox-body-text" ID="msgConfirm" ClientIDMode="Static" runat="server" Text="Are You Sure, You Want to Save User Type Details ?"></asp:Label>
     </div>
 </div>
 
@@ -322,7 +322,7 @@
               <asp:TemplateField HeaderText=" Abbreviation " HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="40%">
 				<ItemTemplate>
                     <div class="grid-cell-inner" style="text-align:center;">
-					    <asp:Label ID="lblUserTypeAbbr" runat="server" Text='<%#Eval("UserTypeAbbr") %>' ToolTip=" User Address "></asp:Label>
+					    <asp:Label ID="lblUserTypeAbbr" runat="server" Text='<%#Eval("UserTypeAbbr") %>' ToolTip=" User Type Abbreviation "></asp:Label>
                     </div> 
 				</ItemTemplate>
 			</asp:TemplateField>

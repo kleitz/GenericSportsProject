@@ -4,7 +4,6 @@
 <%@ Register TagPrefix="dnn" TagName="LOGIN" Src="~/Admin/Skins/Login.ascx" %>
 <%@ Register TagPrefix="dnn" TagName="Meta" Src="~/Admin/Skins/Meta.ascx" %> 
 
-
 <!-- Adding CSS files into Skin -->
 
 <dnn:DnnCssInclude runat="server" FilePath="css/skin.css" PathNameAlias="SkinPath"/>
@@ -69,7 +68,7 @@
 					<div class="main-header-left left adjust-left">
 						<!-- Start Logo -->
 						<a class="logo" href="index.html">
-							<img src="/portals/_default/Skins/Generic_Sport_Skin/images/logo-white.png" alt="Sport" />
+							<img src="/portals/_default/Skins/Generic_Sport_Skin/images/SportingWaveZambia.jpg" alt="Sport" />
 						</a>
 					</div>
 								
@@ -90,19 +89,19 @@
 	</div>	
     	
 	<!-- Post Header Area -->
- <div id="ContentPane" runat="server"></div>
+	<div id="ContentPane" runat="server"></div>
 	
 	<!-- Login Start -->
 
-		<div class="outter-wrapper nav-container post-header-area header-style-3">
-			<div id="navigation" class="clearfix">
-				<div class="post-header-center centered-menu">
-					<div class="nav megamenu_container wrapper">
-						<dnn:MENU id="newmenu" runat="server" MenuStyle="DNNMobileNav"></dnn:MENU>
-					</div>
+	<div class="outter-wrapper nav-container post-header-area header-style-3">
+		<div id="navigation" class="clearfix">
+			<div class="post-header-center centered-menu">
+				<div class="nav megamenu_container wrapper">
+					<dnn:MENU id="newmenu" runat="server" MenuStyle="DNNMobileNav"></dnn:MENU>
 				</div>
 			</div>
 		</div>
+	</div>
 		
 	<!-- Login Close -->
 		
@@ -309,7 +308,7 @@
 												<i class="icon-flag5">
 												</i>
 												 <a href="" rel="tag">
-														Futsal
+														Sports
 												</a>              
 							
 											</li>
@@ -700,7 +699,7 @@
 			<!-- Start Widget -->
 			<div class="col-1-4 widget last">
 				<a class="logo" href="index.html">
-					<img src="/portals/_default/Skins/Generic_Sport_Skin/images/logo-white.png" alt="Sport" />
+					<img src="/portals/_default/Skins/Generic_Sport_Skin/images/SportingWaveZambia.jpg" alt="Sport" />
 				</a>
 				<ul class="list-1">
 					<li>

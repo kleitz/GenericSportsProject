@@ -361,7 +361,7 @@ namespace DotNetNuke.Modules.ThSport
             clsTeamController ec = new clsTeamController();
             DataTable dt = new DataTable();
 
-            dt = ec.GetTeamDetailByNotInTeamID((Convert.ToInt32(ddlTeamA.SelectedValue.ToString())),CompetitionID);
+            dt = ec.GetTeamDetailByNotInTeamID(Convert.ToInt32(ddlTeamA.SelectedValue.ToString()),CompetitionID);
 
             if (dt.Rows.Count > 0)
             {
@@ -379,7 +379,7 @@ namespace DotNetNuke.Modules.ThSport
             clsTeamController ec = new clsTeamController();
             DataTable dt = new DataTable();
 
-            dt = ec.GetTeamList();
+            dt = ec.GetTeamListbyCompetitionID(CompetitionID);
             if (dt.Rows.Count > 0)
             {
                 ddlTeamA.DataSource = dt;

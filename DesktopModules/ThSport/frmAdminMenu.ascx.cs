@@ -31,7 +31,7 @@ namespace DotNetNuke.Modules.ThSport
 
             if (currentUser.IsSuperUser || currentUser.IsInRole("clubadmin"))
             {
-                m_ModuelControl = "frmSports.ascx";
+                m_ModuelControl = "frmClub.ascx";
             }
             else
             {

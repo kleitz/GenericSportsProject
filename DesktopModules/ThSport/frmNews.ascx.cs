@@ -353,6 +353,13 @@ namespace DotNetNuke.Modules.ThSport
             FillEvent();
             FillSeason();
             FillSponsor();
+            FillTeam();
+            FillPlayer();
+            FillClub();
+            FillClubOwner();
+            FillClubMember();
+            FillCompetition();
+            FillTeamMember();
             ddlvideotype.SelectedValue = "YouTube";
             divvideopath.Visible = true;
             divOtherVideoPath.Visible = false;
@@ -836,11 +843,11 @@ namespace DotNetNuke.Modules.ThSport
 
         private void FillPlayer()
         {
-            clsNews e = new clsNews();
-            clsNewsController ec = new clsNewsController();
+            clsVideos e = new clsVideos();
+            clsVideosController ec = new clsVideosController();
             DataTable dt = new DataTable();
 
-            dt = ec.GetPlayerIDAndPlayerName();
+            dt = ec.GetAllPlayer();
             if (dt.Rows.Count > 0)
             {
                 ddlPlayer.DataSource = dt;
@@ -870,11 +877,11 @@ namespace DotNetNuke.Modules.ThSport
 
         private void FillCompetition(int SportID)
         {
-            clsNews e = new clsNews();
-            clsNewsController ec = new clsNewsController();
+            clsVideos e = new clsVideos();
+            clsVideosController ec = new clsVideosController();
             DataTable dt = new DataTable();
 
-            dt = ec.GetCompetitionIDAndCompetitionName(SportID);
+            dt = ec.GetAllCompetition();
             if (dt.Rows.Count > 0)
             {
                 ddlCompetition.DataSource = dt;
@@ -921,26 +928,26 @@ namespace DotNetNuke.Modules.ThSport
 
         protected void ddlClub_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int ClubID = Convert.ToInt32(ddlClub.SelectedValue);
+            //int ClubID = Convert.ToInt32(ddlClub.SelectedValue);
 
-            if (ClubID > 0)
-            {
-                divclubowner.Visible = true;
-                divclubmember.Visible = true;
-                FillClubOwner(ClubID);
-                FillClubMember(ClubID);
-                int SportID = Convert.ToInt32(ddlSports.SelectedValue);
-                FillTeam(SportID, ClubID);
-            }
-            else
-            {
-                divclubowner.Visible = false;
-                divclubmember.Visible = false;
-                FillClubOwner(ClubID);
-                FillClubMember(ClubID);
-                int SportID = Convert.ToInt32(ddlSports.SelectedValue);
-                FillTeam(SportID, ClubID);
-            }
+            //if (ClubID > 0)
+            //{
+            //    divclubowner.Visible = true;
+            //    divclubmember.Visible = true;
+            //    FillClubOwner(ClubID);
+            //    FillClubMember(ClubID);
+            //    int SportID = Convert.ToInt32(ddlSports.SelectedValue);
+            //    FillTeam(SportID, ClubID);
+            //}
+            //else
+            //{
+            //    divclubowner.Visible = false;
+            //    divclubmember.Visible = false;
+            //    FillClubOwner(ClubID);
+            //    FillClubMember(ClubID);
+            //    int SportID = Convert.ToInt32(ddlSports.SelectedValue);
+            //    FillTeam(SportID, ClubID);
+            //}
 
         }
 
@@ -997,39 +1004,39 @@ namespace DotNetNuke.Modules.ThSport
 
         protected void ddlSports_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int SportID = Convert.ToInt32(ddlSports.SelectedValue);
+            //int SportID = Convert.ToInt32(ddlSports.SelectedValue);
 
-            if (SportID > 0)
-            {
-                FillCompetition(SportID);
-                FillClub(SportID);
-            }
-            else
-            {
-                divclubmember.Visible = false;
-                divclubowner.Visible = false;
-                divteammember.Visible = false;
-                FillCompetition(SportID);
-                FillClub(SportID);
-            }
+            //if (SportID > 0)
+            //{
+            //    FillCompetition(SportID);
+            //    FillClub(SportID);
+            //}
+            //else
+            //{
+            //    divclubmember.Visible = false;
+            //    divclubowner.Visible = false;
+            //    divteammember.Visible = false;
+            //    FillCompetition(SportID);
+            //    FillClub(SportID);
+            //}
 
         }
 
         protected void ddlTeam_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int TeamID = Convert.ToInt32(ddlTeam.SelectedValue);
+            //int TeamID = Convert.ToInt32(ddlTeam.SelectedValue);
 
-            if (TeamID > 0)
-            {
-                divteammember.Visible = true;
-                FillTeamMember(TeamID);
-                FillPlayer(TeamID);
-            }
-            else
-            {
-                divteammember.Visible = false;
-                FillTeamMember(TeamID);
-            }
+            //if (TeamID > 0)
+            //{
+            //    divteammember.Visible = true;
+            //    FillTeamMember(TeamID);
+            //    FillPlayer(TeamID);
+            //}
+            //else
+            //{
+            //    divteammember.Visible = false;
+            //    FillTeamMember(TeamID);
+            //}
         }
 
         private void FillCompetition()
@@ -1153,16 +1160,16 @@ namespace DotNetNuke.Modules.ThSport
 
         protected void ddlvideotype_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (ddlvideotype.SelectedValue == "YouTube")
-            {
-                divvideopath.Visible = true;
-                divOtherVideoPath.Visible = false;
-            }
-            else
-            {
-                divvideopath.Visible = false;
-                divOtherVideoPath.Visible = true;
-            }
+            //if (ddlvideotype.SelectedValue == "YouTube")
+            //{
+            //    divvideopath.Visible = true;
+            //    divOtherVideoPath.Visible = false;
+            //}
+            //else
+            //{
+            //    divvideopath.Visible = false;
+            //    divOtherVideoPath.Visible = true;
+            //}
         }
 
     }

@@ -31,24 +31,6 @@ namespace DotNetNuke.Modules.ThSport {
         protected global::System.Web.UI.WebControls.HyperLink HomeLink;
         
         /// <summary>
-        /// li_SportsRegistration control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl li_SportsRegistration;
-        
-        /// <summary>
-        /// hlSports control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlSports;
-        
-        /// <summary>
         /// li_ClubeRegistrationLink control.
         /// </summary>
         /// <remarks>
@@ -317,6 +299,24 @@ namespace DotNetNuke.Modules.ThSport {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink hlMaster;
+        
+        /// <summary>
+        /// li_SportsRegistration control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl li_SportsRegistration;
+        
+        /// <summary>
+        /// hlSports control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink hlSports;
         
         /// <summary>
         /// li_ClubMemberType control.

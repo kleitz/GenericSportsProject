@@ -9,13 +9,9 @@
         <li id="li_HomeLink" runat="server">
             <asp:HyperLink id="HomeLink" runat="server" ToolTip="Home" > Home </asp:HyperLink>
 	    </li>
-       
-        <li id="li_SportsRegistration" runat="server" >
-		    <asp:HyperLink id="hlSports" runat="server" ToolTip=" Sports Form "> Sports  <span class="selected"></span></asp:HyperLink>
-	    </li>
 
         <li id="li_ClubeRegistrationLink" runat="server">
-		    <asp:HyperLink id="hlClub" runat="server" ToolTip=" Club Form" > Club </asp:HyperLink>
+		    <asp:HyperLink id="hlClub" runat="server" ToolTip=" Club Form" > Club <span class="selected"></span></asp:HyperLink>
 	    </li>
 
         <li id="li_SeasonLink" runat="server">
@@ -75,6 +71,9 @@
         <li id="li_Masters" runat="server">
             <asp:HyperLink id="hlMaster" runat="server" ToolTip=" Master Form " NavigateUrl="javascript:;"> Masters Form <span class="arrow selected"></span></asp:HyperLink>
             <ul class="sub-menu">
+               <li id="li_SportsRegistration" runat="server" >
+		            <asp:HyperLink id="hlSports" runat="server" ToolTip=" Sports Form "> Sports </asp:HyperLink>
+	           </li>
               <li id="li_ClubMemberType" runat="server">
                   <asp:HyperLink id="hlClubMemberType" runat="server" ToolTip=" Club Member Type Form"> Club Member Position </asp:HyperLink>
               </li>

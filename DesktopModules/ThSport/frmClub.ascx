@@ -419,7 +419,7 @@
                             <asp:ListItem Value="Edit">Edit</asp:ListItem>
                             <asp:ListItem Value="Owner">Add Owner</asp:ListItem>
                             <asp:ListItem Value="Member">Add Member</asp:ListItem>
-                            <%--<asp:ListItem Value="Delete">Delete</asp:ListItem>--%>
+                            <asp:ListItem Value="Sport">Add Sport</asp:ListItem>
                     </asp:DropDownList>
                     <asp:Label ID="lblddlActionClubID" runat="server" Text='<%#Eval("ClubId") %>' Visible="false">
                     </asp:Label>
@@ -467,7 +467,7 @@
             
             </div>
                         
-        <div class="control-group">
+        <%--<div class="control-group">
 		     <label class="control-label">
                    <asp:Label ID="lblSport" runat="server" Text=" Sport :" ></asp:Label>
              </label>
@@ -482,7 +482,7 @@
                                                 InitialValue="0" Text="Select Sport Required !" CssClass="errorfordnn" 
                                                 ClientIDMode="Static"/>
              </div>
-        </div>
+        </div>--%>
             
         <div class="control-group">
 		     <label class="control-label">          
