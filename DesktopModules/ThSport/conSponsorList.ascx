@@ -129,35 +129,35 @@ uncomment this part if you haven't added this code anywhere else
 		</h2>
 	</header>
         
-    <div class="TeamAllDetail-Tabs">
-				<div class="TeamAllDetail-TabContainer">
-
-                <div class="element_size_100 page_listing">
-			    	<div class="gallerysec gallery">
-					    <asp:Repeater ID="SponsorList" runat="server">
-				    		<HeaderTemplate>
-							<ul class="gallery-three-col lightbox clearfix">
+    <div class="outter-wrapper body-wrapper">
+				
+		<div class="wrapper ad-pad clearfix">
+		
+			<!-- Start Main Column  -->
+			<div class="col-1-1">
+				
+					<asp:Repeater ID="SponsorList" runat="server">
+				    	<HeaderTemplate>
+							<div class="col-3-4 last thumb-gallery super-list variable-sizes clearfix" id="thumb-gallery">
 						</HeaderTemplate>
 						    <ItemTemplate>
-							<li class="video-gallery-img">
-								<figure>
-									<asp:Image ID="Image" alt="" runat="server" ImageUrl='<%#Eval("SponsorLogoFile") %>' Height="218px"></asp:Image>
-									<figcaption>
-											<a data-rel="prettyPhoto" href='<%# Page.ResolveUrl("~/DesktopModules/SportSite/" + Eval("SponsorLogoFile") + "") %>' data-title="" rel="prettyPhoto[gallery1]">
-											<i class="fa fa-plus"></i>                            </a>
-									</figcaption>
-								</figure>
+							<div class="col-1-3 element cat-1">
+								<div class="mosaic-block circle">
+								
+									<a data-rel="prettyPhoto" href='<%# Page.ResolveUrl("~/DesktopModules/SportSite/" + Eval("SponsorLogoFile") + "") %>' data-title="" rel="prettyPhoto[gallery1]"></a>
+									<div class="mosaic-backdrop"><asp:Image ID="Image" alt="" runat="server" ImageUrl='<%#Eval("SponsorLogoFile") %>'></asp:Image></div>
+								</div>
 
-							</li>
+							</div>
 							
 						</ItemTemplate>
-    						<FooterTemplate>
-							</ul>
+    					<FooterTemplate>
+							</div>
 						</FooterTemplate>
-	    				</asp:Repeater>
-				    </div>
-		    	</div>
+	                </asp:Repeater>
+                </div>
             </div>
-        </div> 
+        </div>
+				    
    </center> 
 </panel> 
