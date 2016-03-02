@@ -31,7 +31,6 @@ D:\GenericSportsProject\DesktopModules\ThSportServer\bin\Release\System.Web.Http
 D:\GenericSportsProject\DesktopModules\ThSportServer\bin\Release\System.Web.Http.WebHost.dll
 D:\GenericSportsProject\DesktopModules\ThSportServer\bin\Release\DotNetNuke.Instrumentation.dll
 D:\GenericSportsProject\DesktopModules\ThSportServer\bin\Release\dotnetnuke.log4net.dll
-D:\GenericSportsProject\DesktopModules\ThSportServer\obj\Release\ThSportServer.csprojResolveAssemblyReference.cache
 D:\GenericSportsProject\DesktopModules\ThSportServer\obj\Release\ThSportServer.Properties.Resources.resources
 D:\GenericSportsProject\DesktopModules\ThSportServer\obj\Release\ThSportServer.csproj.GenerateResource.Cache
 D:\GenericSportsProject\DesktopModules\ThSportServer\obj\Release\ThSportServer.dll
