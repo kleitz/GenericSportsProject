@@ -140,6 +140,13 @@
       <DependentUpon>Password.ascx</DependentUpon>
     </Compile>
     <Compile Include="Components\FeatureController.cs" />
+    <Compile Include="conCompetitionAllDetail.ascx.cs">
+      <DependentUpon>conCompetitionAllDetail.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="conCompetitionAllDetail.ascx.designer.cs">
+      <DependentUpon>conCompetitionAllDetail.ascx</DependentUpon>
+    </Compile>
     <Compile Include="conCompetitionList.ascx.cs">
       <DependentUpon>conCompetitionList.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -147,12 +154,40 @@
     <Compile Include="conCompetitionList.ascx.designer.cs">
       <DependentUpon>conCompetitionList.ascx</DependentUpon>
     </Compile>
+    <Compile Include="conNewsComments.ascx.cs">
+      <DependentUpon>conNewsComments.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="conNewsComments.ascx.designer.cs">
+      <DependentUpon>conNewsComments.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="conNewsDetail.ascx.cs">
+      <DependentUpon>conNewsDetail.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="conNewsDetail.ascx.designer.cs">
+      <DependentUpon>conNewsDetail.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="conNewsDisplay.ascx.cs">
+      <DependentUpon>conNewsDisplay.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="conNewsDisplay.ascx.designer.cs">
+      <DependentUpon>conNewsDisplay.ascx</DependentUpon>
+    </Compile>
     <Compile Include="conSponsorList.ascx.cs">
       <DependentUpon>conSponsorList.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="conSponsorList.ascx.designer.cs">
       <DependentUpon>conSponsorList.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="conStandingDisplay.ascx.cs">
+      <DependentUpon>conStandingDisplay.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="conStandingDisplay.ascx.designer.cs">
+      <DependentUpon>conStandingDisplay.ascx</DependentUpon>
     </Compile>
     <Compile Include="conTeamList.ascx.cs">
       <DependentUpon>conTeamList.ascx</DependentUpon>
@@ -211,8 +246,13 @@
     <Content Include="bin\System.Web.Http.WebHost.dll" />
     <Content Include="bin\Telerik.Web.UI.dll" />
     <Content Include="bin\WebFormsMvp.dll" />
+    <Content Include="conCompetitionAllDetail.ascx" />
     <Content Include="conCompetitionList.ascx" />
+    <Content Include="conNewsComments.ascx" />
+    <Content Include="conNewsDetail.ascx" />
+    <Content Include="conNewsDisplay.ascx" />
     <Content Include="conSponsorList.ascx" />
+    <Content Include="conStandingDisplay.ascx" />
     <Content Include="conTeamList.ascx" />
     <Content Include="frmClubSport.ascx" />
     <Content Include="frmMerchandise.ascx" />

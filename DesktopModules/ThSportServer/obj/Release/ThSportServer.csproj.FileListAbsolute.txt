@@ -52,3 +52,4 @@ F:\GenericSportsProject\DesktopModules\ThSportServer\obj\Release\ThSportServer.P
 F:\GenericSportsProject\DesktopModules\ThSportServer\obj\Release\ThSportServer.csproj.GenerateResource.Cache
 F:\GenericSportsProject\DesktopModules\ThSportServer\obj\Release\ThSportServer.dll
 F:\GenericSportsProject\DesktopModules\ThSportServer\obj\Release\ThSportServer.pdb
+F:\GenericSportsProject\DesktopModules\ThSportServer\obj\Release\ThSportServer.csprojResolveAssemblyReference.cache
