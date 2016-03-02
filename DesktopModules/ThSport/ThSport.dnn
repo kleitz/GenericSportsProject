@@ -21,11 +21,11 @@
         <component type="Script">
           <scripts>
             <basePath>DesktopModules\ThSport</basePath>
-            <!--<script type="Install">
+            <script type="Install">
               <path>Providers\DataProviders\SqlDataProvider</path>
-              <name>29.02.16.SqlDataProvider</name>
-              <version>29.02.16</version>
-            </script>-->
+              <name>02.03.16.SqlDataProvider</name>
+              <version>02.03.16</version>
+            </script>
             <script type="UnInstall">
               <path>Providers\DataProviders\SqlDataProvider</path>
               <name>Uninstall.SqlDataProvider</name>
@@ -282,7 +282,6 @@
       </components>
     </package>
 
-
     <package name="TeamList" type="Module" version="00.00.01">
       <friendlyName>TeamList</friendlyName>
       <description>DotNetNuke Corporation TeamList module</description>
@@ -450,7 +449,7 @@
       </components>
     </package>
     
-  <package name="SponsorList" type="Module" version="00.00.01">
+    <package name="SponsorList" type="Module" version="00.00.01">
       <friendlyName>SponsorList</friendlyName>
       <description>DotNetNuke Corporation SponsorList module</description>
       <iconFile>Images/icon_extensions.gif</iconFile>
@@ -532,9 +531,9 @@
       </components>
     </package>
 
-    <package name="SponsorList" type="Module" version="00.00.01">
-      <friendlyName>SponsorList</friendlyName>
-      <description>DotNetNuke Corporation SponsorList module</description>
+    <package name="NewsList" type="Module" version="00.00.01">
+      <friendlyName>NewsList</friendlyName>
+      <description>DotNetNuke Corporation NewsList module</description>
       <iconFile>Images/icon_extensions.gif</iconFile>
       <owner>
         <name>DotNetNuke Corporation</name>
@@ -576,19 +575,19 @@
 
         <component type="Module">
           <desktopModule>
-            <moduleName>SponsorList</moduleName>
-            <foldername>SponsorList</foldername>
+            <moduleName>NewsList</moduleName>
+            <foldername>NewsList</foldername>
             <businessControllerClass>DotNetNuke.Modules.ThSport.Components.FeatureController</businessControllerClass>
             <supportedFeatures />
             <moduleDefinitions>
               <moduleDefinition>
-                <friendlyName>SponsorList</friendlyName>
+                <friendlyName>NewsList</friendlyName>
                 <defaultCacheTime>0</defaultCacheTime>
                 <moduleControls>
 
                   <moduleControl>
                     <controlKey></controlKey>
-                    <controlSrc>DesktopModules/ThSport/conSponsorList.ascx</controlSrc>
+                    <controlSrc>DesktopModules/ThSport/conNewsDisplay.ascx</controlSrc>
                     <supportsPartialRendering>False</supportsPartialRendering>
                     <controlTitle />
                     <controlType>View</controlType>
@@ -614,6 +613,497 @@
       </components>
     </package>
 
+    <package name="CompetitionStandingForLeague" type="Module" version="00.00.01">
+      <friendlyName>CompetitionStandingForLeague</friendlyName>
+      <description>DotNetNuke Corporation CompetitionStandingForLeague module</description>
+      <iconFile>Images/icon_extensions.gif</iconFile>
+      <owner>
+        <name>DotNetNuke Corporation</name>
+        <organization>DotNetNuke Corporation</organization>
+        <url>http://www.dotnetnuke.com</url>
+        <email>training@dotnetnuke.com</email>
+      </owner>
+      <license src="License.txt"></license>
+      <releaseNotes src="ReleaseNotes.txt"></releaseNotes>
+      <dependencies>
+        <dependency type="CoreVersion">06.00.00</dependency>
+      </dependencies>
+
+      <components>
+        <component type="Script">
+          <scripts>
+            <basePath>DesktopModules\ThSport</basePath>
+            <!--<script type="Install">
+              <path>Providers\DataProviders\SqlDataProvider</path>
+              <name>25.02.16.SqlDataProvider</name>
+              <version>25.02.16</version>
+            </script>-->
+            <script type="UnInstall">
+              <path>Providers\DataProviders\SqlDataProvider</path>
+              <name>Uninstall.SqlDataProvider</name>
+              <version>00.00.01</version>
+            </script>
+          </scripts>
+        </component>
+
+        <component type="ResourceFile">
+          <resourceFiles>
+            <basePath>DesktopModules/ThSport</basePath>
+            <resourceFile>
+              <name>Resources.zip</name>
+            </resourceFile>
+          </resourceFiles>
+        </component>
+
+        <component type="Module">
+          <desktopModule>
+            <moduleName>CompetitionStandingForLeague</moduleName>
+            <foldername>CompetitionStandingForLeague</foldername>
+            <businessControllerClass>DotNetNuke.Modules.ThSport.Components.FeatureController</businessControllerClass>
+            <supportedFeatures />
+            <moduleDefinitions>
+              <moduleDefinition>
+                <friendlyName>CompetitionStandingForLeague</friendlyName>
+                <defaultCacheTime>0</defaultCacheTime>
+                <moduleControls>
+
+                  <moduleControl>
+                    <controlKey></controlKey>
+                    <controlSrc>DesktopModules/ThSport/conCompetitionStandingForLeague.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle />
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+
+                </moduleControls>
+              </moduleDefinition>
+            </moduleDefinitions>
+          </desktopModule>
+        </component>
+
+        <component type="Assembly">
+          <assemblies>
+            <basePath>bin</basePath>
+            <assembly>
+              <name>ThSport.dll</name>
+            </assembly>
+          </assemblies>
+        </component>
+      </components>
+    </package>
+    
+    <package name="CompetitionStandingForCup" type="Module" version="00.00.01">
+      <friendlyName>CompetitionStandingForCup</friendlyName>
+      <description>DotNetNuke Corporation CompetitionStandingForCup module</description>
+      <iconFile>Images/icon_extensions.gif</iconFile>
+      <owner>
+        <name>DotNetNuke Corporation</name>
+        <organization>DotNetNuke Corporation</organization>
+        <url>http://www.dotnetnuke.com</url>
+        <email>training@dotnetnuke.com</email>
+      </owner>
+      <license src="License.txt"></license>
+      <releaseNotes src="ReleaseNotes.txt"></releaseNotes>
+      <dependencies>
+        <dependency type="CoreVersion">06.00.00</dependency>
+      </dependencies>
+
+      <components>
+        <component type="Script">
+          <scripts>
+            <basePath>DesktopModules\ThSport</basePath>
+            <!--<script type="Install">
+              <path>Providers\DataProviders\SqlDataProvider</path>
+              <name>25.02.16.SqlDataProvider</name>
+              <version>25.02.16</version>
+            </script>-->
+            <script type="UnInstall">
+              <path>Providers\DataProviders\SqlDataProvider</path>
+              <name>Uninstall.SqlDataProvider</name>
+              <version>00.00.01</version>
+            </script>
+          </scripts>
+        </component>
+
+        <component type="ResourceFile">
+          <resourceFiles>
+            <basePath>DesktopModules/ThSport</basePath>
+            <resourceFile>
+              <name>Resources.zip</name>
+            </resourceFile>
+          </resourceFiles>
+        </component>
+
+        <component type="Module">
+          <desktopModule>
+            <moduleName>CompetitionStandingForCup</moduleName>
+            <foldername>CompetitionStandingForCup</foldername>
+            <businessControllerClass>DotNetNuke.Modules.ThSport.Components.FeatureController</businessControllerClass>
+            <supportedFeatures />
+            <moduleDefinitions>
+              <moduleDefinition>
+                <friendlyName>CompetitionStandingForCup</friendlyName>
+                <defaultCacheTime>0</defaultCacheTime>
+                <moduleControls>
+
+                  <moduleControl>
+                    <controlKey></controlKey>
+                    <controlSrc>DesktopModules/ThSport/conCompetitionStandingForCup.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle />
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+
+                </moduleControls>
+              </moduleDefinition>
+            </moduleDefinitions>
+          </desktopModule>
+        </component>
+
+        <component type="Assembly">
+          <assemblies>
+            <basePath>bin</basePath>
+            <assembly>
+              <name>ThSport.dll</name>
+            </assembly>
+          </assemblies>
+        </component>
+      </components>
+    </package>
+    
+    <package name="FixturesForLeague" type="Module" version="00.00.01">
+      <friendlyName>FixturesForLeague</friendlyName>
+      <description>DotNetNuke Corporation FixturesForLeague module</description>
+      <iconFile>Images/icon_extensions.gif</iconFile>
+      <owner>
+        <name>DotNetNuke Corporation</name>
+        <organization>DotNetNuke Corporation</organization>
+        <url>http://www.dotnetnuke.com</url>
+        <email>training@dotnetnuke.com</email>
+      </owner>
+      <license src="License.txt"></license>
+      <releaseNotes src="ReleaseNotes.txt"></releaseNotes>
+      <dependencies>
+        <dependency type="CoreVersion">06.00.00</dependency>
+      </dependencies>
+
+      <components>
+        <component type="Script">
+          <scripts>
+            <basePath>DesktopModules\ThSport</basePath>
+            <!--<script type="Install">
+              <path>Providers\DataProviders\SqlDataProvider</path>
+              <name>25.02.16.SqlDataProvider</name>
+              <version>25.02.16</version>
+            </script>-->
+            <script type="UnInstall">
+              <path>Providers\DataProviders\SqlDataProvider</path>
+              <name>Uninstall.SqlDataProvider</name>
+              <version>00.00.01</version>
+            </script>
+          </scripts>
+        </component>
+
+        <component type="ResourceFile">
+          <resourceFiles>
+            <basePath>DesktopModules/ThSport</basePath>
+            <resourceFile>
+              <name>Resources.zip</name>
+            </resourceFile>
+          </resourceFiles>
+        </component>
+
+        <component type="Module">
+          <desktopModule>
+            <moduleName>FixturesForLeague</moduleName>
+            <foldername>FixturesForLeague</foldername>
+            <businessControllerClass>DotNetNuke.Modules.ThSport.Components.FeatureController</businessControllerClass>
+            <supportedFeatures />
+            <moduleDefinitions>
+              <moduleDefinition>
+                <friendlyName>FixturesForLeague</friendlyName>
+                <defaultCacheTime>0</defaultCacheTime>
+                <moduleControls>
+
+                  <moduleControl>
+                    <controlKey></controlKey>
+                    <controlSrc>DesktopModules/ThSport/conFixturesForLeague.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle />
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+
+                </moduleControls>
+              </moduleDefinition>
+            </moduleDefinitions>
+          </desktopModule>
+        </component>
+
+        <component type="Assembly">
+          <assemblies>
+            <basePath>bin</basePath>
+            <assembly>
+              <name>ThSport.dll</name>
+            </assembly>
+          </assemblies>
+        </component>
+      </components>
+    </package>
+  
+    <package name="FixturesForCup" type="Module" version="00.00.01">
+      <friendlyName>FixturesForCup</friendlyName>
+      <description>DotNetNuke Corporation FixturesForCup module</description>
+      <iconFile>Images/icon_extensions.gif</iconFile>
+      <owner>
+        <name>DotNetNuke Corporation</name>
+        <organization>DotNetNuke Corporation</organization>
+        <url>http://www.dotnetnuke.com</url>
+        <email>training@dotnetnuke.com</email>
+      </owner>
+      <license src="License.txt"></license>
+      <releaseNotes src="ReleaseNotes.txt"></releaseNotes>
+      <dependencies>
+        <dependency type="CoreVersion">06.00.00</dependency>
+      </dependencies>
+
+      <components>
+        <component type="Script">
+          <scripts>
+            <basePath>DesktopModules\ThSport</basePath>
+            <!--<script type="Install">
+              <path>Providers\DataProviders\SqlDataProvider</path>
+              <name>25.02.16.SqlDataProvider</name>
+              <version>25.02.16</version>
+            </script>-->
+            <script type="UnInstall">
+              <path>Providers\DataProviders\SqlDataProvider</path>
+              <name>Uninstall.SqlDataProvider</name>
+              <version>00.00.01</version>
+            </script>
+          </scripts>
+        </component>
+
+        <component type="ResourceFile">
+          <resourceFiles>
+            <basePath>DesktopModules/ThSport</basePath>
+            <resourceFile>
+              <name>Resources.zip</name>
+            </resourceFile>
+          </resourceFiles>
+        </component>
+
+        <component type="Module">
+          <desktopModule>
+            <moduleName>FixturesForCup</moduleName>
+            <foldername>FixturesForCup</foldername>
+            <businessControllerClass>DotNetNuke.Modules.ThSport.Components.FeatureController</businessControllerClass>
+            <supportedFeatures />
+            <moduleDefinitions>
+              <moduleDefinition>
+                <friendlyName>FixturesForCup</friendlyName>
+                <defaultCacheTime>0</defaultCacheTime>
+                <moduleControls>
+
+                  <moduleControl>
+                    <controlKey></controlKey>
+                    <controlSrc>DesktopModules/ThSport/conFixturesForCup.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle />
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+
+                </moduleControls>
+              </moduleDefinition>
+            </moduleDefinitions>
+          </desktopModule>
+        </component>
+
+        <component type="Assembly">
+          <assemblies>
+            <basePath>bin</basePath>
+            <assembly>
+              <name>ThSport.dll</name>
+            </assembly>
+          </assemblies>
+        </component>
+      </components>
+    </package>
+    
+    <package name="ResultsForLeague" type="Module" version="00.00.01">
+      <friendlyName>ResultsForLeague</friendlyName>
+      <description>DotNetNuke Corporation ResultsForLeague module</description>
+      <iconFile>Images/icon_extensions.gif</iconFile>
+      <owner>
+        <name>DotNetNuke Corporation</name>
+        <organization>DotNetNuke Corporation</organization>
+        <url>http://www.dotnetnuke.com</url>
+        <email>training@dotnetnuke.com</email>
+      </owner>
+      <license src="License.txt"></license>
+      <releaseNotes src="ReleaseNotes.txt"></releaseNotes>
+      <dependencies>
+        <dependency type="CoreVersion">06.00.00</dependency>
+      </dependencies>
+
+      <components>
+        <component type="Script">
+          <scripts>
+            <basePath>DesktopModules\ThSport</basePath>
+            <!--<script type="Install">
+              <path>Providers\DataProviders\SqlDataProvider</path>
+              <name>25.02.16.SqlDataProvider</name>
+              <version>25.02.16</version>
+            </script>-->
+            <script type="UnInstall">
+              <path>Providers\DataProviders\SqlDataProvider</path>
+              <name>Uninstall.SqlDataProvider</name>
+              <version>00.00.01</version>
+            </script>
+          </scripts>
+        </component>
+
+        <component type="ResourceFile">
+          <resourceFiles>
+            <basePath>DesktopModules/ThSport</basePath>
+            <resourceFile>
+              <name>Resources.zip</name>
+            </resourceFile>
+          </resourceFiles>
+        </component>
+
+        <component type="Module">
+          <desktopModule>
+            <moduleName>ResultsForLeague</moduleName>
+            <foldername>ResultsForLeague</foldername>
+            <businessControllerClass>DotNetNuke.Modules.ThSport.Components.FeatureController</businessControllerClass>
+            <supportedFeatures />
+            <moduleDefinitions>
+              <moduleDefinition>
+                <friendlyName>ResultsForLeague</friendlyName>
+                <defaultCacheTime>0</defaultCacheTime>
+                <moduleControls>
+
+                  <moduleControl>
+                    <controlKey></controlKey>
+                    <controlSrc>DesktopModules/ThSport/conResultsForLeague.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle />
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+
+                </moduleControls>
+              </moduleDefinition>
+            </moduleDefinitions>
+          </desktopModule>
+        </component>
+
+        <component type="Assembly">
+          <assemblies>
+            <basePath>bin</basePath>
+            <assembly>
+              <name>ThSport.dll</name>
+            </assembly>
+          </assemblies>
+        </component>
+      </components>
+    </package>
+    
+    <package name="ResultsForCup" type="Module" version="00.00.01">
+      <friendlyName>ResultsForCup</friendlyName>
+      <description>DotNetNuke Corporation ResultsForCup module</description>
+      <iconFile>Images/icon_extensions.gif</iconFile>
+      <owner>
+        <name>DotNetNuke Corporation</name>
+        <organization>DotNetNuke Corporation</organization>
+        <url>http://www.dotnetnuke.com</url>
+        <email>training@dotnetnuke.com</email>
+      </owner>
+      <license src="License.txt"></license>
+      <releaseNotes src="ReleaseNotes.txt"></releaseNotes>
+      <dependencies>
+        <dependency type="CoreVersion">06.00.00</dependency>
+      </dependencies>
+
+      <components>
+        <component type="Script">
+          <scripts>
+            <basePath>DesktopModules\ThSport</basePath>
+            <!--<script type="Install">
+              <path>Providers\DataProviders\SqlDataProvider</path>
+              <name>25.02.16.SqlDataProvider</name>
+              <version>25.02.16</version>
+            </script>-->
+            <script type="UnInstall">
+              <path>Providers\DataProviders\SqlDataProvider</path>
+              <name>Uninstall.SqlDataProvider</name>
+              <version>00.00.01</version>
+            </script>
+          </scripts>
+        </component>
+
+        <component type="ResourceFile">
+          <resourceFiles>
+            <basePath>DesktopModules/ThSport</basePath>
+            <resourceFile>
+              <name>Resources.zip</name>
+            </resourceFile>
+          </resourceFiles>
+        </component>
+
+        <component type="Module">
+          <desktopModule>
+            <moduleName>ResultsForCup</moduleName>
+            <foldername>ResultsForCup</foldername>
+            <businessControllerClass>DotNetNuke.Modules.ThSport.Components.FeatureController</businessControllerClass>
+            <supportedFeatures />
+            <moduleDefinitions>
+              <moduleDefinition>
+                <friendlyName>ResultsForCup</friendlyName>
+                <defaultCacheTime>0</defaultCacheTime>
+                <moduleControls>
+
+                  <moduleControl>
+                    <controlKey></controlKey>
+                    <controlSrc>DesktopModules/ThSport/conResultsForCup.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle />
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+
+                </moduleControls>
+              </moduleDefinition>
+            </moduleDefinitions>
+          </desktopModule>
+        </component>
+
+        <component type="Assembly">
+          <assemblies>
+            <basePath>bin</basePath>
+            <assembly>
+              <name>ThSport.dll</name>
+            </assembly>
+          </assemblies>
+        </component>
+      </components>
+    </package>
 
   </packages>
 </dotnetnuke>

@@ -1,6 +1,6 @@
 <dotnetnuke type="Package" version="5.0">
   <packages>
-    <package name="ThSportServer" type="Module" version="00.00.05">
+    <package name="ThSportServer" type="Module" version="00.00.06">
       <friendlyName>ThSportServer</friendlyName>
       <description>DotNetNuke Corporation ThSportServer module</description>
       <iconFile>Images/icon_extensions.gif</iconFile>
