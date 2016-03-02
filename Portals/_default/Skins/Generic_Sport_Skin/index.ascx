@@ -68,7 +68,7 @@
 					<div class="main-header-left left adjust-left">
 						<!-- Start Logo -->
 						<a class="logo" href="index.html">
-							<img src="/portals/_default/Skins/Generic_Sport_Skin/images/SportingWaveZambia.jpg" alt="Sport" />
+							<img src="/portals/_default/Skins/Generic_Sport_Skin/images/SportingWaveZambia.png" alt="Sport" />
 						</a>
 					</div>
 								
@@ -699,7 +699,7 @@
 			<!-- Start Widget -->
 			<div class="col-1-4 widget last">
 				<a class="logo" href="index.html">
-					<img src="/portals/_default/Skins/Generic_Sport_Skin/images/SportingWaveZambia.jpg" alt="Sport" />
+					<img src="/portals/_default/Skins/Generic_Sport_Skin/images/SportingWaveZambia.png" alt="Sport" />
 				</a>
 				<ul class="list-1">
 					<li>

@@ -6,6 +6,10 @@
     </file>
     <file>
       <path />
+      <name>conSponsorList.ascx</name>
+    </file>
+    <file>
+      <path />
       <name>conTeamList.ascx</name>
     </file>
     <file>
@@ -343,102 +347,6 @@
     <file>
       <path>Documentation/</path>
       <name>Documentation.html</name>
-    </file>
-    <file>
-      <path>Images/OtherImages/</path>
-      <name>index.html</name>
-    </file>
-    <file>
-      <path>JS/</path>
-      <name>addthis_widget.js</name>
-    </file>
-    <file>
-      <path>JS/</path>
-      <name>buttons.js</name>
-    </file>
-    <file>
-      <path>JS/</path>
-      <name>jquery-1.10.2.js</name>
-    </file>
-    <file>
-      <path>JS/</path>
-      <name>jquery-1.9.1.js</name>
-    </file>
-    <file>
-      <path>JS/</path>
-      <name>jquery-ui.js</name>
-    </file>
-    <file>
-      <path>JS/</path>
-      <name>jquery.bxslider.min.js</name>
-    </file>
-    <file>
-      <path>JS/</path>
-      <name>jquery.datetimepicker.js</name>
-    </file>
-    <file>
-      <path>JS/</path>
-      <name>jquery.fancybox.js</name>
-    </file>
-    <file>
-      <path>JS/</path>
-      <name>jquery.flexslider.js</name>
-    </file>
-    <file>
-      <path>JS/</path>
-      <name>jquery.Jcrop.js</name>
-    </file>
-    <file>
-      <path>JS/</path>
-      <name>jquery.magnific-popup.min.js</name>
-    </file>
-    <file>
-      <path>JS/</path>
-      <name>jQuery.print.js</name>
-    </file>
-    <file>
-      <path>JS/</path>
-      <name>jquery.sharrre.js</name>
-    </file>
-    <file>
-      <path>JS/</path>
-      <name>jquery.simplyscroll.js</name>
-    </file>
-    <file>
-      <path>JS/</path>
-      <name>jquery.simplyscrollDetail.js</name>
-    </file>
-    <file>
-      <path>JS/</path>
-      <name>jssor.js</name>
-    </file>
-    <file>
-      <path>JS/</path>
-      <name>jssor.player.ytiframe.js</name>
-    </file>
-    <file>
-      <path>JS/</path>
-      <name>jssor.slider.js</name>
-    </file>
-    <file>
-      <path>JS/</path>
-      <name>printpreview.js</name>
-    </file>
-    <file>
-      <path>JS/</path>
-      <name>readmore.min.js</name>
-    </file>
-    <file>
-      <path>JS/</path>
-      <name>vallenato.js</name>
-    </file>
-    <file>
-      <path>JS/</path>
-      <name>vallenatoForAdmin.js</name>
-    </file>
-    <file>
-      <path>JS/</path>
-      <name>vallenatoForFirstDefault.js</name>
     </file>
   </files>
 </dotnetnuke>

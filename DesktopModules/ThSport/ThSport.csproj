@@ -983,7 +983,9 @@
     <Content Include="Providers\DataProviders\SqlDataProvider\12.01.16.SqlDataProvider" />
     <Content Include="Providers\DataProviders\SqlDataProvider\25.02.16.SqlDataProvider" />
     <Content Include="Providers\DataProviders\SqlDataProvider\29.02.16.SqlDataProvider" />
-    <None Include="ThSport.dnn" />
+    <None Include="ThSport.dnn">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Providers\DataProviders\SqlDataProvider\Uninstall.SqlDataProvider" />
     <None Include="module.css" />
     <None Include="ReleaseNotes.txt" />
