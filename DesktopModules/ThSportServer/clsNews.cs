@@ -162,6 +162,26 @@ namespace ThSportServer
             }
         }
 
+        public DataTable GetAllNewsDetailInfo(int sportId)
+        {
+            using (DataTable dt = new DataTable())
+            {
+                try
+                {
+                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetAllNewsDetailInfo", sportId))
+                    {
+                        dt.Load(reader);
+                        return dt;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Exceptions.LogException(ex);
+                }
+                return dt;
+            }
+        }
+
         public DataTable GetSportIDAndSportName()
         {
             using (DataTable dt = new DataTable())

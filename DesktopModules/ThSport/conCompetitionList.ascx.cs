@@ -209,7 +209,7 @@ namespace DotNetNuke.Modules.ThSport
                 pnlCompetitionList.Visible = false;
                 int editid = 0;
                 int.TryParse(e.CommandArgument.ToString(), out editid);
-                Response.Redirect(Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "CompetitionAllDetail", "CompetitionID=" + editid));
+                Response.Redirect(Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "conCompetitionAllDetail", "CompetitionID=" + editid));
             }
 
             if (e.CommandName.Equals("competitionbrackets"))
@@ -218,7 +218,7 @@ namespace DotNetNuke.Modules.ThSport
                 int editid = 0;
                 int.TryParse(e.CommandArgument.ToString(), out editid);
                 int CompTabID = 1;
-                Response.Redirect(Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "CompetitionAllDetail", "CompetitionID=" + editid + "&CompTabID=" + CompTabID));
+                Response.Redirect(Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "conCompetitionAllDetail", "CompetitionID=" + editid + "&CompTabID=" + CompTabID));
             }
 
             if (e.CommandName.Equals("competitionscheduleresults"))
@@ -227,7 +227,7 @@ namespace DotNetNuke.Modules.ThSport
                 int editid = 0;
                 int.TryParse(e.CommandArgument.ToString(), out editid);
                 int CompTabID = 2;
-                Response.Redirect(Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "CompetitionAllDetail", "CompetitionID=" + editid + "&CompTabID=" + CompTabID));
+                Response.Redirect(Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "conCompetitionAllDetail", "CompetitionID=" + editid + "&CompTabID=" + CompTabID));
             }
 
 
@@ -329,12 +329,12 @@ namespace DotNetNuke.Modules.ThSport
                     comp_res_view.Visible = true;
                 }
 
-                //tbcheckData = cmpController.GetCompetitionPointsByCompetitionID(cid);
+                tbcheckData = cmpController.GetCompetitionPointsByCompetitionID(cid);
 
-                //if (tbcheckData.Rows.Count != 0)
-                //{
-                //    comp_group_view.Visible = true;
-                //}
+                if (tbcheckData.Rows.Count != 0)
+                {
+                    comp_group_view.Visible = true;
+                }
 
                 tbcheckData = cmpController.GetCompetitionPhotoByCompetitionID(cid);
 
@@ -361,37 +361,37 @@ namespace DotNetNuke.Modules.ThSport
 
                 if (hlnkCompTitle != null && cid > 0)
                 {
-                    hlnkCompTitle.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "CompetitionAllDetail", "CompetitionID=" + cid);
+                    hlnkCompTitle.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "conCompetitionAllDetail", "CompetitionID=" + cid);
                 }
 
                 if (comp_newslink != null && cid > 0)
                 {
-                    comp_newslink.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "CompetitionAllDetail", "CompetitionID=" + cid, "CompTabID=4");
+                    comp_newslink.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "conCompetitionAllDetail", "CompetitionID=" + cid, "CompTabID=4");
                 }
 
                 if (comp_videolink != null && cid > 0)
                 {
-                    comp_videolink.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "CompetitionAllDetail", "CompetitionID=" + cid, "CompTabID=5");
+                    comp_videolink.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "conCompetitionAllDetail", "CompetitionID=" + cid, "CompTabID=5");
                 }
 
                 if (comp_gallerylink != null && cid > 0)
                 {
-                    comp_gallerylink.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "CompetitionAllDetail", "CompetitionID=" + cid, "CompTabID=6");
+                    comp_gallerylink.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "conCompetitionAllDetail", "CompetitionID=" + cid, "CompTabID=6");
                 }
 
                 if (comp_group_view != null && cid > 0)
                 {
-                    comp_group_view.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "CompetitionAllDetail", "CompetitionID=" + cid, "CompTabID=1");
+                    comp_group_view.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "conCompetitionAllDetail", "CompetitionID=" + cid, "CompTabID=1");
                 }
 
                 if (comp_sch_view != null && cid > 0)
                 {
-                    comp_sch_view.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "CompetitionAllDetail", "CompetitionID=" + cid, "CompTabID=2");
+                    comp_sch_view.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "conCompetitionAllDetail", "CompetitionID=" + cid, "CompTabID=2");
                 }
 
                 if (comp_res_view != null && cid > 0)
                 {
-                    comp_res_view.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "CompetitionAllDetail", "CompetitionID=" + cid, "CompTabID=3");
+                    comp_res_view.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "conCompetitionAllDetail", "CompetitionID=" + cid, "CompTabID=3");
                 }
 
                 StringBuilder sb = new StringBuilder();
