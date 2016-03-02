@@ -273,7 +273,7 @@
             <ul>
                 <li class="active">
                     <asp:LinkButton ID="btnAddCompetitionMatch" runat="server" 
-                                    Height="35px" Text=" Add CompetitionMatch" 
+                                    Height="35px" Text=" Add Competition Match" 
                                     onclick="btnAddCompetitionMatch_Click" ForeColor="White"/>
                 </li>
             </ul>

@@ -80,5 +80,273 @@
       <path />
       <name>frmCompetitionType.ascx</name>
     </file>
+    <file>
+      <path />
+      <name>frmDivision.ascx</name>
+    </file>
+    <file>
+      <path />
+      <name>frmDivisionTeams.ascx</name>
+    </file>
+    <file>
+      <path />
+      <name>frmEvent.ascx</name>
+    </file>
+    <file>
+      <path />
+      <name>frmLocation.ascx</name>
+    </file>
+    <file>
+      <path />
+      <name>frmMatchRating.ascx</name>
+    </file>
+    <file>
+      <path />
+      <name>frmMatchResult.ascx</name>
+    </file>
+    <file>
+      <path />
+      <name>frmMatchStatus.ascx</name>
+    </file>
+    <file>
+      <path />
+      <name>frmMatchType.ascx</name>
+    </file>
+    <file>
+      <path />
+      <name>frmMerchandise.ascx</name>
+    </file>
+    <file>
+      <path />
+      <name>frmMerchandiseType.ascx</name>
+    </file>
+    <file>
+      <path />
+      <name>frmNews.ascx</name>
+    </file>
+    <file>
+      <path />
+      <name>frmPictures.ascx</name>
+    </file>
+    <file>
+      <path />
+      <name>frmPlayerType.ascx</name>
+    </file>
+    <file>
+      <path />
+      <name>frmRegistration.ascx</name>
+    </file>
+    <file>
+      <path />
+      <name>frmRegistrationParentOrRelatives.ascx</name>
+    </file>
+    <file>
+      <path />
+      <name>frmSeason.ascx</name>
+    </file>
+    <file>
+      <path />
+      <name>frmSponsor.ascx</name>
+    </file>
+    <file>
+      <path />
+      <name>frmSponsorLevel.ascx</name>
+    </file>
+    <file>
+      <path />
+      <name>frmSponsorType.ascx</name>
+    </file>
+    <file>
+      <path />
+      <name>frmSports.ascx</name>
+    </file>
+    <file>
+      <path />
+      <name>frmTeam.ascx</name>
+    </file>
+    <file>
+      <path />
+      <name>frmTeamMatchPlayerList.ascx</name>
+    </file>
+    <file>
+      <path />
+      <name>frmTeamMember.ascx</name>
+    </file>
+    <file>
+      <path />
+      <name>frmTeamMemberType.ascx</name>
+    </file>
+    <file>
+      <path />
+      <name>frmTeamPlayer.ascx</name>
+    </file>
+    <file>
+      <path />
+      <name>frmUserRole.ascx</name>
+    </file>
+    <file>
+      <path />
+      <name>frmUserType.ascx</name>
+    </file>
+    <file>
+      <path />
+      <name>frmVideos.ascx</name>
+    </file>
+    <file>
+      <path />
+      <name>License.txt</name>
+    </file>
+    <file>
+      <path />
+      <name>module.css</name>
+    </file>
+    <file>
+      <path />
+      <name>ReleaseNotes.txt</name>
+    </file>
+    <file>
+      <path />
+      <name>Settings.ascx</name>
+    </file>
+    <file>
+      <path />
+      <name>ThSport.dnn</name>
+    </file>
+    <file>
+      <path />
+      <name>View.ascx</name>
+    </file>
+    <file>
+      <path>Admin/Security/</path>
+      <name>labelcontrol.ascx</name>
+    </file>
+    <file>
+      <path>Admin/Security/</path>
+      <name>Password.ascx</name>
+    </file>
+    <file>
+      <path>App_LocalResources/</path>
+      <name>Edit.ascx.resx</name>
+    </file>
+    <file>
+      <path>App_LocalResources/</path>
+      <name>Password.ascx.resx</name>
+    </file>
+    <file>
+      <path>App_LocalResources/</path>
+      <name>Settings.ascx.resx</name>
+    </file>
+    <file>
+      <path>App_LocalResources/</path>
+      <name>View.ascx.resx</name>
+    </file>
+    <file>
+      <path>CSS/</path>
+      <name>flexslider.css</name>
+    </file>
+    <file>
+      <path>CSS/</path>
+      <name>jquery-ui.css</name>
+    </file>
+    <file>
+      <path>CSS/</path>
+      <name>jquery.bxslider.css</name>
+    </file>
+    <file>
+      <path>CSS/</path>
+      <name>jquery.datetimepicker.css</name>
+    </file>
+    <file>
+      <path>CSS/</path>
+      <name>jquery.fancybox.css</name>
+    </file>
+    <file>
+      <path>CSS/</path>
+      <name>jquery.simplyscroll.css</name>
+    </file>
+    <file>
+      <path>CSS/</path>
+      <name>jquery.simplyscrollDetail.css</name>
+    </file>
+    <file>
+      <path>CSS/</path>
+      <name>magnific-popup.css</name>
+    </file>
+    <file>
+      <path>CSS/</path>
+      <name>newversion_jquery-ui.css</name>
+    </file>
+    <file>
+      <path>CSS/</path>
+      <name>print.css</name>
+    </file>
+    <file>
+      <path>CSS/</path>
+      <name>StandingLeaguesCss.css</name>
+    </file>
+    <file>
+      <path>CSS/</path>
+      <name>style.css</name>
+    </file>
+    <file>
+      <path>CSS/</path>
+      <name>StyleForPrint.css</name>
+    </file>
+    <file>
+      <path>CSS/</path>
+      <name>vallenato.css</name>
+    </file>
+    <file>
+      <path>CSS/Images/</path>
+      <name>blank.gif</name>
+    </file>
+    <file>
+      <path>CSS/Images/</path>
+      <name>fancybox_loading.gif</name>
+    </file>
+    <file>
+      <path>CSS/Images/</path>
+      <name>fancybox_loading@2x.gif</name>
+    </file>
+    <file>
+      <path>CSS/Images/</path>
+      <name>fancybox_overlay.png</name>
+    </file>
+    <file>
+      <path>CSS/Images/</path>
+      <name>fancybox_sprite.png</name>
+    </file>
+    <file>
+      <path>CSS/Images/</path>
+      <name>fancybox_sprite@2x.png</name>
+    </file>
+    <file>
+      <path>CSS/Images/</path>
+      <name>Night_Grass_by_cyrusyrus.jpg</name>
+    </file>
+    <file>
+      <path>CSS/Images/</path>
+      <name>ui-icons_222222_256x240.png</name>
+    </file>
+    <file>
+      <path>CSS/Images/</path>
+      <name>ui-icons_454545_256x240.png</name>
+    </file>
+    <file>
+      <path>Data/Documentation/</path>
+      <name>Documentation.css</name>
+    </file>
+    <file>
+      <path>Data/Documentation/</path>
+      <name>Documentation.html</name>
+    </file>
+    <file>
+      <path>Documentation/</path>
+      <name>Documentation.css</name>
+    </file>
+    <file>
+      <path>Documentation/</path>
+      <name>Documentation.html</name>
+    </file>
   </files>
 </dotnetnuke>
