@@ -165,13 +165,13 @@ namespace ThSportServer
             }
         }
 
-        public DataTable GetTeamDetailByNotInTeamID(int TeamID)
+        public DataTable GetTeamDetailByNotInTeamID(int TeamID,int CompetitionID)
         {
             DataTable dt = new DataTable();
 
             try
             {
-                using (IDataReader rdr = dataProvider.ExecuteReader("[usp_GetTeamDetailByNotInTeamID]", TeamID))
+                using (IDataReader rdr = dataProvider.ExecuteReader("usp_GetTeamDetailByNotInTeamID", TeamID, CompetitionID))
                 {
                     dt.Load(rdr);
                 }

@@ -105,6 +105,7 @@
     <Compile Include="clsLocation.cs" />
     <Compile Include="clsMatchStatus.cs" />
     <Compile Include="clsNews.cs" />
+    <Compile Include="clsNewsComments.cs" />
     <Compile Include="clsPictures.cs" />
     <Compile Include="clsPlayerType.cs" />
     <Compile Include="clsSponsor.cs" />

@@ -387,27 +387,49 @@ namespace DotNetNuke.Modules.ThSport
             }
         }
 
-        //public DataTable GetCompetitionPointsByCompetitionID(int competitionId)
-        //{
-        //    using (DataTable dt = new DataTable())
-        //    {
-        //        try
-        //        {
+        public DataTable GetCompetitionPointsByCompetitionID(int competitionId)
+        {
+            using (DataTable dt = new DataTable())
+            {
+                try
+                {
 
-        //            using (IDataReader reader = dataProvider.ExecuteReader("usp_GetCompetitionPointsByCompetitionID", competitionId))
-        //            {
-        //                dt.Load(reader);
-        //                return dt;
-        //            }
-        //        }
+                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetCompetitionPointsByCompetitionID", competitionId))
+                    {
+                        dt.Load(reader);
+                        return dt;
+                    }
+                }
 
-        //        catch (Exception ex)
-        //        {
-        //            Exceptions.LogException(ex);
-        //        }
-        //        return dt;
-        //    }
-        //}
+                catch (Exception ex)
+                {
+                    Exceptions.LogException(ex);
+                }
+                return dt;
+            }
+        }
+
+
+        public DataTable GetCompetitionVideoByCompetitionIDAndVideoType(int competitionID, int videoType)
+        {
+            using (DataTable dt = new DataTable())
+            {
+                try
+                {
+                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetCompetitionVideoByCompetitionIDAndVideoType", competitionID, videoType))
+                    {
+                        dt.Load(reader);
+                        return dt;
+                    }
+                }
+
+                catch (Exception ex)
+                {
+                    Exceptions.LogException(ex);
+                }
+                return dt;
+            }
+        }
 
         #endregion Getdata Methods
 

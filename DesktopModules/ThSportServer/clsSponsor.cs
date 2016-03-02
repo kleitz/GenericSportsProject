@@ -622,7 +622,33 @@ namespace ThSportServer
             return dt;
         }
 
-        
+        #region Get Competition Sponsor Details
+
+       
+
+        public DataTable GetCompetitionSponsorByCompetitionID(int competitionID)
+        {
+            using (DataTable dt = new DataTable())
+            {
+                try
+                {
+                    using (IDataReader reader = dataProvider.ExecuteReader("usp_GetCompetitionSponsorByCompetitionID", competitionID))
+                    {
+                        dt.Load(reader);
+                        return dt;
+                    }
+                }
+
+                catch (Exception ex)
+                {
+                    Exceptions.LogException(ex);
+                }
+                return dt;
+            }
+        }
+
+        #endregion
+
 
     }
 }

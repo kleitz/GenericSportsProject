@@ -7,12 +7,16 @@
 
 <!-- Adding CSS files into Skin -->
 
-<dnn:DnnCssInclude runat="server" FilePath="css/skin.css" PathNameAlias="SkinPath"/>
 
+<dnn:DnnCssInclude runat="server" FilePath="css/jquery-ui.css" PathNameAlias="SkinPath"/>
+<dnn:DnnCssInclude runat="server" FilePath="css/prettyphoto.css" PathNameAlias="SkinPath"/>
+<dnn:DnnCssInclude runat="server" FilePath="css/flexslider.css" PathNameAlias="SkinPath"/>
 <dnn:DnnCssInclude runat="server" FilePath="css/font-awesome.min.css" PathNameAlias="SkinPath"/>
 <dnn:DnnCssInclude runat="server" FilePath="css/jquery.sidr.light.css" PathNameAlias="SkinPath"/>
+<dnn:DnnCssInclude runat="server" FilePath="css/color.css" PathNameAlias="SkinPath"/>
 <dnn:DnnCssInclude runat="server" FilePath="js/media/mediaelementplayer.min.css" PathNameAlias="SkinPath"/>
 <dnn:DnnCssInclude runat="server" FilePath="js/owl-carousel/owl.carousel.css" PathNameAlias="SkinPath"/>
+
 <dnn:DnnCssInclude runat="server" FilePath="js/fancybox/jquery.fancybox.css?v=2.1.4" PathNameAlias="SkinPath"/>
 
 <!-- Slider CSS-->
@@ -31,11 +35,15 @@
 <dnn:DnnCssInclude runat="server" FilePath="css/normalize.min.css" PathNameAlias="SkinPath"/>
  
 <dnn:DnnJsInclude runat="server" FilePath="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js" PathNameAlias="SkinPath" />
+<dnn:DnnJsInclude runat="server" FilePath="cus.js" PathNameAlias="SkinPath" />
 	
 <!-- Start Scripts --> 
 <dnn:DnnJsInclude runat="server" FilePath="js/rs-plugin/js/jquery.themepunch.tools.min.js" PathNameAlias="SkinPath" />
 <dnn:DnnJsInclude runat="server" FilePath="js/rs-plugin/js/jquery.themepunch.revolution.min.js" PathNameAlias="SkinPath" />
-	
+<dnn:DnnJsInclude runat="server" FilePath="js/jquery.prettyphoto.js" PathNameAlias="SkinPath" />
+<dnn:DnnJsInclude runat="server" FilePath="js/jquery.flexslider.js" PathNameAlias="SkinPath" />
+
+
 <dnn:DnnJsInclude runat="server" FilePath="js/jquery.sidr.js" PathNameAlias="SkinPath" />
 <dnn:DnnJsInclude runat="server" FilePath="js/fancybox/jquery.fancybox.js?v=2.1.4" PathNameAlias="SkinPath" />
 <dnn:DnnJsInclude runat="server" FilePath="js/cleantabs.jquery.js" PathNameAlias="SkinPath" />
@@ -55,7 +63,7 @@
 <dnn:DnnJsInclude runat="server" FilePath="js/slider-3.js" PathNameAlias="SkinPath" />
 <dnn:DnnJsInclude runat="server" FilePath="js/html5media.js" PathNameAlias="SkinPath" />
 <dnn:DnnJsInclude runat="server" FilePath="jquery.bxslider.min.js" PathNameAlias="SkinPath" />
-<dnn:DnnJsInclude runat="server" FilePath="cus.js" PathNameAlias="SkinPath" />
+
 <dnn:DnnJsInclude runat="server" FilePath="js/main.js" PathNameAlias="SkinPath" />
 
 
@@ -104,7 +112,7 @@
 	<!-- Login Close -->
 	
 	<!-- Post Header Area -->
- <div id="ContentPane" runat="server"></div>
+ <div id="ContentPane" class="dnn_container" runat="server"></div>
 	
 		
 	<!-- Start Outter Wrapper -->
