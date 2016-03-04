@@ -7,6 +7,7 @@
 <!-- Adding CSS files into Skin -->
 
 <dnn:DnnCssInclude runat="server" FilePath="css/skin.css" PathNameAlias="SkinPath"/>
+<dnn:DnnCssInclude runat="server" FilePath="css/prettyphoto.css" PathNameAlias="SkinPath"/>
 
 <dnn:DnnCssInclude runat="server" FilePath="css/font-awesome.min.css" PathNameAlias="SkinPath"/>
 <dnn:DnnCssInclude runat="server" FilePath="css/jquery.sidr.light.css" PathNameAlias="SkinPath"/>
@@ -26,7 +27,7 @@
 <dnn:DnnCssInclude runat="server" FilePath="css/mega.css" PathNameAlias="SkinPath"/>
 <dnn:DnnCssInclude runat="server" FilePath="css/skin2.css" PathNameAlias="SkinPath"/>
 <dnn:DnnCssInclude runat="server" FilePath="css/full.css" PathNameAlias="SkinPath"/>
-
+<dnn:DnnCssInclude runat="server" FilePath="css/flexslider.css" PathNameAlias="SkinPath"/>
 <dnn:DnnCssInclude runat="server" FilePath="css/normalize.min.css" PathNameAlias="SkinPath"/>
  
 <dnn:DnnJsInclude runat="server" FilePath="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js" PathNameAlias="SkinPath" />
@@ -34,7 +35,8 @@
 <!-- Start Scripts --> 
 <dnn:DnnJsInclude runat="server" FilePath="js/rs-plugin/js/jquery.themepunch.tools.min.js" PathNameAlias="SkinPath" />
 <dnn:DnnJsInclude runat="server" FilePath="js/rs-plugin/js/jquery.themepunch.revolution.min.js" PathNameAlias="SkinPath" />
-	
+<dnn:DnnJsInclude runat="server" FilePath="js/jquery.prettyphoto.js" PathNameAlias="SkinPath" />
+<dnn:DnnJsInclude runat="server" FilePath="js/jquery.flexslider.js" PathNameAlias="SkinPath" />
 <dnn:DnnJsInclude runat="server" FilePath="js/jquery.sidr.js" PathNameAlias="SkinPath" />
 <dnn:DnnJsInclude runat="server" FilePath="js/fancybox/jquery.fancybox.js?v=2.1.4" PathNameAlias="SkinPath" />
 <dnn:DnnJsInclude runat="server" FilePath="js/cleantabs.jquery.js" PathNameAlias="SkinPath" />
