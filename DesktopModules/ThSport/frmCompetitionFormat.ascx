@@ -144,10 +144,12 @@
 </style>
 
  <script type="text/javascript">
-     function validateAndConfirmClose(OnlyClose) {
+     function validateAndConfirmClose(OnlyClose)
+     {
          var validated = Page_ClientValidate('CloseSports');
 
-         if (OnlyClose == "btnCancelCompetitionFormat") {
+         if (OnlyClose == "btnCancelCompetitionFormat")
+         {
              document.getElementById("msgConfirm").innerHTML = "Are You Sure, You Want to Close Competition Format Form ?";
          }
 
@@ -164,7 +166,8 @@
                  buttons: {
                      Ok: function () {
 
-                         if (OnlyClose == "btnCancelCompetitionFormat") {
+                         if (OnlyClose == "btnCancelCompetitionFormat")
+                         {
                              <%=this.Page.ClientScript.GetPostBackEventReference(new PostBackOptions(this.btnCancelCompetitionFormat))%>;
                          }
 
@@ -181,10 +184,12 @@
          return false;
      }
 
-     function validateAndConfirm(btn_clientid) {
+     function validateAndConfirm(btn_clientid)
+     {
          var validated = Page_ClientValidate('Sports');
 
-         if (btn_clientid == "btnUpdateCompetitionFormat") {
+         if (btn_clientid == "btnUpdateCompetitionFormat")
+         {
              document.getElementById("msgConfirm").innerHTML = "Are You Sure, You Want to Update Competition Format Details ?";
          }
 
@@ -201,11 +206,13 @@
                  buttons: {
                      Ok: function () {
 
-                         if (btn_clientid == "btnSaveCompetitionFormat") {
+                         if (btn_clientid == "btnSaveCompetitionFormat")
+                         {
                              <%=this.Page.ClientScript.GetPostBackEventReference(new PostBackOptions(this.btnSaveCompetitionFormat))%>;
                          }
 
-                         if (btn_clientid == "btnUpdateCompetitionFormat") {
+                         if (btn_clientid == "btnUpdateCompetitionFormat")
+                         {
                              <%=this.Page.ClientScript.GetPostBackEventReference(new PostBackOptions(this.btnUpdateCompetitionFormat))%>;
                          }
 
@@ -263,8 +270,8 @@
             <ul>
                 <li class="active">
                     <asp:LinkButton ID="btnAddCompetitionFormat" runat="server" 
-                                    Height="35px" Text=" Add Competition Format" 
-                                    onclick="btnAddCompetitionFormat_Click" ForeColor="White"/>
+                                           Height="35px" Text=" Add Competition Format" 
+                                          onclick="btnAddCompetitionFormat_Click" ForeColor="White"/>
                 </li>
             </ul>
         </div>
@@ -282,17 +289,16 @@
                 <div class="tools">
 					<a href="javascript:;" class="collapse"></a>
                 </div>
-			</div>
-			
+			</div>		
 
     <div class="portlet-body flip-scroll">
 		
           <asp:GridView ID="gvCompetitionFormat" runat="server" AutoGenerateColumns="false" ShowHeaderWhenEmpty="true" 
-                        AllowPaging="true" PageSize="10" EmptyDataText="No Records Found" 
-                        CssClass="table-bordered table-striped table-condensed flip-content" 
-                        HorizontalAlign="Center" AlternatingRowStyle-Font-Size="X-Large" 
-                        CellPadding="5" CellSpacing="5" Width="100%"
-                        onpageindexchanging="gvCompetitionFormat_PageIndexChanging">
+                              AllowPaging="true" PageSize="10" EmptyDataText="No Records Found" 
+                              CssClass="table-bordered table-striped table-condensed flip-content" 
+                              HorizontalAlign="Center" AlternatingRowStyle-Font-Size="X-Large" 
+                              CellPadding="5" CellSpacing="5" Width="100%"
+                              onpageindexchanging="gvCompetitionFormat_PageIndexChanging">
             <RowStyle CssClass="grid-row" />
         <AlternatingRowStyle CssClass="grid-row grid-row-alternet" />
 
@@ -316,7 +322,7 @@
 			</asp:TemplateField>
 
              <asp:TemplateField HeaderText="Action"  HeaderStyle-CssClass="grid-header-column" ItemStyle-CssClass="grid-column" 
-                               ItemStyle-HorizontalAlign="Center" ItemStyle-Width="20%">
+                                        ItemStyle-HorizontalAlign="Center" ItemStyle-Width="20%">
                 <ItemTemplate>
                     <asp:DropDownList ID="ddlAction" runat="server" CssClass="small m-wrap ddlActionSelect" 
                                       OnSelectedIndexChanged="ddlAction_SelectedIndexChanged" AutoPostBack="true">
@@ -363,6 +369,7 @@
         <div style="width: 100%;margin-top:20px;">
                 
         </div>
+
     <asp:HiddenField ID="hdnCompetitionFormatId" runat="server" ></asp:HiddenField>
        <div class="control-group">
 		     <label class="control-label">          
@@ -374,17 +381,20 @@
              <div class="controls" style="position:relative;">
                   <asp:TextBox ID="txtCompetitionFormat" runat="server"  CssClass="m-wrap large" />
                   <asp:RequiredFieldValidator ID="rfvCompetitionFormat" runat="server" ErrorMessage="Competition Format"
-                                              ControlToValidate="txtCompetitionFormat" SetFocusOnError="true" 
-                                              ValidationGroup="Sports" Text="Competition Format Required !" 
-                                              CssClass="errorfordnn" ClientIDMode="Static"/>
+                                                        ControlToValidate="txtCompetitionFormat" SetFocusOnError="true" 
+                                                        ValidationGroup="Sports" Text="Competition Format Required !" 
+                                                        CssClass="errorfordnn" ClientIDMode="Static"/>
                    <asp:RegularExpressionValidator ID="rgvtxtCompetitionFormat"
-                                                    Display="Static" ControlToValidate="txtCompetitionFormat"  
-                                                    ValidationGroup="Sports" CssClass="errorfordnn"
-                                                    ValidationExpression = "^[\s\S]{0,100}$" 
-                                                    runat="server" ErrorMessage="Maximum 100 characters allowed.">
+                                                              Display="Static" ControlToValidate="txtCompetitionFormat"  
+                                                              ValidationGroup="Sports" CssClass="errorfordnn"
+                                                              ValidationExpression = "^[\s\S]{0,100}$" 
+                                                              runat="server" ErrorMessage="Maximum 100 characters allowed.">
                    </asp:RegularExpressionValidator>  
-                   <asp:CustomValidator ID="cvtxtCompetitionFormat" ValidationGroup="Sports" runat="server" ErrorMessage="" SetFocusOnError="true" ControlToValidate="txtCompetitionFormat"
-                                    EnableClientScript="true" ClientValidationFunction="validateTextBox" CssClass="errorfordnn" Text="First Character Should Not Be Special Character"></asp:CustomValidator>
+                   <asp:CustomValidator ID="cvtxtCompetitionFormat" ValidationGroup="Sports" runat="server" ErrorMessage="" 
+                                                 SetFocusOnError="true" ControlToValidate="txtCompetitionFormat"
+                                                 EnableClientScript="true" ClientValidationFunction="validateTextBox" 
+                                                 CssClass="errorfordnn" Text="First Character Should Not Be Special Character">
+                   </asp:CustomValidator>
              </div>
         </div>
     
@@ -412,16 +422,17 @@
             <div class="right_div_css">
 
                     <asp:Button ID="btnSaveCompetitionFormat" runat="server"  Text=" Save " OnClick="btnSaveCompetitionFormat_Click" 
-                                ValidationGroup="Sports" CssClass="btn blue" ClientIDMode="Static" Width="100px"
-                                OnClientClick="return validateAndConfirm(this.id);" />
+                                     ValidationGroup="Sports" CssClass="btn blue" ClientIDMode="Static" Width="100px"
+                                     OnClientClick="return validateAndConfirm(this.id);" />
 
                     <asp:Button ID="btnUpdateCompetitionFormat" runat="server"  Text=" Update " OnClick="btnUpdateCompetitionFormat_Click" 
-                                ValidationGroup="Sports" CssClass="btn red" ClientIDMode="Static" Width="100px"
-                                OnClientClick="return validateAndConfirm(this.id);" />
+                                     ValidationGroup="Sports" CssClass="btn red" ClientIDMode="Static" Width="100px"
+                                     OnClientClick="return validateAndConfirm(this.id);" />
 
-                    <asp:Button ID="btnCancelCompetitionFormat" runat="server" Text="Cancel" OnClick="btnCancelCompetitionFormat_Click" CssClass="btn" 
-                                ClientIDMode="Static" ValidationGroup="CloseSports" Width="100px"
-                                OnClientClick="return validateAndConfirmClose(this.id);"/>
+                    <asp:Button ID="btnCancelCompetitionFormat" runat="server" Text="Cancel" OnClick="btnCancelCompetitionFormat_Click" 
+                                     CssClass="btn" 
+                                     ClientIDMode="Static" ValidationGroup="CloseSports" Width="100px"
+                                     OnClientClick="return validateAndConfirmClose(this.id);"/>
 
             </div>    
         </div>

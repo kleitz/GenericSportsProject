@@ -4394,7 +4394,7 @@ Gallery Start
     top:50%;
     opacity:1;
     transition:all 0.3s ease-in-out 0s;
-	padding: 5px;
+	/*padding: 5px;*/
 }
 .gallery ul li:hover figure figcaption a i{
     color:#FFF;

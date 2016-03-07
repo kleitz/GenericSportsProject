@@ -20,7 +20,6 @@ namespace DotNetNuke.Modules.ThSport
     {
         clsCompetition cl = new clsCompetition();
         clsCompetitionController clc = new clsCompetitionController();
-
         clsCompetitionLeagueController clController = new clsCompetitionLeagueController();
         clsCompetitionTypeController ctController = new clsCompetitionTypeController();
         clsCompetitionFormatController cfController = new clsCompetitionFormatController();
@@ -29,8 +28,7 @@ namespace DotNetNuke.Modules.ThSport
         clsDivisionController dvController = new clsDivisionController();
         clsCompetitionTeam ctClass = new clsCompetitionTeam();
         clsCompetitionTeamController cteamController = new clsCompetitionTeamController();
-        clsDivisionTeamController dtController = new clsDivisionTeamController();
-       
+        clsDivisionTeamController dtController = new clsDivisionTeamController();       
 
         private readonly UserInfo currentUser = DotNetNuke.Entities.Users.UserController.GetCurrentUserInfo();
 
@@ -73,9 +71,6 @@ namespace DotNetNuke.Modules.ThSport
             btnUpdateCompetition.Visible = false;
             btnSaveCompetition.Visible = false;
             pnlCompetitionEntry.Visible = false;
-          
-           
-
         }
 
         #endregion Page Events
@@ -199,7 +194,6 @@ namespace DotNetNuke.Modules.ThSport
             cl.StartDate = (txtStartDate.Text != "" ? Convert.ToDateTime(txtStartDate.Text, new System.Globalization.CultureInfo("en-GB")) : DateTime.MinValue);
             cl.EndDate = (txtEndDate.Text != "" ? Convert.ToDateTime(txtEndDate.Text, new System.Globalization.CultureInfo("en-GB")) : DateTime.MinValue);
             
-
             cl.CompetitionLogoFile = imhpathDB + CompetitionLogoFile.PostedFile.FileName.Replace(" ", "");
 
             if (CompetitionLogoFile.PostedFile != null)
