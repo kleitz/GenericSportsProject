@@ -196,6 +196,13 @@
     <Compile Include="conTeamList.ascx.designer.cs">
       <DependentUpon>conTeamList.ascx</DependentUpon>
     </Compile>
+    <Compile Include="frmAlbum.ascx.cs">
+      <DependentUpon>frmAlbum.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmAlbum.ascx.designer.cs">
+      <DependentUpon>frmAlbum.ascx</DependentUpon>
+    </Compile>
     <Compile Include="frmClubSport.ascx.cs">
       <DependentUpon>frmClubSport.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -254,6 +261,7 @@
     <Content Include="conSponsorList.ascx" />
     <Content Include="conStandingDisplay.ascx" />
     <Content Include="conTeamList.ascx" />
+    <Content Include="frmAlbum.ascx" />
     <Content Include="frmClubSport.ascx" />
     <Content Include="frmMerchandise.ascx" />
     <Content Include="frmMerchandiseType.ascx" />

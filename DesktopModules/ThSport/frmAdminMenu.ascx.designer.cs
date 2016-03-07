@@ -283,6 +283,24 @@ namespace DotNetNuke.Modules.ThSport {
         protected global::System.Web.UI.WebControls.HyperLink hlVideos;
         
         /// <summary>
+        /// li_Album control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl li_Album;
+        
+        /// <summary>
+        /// hlAlbum control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink hlAlbum;
+        
+        /// <summary>
         /// li_Masters control.
         /// </summary>
         /// <remarks>

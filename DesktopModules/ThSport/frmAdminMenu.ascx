@@ -62,9 +62,9 @@
                 <li id="li_Videos" runat="server">
 	                <asp:HyperLink id="hlVideos" runat="server" ToolTip=" Videos Form"> Videos </asp:HyperLink>
 		        </li>
-                <%--<li id="li_Albam" runat="server">
-	                <asp:HyperLink id="hlAlbam" runat="server" ToolTip=" Albam Form"> Albam </asp:HyperLink>
-		        </li>--%>
+                <li id="li_Album" runat="server">
+	                <asp:HyperLink id="hlAlbum" runat="server" ToolTip=" Albam Form"> Album </asp:HyperLink>
+		        </li>
            </ul>
 	    </li>
 

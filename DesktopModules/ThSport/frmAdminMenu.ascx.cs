@@ -59,7 +59,7 @@ namespace DotNetNuke.Modules.ThSport
                 li_MatchType.Visible = false;
                 li_MerchandiseType.Visible = false;
                 //li_MerchandiseTYpe.Visible = false;
-                //li_Albam.Visible = false;
+                li_Album.Visible = false;
 
                 //li_UserRole.Visible = false;
                 
@@ -120,6 +120,7 @@ namespace DotNetNuke.Modules.ThSport
                 hlPictures.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmPictures");
                 hlVideos.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmVideos");
                 //hlUserRole.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmUserRole");
+                hlAlbum.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmAlbum");
                 hlAssignPlayerInTeam.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmAssignPlayerInTeam");
 
                 hlCompetitionType.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmCompetitionType");
@@ -356,6 +357,13 @@ namespace DotNetNuke.Modules.ThSport
                     titela.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmVideos");
                     break;
 
+                case "frmAlbum.ascx":
+                    HtmlGenericControl li_Album = this.li_Album as HtmlGenericControl;
+                    if (li_Album != null)
+                        this.li_Album.Attributes.Add("class", "active");
+                    titela.Text = " Album &raquo;";
+                    titela.NavigateUrl = Globals.NavigateURL(PortalSettings.ActiveTab.TabID, "", "mctl=" + "frmAlbum");
+                    break;
 
                 case "frmLocation.ascx":
                     HtmlGenericControl li_Location = this.li_Location as HtmlGenericControl;
