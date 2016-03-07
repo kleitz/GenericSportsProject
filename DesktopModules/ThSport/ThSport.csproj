@@ -154,34 +154,6 @@
     <Compile Include="conCompetitionList.ascx.designer.cs">
       <DependentUpon>conCompetitionList.ascx</DependentUpon>
     </Compile>
-    <Compile Include="conCompetitionStandingForCup.ascx.cs">
-      <DependentUpon>conCompetitionStandingForCup.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="conCompetitionStandingForCup.ascx.designer.cs">
-      <DependentUpon>conCompetitionStandingForCup.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="conCompetitionStandingForLeague.ascx.cs">
-      <DependentUpon>conCompetitionStandingForLeague.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="conCompetitionStandingForLeague.ascx.designer.cs">
-      <DependentUpon>conCompetitionStandingForLeague.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="conFixturesForCup.ascx.cs">
-      <DependentUpon>conFixturesForCup.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="conFixturesForCup.ascx.designer.cs">
-      <DependentUpon>conFixturesForCup.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="conFixturesForLeague.ascx.cs">
-      <DependentUpon>conFixturesForLeague.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="conFixturesForLeague.ascx.designer.cs">
-      <DependentUpon>conFixturesForLeague.ascx</DependentUpon>
-    </Compile>
     <Compile Include="conNewsComments.ascx.cs">
       <DependentUpon>conNewsComments.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -202,20 +174,6 @@
     </Compile>
     <Compile Include="conNewsDisplay.ascx.designer.cs">
       <DependentUpon>conNewsDisplay.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="conResultsForCup.ascx.cs">
-      <DependentUpon>conResultsForCup.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="conResultsForCup.ascx.designer.cs">
-      <DependentUpon>conResultsForCup.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="conResultsForLeague.ascx.cs">
-      <DependentUpon>conResultsForLeague.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="conResultsForLeague.ascx.designer.cs">
-      <DependentUpon>conResultsForLeague.ascx</DependentUpon>
     </Compile>
     <Compile Include="conSponsorList.ascx.cs">
       <DependentUpon>conSponsorList.ascx</DependentUpon>
@@ -290,15 +248,9 @@
     <Content Include="bin\WebFormsMvp.dll" />
     <Content Include="conCompetitionAllDetail.ascx" />
     <Content Include="conCompetitionList.ascx" />
-    <Content Include="conCompetitionStandingForCup.ascx" />
-    <Content Include="conCompetitionStandingForLeague.ascx" />
-    <Content Include="conFixturesForCup.ascx" />
-    <Content Include="conFixturesForLeague.ascx" />
     <Content Include="conNewsComments.ascx" />
     <Content Include="conNewsDetail.ascx" />
     <Content Include="conNewsDisplay.ascx" />
-    <Content Include="conResultsForCup.ascx" />
-    <Content Include="conResultsForLeague.ascx" />
     <Content Include="conSponsorList.ascx" />
     <Content Include="conStandingDisplay.ascx" />
     <Content Include="conTeamList.ascx" />
@@ -943,9 +895,6 @@
     <Content Include="Images\CountryFlag\za.png" />
     <Content Include="Images\CountryFlag\zm.png" />
     <Content Include="Images\CountryFlag\zw.png" />
-    <Content Include="Images\NewsImage\no_news.png" />
-    <Content Include="Images\no-available-image.png" />
-    <Content Include="Images\no-photo-available.jpg" />
     <Content Include="Images\OtherImages\170714_futsal2.jpg" />
     <Content Include="Images\OtherImages\1945385.jpg" />
     <Content Include="Images\OtherImages\1_pix.png" />
@@ -1013,31 +962,6 @@
     <Content Include="Images\OtherImages\transfer-centre-wednesday-football-gossip_3402663.jpg" />
     <Content Include="Images\OtherImages\up.png" />
     <Content Include="Images\Pictures\transfer-centre-wednesday-football-gossip_3402663.jpg" />
-    <Content Include="Images\Team-Logos\afrikasports.jpg" />
-    <Content Include="Images\Team-Logos\attachment-2.jpg" />
-    <Content Include="Images\Team-Logos\Chrysanthemum.jpg" />
-    <Content Include="Images\Team-Logos\Desert.jpg" />
-    <Content Include="Images\Team-Logos\Hydrangeas.jpg" />
-    <Content Include="Images\Team-Logos\Jellyfish.jpg" />
-    <Content Include="Images\Team-Logos\Koala.jpg" />
-    <Content Include="Images\Team-Logos\Lamasat FC Logo.png" />
-    <Content Include="Images\Team-Logos\Lighthouse.jpg" />
-    <Content Include="Images\Team-Logos\logooriental.png" />
-    <Content Include="Images\Team-Logos\lusaka united.jpg" />
-    <Content Include="Images\Team-Logos\m-stars.jpg" />
-    <Content Include="Images\Team-Logos\Parmalat-logo.png" />
-    <Content Include="Images\Team-Logos\ppaz.jpg" />
-    <Content Include="Images\Team-Logos\red sea.jpg" />
-    <Content Include="Images\Team-Logos\roma.png" />
-    <Content Include="Images\Team-Logos\soukaina.jpg" />
-    <Content Include="Images\Team-Logos\standard.jpg" />
-    <Content Include="Images\Team-Logos\Tulips.jpg" />
-    <Content Include="Images\Team-Logos\Unkno.jpg" />
-    <Content Include="Images\Team-Logos\Unknown-4.jpg" />
-    <Content Include="Images\Team-Logos\unza1.jpg" />
-    <Content Include="Images\Team-Logos\value auto.jpg" />
-    <Content Include="Images\Team-Logos\villagechickens.jpg" />
-    <Content Include="Images\Team_Logo.png" />
     <Content Include="JS\addthis_widget.js" />
     <Content Include="JS\buttons.js" />
     <Content Include="JS\jquery-1.10.2.js" />
@@ -1107,7 +1031,7 @@
     <Content Include="Providers\DataProviders\SqlDataProvider\12.01.16.SqlDataProvider" />
     <Content Include="Providers\DataProviders\SqlDataProvider\25.02.16.SqlDataProvider" />
     <Content Include="Providers\DataProviders\SqlDataProvider\29.02.16.SqlDataProvider" />
-    <Content Include="Resources.zip.manifest" />
+    <Content Include="Providers\DataProviders\SqlDataProvider\02.03.16.SqlDataProvider" />
     <None Include="ThSport.dnn">
       <SubType>Designer</SubType>
     </None>
@@ -1134,6 +1058,7 @@
     <Folder Include="Images\CompetitionLeagueLogo\" />
     <Folder Include="Images\CompetitionLogo\" />
     <Folder Include="Images\DivisionLogo\" />
+    <Folder Include="Images\NewsImages\" />
     <Folder Include="Images\RegistrationImages\" />
     <Folder Include="Images\SeasonImages\" />
     <Folder Include="Images\SponsorImages\" />
